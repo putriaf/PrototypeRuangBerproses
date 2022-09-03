@@ -1,4 +1,4 @@
-@extends('layout.layout')
+@extends('Layout.layout')
 
 <!--  Hero -->
 @section('content')
