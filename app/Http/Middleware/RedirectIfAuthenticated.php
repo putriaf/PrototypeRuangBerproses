@@ -17,16 +17,27 @@ class RedirectIfAuthenticated
      * @param  string|null  ...$guards
      * @return \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse
      */
-    public function handle(Request $request, Closure $next, ...$guards)
+    // public function handle(Request $request, Closure $next, ...$guards)
+    // {
+    //     $guards = empty($guards) ? [null] : $guards;
+
+    //     foreach ($guards as $guard) {
+    //         if (Auth::guard($guard)->check()) {
+    //             return redirect(RouteServiceProvider::HOME);
+    //         }
+    //     }
+
+    //     return $next($request);
+    // }
+
+    public function handle(Request $request, Closure $next)
     {
-        $guards = empty($guards) ? [null] : $guards;
-
-        foreach ($guards as $guard) {
-            if (Auth::guard($guard)->check()) {
-                return redirect(RouteServiceProvider::HOME);
-            }
+        if($request->session()->has('token')){
+            return redirect()->route('home');
         }
-
-        return $next($request);
+        else{
+            // return view('Login.index');
+            return $next($request);
+        }
     }
 }
