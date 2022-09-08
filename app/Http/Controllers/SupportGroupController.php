@@ -38,7 +38,7 @@ class SupportGroupController extends Controller
      */
     public function store(Request $request)
     {
-        $request = Http::asform()->post("http://127.0.0.1:8080/api/layanan/support-group/daftar", [
+        $request = Http::asform()->post("https://ruangberproses-be.herokuapp.com/api/layanan/support-group/daftar", [
             'topik' => $request->input('topik'),
             'diagnosis' => $request->input('diagnosis'),
             'pernah_gabung' => $request->input('pernah_gabung'),
