@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\SupportGroupController;
 
 use App\Models\User;
 
@@ -36,3 +37,9 @@ Route::get('/profile/{username}', function ($username) {
     $id = User::where('username', $username)->first()->id;
     return view('/user/profile', compact(['title']));
 });
+
+Route::get('/layanan', function () {
+    return view('/layanan/index');
+});
+Route::get('/layanan/support-group/daftar', [SupportGroupController::class, 'create'])->middleware('token');
+Route::post('/layanan/support-group/daftar', [SupportGroupController::class, 'store']);

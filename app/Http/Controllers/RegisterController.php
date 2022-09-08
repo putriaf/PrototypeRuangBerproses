@@ -32,7 +32,7 @@ class RegisterController extends Controller
         $validatedData['password'] = Hash::make($validatedData['password']);
 
         // User::create($validatedData);
-        $response = Http::asForm()->post("http://127.0.0.1:8080/api/register", [
+        $response = Http::asForm()->post("https://ruangberproses-be.herokuapp.com/api/register", [
             'nama' => $request->input('nama'),
             'username' => $request->input('username'),
             'email' => $request->input('email'),

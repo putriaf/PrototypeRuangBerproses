@@ -17,7 +17,7 @@ class LoginController extends Controller
 
     public function authenticate(Request $request)
     {
-        $response = Http::asForm()->post('https://ruangberproses-be.herokuapp.com/api/login', [
+        $response = Http::asForm()->post('http://127.0.0.1:8080/api/login', [
             'email' => $request->input('email'),
             'password' => $request->input('password'),
         ]);
@@ -44,7 +44,7 @@ class LoginController extends Controller
         $response = Http::withHeaders([
             'Accept' => 'application/json',
             'Authorization' => 'Bearer ' . session('token'),
-        ])->post('https://ruangberproses-be.herokuapp.com/api/logout');
+        ])->post('http://127.0.0.1:8080/api/logout');
         $request->session()->flush();
         // Auth::logout();
         return redirect('/');
