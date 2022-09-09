@@ -6,6 +6,10 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\SupportGroupController;
 use App\Http\Controllers\LayananController;
+use App\Http\Controllers\PeerCounselingController;
+use App\Http\Controllers\ProfessionalCounselingController;
+use App\Http\Controllers\PsytalkController;
+use App\Http\Controllers\KelasBerprosesController;
 
 use App\Models\User;
 
@@ -41,5 +45,21 @@ Route::get('/profile/{username}', function ($username) {
 
 Route::get('/layanan', [LayananController::class, 'index']);
 
+// LAYANAN
+// Virtual Support Group
 Route::get('/layanan/support-group/daftar', [SupportGroupController::class, 'create'])->middleware('token');
 Route::post('/layanan/support-group/daftar', [SupportGroupController::class, 'store']);
+// Virtual Peer Counseling
+Route::get('/layanan/peer-counseling/daftar', [PeerCounselingController::class, 'index']);
+Route::post('/layanan/peer-counseling/daftar', [PeerCounselingController::class, 'store']);
+// Professional Counseling
+Route::get('/layanan/professional-counseling/daftar', [ProfessionalCounselingController::class, 'index']);
+Route::post('/layanan/professional-counseling/daftar', [ProfessionalCounselingController::class, 'store']);
+
+// PROGRAM
+// Psytalk
+Route::get('/program/psytalk/daftar', [PsytalkController::class, 'index']);
+Route::post('/program/psytalk/daftar', [PsytalkController::class, 'store']);
+// Kelas Berproses
+Route::get('/program/kelas-berproses/daftar', [KelasBerprosesController::class, 'index']);
+Route::post('/program/kelas-berproses/daftar', [KelasBerprosesController::class, 'store']);
