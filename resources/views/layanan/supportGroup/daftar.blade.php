@@ -120,7 +120,7 @@
         </div>
         </div>
         @if(session()->has('token'))
-            <input id="user_id" type="hidden" name="user_id" value="{{ session()->get('user_id') }}">
+            <input id="user_id" type="hidden" name="user_id" value="{{ session()->get('id') }}">
         @endif
         <div class="flex justify-center item-center pb-4">
             <button class="px-8 py-2 font-semibold rounded-lg bg-dongker border-2 border-[#123C69] text-white hover:bg-dongker/40 hover:border-[#123C69]/40" type="submit">Submit</button>

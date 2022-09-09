@@ -38,7 +38,21 @@ class SupportGroupController extends Controller
      */
     public function store(Request $request)
     {
-        $request = Http::asform()->post("https://ruangberproses-be.herokuapp.com/api/layanan/support-group/daftar", [
+        $validatedData = $request->validate([
+            'user_id' => 'required',
+            'topik' => 'required',
+            'diagnosis' => 'required',
+            'pernah_gabung' => 'required',
+            'pengalaman' => 'required',
+            'fasilitator' => 'required',
+            'teman_kelompok' => 'required',
+            'alasan' => 'required',
+            'batasan_pribadi' => 'required',
+            'harapan' => 'required',
+            'bukti_transfer' => 'required',
+        ]);
+
+        $response = Http::asForm()->post("https://ruangberproses-be.herokuapp.com/api/layanan/support-group/daftar", [
             'topik' => $request->input('topik'),
             'diagnosis' => $request->input('diagnosis'),
             'pernah_gabung' => $request->input('pernah_gabung'),
@@ -51,10 +65,11 @@ class SupportGroupController extends Controller
             'bukti_transfer' => $request->input('bukti_transfer'),
             'user_id' => $request->input('user_id'),
         ]);
-        if ($request->status()==200) {
+        if ($response->status()==200) {
             return redirect('/layanan')->with('success', 'Pendaftaran berhasil!');
+        } else {
+            return redirect('/layanan/support-group/daftar')->with('success', 'Pendaftaran gagal!');
         }
-        return redirect('/layanan/support-group/daftar')->with('success', 'Pendaftaran gagal!');
     }
 
     /**

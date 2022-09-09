@@ -5,6 +5,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\SupportGroupController;
+use App\Http\Controllers\LayananController;
 
 use App\Models\User;
 
@@ -38,8 +39,7 @@ Route::get('/profile/{username}', function ($username) {
     return view('/user/profile', compact(['title']));
 });
 
-Route::get('/layanan', function () {
-    return view('/layanan/index');
-});
+Route::get('/layanan', [LayananController::class, 'index']);
+
 Route::get('/layanan/support-group/daftar', [SupportGroupController::class, 'create'])->middleware('token');
 Route::post('/layanan/support-group/daftar', [SupportGroupController::class, 'store']);
