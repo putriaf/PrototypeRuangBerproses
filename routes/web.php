@@ -8,6 +8,7 @@ use App\Http\Controllers\SupportGroupController;
 use App\Http\Controllers\LayananController;
 use App\Http\Controllers\PeerCounselingController;
 use App\Http\Controllers\ProfessionalCounselingController;
+use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\PsytalkController;
 use App\Http\Controllers\KelasBerprosesController;
 
@@ -43,9 +44,8 @@ Route::get('/profile/{username}', function ($username) {
     return view('/user/profile', compact(['title']));
 });
 
-Route::get('/layanan', [LayananController::class, 'index']);
-
 // LAYANAN
+Route::get('/layanan', [LayananController::class, 'index']);
 // Virtual Support Group
 Route::get('/layanan/support-group/daftar', [SupportGroupController::class, 'create'])->middleware('token');
 Route::post('/layanan/support-group/daftar', [SupportGroupController::class, 'store']);
@@ -72,9 +72,15 @@ Route::put('/layanan/professional-counseling/{peer_counselings:id}', [Profession
 Route::delete('/layanan/professional-counseling/{peer_counselings:id}', [ProfessionalCounselingController::class, 'destroy']);
 
 // PROGRAM
+Route::get('/program', [ProgramController::class, 'index']);
 // Psytalk
-Route::get('/program/psytalk/daftar', [PsytalkController::class, 'index']);
+Route::get('/program/psytalk/daftar', [PsytalkController::class, 'create'])->middleware('token');
 Route::post('/program/psytalk/daftar', [PsytalkController::class, 'store']);
+Route::get('/program/psytalk', [PsytalkController::class, 'index']);
+Route::get('/program/psytalk/{psytalks:id}', [PsytalkController::class, 'show']);
+Route::get('/program/psytalk/{psytalks:id}/edit', [PsytalkController::class, 'edit']);
+Route::put('/program/psytalk/{psytalks:id}', [PsytalkController::class, 'update']);
+Route::delete('/program/psytalk/{psytalks:id}', [PsytalkController::class, 'destroy']);
 // Kelas Berproses
 Route::get('/program/kelas-berproses/daftar', [KelasBerprosesController::class, 'index']);
 Route::post('/program/kelas-berproses/daftar', [KelasBerprosesController::class, 'store']);
