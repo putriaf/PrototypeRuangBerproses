@@ -8,26 +8,26 @@
         <h1 class="text-2xl font-bold">Form Pendaftaran Virtual Support Group</h1>
     </div>
     <div class="flex justify-center item-center">
-        <form method="POST" action="/layanan/support-group/daftar" enctype="multipart/form-data" class="w-6/12">
+        <form method="POST" action="/layanan/peer-counseling/daftar" enctype="multipart/form-data" class="w-6/12">
         @csrf
         <div class="bg-abu rounded-lg">
         <div class="m-10 py-10">
             <div class="flex flex-col md:flex-row pb-4 mb-4">
-                <div class="w-44 font-bold h-6 mx-2 mt-3">Topik</div>
+                <div class="w-44 font-bold h-6 mx-2 mt-3">Status</div>
                 <div class="flex-1 flex flex-col md:flex-row">
                     <div class="w-full flex-1 mx-2">
                         <div class="my-2 p-1 bg-white flex border border-gray-200 rounded">
-                            <input type="text" class="p-1 px-2 w-full" name="topik" id="topik" value="{{ old('topik')}}">
+                            <input type="text" class="p-1 px-2 w-full" name="status" id="status" value="{{ old('status')}}">
                         </div>
                     </div>
                 </div>
             </div>
             <div class="flex flex-col md:flex-row pb-4 mb-4">
-                <div class="w-44 font-bold h-6 mx-2 mt-3">Diagnosis</div>
+                <div class="w-44 font-bold h-6 mx-2 mt-3">Domisili</div>
                 <div class="flex-1 flex flex-col md:flex-row">
                     <div class="w-full flex-1 mx-2">
                         <div class="my-2 p-1 bg-white flex border border-gray-200 rounded">
-                            <input type="text" class="p-1 px-2 w-full" name="diagnosis" id="diagnosis" value="{{ old('diagnosis')}}">
+                            <input type="text" class="p-1 px-2 w-full" name="domisili" id="domisili" value="{{ old('domisili')}}">
                         </div>
                     </div>
                 </div>
@@ -38,6 +38,16 @@
                     <div class="w-full flex-1 mx-2">
                         <div class="my-2 p-1 bg-white flex border border-gray-200 rounded">
                             <input type="text" class="p-1 px-2 w-full" name="pernah_gabung" id="pernah_gabung" value="{{ old('pernah_gabung')}}">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="flex flex-col md:flex-row pb-4 mb-4">
+                <div class="w-44 font-bold h-6 mx-2 mt-3">Konselor</div>
+                <div class="flex-1 flex flex-col md:flex-row">
+                    <div class="w-full flex-1 mx-2">
+                        <div class="my-2 p-1 bg-white flex border border-gray-200 rounded">
+                            <input type="text" class="p-1 px-2 w-full" name="konselor" id="konselor" value="{{ old('konselor')}}">
                         </div>
                     </div>
                 </div>
@@ -58,61 +68,51 @@
                 </div>
             </div>
             <div class="flex flex-col md:flex-row pb-4 mb-4">
-                <div class="w-44 text-base font-bold h-6 mx-2 mt-3">Fasilitator</div>
+                <div class="w-44 text-base font-bold h-6 mx-2 mt-3">Keluhan</div>
                 <div class="flex-1 flex flex-col md:flex-row">
                     <div class="w-full flex-1 mx-2">
                         <div class="my-2 p-1 bg-white flex border border-gray-200 rounded">
-                            <input type="text" class="p-1 px-2 w-full" name="fasilitator" id="fasilitator" value="{{ old('fasilitator')}}">
+                            <input type="text" class="p-1 px-2 w-full" name="keluhan" id="keluhan" value="{{ old('keluhan')}}">
                         </div>
                     </div>
                 </div>
             </div>
             <div class="flex flex-col md:flex-row pb-4 mb-4">
-                <div class="w-44 text-base font-bold h-6 mx-2 mt-3">Teman Kelompok</div>
+                <div class="w-44 text-base font-bold h-6 mx-2 mt-3">Latar Belakang</div>
                 <div class="flex-1 flex flex-col md:flex-row">
                     <div class="w-full flex-1 mx-2">
                         <div class="my-2 p-1 bg-white flex border border-gray-200 rounded">
-                            <input type="text" class="p-1 px-2 w-full" name="teman_kelompok" id="teman_kelompok" value="{{ old('teman_kelompok')}}">
+                            <input type="text" class="p-1 px-2 w-full" name="latar_belakang" id="latar_belakang" value="{{ old('latar_belakang')}}">
                         </div>
                     </div>
                 </div>
             </div>
             <div class="flex flex-col md:flex-row pb-4 mb-4">
-                <div class="w-44 text-base font-bold h-6 mx-2 mt-3">Alasan</div>
+                <div class="w-44 text-base font-bold h-6 mx-2 mt-3">Tujuan</div>
                 <div class="flex-1 flex flex-col md:flex-row">
                     <div class="w-full flex-1 mx-2">
                         <div class="my-2 p-1 bg-white flex border border-gray-200 rounded">
-                            <input type="text" class="p-1 px-2 w-full" name="alasan" id="alasan" value="{{ old('alasan')}}">
+                            <input type="text" class="p-1 px-2 w-full" name="tujuan" id="tujuan" value="{{ old('tujuan')}}">
                         </div>
                     </div>
                 </div>
             </div>
             <div class="flex flex-col md:flex-row pb-4 mb-4">
-                <div class="w-44 text-base font-bold h-6 mx-2 mt-3">Batasan Pribadi</div>
+                <div class="w-44 text-base font-bold h-6 mx-2 mt-3">Consent Sharing</div>
                 <div class="flex-1 flex flex-col md:flex-row">
                     <div class="w-full flex-1 mx-2">
                         <div class="my-2 p-1 bg-white flex border border-gray-200 rounded">
-                            <input type="text" class="p-1 px-2 w-full" name="batasan_pribadi" id="batasan_pribadi" value="{{ old('batasan_pribadi')}}">
+                            <input type="text" class="p-1 px-2 w-full" name="consent_sharing" id="consent_sharing" value="{{ old('consent_sharing')}}">
                         </div>
                     </div>
                 </div>
             </div>
             <div class="flex flex-col md:flex-row pb-4 mb-4">
-                <div class="w-44 text-base font-bold h-6 mx-2 mt-3">Harapan</div>
+                <div class="w-44 text-base font-bold h-6 mx-2 mt-3">Consent Screening</div>
                 <div class="flex-1 flex flex-col md:flex-row">
                     <div class="w-full flex-1 mx-2">
                         <div class="my-2 p-1 bg-white flex border border-gray-200 rounded">
-                            <input type="text" class="p-1 px-2 w-full" name="harapan" id="harapan" value="{{ old('harapan')}}">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="flex flex-col md:flex-row pb-4 mb-4">
-                <div class="w-44 text-base font-bold h-6 mx-2 mt-3">Bukti Transfer</div>
-                <div class="flex-1 flex flex-col md:flex-row">
-                    <div class="w-full flex-1 mx-2">
-                        <div class="my-2 p-1 bg-white flex border border-gray-200 rounded">
-                            <input type="text" class="p-1 px-2 w-full" name="bukti_transfer" id="bukti_transfer" value="{{ old('bukti_transfer')}}">
+                            <input type="text" class="p-1 px-2 w-full" name="consent_screening" id="consent_screening" value="{{ old('consent_screening')}}">
                         </div>
                     </div>
                 </div>
