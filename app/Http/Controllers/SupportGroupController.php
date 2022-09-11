@@ -80,7 +80,13 @@ class SupportGroupController extends Controller
      */
     public function show($id)
     {
-        //
+        $response = Http::get("https://ruangberproses-be.herokuapp.com/api/layanan/support-group/" . $id);
+        $response = $response->object();
+        return view('layanan.supportGroup.view', [
+            'title' => 'Detail Data Support Group',
+            'active' => 'supportgroup',
+            'supportgroup' => $response->data,
+        ]);
     }
 
     /**
@@ -91,7 +97,13 @@ class SupportGroupController extends Controller
      */
     public function edit($id)
     {
-        //
+        $response = Http::get("https://ruangberproses-be.herokuapp.com/api/layanan/support-group/" . $id);
+        $response = $response->object();
+
+        return view('layanan.supportGroup.edit', [
+            'title' => 'Edit Data Support Group',
+            'supportgroup' => $response->data
+        ]);
     }
 
     /**
@@ -103,7 +115,19 @@ class SupportGroupController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $rules = [
+            'pengalaman' => 'required',
+            'fasilitator' => 'required',
+        ];
+        $validatedData["user_id"] = session()->get('id');
+        $validatedData = $request->validate($rules);
+
+        Http::asForm()->post("https://ruangberproses-be.herokuapp.com/api/layanan/support-group/" . $id . '?_method=PUT', [
+            'pengalaman' => $request->input('pengalaman'),
+            'fasilitator' => $request->input('fasilitator'),
+        ]);
+
+        return redirect('/layanan');
     }
 
     /**
@@ -114,6 +138,10 @@ class SupportGroupController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $response = Http::delete("https://ruangberproses-be.herokuapp.com/api/layanan/support-group/" . $id);
+
+        if ($response->status()==200) {
+            return redirect('/layanan')->with('success', 'Support Group data has been deleted!');
+        }
     }
 }

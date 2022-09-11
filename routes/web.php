@@ -49,6 +49,11 @@ Route::get('/layanan', [LayananController::class, 'index']);
 // Virtual Support Group
 Route::get('/layanan/support-group/daftar', [SupportGroupController::class, 'create'])->middleware('token');
 Route::post('/layanan/support-group/daftar', [SupportGroupController::class, 'store']);
+Route::get('/layanan/support-group', [SupportGroupController::class, 'index']);
+Route::get('/layanan/support-group/{support_groups:id}', [SupportGroupController::class, 'show']);
+Route::get('/layanan/support-group/{support_groups:id}/edit', [SupportGroupController::class, 'edit']);
+Route::put('/layanan/support-group/{support_groups:id}', [SupportGroupController::class, 'update']);
+Route::delete('/layanan/support-group/{support_groups:id}', [SupportGroupController::class, 'destroy']);
 // Virtual Peer Counseling
 Route::get('/layanan/peer-counseling/daftar', [PeerCounselingController::class, 'index']);
 Route::post('/layanan/peer-counseling/daftar', [PeerCounselingController::class, 'store']);
