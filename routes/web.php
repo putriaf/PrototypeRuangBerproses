@@ -63,8 +63,13 @@ Route::get('/layanan/peer-counseling/{peer_counselings:id}/edit', [PeerCounselin
 Route::put('/layanan/peer-counseling/{peer_counselings:id}', [PeerCounselingController::class, 'update']);
 Route::delete('/layanan/peer-counseling/{peer_counselings:id}', [PeerCounselingController::class, 'destroy']);
 // Professional Counseling
-Route::get('/layanan/professional-counseling/daftar', [ProfessionalCounselingController::class, 'index']);
+Route::get('/layanan/professional-counseling/daftar', [ProfessionalCounselingController::class, 'create'])->middleware('token');
 Route::post('/layanan/professional-counseling/daftar', [ProfessionalCounselingController::class, 'store']);
+Route::get('/layanan/professional-counseling', [ProfessionalCounselingController::class, 'index']);
+Route::get('/layanan/professional-counseling/{peer_counselings:id}', [ProfessionalCounselingController::class, 'show']);
+Route::get('/layanan/professional-counseling/{peer_counselings:id}/edit', [ProfessionalCounselingController::class, 'edit']);
+Route::put('/layanan/professional-counseling/{peer_counselings:id}', [ProfessionalCounselingController::class, 'update']);
+Route::delete('/layanan/professional-counseling/{peer_counselings:id}', [ProfessionalCounselingController::class, 'destroy']);
 
 // PROGRAM
 // Psytalk
