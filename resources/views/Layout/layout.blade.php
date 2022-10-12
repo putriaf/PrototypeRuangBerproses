@@ -7,7 +7,8 @@
     <title>Ruang Berproses</title>
     <link rel="icon" href="{{ asset('/img/RuangBerproses-Icon_Transparent_Large.png') }}">
     <link href="{{ asset('css/testimonial.css') }}" rel="stylesheet">
-    <link href="{{ asset('https://workforlife.herokuapp.com/css/app.css') }}" rel="stylesheet">
+    <!-- <link href="{{ asset('https://workforlife.herokuapp.com/css/app.css') }}" rel="stylesheet"> -->
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
     <script src="https://unpkg.com/flowbite@1.4.2/dist/flowbite.js"></script>
 </head>
@@ -43,9 +44,9 @@
 		@if (!(session()->has('token')))
 		<div class="pt-2 items-center flex-shrink-0 hidden lg:flex">
 			@if (!(session()->has('token')))
-      <form action="/company">
-			  <button class="mx-8 px-8 py-2 font-semibold rounded-lg bg-white border-2 border-gray-500 text-dongker hover:bg-white/30 hover:border-gray-500/30">Rekrut Sekarang</button>
-      </form>
+      <!-- <form action="/">
+			  <button class="mx-8 px-8 py-2 font-semibold rounded-lg bg-white border-2 border-gray-500 text-dongker hover:bg-white/30 hover:border-gray-500/30"></button>
+      </form> -->
       
       <form action="/login">
         @csrf
