@@ -8,7 +8,7 @@
     <link rel="icon" href="{{ asset('/img/RuangBerproses-Icon_Transparent_Large.png') }}">
     <link href="{{ asset('css/testimonial.css') }}" rel="stylesheet">
     <!-- <link href="{{ asset('https://workforlife.herokuapp.com/css/app.css') }}" rel="stylesheet"> -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('https://ruangberproses-dev.herokuapp.com/app.css') }}" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
     <script src="https://unpkg.com/flowbite@1.4.2/dist/flowbite.js"></script>
 </head>
