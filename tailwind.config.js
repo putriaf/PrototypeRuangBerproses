@@ -14,6 +14,9 @@ module.exports = {
       textColor:{
       },
       backgroundColor:{
+      },
+      backgroundImage: {
+        'jumbotron-home': "url('../public/img/illustrations/jumbotron-home.png')"
       }
     },
   },

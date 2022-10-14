@@ -2,7 +2,9 @@
 
 <!--  Hero -->
 @section('content')
-<section class="relative pt-10 md:mt-0 md:h-screen flex flex-col justify-center text-center md:text-left md:flex-row md:justify-between md:items-center lg:px-20 md:px-12 px-4">
-    <h1>Home Page</h1>
+<section class="bg-jumbotron-home bg-cover bg-no-repeat" style="background-image: url('../public/img/illustrations/jumbotron-home.png')">
+    <div class="w-10 h-10 bg-jumbotron-home">
+        abc
+    </div>
 </section>
 @endsection
