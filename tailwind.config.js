@@ -9,15 +9,16 @@ module.exports = {
   theme: {
     extend: {
       fontFamily:{
-        'quicksand': ['Quicksand']
+        'quicksand': ['Quicksand'],
+        'montserrat': ['Montserrat']
       },
       textColor:{
       },
       backgroundColor:{
       },
       backgroundImage: {
-        'jumbotron-home': "url('../public/img/illustrations/jumbotron-home.png')"
-      }
+        'jumbotron-home': "url('/img/illustrations/jumbotron-home.png');" 
+      },
     },
   },
   plugins: [
