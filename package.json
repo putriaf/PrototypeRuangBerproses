@@ -31,5 +31,8 @@
   "bugs": {
     "url": "https://github.com/putriaf/RuangBerproses-Dev/issues"
   },
-  "homepage": "https://github.com/putriaf/RuangBerproses-Dev#readme"
+  "homepage": "https://github.com/putriaf/RuangBerproses-Dev#readme",
+  "dependencies": {
+    "feather-icons": "^4.29.0"
+  }
 }

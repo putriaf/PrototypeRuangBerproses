@@ -15,9 +15,12 @@ module.exports = {
       textColor:{
       },
       backgroundColor:{
+        'pale-yellow': '#FAFAF2',
+        'rb-light-orange': '#FB8D66'
       },
       backgroundImage: {
-        'jumbotron-home': "url('/img/illustrations/jumbotron-home.png');" 
+        'jumbotron-home': "url('/img/illustrations/jumbotron-home.png');", 
+        'hero-procounseling': "url('/img/illustrations/hero-professional-counseling.png');"
       },
     },
   },

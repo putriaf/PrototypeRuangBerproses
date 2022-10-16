@@ -14,7 +14,10 @@ class ProfessionalCounselingController extends Controller
      */
     public function index()
     {
-        //
+        return view('layanan.professionalCounseling.index', [
+            'title' => 'Professional Counseling',
+            'message' => NULL
+        ]);
     }
 
     /**
