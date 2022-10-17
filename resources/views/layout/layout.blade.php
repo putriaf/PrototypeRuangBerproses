@@ -9,9 +9,12 @@
     <link rel="icon" href="{{ asset('/img/RuangBerproses-Icon_Transparent_Large.png') }}">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Quicksand:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.3/dist/flowbite.min.css" />
     <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://unpkg.com/flowbite@1.5.3/dist/datepicker.js"></script>
 </head>
 
 <body>
@@ -20,7 +23,8 @@
         <nav class="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900">
             <div class="container flex flex-wrap justify-between items-center mx-auto">
                 <a href="https://flowbite.com/" class="flex items-center">
-                    <img src="{{ asset('img/ruang-berproses/rb-logo-text.png') }}" class="mr-3 h-6 sm:h-9" alt="Logo Ruang Berproses">
+                    <img src="{{ asset('img/ruang-berproses/rb-logo-text.png') }}" class="mr-3 h-6 sm:h-9"
+                        alt="Logo Ruang Berproses">
                 </a>
                 <div class="flex items-center md:order-2">
                     <button type="button"
@@ -44,11 +48,13 @@
                         <ul class="py-1" aria-labelledby="user-menu-button">
                             <li>
                                 <a href="#"
-                                    class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Profil Saya</a>
+                                    class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Profil
+                                    Saya</a>
                             </li>
                             <li>
                                 <a href="#"
-                                    class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Riwayat Pendaftaran</a>
+                                    class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Riwayat
+                                    Pendaftaran</a>
                             </li>
                             <li>
                                 <a href="#"
@@ -113,7 +119,9 @@
 
     </footer>
     <!-- End Footer -->
-    <script>feather.replace()</script>
+    <script>
+    feather.replace()
+    </script>
     <script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>
 </body>
 
