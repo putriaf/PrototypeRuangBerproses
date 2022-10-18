@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ArtikelController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
@@ -88,3 +89,6 @@ Route::get('/program/kelas-berproses/{kelas_berproses:id}', [KelasBerprosesContr
 Route::get('/program/kelas-berproses/{kelas_berproses:id}/edit', [KelasBerprosesController::class, 'edit']);
 Route::put('/program/kelas-berproses/{kelas_berproses:id}', [KelasBerprosesController::class, 'update']);
 Route::delete('/program/kelas-berproses/{kelas_berproses:id}', [KelasBerprosesController::class, 'destroy']);
+
+// Artikel Berproses
+Route::get('/artikel-berproses', [ArtikelController::class, 'index']);
