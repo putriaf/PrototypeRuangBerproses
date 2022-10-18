@@ -14,7 +14,10 @@ class PsytalkController extends Controller
      */
     public function index()
     {
-        //
+        return view('program.psytalk.index', [
+            'title' => 'Psychology Talk',
+            'message' => NULL
+        ]);
     }
 
     /**
@@ -63,7 +66,7 @@ class PsytalkController extends Controller
             'bukti_transfer' => $request->input('bukti_transfer'),
             'user_id' => $request->input('user_id'),
         ]);
-        if ($response->status()==200) {
+        if ($response->status() == 200) {
             return redirect('/program')->with('success', 'Pendaftaran berhasil!');
         } else {
             return redirect('/program/psytalk/daftar')->with('success', 'Pendaftaran gagal!');
@@ -138,7 +141,7 @@ class PsytalkController extends Controller
     {
         $response = Http::delete("https://ruangberproses-be.herokuapp.com/api/program/psytalk/" . $id);
 
-        if ($response->status()==200) {
+        if ($response->status() == 200) {
             return redirect('/program')->with('success', 'Psytalk data has been deleted!');
         }
     }
