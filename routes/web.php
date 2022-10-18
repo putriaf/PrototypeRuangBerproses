@@ -12,7 +12,7 @@ use App\Http\Controllers\ProfessionalCounselingController;
 use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\PsytalkController;
 use App\Http\Controllers\KelasBerprosesController;
-
+use App\Http\Controllers\TentangController;
 use App\Models\User;
 
 use App\Http\Middleware\AuthCustom;
@@ -93,3 +93,6 @@ Route::delete('/program/kelas-berproses/{kelas_berproses:id}', [KelasBerprosesCo
 // Artikel Berproses
 Route::get('/artikel-berproses', [ArtikelController::class, 'index']);
 Route::get('/artikel-berproses/{artikel:id}', [ArtikelController::class, 'show']);
+
+// Tentang
+Route::get('/tentang/ruang-berproses', [TentangController::class, 'index']);
