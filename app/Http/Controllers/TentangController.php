@@ -27,6 +27,14 @@ class TentangController extends Controller
         ]);
     }
 
+    public function viewTeam()
+    {
+        return view('tentang.tim-rb', [
+            'title' => 'Tim Ruang Berproses',
+            'message' => NULL
+        ]);
+    }
+
     /**
      * Show the form for creating a new resource.
      *
