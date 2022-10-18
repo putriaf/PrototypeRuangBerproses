@@ -96,3 +96,4 @@ Route::get('/artikel-berproses/{artikel:id}', [ArtikelController::class, 'show']
 
 // Tentang
 Route::get('/tentang/ruang-berproses', [TentangController::class, 'index']);
+Route::get('/tentang/associate-psychologist', [TentangController::class, 'viewPsychologist']);

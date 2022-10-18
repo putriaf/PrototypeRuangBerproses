@@ -19,6 +19,14 @@ class TentangController extends Controller
         ]);
     }
 
+    public function viewPsychologist()
+    {
+        return view('tentang.associate-psychologist', [
+            'title' => 'Associate Psychologist Ruang Berproses',
+            'message' => NULL
+        ]);
+    }
+
     /**
      * Show the form for creating a new resource.
      *
