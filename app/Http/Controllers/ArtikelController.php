@@ -48,7 +48,10 @@ class ArtikelController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('artikel.view', [
+            'title' => 'Artikel Berproses',
+            'message' => NULL
+        ]);
     }
 
     /**

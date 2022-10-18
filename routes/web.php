@@ -92,3 +92,4 @@ Route::delete('/program/kelas-berproses/{kelas_berproses:id}', [KelasBerprosesCo
 
 // Artikel Berproses
 Route::get('/artikel-berproses', [ArtikelController::class, 'index']);
+Route::get('/artikel-berproses/{artikel:id}', [ArtikelController::class, 'show']);
