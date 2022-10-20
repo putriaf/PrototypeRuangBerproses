@@ -8,6 +8,7 @@
     <title>Ruang Berproses</title>
     <link rel="icon" href="{{ asset('/img/RuangBerproses-Icon_Transparent_Large.png') }}">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/multistep-form.css') }}" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Quicksand:wght@300;400;500;600;700&display=swap"
@@ -60,6 +61,11 @@
                                 <a href="#"
                                     class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign
                                     out</a>
+                                <form action="/logout" method="POST">
+                                    @csrf
+                                    <button
+                                        class="px-8 py-2 font-semibold rounded-lg bg-dongker border-2 border-[#123C69] hover:bg-dongker/40 hover:border-[#123C69]/40">Keluar</button>
+                                </form>
                             </li>
                         </ul>
                     </div>

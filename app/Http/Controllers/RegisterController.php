@@ -23,6 +23,7 @@ class RegisterController extends Controller
             'username' => ['required', 'min:3', 'max:255', 'unique:users'],
             'email' => 'required|email:dns|unique:users',
             'no_telp' => 'required|numeric|digits_between:10,14',
+            'tgl_lahir' => 'required',
             'jk' => 'required|max:1',
             'password' => 'required|min:5|max:255',
             'role' => 'required',
@@ -37,11 +38,12 @@ class RegisterController extends Controller
             'username' => $request->input('username'),
             'email' => $request->input('email'),
             'no_telp' => $request->input('no_telp'),
+            'tgl_lahir' => $request->input('tgl_lahir'),
             'password' => Hash::make($request->input('password')),
             'role' => $request->input('role'),
             'jk' => $request->input('jk')
         ]);
-        if($response->status()==200){
+        if ($response->status() == 200) {
             return redirect('/login')->with('success', 'Registration successful, please login!');
         }
     }
