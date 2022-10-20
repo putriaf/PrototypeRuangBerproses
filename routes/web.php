@@ -85,6 +85,7 @@ Route::delete('/program/psytalk/{psytalks:id}', [PsytalkController::class, 'dest
 // Kelas Berproses
 Route::get('/program/kelas-berproses/daftar', [KelasBerprosesController::class, 'create'])->middleware('token');
 Route::post('/program/kelas-berproses/daftar', [KelasBerprosesController::class, 'store']);
+Route::get('/program/kelas-berproses', [KelasBerprosesController::class, 'index']);
 Route::get('/program/kelas-berproses/{kelas_berproses:id}', [KelasBerprosesController::class, 'show']);
 Route::get('/program/kelas-berproses/{kelas_berproses:id}/edit', [KelasBerprosesController::class, 'edit']);
 Route::put('/program/kelas-berproses/{kelas_berproses:id}', [KelasBerprosesController::class, 'update']);

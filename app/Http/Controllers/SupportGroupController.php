@@ -14,7 +14,10 @@ class SupportGroupController extends Controller
      */
     public function index()
     {
-        //
+        return view('layanan.supportGroup.index', [
+            'title' => 'Support Group',
+            'message' => NULL
+        ]);
     }
 
     /**
@@ -65,7 +68,7 @@ class SupportGroupController extends Controller
             'bukti_transfer' => $request->input('bukti_transfer'),
             'user_id' => $request->input('user_id'),
         ]);
-        if ($response->status()==200) {
+        if ($response->status() == 200) {
             return redirect('/layanan')->with('success', 'Pendaftaran berhasil!');
         } else {
             return redirect('/layanan/support-group/daftar')->with('success', 'Pendaftaran gagal!');
@@ -140,7 +143,7 @@ class SupportGroupController extends Controller
     {
         $response = Http::delete("https://ruangberproses-be.herokuapp.com/api/layanan/support-group/" . $id);
 
-        if ($response->status()==200) {
+        if ($response->status() == 200) {
             return redirect('/layanan')->with('success', 'Support Group data has been deleted!');
         }
     }

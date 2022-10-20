@@ -14,7 +14,10 @@ class PeerCounselingController extends Controller
      */
     public function index()
     {
-        //
+        return view('layanan.peerCounseling.index', [
+            'title' => 'Peer Counseling',
+            'message' => NULL
+        ]);
     }
 
     /**
@@ -65,7 +68,7 @@ class PeerCounselingController extends Controller
             'consent_screening' => $request->input('consent_screening'),
             'user_id' => $request->input('user_id'),
         ]);
-        if ($response->status()==200) {
+        if ($response->status() == 200) {
             return redirect('/layanan')->with('success', 'Pendaftaran berhasil!');
         } else {
             return redirect('/layanan/peer-counseling/daftar')->with('success', 'Pendaftaran gagal!');
@@ -140,7 +143,7 @@ class PeerCounselingController extends Controller
     {
         $response = Http::delete("https://ruangberproses-be.herokuapp.com/api/layanan/peer-counseling/" . $id);
 
-        if ($response->status()==200) {
+        if ($response->status() == 200) {
             return redirect('/layanan')->with('success', 'Peer Counseling data has been deleted!');
         }
     }

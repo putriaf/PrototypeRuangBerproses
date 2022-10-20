@@ -62,7 +62,7 @@ class ProfessionalCounselingController extends Controller
             'consent_screening' => $request->input('consent_screening'),
             'bukti_transfer' => $request->input('bukti_transfer'),
         ]);
-        if ($response->status()==200) {
+        if ($response->status() == 200) {
             return redirect('/layanan')->with('success', 'Pendaftaran berhasil!');
         } else {
             return redirect('/layanan/professional-counseling/daftar')->with('success', 'Pendaftaran gagal!');
@@ -137,7 +137,7 @@ class ProfessionalCounselingController extends Controller
     {
         $response = Http::delete("https://ruangberproses-be.herokuapp.com/api/layanan/professional-counseling/" . $id);
 
-        if ($response->status()==200) {
+        if ($response->status() == 200) {
             return redirect('/layanan')->with('success', 'Professional Counseling data has been deleted!');
         }
     }

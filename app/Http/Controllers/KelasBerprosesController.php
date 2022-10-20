@@ -14,7 +14,10 @@ class KelasBerprosesController extends Controller
      */
     public function index()
     {
-        //
+        return view('program.kelasBerproses.index', [
+            'title' => 'Kelas Berproses',
+            'message' => NULL
+        ]);
     }
 
     /**
@@ -63,7 +66,7 @@ class KelasBerprosesController extends Controller
             'bukti_transfer' => $request->input('bukti_transfer'),
             'user_id' => $request->input('user_id'),
         ]);
-        if ($response->status()==200) {
+        if ($response->status() == 200) {
             return redirect('/program')->with('success', 'Pendaftaran berhasil!');
         } else {
             return redirect('/program/kelas-berproses/daftar')->with('success', 'Pendaftaran gagal!');
@@ -138,7 +141,7 @@ class KelasBerprosesController extends Controller
     {
         $response = Http::delete("https://ruangberproses-be.herokuapp.com/api/program/kelas-berproses/" . $id);
 
-        if ($response->status()==200) {
+        if ($response->status() == 200) {
             return redirect('/program')->with('success', 'Kelas Berproses data has been deleted!');
         }
     }
