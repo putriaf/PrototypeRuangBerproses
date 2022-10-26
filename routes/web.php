@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ArtikelController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
@@ -9,6 +10,7 @@ use App\Http\Controllers\SupportGroupController;
 use App\Http\Controllers\LayananController;
 use App\Http\Controllers\PeerCounselingController;
 use App\Http\Controllers\ProfessionalCounselingController;
+use App\Http\Controllers\RegistrationProCounselingController;
 use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\PsytalkController;
 use App\Http\Controllers\KelasBerprosesController;
@@ -45,6 +47,9 @@ Route::get('/profile/{username}', function ($username) {
     return view('/user/profile', compact(['title']));
 });
 
+// ADMINISTRASI
+Route::get('/admin', [AdminController::class, 'index']);
+
 // LAYANAN
 Route::get('/layanan', [LayananController::class, 'index']);
 // Virtual Support Group
@@ -64,13 +69,20 @@ Route::get('/layanan/peer-counseling/{peer_counselings:id}/edit', [PeerCounselin
 Route::put('/layanan/peer-counseling/{peer_counselings:id}', [PeerCounselingController::class, 'update']);
 Route::delete('/layanan/peer-counseling/{peer_counselings:id}', [PeerCounselingController::class, 'destroy']);
 // Professional Counseling
-Route::get('/layanan/professional-counseling/daftar', [ProfessionalCounselingController::class, 'create'])->middleware('token');
-Route::post('/layanan/professional-counseling/daftar', [ProfessionalCounselingController::class, 'store']);
+Route::get('/admin/layanan/procounseling-list/tambah', [ProfessionalCounselingController::class, 'create'])->middleware('token');
+Route::post('/admin/layanan/procounseling-list/tambah', [ProfessionalCounselingController::class, 'store']);
+Route::get('/admin/layanan/procounseling-list/{id}', [ProfessionalCounselingController::class, 'show']);
+Route::get('/admin/layanan/procounseling-list/{id}/edit', [ProfessionalCounselingController::class, 'edit']);
+Route::put('/admin/layanan/procounseling-list/{id}', [ProfessionalCounselingController::class, 'update']);
+Route::delete('/admin/layanan/procounseling-list/{id}', [ProfessionalCounselingController::class, 'destroy']);
+// Professional Counseling Registration Data
+Route::get('/layanan/professional-counseling/daftar', [RegistrationProCounselingController::class, 'create'])->middleware('token');
+Route::post('/layanan/professional-counseling/daftar', [RegistrationProCounselingController::class, 'store']);
 Route::get('/layanan/professional-counseling', [ProfessionalCounselingController::class, 'index']);
-Route::get('/layanan/professional-counseling/{peer_counselings:id}', [ProfessionalCounselingController::class, 'show']);
-Route::get('/layanan/professional-counseling/{peer_counselings:id}/edit', [ProfessionalCounselingController::class, 'edit']);
-Route::put('/layanan/professional-counseling/{peer_counselings:id}', [ProfessionalCounselingController::class, 'update']);
-Route::delete('/layanan/professional-counseling/{peer_counselings:id}', [ProfessionalCounselingController::class, 'destroy']);
+Route::get('/layanan/professional-counseling/{professional_counselings:id}', [RegistrationProCounselingController::class, 'show']);
+Route::get('/layanan/professional-counseling/{professional_counselings:id}/edit', [RegistrationProCounselingController::class, 'edit']);
+Route::put('/admin/layanan/professional-counseling/{professional_counselings:id}', [RegistrationProCounselingController::class, 'update']);
+Route::delete('/admin/layanan/professional-counseling/{professional_counselings:id}', [RegistrationProCounselingController::class, 'destroy']);
 
 // PROGRAM
 Route::get('/program', [ProgramController::class, 'index']);

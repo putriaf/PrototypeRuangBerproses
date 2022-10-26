@@ -6,7 +6,7 @@
         <h1 class="lg:text-4xl font-bold">Berproses Menuju Versi Terbaikmu Dimulai Disini</h1>
         <form action="/login" method="POST" class="lg:mt-14 lg:mr-52">
             @csrf
-            <div class="relative z-0 lg:mb-12 w-full group">
+            <div class="relative z-0 lg:mb-8 w-full group">
                 <input type="email" name="email" id="email"
                     class="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                     placeholder=" " required="" value="{{ old('email') }}">

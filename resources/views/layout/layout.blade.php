@@ -30,6 +30,13 @@
                         alt="Logo Ruang Berproses">
                 </a>
                 <div class="flex items-center md:order-2">
+                    @if(!session()->has('token'))
+                    <button type="button"
+                        class="flex mr-3 text-sm rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600">
+                        <a href="/login"
+                            class="text-neutral-200 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-neutral-200 md:hover:font-semibold md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Login</a>
+                    </button>
+                    @else
                     <button type="button"
                         class="flex mr-3 text-sm rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
                         id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown"
@@ -38,13 +45,14 @@
                         <img class="w-10 h-10 rounded-full" src="{{ asset('img/user/avatar.png') }}"
                             alt="User Photo Placeholder">
                     </button>
+                    @endif
                     <!-- Dropdown menu -->
                     <div class="hidden z-50 my-4 text-base list-none bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600"
                         id="user-dropdown" data-popper-reference-hidden="" data-popper-escaped=""
                         data-popper-placement="bottom"
                         style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate3d(0px, 43.3333px, 0px);">
                         <div class="py-3 px-4">
-                            <span class="block text-sm text-gray-900 dark:text-white">Bonnie Green</span>
+                            <span class="block text-sm text-gray-900 dark:text-white">Bon</span>
                             <span
                                 class="block text-sm font-medium text-gray-500 truncate dark:text-gray-400">name@flowbite.com</span>
                         </div>
@@ -60,13 +68,11 @@
                                     Pendaftaran</a>
                             </li>
                             <li>
-                                <a href="#"
-                                    class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign
-                                    out</a>
                                 <form action="/logout" method="POST">
                                     @csrf
                                     <button
-                                        class="px-8 py-2 font-semibold rounded-lg bg-dongker border-2 border-[#123C69] hover:bg-dongker/40 hover:border-[#123C69]/40">Keluar</button>
+                                        class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign
+                                        out</button>
                                 </form>
                             </li>
                         </ul>
@@ -107,6 +113,12 @@
                             <a href="#"
                                 class="block py-2 pr-4 pl-3 text-neutral-200 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-neutral-200 md:hover:font-semibold md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Tentang</a>
                         </li>
+                        @if(session()->get('role') == 1)
+                        <li>
+                            <a href="/admin"
+                                class="block py-2 pr-4 pl-3 text-neutral-200 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-neutral-200 md:hover:font-semibold md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Administrator</a>
+                        </li>
+                        @endif
                     </ul>
                 </div>
             </div>

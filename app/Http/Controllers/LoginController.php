@@ -29,11 +29,21 @@ class LoginController extends Controller
             $id = $response->id;
             $username = $response->username;
             $foto_profil = $response->foto_profil;
+            $nama = $response->nama;
+            $notelp = $response->notelp;
+            $tgl_lahir = $response->tgl_lahir;
+            $jk = $response->jk;
+            $email = $response->email;
             session(['token' => $token]);
             session(['role' => $role]);
             session(['id' => $id]);
             session(['username' => $username]);
             session(['foto_profil' => $foto_profil]);
+            session(['nama' => $nama]);
+            session(['notelp' => $notelp]);
+            session(['tgl_lahir' => $tgl_lahir]);
+            session(['jk' => $jk]);
+            session(['email' => $email]);
             return redirect()->intended('/');
         }
         return back()->with('loginError', 'Login failed!');

@@ -27,10 +27,7 @@ class ProfessionalCounselingController extends Controller
      */
     public function create()
     {
-        return view('layanan.professionalCounseling.daftar', [
-            'title' => 'Pendaftaran Virtual Professional Counseling',
-            'message' => NULL
-        ]);
+        //
     }
 
     /**
@@ -42,30 +39,20 @@ class ProfessionalCounselingController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'user_id' => 'required',
-            'status' => 'required',
-            'pendidikan_terakhir' => 'required',
-            'pekerjaan' => 'required',
-            'domisili' => 'required',
-            'consent_sharing' => 'required',
-            'consent_screening' => 'required',
-            'bukti_transfer' => 'required'
+            'nama_konselor' => 'required',
+            'waktu' => 'required',
+            'biaya' => 'required'
         ]);
 
         $response = Http::asForm()->post("https://ruangberproses-be.herokuapp.com/api/layanan/professional-counseling/daftar", [
-            'user_id' => $request->input('user_id'),
-            'status' => $request->input('status'),
-            'pendidikan_terakhir' => $request->input('pendidikan_terakhir'),
-            'pekerjaan' => $request->input('pekerjaan'),
-            'domisili' => $request->input('domisili'),
-            'consent_sharing' => $request->input('consent_sharing'),
-            'consent_screening' => $request->input('consent_screening'),
-            'bukti_transfer' => $request->input('bukti_transfer'),
+            'nama_konselor' => $request->input('nama_konselor'),
+            'waktu' => $request->input('waktu'),
+            'biaya' => $request->input('biaya')
         ]);
         if ($response->status() == 200) {
-            return redirect('/layanan')->with('success', 'Pendaftaran berhasil!');
+            return redirect('/admin/layanan/professional-counseling')->with('success', 'Pendaftaran berhasil!');
         } else {
-            return redirect('/layanan/professional-counseling/daftar')->with('success', 'Pendaftaran gagal!');
+            return redirect('/admin/layanan/professional-counseling/daftar')->with('success', 'Pendaftaran gagal!');
         }
     }
 
@@ -113,10 +100,10 @@ class ProfessionalCounselingController extends Controller
     public function update(Request $request, $id)
     {
         $rules = [
-            'status' => 'required',
-            'bukti_transfer' => 'required',
+            'nama_konselor' => 'required',
+            'waktu' => 'required',
+            'biaya' => 'required'
         ];
-        $validatedData["user_id"] = session()->get('id');
         $validatedData = $request->validate($rules);
 
         Http::asForm()->post("https://ruangberproses-be.herokuapp.com/api/layanan/professional-counseling/" . $id . '?_method=PUT', [
@@ -124,7 +111,7 @@ class ProfessionalCounselingController extends Controller
             'bukti_transfer' => $request->input('bukti_transfer'),
         ]);
 
-        return redirect('/layanan');
+        return redirect('/admin/layanan/professional-counseling');
     }
 
     /**
@@ -135,7 +122,7 @@ class ProfessionalCounselingController extends Controller
      */
     public function destroy($id)
     {
-        $response = Http::delete("https://ruangberproses-be.herokuapp.com/api/layanan/professional-counseling/" . $id);
+        $response = Http::delete("https://ruangberproses-be.herokuapp.com/api/admin/layanan/professional-counseling/" . $id);
 
         if ($response->status() == 200) {
             return redirect('/layanan')->with('success', 'Professional Counseling data has been deleted!');

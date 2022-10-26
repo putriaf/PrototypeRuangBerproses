@@ -55,14 +55,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        $title = "My Profile";
-        $response = Http::withHeaders([
-            'Accept' => 'application/json',
-            'Authorization' => 'Bearer ' . session('token'),
-        ])->get('https://ruangberproses-be.herokuapp.com/api/profile/'.$user);
-        $response = $response->object();
-        $profilUser = $response->profile;
-        return view('/user/profile', compact(['title', 'profilUser']));
+        //
     }
 
     /**
@@ -73,13 +66,7 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        $title = "Edit Profile";
-        $response = Http::withHeaders([
-            'Accept' => 'application/json',
-            'Authorization' => 'Bearer ' . session('token'),
-        ])->get('https://ruangberproses-be.herokuapp.com/api/profile/'.$username.'/edit');
-        $profilUsers = $response->object();
-        return view('/user/editProfile', compact(['title', 'profilUsers']));
+        //
     }
 
     /**
@@ -95,7 +82,7 @@ class UserController extends Controller
         $profilUser = Http::withHeaders([
             'Accept' => 'application/json',
             'Authorization' => 'Bearer ' . session('token'),
-        ])->get('https://ruangberproses-be.herokuapp.com/api/profile/'.session()->get('username').'/edit');
+        ])->get('https://ruangberproses-be.herokuapp.com/api/profile/' . session()->get('username') . '/edit');
         $profilUsers = $profilUser->object();
         $pass = null;
         $profil = null;
@@ -105,51 +92,51 @@ class UserController extends Controller
             'jk' => 'required|max:1',
             // 'posisi' => 'required|max:255',
         ];
-        foreach($profilUsers as $profilUser){
-        if ($request->username != $profilUser->username) {
-            $rules['username'] = 'required|min:3|max:255|unique:users';
-        }
-        if ($request->email != $profilUser->email) {
-            $rules['email'] = 'required|email:dns|unique:users';
-        }
-        
-        if ($request->password != null) {
-            $rules['password'] = 'required|min:3|max:255';
-            $pass = Hash::make($request->password);
-        }
-        $validatedData = $request->validate($rules);
-
-        if ($request->file('foto_profil')) {
-            if ($request->oldImage) {
-                Storage::delete($request->oldImage);
+        foreach ($profilUsers as $profilUser) {
+            if ($request->username != $profilUser->username) {
+                $rules['username'] = 'required|min:3|max:255|unique:users';
             }
-            $profil = $request->file('foto_profil')->store('foto-profil');
-        }
+            if ($request->email != $profilUser->email) {
+                $rules['email'] = 'required|email:dns|unique:users';
+            }
+
+            if ($request->password != null) {
+                $rules['password'] = 'required|min:3|max:255';
+                $pass = Hash::make($request->password);
+            }
+            $validatedData = $request->validate($rules);
+
+            if ($request->file('foto_profil')) {
+                if ($request->oldImage) {
+                    Storage::delete($request->oldImage);
+                }
+                $profil = $request->file('foto_profil')->store('foto-profil');
+            }
         }
         $validatedData['id'] = $id;
         $response = Http::withHeaders([
             'Accept' => 'application/json',
             'Authorization' => 'Bearer ' . session('token'),
-            ])
-            ->asForm()->post("https://ruangberproses-be.herokuapp.com/api/profile/".session()->get('id').'?_method=PUT', [
-            'nama' => $request->input('nama'),
-            'username' => $request->input('username'),
-            'no_telp' => $request->input('no_telp'),
-            'email' => $request->input('email'),
-            'jk' => $request->input('jk'),
-            'password' => $pass,
-            'foto_profil' => $profil,
-        ]);
+        ])
+            ->asForm()->post("https://ruangberproses-be.herokuapp.com/api/profile/" . session()->get('id') . '?_method=PUT', [
+                'nama' => $request->input('nama'),
+                'username' => $request->input('username'),
+                'no_telp' => $request->input('no_telp'),
+                'email' => $request->input('email'),
+                'jk' => $request->input('jk'),
+                'password' => $pass,
+                'foto_profil' => $profil,
+            ]);
         $resp = $response->object();
-        if($response->status()==200){
-        $response = $resp->data;
-        $username = $response->username;
-        $foto_profil = $response->foto_profil;
-        session(['username' => $username]);
-        session(['foto_profil' => $foto_profil]);
-        return redirect('/profile')->with('success', 'Profil berhasil diupdate!');
+        if ($response->status() == 200) {
+            $response = $resp->data;
+            $username = $response->username;
+            $foto_profil = $response->foto_profil;
+            session(['username' => $username]);
+            session(['foto_profil' => $foto_profil]);
+            return redirect('/profile')->with('success', 'Profil berhasil diupdate!');
         }
-        return redirect('/profile/'.session()->get('username').'/edit')->with('success', 'Profil berhasil diupdate!');
+        return redirect('/profile/' . session()->get('username') . '/edit')->with('success', 'Profil berhasil diupdate!');
     }
 
     /**
