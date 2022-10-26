@@ -35,13 +35,14 @@
     <div class="lg:mt-14 font-quicksand w-2/3">
         <h2 class="text-xl lg:mb-8 font-semibold">Artikel Terbaru</h2>
         @foreach($artikels as $artikel)
-        <div class="grid grid-rows-3 grid-flow-col gap-2 lg:mb-10">
-            <div class="row-span-3 lg:mr-3">
-                <img src="{{ asset('img/illustrations/jumbotron-home.png' ) }}" alt=""
-                    class="rounded-lg h-full bg-cover">
+        <div class="grid grid-cols-3 gap-2 lg:mb-10">
+            <div class="lg:mr-3">
+                <img src="{{ asset('img/illustrations/jumbotron-home.png' ) }}" alt="" class="rounded-lg h-full w-full">
             </div>
-            <div class="col-span-2 self-end font-semibold text-lg">{{ $artikel-> judul }}</div>
-            <div class="row-span-2 col-span-2 text-base">{{ $artikel->isi }}</div>
+            <div class="col-span-2">
+                <div class="col-span-2 self-end font-semibold text-lg">{{ $artikel-> judul }}</div>
+                <div class="row-span-2 col-span-2 text-base">{{ $artikel->isi }}</div>
+            </div>
         </div>
         @endforeach
     </div>

@@ -1180,6 +1180,10 @@ input:checked + .toggle-bg {
   grid-column: span 2 / span 2;
 }
 
+.col-span-3 {
+  grid-column: span 3 / span 3;
+}
+
 .row-span-3 {
   grid-row: span 3 / span 3;
 }
@@ -1574,6 +1578,10 @@ input:checked + .toggle-bg {
 
 .w-64 {
   width: 16rem;
+}
+
+.w-1\/4 {
+  width: 25%;
 }
 
 .min-w-0 {
@@ -2186,6 +2194,10 @@ input:checked + .toggle-bg {
 
 .bg-cover {
   background-size: cover;
+}
+
+.bg-contain {
+  background-size: contain;
 }
 
 .bg-fixed {

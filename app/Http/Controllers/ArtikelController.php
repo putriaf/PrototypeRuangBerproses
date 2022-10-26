@@ -62,7 +62,7 @@ class ArtikelController extends Controller
             $imagePath = NULL;
         }
 
-        $response = Http::asForm()->post("https://ruangberproses-be.herokuapp.com/api/layanan/professional-counseling/daftar", [
+        $response = Http::asForm()->post("https://ruangberproses-be.herokuapp.com/api/admin/artikel-berproses/tambah", [
             'user_id' => $request->input('user_id'),
             'judul' => $request->input('judul'),
             'isi' => $request->input('isi'),
