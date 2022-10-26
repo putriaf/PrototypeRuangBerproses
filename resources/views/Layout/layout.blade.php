@@ -98,20 +98,108 @@
                                 aria-current="page">Home</a>
                         </li>
                         <li>
-                            <a href="#"
-                                class="block py-2 pr-4 pl-3 text-neutral-200 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-neutral-200 md:hover:font-semibold md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Layanan</a>
+                            <a href="#" id="dropdownLayananButton" data-dropdown-toggle="dropdownLayanan"
+                                data-dropdown-placement="bottom"
+                                class="block pr-4 pl-3 text-neutral-200 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-neutral-200 md:hover:font-semibold md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Layanan
+                                <svg class="ml-2 w-4 h-4 inline" aria-hidden="true" fill="currentColor"
+                                    viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd"
+                                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                            </a>
+                            <!-- Dropdown Layanan -->
+                            <div id="dropdownLayanan"
+                                class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700">
+                                <ul class="py-1 text-sm text-gray-700 dark:text-gray-200"
+                                    aria-labelledby="dropdownLayananButton">
+                                    <li>
+                                        <a href="/layanan/professional-counseling"
+                                            class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Professional
+                                            Counseling</a>
+                                    </li>
+                                    <li>
+                                        <a href="/layanan/peer-counseling"
+                                            class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Peer
+                                            Counseling</a>
+                                    </li>
+                                    <li>
+                                        <a href="/layanan/support-group"
+                                            class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Virtual
+                                            Support Group</a>
+                                    </li>
+                                </ul>
+                            </div>
                         </li>
                         <li>
-                            <a href="#"
-                                class="block py-2 pr-4 pl-3 text-neutral-200 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-neutral-200 md:hover:font-semibold md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Program</a>
+                            <a href="#" id="dropdownProgramButton" data-dropdown-toggle="dropdownProgram"
+                                class="block py-2 pr-4 pl-3 text-neutral-200 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-neutral-200 md:hover:font-semibold md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Program
+                                <svg class="ml-2 w-4 h-4 inline" aria-hidden="true" fill="currentColor"
+                                    viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd"
+                                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                            </a>
+                            <!-- Dropdown Program -->
+                            <div id="dropdownProgram"
+                                class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700">
+                                <ul class="py-1 text-sm text-gray-700 dark:text-gray-200"
+                                    aria-labelledby="dropdownProgramButton">
+                                    <li>
+                                        <a href="/program/psytalk"
+                                            class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">PSYTALK</a>
+                                    </li>
+                                    <li>
+                                        <a href="/program/kelas-berproses"
+                                            class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Kelas
+                                            Berproses</a>
+                                    </li>
+                                    <li>
+                                        <a href="/program/ig-live"
+                                            class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">IG
+                                            Live</a>
+                                    </li>
+                                </ul>
+                            </div>
                         </li>
                         <li>
                             <a href="#"
                                 class="block py-2 pr-4 pl-3 text-neutral-200 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-neutral-200 md:hover:font-semibold md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Artikel</a>
                         </li>
                         <li>
-                            <a href="#"
-                                class="block py-2 pr-4 pl-3 text-neutral-200 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-neutral-200 md:hover:font-semibold md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Tentang</a>
+                            <a href="#" id="dropdownTentangButton" data-dropdown-toggle="dropdownTentang"
+                                class="block py-2 pr-4 pl-3 text-neutral-200 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-neutral-200 md:hover:font-semibold md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Tentang
+                                <svg class="ml-2 w-4 h-4 inline" aria-hidden="true" fill="currentColor"
+                                    viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd"
+                                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                            </a>
+                            <!-- Dropdown Program -->
+                            <div id="dropdownTentang"
+                                class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700">
+                                <ul class="py-1 text-sm text-gray-700 dark:text-gray-200"
+                                    aria-labelledby="dropdownTentangButton">
+                                    <li>
+                                        <a href="/tentang/ruang-berproses"
+                                            class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Ruang
+                                            Berproses</a>
+                                    </li>
+                                    <li>
+                                        <a href="/tentang/associate-psychologist"
+                                            class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Associate
+                                            Psychologist</a>
+                                    </li>
+                                    <li>
+                                        <a href="/program/tim-rb"
+                                            class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Tim
+                                            Ruang Berproses
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
                         </li>
                         @if(session()->get('role') == 1)
                         <li>

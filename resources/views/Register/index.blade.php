@@ -102,6 +102,6 @@
             class="text-white font-bold bg-red-400 hover:bg-rb-light-orange focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Daftar
             Sekarang</button>
     </form>
-    <p class="text-sm lg:mt-3">Sudah punya akun? <a href="" class="font-semibold">Masuk sekarang!</a></p>
+    <p class="text-sm lg:mt-3">Sudah punya akun? <a href="/login" class="font-semibold">Masuk sekarang!</a></p>
 </section>
 @endsection

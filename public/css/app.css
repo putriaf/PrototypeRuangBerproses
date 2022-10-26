@@ -3295,6 +3295,10 @@ input:checked + .toggle-bg {
     margin-top: 0px;
   }
 
+  .md\:mb-0 {
+    margin-bottom: 0px;
+  }
+
   .md\:flex {
     display: flex;
   }
