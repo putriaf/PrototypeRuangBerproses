@@ -6,7 +6,7 @@
         <h1 class="text-3xl font-bold lg:mb-6">Artikel Berproses</h1>
     </div>
     <div class="">
-        <form class="flex justify-center items-center">
+        <form class="flex justify-center items-center" action="/artikel-berproses">
             <label for="simple-search" class="sr-only">Search</label>
             <div class="relative w-1/2">
                 <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
@@ -17,9 +17,9 @@
                             clip-rule="evenodd"></path>
                     </svg>
                 </div>
-                <input type="text" id="simple-search"
+                <input type="text" id="search" name="search"
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    placeholder="Search" required="">
+                    placeholder="Search" value="{{ request('search') }}" required="">
             </div>
             <button type="submit"
                 class="p-2.5 ml-2 text-sm font-medium text-white bg-red-400 rounded-lg border border-red-500 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
@@ -40,7 +40,7 @@
                 <img src="{{ asset('img/illustrations/jumbotron-home.png' ) }}" alt="" class="rounded-lg h-full w-full">
             </div>
             <div class="col-span-2">
-                <div class="col-span-2 self-end font-semibold text-lg">{{ $artikel-> judul }}</div>
+                <div class="col-span-2 self-end font-semibold text-lg">{{ $artikel->judul }}</div>
                 <div class="row-span-2 col-span-2 text-base">{{ $artikel->isi }}</div>
             </div>
         </div>
