@@ -89,8 +89,7 @@
         </fieldset>
         <fieldset>
             <h2 class="fs-title">Upload Bukti Pembayaran</h2>
-            <input class="form-control @error('bukti_transfer') is-invalid @enderror mt-5 hidden" type="text"
-                id="bukti_transfer" name="bukti_transfer" value="Menunggu Konfirmasi">
+            <input class="form-control mt-5" type="file" id="bukti_transfer" name="bukti_transfer">
             </div>
             <input class="form-control mt-5 hidden" type="text" id="status_pendaftaran" name="status_pendaftaran"
                 value="Menunggu Konfirmasi">

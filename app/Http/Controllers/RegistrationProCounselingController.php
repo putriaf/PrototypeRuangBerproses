@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\File;
 
 class RegistrationProCounselingController extends Controller
 {
@@ -48,9 +49,19 @@ class RegistrationProCounselingController extends Controller
             'preferensi_jk_konselor' => 'required',
             'consent_sharing' => 'required',
             'consent_screening' => 'required',
-            'bukti_transfer' => '',
+            'bukti_transfer' => 'required',
             'status_pendaftaran' => 'required'
         ]);
+
+        $uploadPath = public_path('storage/bukti-transfer');
+        if ($request->hasFile('bukti_transfer')) {
+            $file = $request->file('bukti_transfer');
+            $uniqueFileName = uniqid() . '.' . $file->getClientOriginalExtension();
+            $file->move($uploadPath, $uniqueFileName);
+            $imagePath = 'bukti-transfer/' . $uniqueFileName;
+        } else {
+            $imagePath = NULL;
+        }
 
         $response = Http::asForm()->post("https://ruangberproses-be.herokuapp.com/api/layanan/professional-counseling/daftar", [
             'user_id' => $request->input('user_id'),
@@ -58,7 +69,7 @@ class RegistrationProCounselingController extends Controller
             'preferensi_jk_konselor' => $request->input('preferensi_jk_konselor'),
             'consent_sharing' => $request->input('consent_sharing'),
             'consent_screening' => $request->input('consent_screening'),
-            'bukti_transfer' => $request->input('bukti_transfer'),
+            'bukti_transfer' => $imagePath,
             'status_pendaftaran' => $request->input('status_pendaftaran'),
         ]);
         if ($response->status() == 200) {
