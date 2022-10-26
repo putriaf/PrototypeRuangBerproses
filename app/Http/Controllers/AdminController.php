@@ -27,7 +27,8 @@ class AdminController extends Controller
             'psytalks' => $response->psytalks,
             'regpsytalks' => $response->regpsytalks,
             'kb' => $response->kb,
-            'regkbs' => $response->regkbs
+            'regkbs' => $response->regkbs,
+            'artikels' => $response->artikels
         ]);
     }
 

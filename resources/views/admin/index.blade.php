@@ -61,6 +61,7 @@
     </div>
 </div>
 
+<h1>Professional Counseling</h1>
 @foreach($professionalcounselings as $pc)
 <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
     <th scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
@@ -97,11 +98,30 @@
         {{ $rpc->consent_screening }}
     </td>
     <td class="px-6 py-4">
-        {{ $rpc->bukti_transfer }}
+        <img src="{{ asset('storage/' . $rpc->bukti_transfer) }}" alt="test">
     </td>
     <td class="px-6 py-4">
         {{ $rpc->status_pendaftaran }}
     </td>
+</tr>
+@endforeach
+
+<h1>Artikel Berproses</h1>
+@foreach($artikels as $artikel)
+<tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+    <th scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
+        {{ $artikel->id }}
+    </th>
+    <td class="px-6 py-4">
+        {{ $artikel->user_id }}
+    </td>
+    <td class="px-6 py-4">
+        {{ $artikel->judul }}
+    </td>
+    <td class="px-6 py-4">
+        {{ $artikel->isi }}
+    </td>
+
 </tr>
 @endforeach
 

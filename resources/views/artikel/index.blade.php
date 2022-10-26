@@ -34,36 +34,16 @@
     </div>
     <div class="lg:mt-14 font-quicksand w-2/3">
         <h2 class="text-xl lg:mb-8 font-semibold">Artikel Terbaru</h2>
+        @foreach($artikels as $artikel)
         <div class="grid grid-rows-3 grid-flow-col gap-2 lg:mb-10">
             <div class="row-span-3 lg:mr-3">
                 <img src="{{ asset('img/illustrations/jumbotron-home.png' ) }}" alt=""
                     class="rounded-lg h-full bg-cover">
             </div>
-            <div class="col-span-2 self-end font-semibold text-lg">Lorem ipsum dolor sit amet</div>
-            <div class="row-span-2 col-span-2 text-base"> consectetur adipisicing elit. Quo quisquam quod dolorem
-                inventore commodi incidunt magni iste. Cumque alias corporis odio ullam sunt ad ab, aliquam magnam in
-                quaerat </div>
+            <div class="col-span-2 self-end font-semibold text-lg">{{ $artikel-> judul }}</div>
+            <div class="row-span-2 col-span-2 text-base">{{ $artikel->isi }}</div>
         </div>
-        <div class="grid grid-rows-3 grid-flow-col gap-2 lg:mb-10">
-            <div class="row-span-3 lg:mr-3">
-                <img src="{{ asset('img/illustrations/jumbotron-home.png' ) }}" alt=""
-                    class="rounded-lg h-full bg-cover">
-            </div>
-            <div class="col-span-2 self-end font-semibold text-lg">Lorem ipsum dolor sit amet</div>
-            <div class="row-span-2 col-span-2 text-base"> consectetur adipisicing elit. Quo quisquam quod dolorem
-                inventore commodi incidunt magni iste. Cumque alias corporis odio ullam sunt ad ab, aliquam magnam in
-                quaerat </div>
-        </div>
-        <div class="grid grid-rows-3 grid-flow-col gap-2 lg:mb-10">
-            <div class="row-span-3 lg:mr-3">
-                <img src="{{ asset('img/illustrations/jumbotron-home.png' ) }}" alt=""
-                    class="rounded-lg h-full bg-cover">
-            </div>
-            <div class="col-span-2 self-end font-semibold text-lg">Lorem ipsum dolor sit amet</div>
-            <div class="row-span-2 col-span-2 text-base"> consectetur adipisicing elit. Quo quisquam quod dolorem
-                inventore commodi incidunt magni iste. Cumque alias corporis odio ullam sunt ad ab, aliquam magnam in
-                quaerat </div>
-        </div>
+        @endforeach
     </div>
 </section>
 @endsection

@@ -103,11 +103,15 @@ Route::get('/program/kelas-berproses/{kelas_berproses:id}/edit', [KelasBerproses
 Route::put('/program/kelas-berproses/{kelas_berproses:id}', [KelasBerprosesController::class, 'update']);
 Route::delete('/program/kelas-berproses/{kelas_berproses:id}', [KelasBerprosesController::class, 'destroy']);
 
-// Artikel Berproses
+// ARTIKEL BERPROSES
 Route::get('/artikel-berproses', [ArtikelController::class, 'index']);
 Route::get('/artikel-berproses/{artikel:id}', [ArtikelController::class, 'show']);
+Route::get('/admin/artikel-berproses/tambah', [ArtikelController::class, 'create']);
+Route::post('/admin/artikel-berproses/tambah', [ArtikelController::class, 'store']);
+Route::put('/admin/artikel-berproses/{id}', [ArtikelController::class, 'update']);
+Route::delete('/admin/artikel-berproses/{id}', [ArtikelController::class, 'destroy']);
 
-// Tentang
+// TENTANG
 Route::get('/tentang/ruang-berproses', [TentangController::class, 'index']);
 Route::get('/tentang/associate-psychologist', [TentangController::class, 'viewPsychologist']);
 Route::get('/tentang/tim-ruang-berproses', [TentangController::class, 'viewTeam']);
