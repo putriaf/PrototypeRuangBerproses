@@ -20,12 +20,13 @@ class RegisterController extends Controller
     {
         $validatedData = $request->validate([
             'nama' => 'required|max:255',
-            'username' => ['required', 'min:3', 'max:255', 'unique:users'],
+            'username' => ['required', 'min:8', 'max:50', 'unique:users'],
             'email' => 'required|email:dns|unique:users',
-            'no_telp' => 'required|numeric|digits_between:10,14',
-            'tgl_lahir' => 'required',
+            'no_telp' => 'required|numeric|digits_between:10,14|starts_with:08',
+            'tgl_lahir' => 'required|before:today',
             'jk' => 'required|max:1',
-            'password' => 'required|min:5|max:255',
+            'password' => 'required|min:8|max:50|same:password_confirm',
+            'password_confirm' => 'required|same:password',
             'role' => 'required',
         ]);
 

@@ -17,6 +17,11 @@ class LoginController extends Controller
 
     public function authenticate(Request $request)
     {
+        $validatedData = $request->validate([
+            'email' => 'required|email:dns',
+            'password' => 'required|min:8|max:50',
+        ]);
+
         $response = Http::asForm()->post('https://ruangberproses-be.herokuapp.com/api/login', [
             'email' => $request->input('email'),
             'password' => $request->input('password'),

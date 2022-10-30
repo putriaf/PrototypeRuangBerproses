@@ -39,7 +39,7 @@ Route::post('/logout', [LoginController::class, 'logout']);
 Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
 Route::post('/register', [RegisterController::class, 'store']);
 
-Route::resource('/profile', UserController::class)->middleware('token');
+Route::resource('/profil', UserController::class)->middleware('token');
 Route::get('/profile/{username}', function ($username) {
     $title = "My Profile";
     $username = User::where('username', $username)->first()->username;

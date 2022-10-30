@@ -20,7 +20,9 @@ module.exports = {
       },
       backgroundImage: {
         'jumbotron-home': "url('/img/illustrations/jumbotron-home.png');", 
-        'hero-procounseling': "url('/img/illustrations/hero-professional-counseling.png');"
+        'hero-procounseling': "url('/img/illustrations/hero-professional-counseling.png');",
+        'hero-sg': "url('/img/illustrations/hero-support-group.png');",
+        'hero-peercounseling': "url('/img/illustrations/hero-peer-counseling.jpg');"
       },
     },
   },

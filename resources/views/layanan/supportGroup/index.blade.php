@@ -4,7 +4,7 @@
 @section('content')
 <section class="-mt-20 font-quicksand">
     <div
-        class="pt-52 sm:px-12 h-screen bg-hero-procounseling bg-no-repeat bg-cover bg-center bg-fixed mx-auto text-center text-slate-100 xl:px-64">
+        class="pt-52 sm:px-12 h-screen bg-hero-sg bg-no-repeat bg-cover bg-center bg-fixed mx-auto text-center text-slate-100 xl:px-64">
         <h1 class="font-bold text-3xl sm:text-4xl md:text-5xl mb-3 sm:mb-4" style="line-height: 1.2">Virtual Support
             Group</h1>
         <h2 class="font-light text-sm sm:text-md px-8 sm:px-6 mb-6 sm:mb-10 lg:px-16">Butuh ruang aman dan nyaman untuk
@@ -162,65 +162,6 @@
             </div>
         </div>
     </div>
-    <form id="msform">
-        <!-- progressbar -->
-        <ul id="progressbar">
-            <li class="active rounded-full">Who's It For?</li>
-            <li>Gender</li>
-            <li>Shirt Size</li>
-            <li>Choose a Subscription Option</li>
-        </ul>
-        <!-- fieldsets -->
-        <fieldset>
-            <h2 class="fs-title">Who are you buying for?</h2>
-            <h3 class="fs-subtitle">Step 1</h3>
-            <input type="text" name="pickup_date" placeholder="Pickup Date" />
-            <input type="button" name="next" class="next action-button" value="Next" />
-        </fieldset>
-        <fieldset>
-            <h2 class="fs-title">Choose keg details</h2>
-            <h3 class="fs-subtitle">Step 2</h3>
-            <select name="keg_type" placeholder="Pickup Date">
-                <option value="" disabled selected style="display: none;">Choose Your Beer</option>
-                <option value="Budweiser">Budweiser</option>
-                <option value="Blue Moon">Blue Moon</option>
-            </select>
-            <select name="keg_size">
-                <option value="" disabled selected style="display: none;">Choose Keg Size</option>
-                <option value="1/2">1/2</option>
-                <option value="1/6">1/6</option>
-            </select>
-            <input type="button" name="previous" class="previous action-button" value="Previous" />
-            <input type="button" name="next" class="next action-button" value="Next" />
-        </fieldset>
-        <fieldset>
-            <h2 class="fs-title">Personal Details</h2>
-            <h3 class="fs-subtitle">Last Step</h3>
-            <input type="text" name="fname" placeholder="First Name" />
-            <input type="text" name="lname" placeholder="Last Name" />
-            <input type="text" name="phone" placeholder="Phone" />
-            <input type="text" name="email" placeholder="E-mail" />
-            <!--<textarea name="address" placeholder="Address"></textarea>-->
-            <input type="button" name="previous" class="previous action-button" value="Previous" />
-            <input type="button" name="next" class="next action-button" value="Next" />
-        </fieldset>
-        <fieldset>
-            <h2 class="fs-title">Choose keg details</h2>
-            <h3 class="fs-subtitle">Step 2</h3>
-            <select name="keg_type" placeholder="Pickup Date">
-                <option value="" disabled selected style="display: none;">Choose Your Beer</option>
-                <option value="Budweiser">Budweiser</option>
-                <option value="Blue Moon">Blue Moon</option>
-            </select>
-            <select name="keg_size">
-                <option value="" disabled selected style="display: none;">Choose Keg Size</option>
-                <option value="1/2">1/2</option>
-                <option value="1/6">1/6</option>
-            </select>
-            <input type="button" name="previous" class="previous action-button" value="Previous" />
-            <input type="submit" name="submit" class="submit action-button" value="Submit" id="form-submit" />
-        </fieldset>
-    </form>
     <!-- jQuery -->
     <script src="http://thecodeplayer.com/uploads/js/jquery-1.9.1.min.js" type="text/javascript"></script>
     <!-- jQuery easing plugin -->

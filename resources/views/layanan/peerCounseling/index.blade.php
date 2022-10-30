@@ -4,7 +4,7 @@
 @section('content')
 <section class="-mt-20 font-quicksand">
     <div
-        class="pt-52 sm:px-12 h-screen bg-hero-procounseling bg-no-repeat bg-cover bg-center bg-fixed mx-auto text-center text-slate-100 xl:px-64">
+        class="pt-52 sm:px-12 h-screen bg-hero-peercounseling bg-no-repeat bg-cover bg-center bg-fixed mx-auto text-center text-slate-100 xl:px-64">
         <h1 class="font-bold text-3xl sm:text-4xl md:text-5xl mb-3 sm:mb-4" style="line-height: 1.2">Konseling dengan
             Konselor Sebaya</h1>
         <h2 class="font-light text-sm sm:text-md px-8 sm:px-6 mb-6 sm:mb-10 lg:px-16">Butuh ruang aman dan nyaman untuk

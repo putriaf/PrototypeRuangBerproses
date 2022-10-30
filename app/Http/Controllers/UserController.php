@@ -55,7 +55,14 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        $title = "My Profile";
+        $response = Http::withHeaders([
+            'Accept' => 'application/json',
+            'Authorization' => 'Bearer ' . session('token'),
+        ])->get('http://ruangberproses-be.herokuapp.com/api/profile');
+        $response = $response->object();
+        $profilUser = $response->profile;
+        return view('/user/profile', compact(['title', 'profilUser']));
     }
 
     /**
