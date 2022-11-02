@@ -162,65 +162,6 @@
             </div>
         </div>
     </div>
-    <form id="msform">
-        <!-- progressbar -->
-        <ul id="progressbar">
-            <li class="active rounded-full">Who's It For?</li>
-            <li>Gender</li>
-            <li>Shirt Size</li>
-            <li>Choose a Subscription Option</li>
-        </ul>
-        <!-- fieldsets -->
-        <fieldset>
-            <h2 class="fs-title">Who are you buying for?</h2>
-            <h3 class="fs-subtitle">Step 1</h3>
-            <input type="text" name="pickup_date" placeholder="Pickup Date" />
-            <input type="button" name="next" class="next action-button" value="Next" />
-        </fieldset>
-        <fieldset>
-            <h2 class="fs-title">Choose keg details</h2>
-            <h3 class="fs-subtitle">Step 2</h3>
-            <select name="keg_type" placeholder="Pickup Date">
-                <option value="" disabled selected style="display: none;">Choose Your Beer</option>
-                <option value="Budweiser">Budweiser</option>
-                <option value="Blue Moon">Blue Moon</option>
-            </select>
-            <select name="keg_size">
-                <option value="" disabled selected style="display: none;">Choose Keg Size</option>
-                <option value="1/2">1/2</option>
-                <option value="1/6">1/6</option>
-            </select>
-            <input type="button" name="previous" class="previous action-button" value="Previous" />
-            <input type="button" name="next" class="next action-button" value="Next" />
-        </fieldset>
-        <fieldset>
-            <h2 class="fs-title">Personal Details</h2>
-            <h3 class="fs-subtitle">Last Step</h3>
-            <input type="text" name="fname" placeholder="First Name" />
-            <input type="text" name="lname" placeholder="Last Name" />
-            <input type="text" name="phone" placeholder="Phone" />
-            <input type="text" name="email" placeholder="E-mail" />
-            <!--<textarea name="address" placeholder="Address"></textarea>-->
-            <input type="button" name="previous" class="previous action-button" value="Previous" />
-            <input type="button" name="next" class="next action-button" value="Next" />
-        </fieldset>
-        <fieldset>
-            <h2 class="fs-title">Choose keg details</h2>
-            <h3 class="fs-subtitle">Step 2</h3>
-            <select name="keg_type" placeholder="Pickup Date">
-                <option value="" disabled selected style="display: none;">Choose Your Beer</option>
-                <option value="Budweiser">Budweiser</option>
-                <option value="Blue Moon">Blue Moon</option>
-            </select>
-            <select name="keg_size">
-                <option value="" disabled selected style="display: none;">Choose Keg Size</option>
-                <option value="1/2">1/2</option>
-                <option value="1/6">1/6</option>
-            </select>
-            <input type="button" name="previous" class="previous action-button" value="Previous" />
-            <input type="submit" name="submit" class="submit action-button" value="Submit" id="form-submit" />
-        </fieldset>
-    </form>
     <!-- jQuery -->
     <script src="http://thecodeplayer.com/uploads/js/jquery-1.9.1.min.js" type="text/javascript"></script>
     <!-- jQuery easing plugin -->

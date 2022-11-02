@@ -54,6 +54,17 @@
         <div class="mx-auto text-center">
             <h3 class="lg:text-2xl font-semibold lg:mb-2">Layanan Kami</h3>
             <p class="lg:text-md">Berbagai macam layanan tersedia untuk setiap kebutuhanmu</p>
+            <div class="lg:mt-8">
+                <a href=""
+                    class="bg-pale-orange text-white font-semibold uppercase px-3 py-2 rounded-2xl lg:mr-7">Virtual
+                    Support Group</a>
+                <a href=""
+                    class="bg-white text-slate-700 focus:bg-pale-orange focus:text-white font-semibold uppercase px-3 py-2 rounded-2xl lg:mr-7">Professional
+                    Counseling</a>
+                <a href=""
+                    class="bg-white text-slate-700 focus:bg-pale-orange focus:text-white font-semibold uppercase px-3 py-2 rounded-2xl">Peer
+                    Counseling</a>
+            </div>
         </div>
         <div id="indicators-carousel" class="relative" data-carousel="static">
             <!-- Carousel wrapper -->
@@ -64,7 +75,7 @@
                     <div class="container absolute block -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
                         <div class="grid grid-cols-3 gap-10 place-items-center lg:mx-28">
                             <img src="{{ asset('img/illustrations/virtual-support-group.jpg') }}"
-                                class="rounded-full w-2/3 justify-self-end" alt="Virtual Support Group">
+                                class="rounded-full w-2/3 justify-self-end aspect-square" alt="Virtual Support Group">
                             <div class="col-span-2">
                                 <h4 class="font-semibold text-lg lg:mb-3">Virtual Support Group</h4>
                                 <p class="text-md lg:mb-6">Kamu gak sendiri! Banyak orang yang sedang atau pernah ada di
@@ -74,19 +85,43 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
                 <!-- Item 2 -->
                 <div class="duration-700 ease-in-out absolute inset-0 transition-all transform translate-x-full z-10"
                     data-carousel-item="">
-                    <img src="/docs/images/carousel/carousel-2.svg"
-                        class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                    <div class="container absolute block -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
+                        <div class="grid grid-cols-3 gap-10 place-items-center lg:mx-28">
+                            <img src="{{ asset('img/illustrations/pro-counseling.jpg') }}"
+                                class="rounded-full w-2/3 justify-self-end aspect-square object-cover"
+                                alt="Professional Counseling">
+                            <div class="col-span-2">
+                                <h4 class="font-semibold text-lg lg:mb-3">Professional Counseling</h4>
+                                <p class="text-md lg:mb-6">Layanan konseling online dengan psikolog professional untuk
+                                    memahami permasalahan yang sedang dialami serta memberikanmu penanganan terbaik.</p>
+                                <a href="" class="lg:px-8 lg:py-2 rounded-xl bg-white font-medium">Lihat
+                                    Selengkapnya</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <!-- Item 3 -->
                 <div class="hidden duration-700 ease-in-out absolute inset-0 transition-all transform"
                     data-carousel-item="">
-                    <img src="/docs/images/carousel/carousel-3.svg"
-                        class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                    <div class="container absolute block -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
+                        <div class="grid grid-cols-3 gap-10 place-items-center lg:mx-28">
+                            <img src="{{ asset('img/illustrations/peer-counseling.jpg') }}"
+                                class="rounded-full w-2/3 justify-self-end aspect-square object-cover"
+                                alt="Peer Counseling">
+                            <div class="col-span-2">
+                                <h4 class="font-semibold text-lg lg:mb-3">Peer Counseling</h4>
+                                <p class="text-md lg:mb-6">Layanan konseling dengan konselor sebaya terlatih untuk
+                                    menangani kasus kondisi kesehatan mental non klinis. Tenang aja, layanan ini free!
+                                </p>
+                                <a href="" class="lg:px-8 lg:py-2 rounded-xl bg-white font-medium">Lihat
+                                    Selengkapnya</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <!-- Item 4 -->
                 <div class="hidden duration-700 ease-in-out absolute inset-0 transition-all transform"
@@ -151,9 +186,59 @@
             <h3 class="lg:text-2xl font-semibold lg:mb-2">Kata Mereka</h3>
         </div>
     </div>
-    <div class="py-20">
-        <div class="mx-auto text-center">
-            <h3 class="lg:text-2xl font-semibold lg:mb-2">Artikel Berproses</h3>
+    <div class="pt-20">
+        <div class="mx-auto text-center mb-14">
+            <h3 class="lg:text-2xl font-semibold">Artikel Berproses</h3>
+        </div>
+        <div class="grid grid-cols-2 lg:mx-20">
+            <div class="grid grid-cols-3 lg:mb-10 gap-4">
+                <div class="lg:mr-3">
+                    <img src="{{ asset('img/illustrations/jumbotron-home.png' ) }}" alt=""
+                        class="rounded-lg h-full w-full object-cover aspect-video">
+                </div>
+                <div class="col-span-2">
+                    <div class="col-span-2 self-end font-semibold text-lg">Judul Artikel</div>
+                    <div class="row-span-2 col-span-2 text-base">Lorem ipsum dolor sit amet consectetur adipisicing
+                        elit. Sequi delectus quod deserunt aperiamre inventore?</div>
+                </div>
+            </div>
+            <div class="grid grid-cols-3 gap-2 lg:mb-10">
+                <div class="lg:mr-3">
+                    <img src="{{ asset('img/illustrations/virtual-support-group.jpg' ) }}" alt=""
+                        class="rounded-lg h-full w-full object-cover aspect-video">
+                </div>
+                <div class="col-span-2">
+                    <div class="col-span-2 self-end font-semibold text-lg">Judul Artikel</div>
+                    <div class="row-span-2 col-span-2 text-base">Lorem ipsum dolor sit amet consectetur adipisicing
+                        elit. Sequi delectus quod deserunt aperiamre inventore?</div>
+                </div>
+            </div>
+            <div class="grid grid-cols-3 gap-2 lg:mb-10">
+                <div class="lg:mr-3">
+                    <img src="{{ asset('img/illustrations/peer-counseling.jpg' ) }}" alt=""
+                        class="rounded-lg h-full w-full object-cover aspect-video">
+                </div>
+                <div class="col-span-2">
+                    <div class="col-span-2 self-end font-semibold text-lg">Judul Artikel</div>
+                    <div class="row-span-2 col-span-2 text-base">Lorem ipsum dolor sit amet consectetur adipisicing
+                        elit. Sequi delectus quod deserunt aperiamre inventore?</div>
+                </div>
+            </div>
+            <div class="grid grid-cols-3 gap-2 lg:mb-10">
+                <div class="lg:mr-3">
+                    <img src="{{ asset('img/illustrations/pro-counseling.jpg' ) }}" alt=""
+                        class="rounded-lg h-full w-full object-cover aspect-video">
+                </div>
+                <div class="col-span-2">
+                    <div class="col-span-2 self-end font-semibold text-lg">Judul Artikel</div>
+                    <div class="row-span-2 col-span-2 text-base">Lorem ipsum dolor sit amet consectetur adipisicing
+                        elit. Sequi delectus quod deserunt aperiamre inventore?</div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center">
+            <a href="" class="bg-white text-black border-black border-[1px] lg:px-4 lg:py-2 rounded-lg">Lihat
+                Selengkapnya</a>
         </div>
     </div>
     <div class="py-20">

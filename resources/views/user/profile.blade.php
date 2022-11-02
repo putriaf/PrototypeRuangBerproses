@@ -17,6 +17,10 @@ section {
     scrollbar-width: none;
     /* Firefox */
 }
+
+nav ul li a {
+    color: black !important;
+}
 </style>
 @endpush
 

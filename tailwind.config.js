@@ -16,7 +16,8 @@ module.exports = {
       },
       backgroundColor:{
         'pale-yellow': '#FAFAF2',
-        'rb-light-orange': '#FB8D66'
+        'rb-light-orange': '#FB8D66',
+        'pale-orange': '#FB8D66'
       },
       backgroundImage: {
         'jumbotron-home': "url('/img/illustrations/jumbotron-home.png');", 

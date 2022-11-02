@@ -1,5 +1,13 @@
 @extends('layout.layout')
 
+@push('styles')
+<style>
+nav ul li a {
+    color: black !important;
+}
+</style>
+@endpush
+
 @section('content')
 <section class="lg:mx-20 lg:my-10">
     <div class="mx-auto font-quicksand text-center lg:mb-12">
