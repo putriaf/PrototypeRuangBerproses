@@ -2140,6 +2140,16 @@ input:checked + .toggle-bg {
   background-color: rgb(31 41 55 / var(--tw-bg-opacity));
 }
 
+.bg-\[\#e67147\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(230 113 71 / var(--tw-bg-opacity));
+}
+
+.bg-\[\#e3673b\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(227 103 59 / var(--tw-bg-opacity));
+}
+
 .bg-opacity-50 {
   --tw-bg-opacity: 0.5;
 }
@@ -2701,6 +2711,11 @@ input:checked + .toggle-bg {
 .hover\:bg-rb-light-orange:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(251 141 102 / var(--tw-bg-opacity));
+}
+
+.hover\:bg-\[\#c95024\]:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(201 80 36 / var(--tw-bg-opacity));
 }
 
 .hover\:text-blue-600:hover {
@@ -3521,6 +3536,21 @@ input:checked + .toggle-bg {
   .lg\:py-20 {
     padding-top: 5rem;
     padding-bottom: 5rem;
+  }
+
+  .lg\:px-3 {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+
+  .lg\:px-5 {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+
+  .lg\:px-7 {
+    padding-left: 1.75rem;
+    padding-right: 1.75rem;
   }
 
   .lg\:pt-10 {

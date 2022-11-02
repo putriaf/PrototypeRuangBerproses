@@ -31,7 +31,7 @@ use App\Http\Middleware\AuthCustom;
 |
 */
 
-Route::get('/linkstorage', function () {
+Route::get('/storage', function () {
     Artisan::call('storage:link');
 });
 

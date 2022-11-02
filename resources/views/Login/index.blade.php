@@ -1,5 +1,13 @@
 @extends('layout.layout')
 
+@push('styles')
+<style>
+nav ul li a {
+    color: black !important;
+}
+</style>
+@endpush
+
 @section('content')
 @if(session()->has('success'))
 <div id="alert-3" class="flex p-4 mb-4 bg-green-100 rounded-lg dark:bg-green-200 lg:mx-16 lg:w-1/2 lg:pr-52"

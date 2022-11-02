@@ -35,7 +35,7 @@
                     <button type="button"
                         class="flex mr-3 text-sm rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600">
                         <a href="/login"
-                            class="text-neutral-200 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-neutral-200 md:hover:font-semibold md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Login</a>
+                            class="text-neutral-200 rounded-full bg-[#e3673b] lg:px-7 lg:py-2 font-semibold hover:bg-[#c95024] shadow-md">Login</a>
                     </button>
                     @else
                     <button type="button"
