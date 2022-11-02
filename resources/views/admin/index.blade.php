@@ -1,5 +1,13 @@
 @extends('layout.layout')
 
+@push('styles')
+<style>
+nav ul li a {
+    color: black !important;
+}
+</style>
+@endpush
+
 @section('content')
 
 <div class="mb-4 border-b border-gray-200 dark:border-gray-700">
