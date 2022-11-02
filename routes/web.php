@@ -16,6 +16,7 @@ use App\Http\Controllers\PsytalkController;
 use App\Http\Controllers\KelasBerprosesController;
 use App\Http\Controllers\TentangController;
 use App\Models\User;
+use Illuminate\Support\Facades\Artisan;
 
 use App\Http\Middleware\AuthCustom;
 
@@ -29,6 +30,10 @@ use App\Http\Middleware\AuthCustom;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get('/linkstorage', function () {
+    Artisan::call('storage:link');
+});
 
 Route::get('/', function () {
     return view('index');
