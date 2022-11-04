@@ -122,49 +122,101 @@ nav ul li a {
             <div class="" id="riwayatLayanan" role="tabpanel" aria-labelledby="riwayatLayanan-tab">
                 <h2 class="text-3xl font-semibold lg:mb-12">Riwayat Pendaftaran Layanan</h2>
                 <div class="pb-10">
+                    @foreach($reg_procounseling as $user_rpc)
                     <div class="bg-white lg:mb-8 rounded-xl lg:p-4">
                         <h3 class="font-semibold text-lg">PSYTALK 66</h3>
                         <p class="text-xs">5 Oktober 2022</p>
+                        @if($user_rpc->status_pendaftaran == 'konfirmasi_admin')
                         <p class="lg:p-2 rounded-md bg-[#FFEAB2] w-fit font-semibold text-sm lg:mt-4">MENUNGGU
-                            PEMBAYARAN
+                            KONFIRMASI
+                            ADMIN
                         </p>
+                        @elseif($user_rpc->status_pendaftaran == 'berhasil')
+                        <p class="lg:p-2 rounded-md bg-[#AAF0BE] w-fit font-semibold text-sm lg:mt-4">BERHASIL
+                        </p>
+                        @else
+                        <p class="lg:p-2 rounded-md bg-[#D9D9D9] w-fit font-semibold text-sm lg:mt-4">GAGAL
+                        </p>
+                        @endif
                     </div>
+                    @endforeach
+                    @foreach($reg_peercounseling as $user_rpec)
                     <div class="bg-white lg:mb-8 rounded-xl lg:p-4">
                         <h3 class="font-semibold text-lg">PSYTALK 66</h3>
                         <p class="text-xs">5 Oktober 2022</p>
-                        <p class="lg:p-2 rounded-md bg-[#AAF0BE] w-fit font-semibold text-sm lg:mt-4">SELESAI
+                        @if($user_rpec->status_pendaftaran == 'konfirmasi_admin')
+                        <p class="lg:p-2 rounded-md bg-[#FFEAB2] w-fit font-semibold text-sm lg:mt-4">MENUNGGU
+                            KONFIRMASI
+                            ADMIN
                         </p>
+                        @elseif($user_rpec->status_pendaftaran == 'berhasil')
+                        <p class="lg:p-2 rounded-md bg-[#AAF0BE] w-fit font-semibold text-sm lg:mt-4">BERHASIL
+                        </p>
+                        @else
+                        <p class="lg:p-2 rounded-md bg-[#D9D9D9] w-fit font-semibold text-sm lg:mt-4">GAGAL
+                        </p>
+                        @endif
                     </div>
+                    @endforeach
+                    @foreach($reg_sg as $user_rsg)
                     <div class="bg-white lg:mb-8 rounded-xl lg:p-4">
                         <h3 class="font-semibold text-lg">PSYTALK 66</h3>
                         <p class="text-xs">5 Oktober 2022</p>
-                        <p class="lg:p-2 rounded-md bg-[#D9D9D9] w-fit font-semibold text-sm lg:mt-4">BATAL
+                        @if($user_rsg->status_pendaftaran == 'konfirmasi_admin')
+                        <p class="lg:p-2 rounded-md bg-[#FFEAB2] w-fit font-semibold text-sm lg:mt-4">MENUNGGU
+                            KONFIRMASI
+                            ADMIN
                         </p>
+                        @elseif($user_rsg->status_pendaftaran == 'berhasil')
+                        <p class="lg:p-2 rounded-md bg-[#AAF0BE] w-fit font-semibold text-sm lg:mt-4">BERHASIL
+                        </p>
+                        @else
+                        <p class="lg:p-2 rounded-md bg-[#D9D9D9] w-fit font-semibold text-sm lg:mt-4">GAGAL
+                        </p>
+                        @endif
                     </div>
+                    @endforeach
                 </div>
             </div>
             <div class="" id="riwayatProgram" role="tabpanel" aria-labelledby="riwayatProgram-tab">
                 <h2 class="text-3xl font-semibold lg:mb-12">Riwayat Pendaftaran Program</h2>
                 <div class="pb-10">
+                    @foreach($reg_psytalk as $user_rpsytalk)
                     <div class="bg-white lg:mb-8 rounded-xl lg:p-4">
                         <h3 class="font-semibold text-lg">PSYTALK 66</h3>
                         <p class="text-xs">5 Oktober 2022</p>
+                        @if($user_rpsytalk->status_pendaftaran == 'konfirmasi_admin')
                         <p class="lg:p-2 rounded-md bg-[#FFEAB2] w-fit font-semibold text-sm lg:mt-4">MENUNGGU
-                            PEMBAYARAN
+                            KONFIRMASI
+                            ADMIN
                         </p>
+                        @elseif($user_rpsytalk->status_pendaftaran == 'berhasil')
+                        <p class="lg:p-2 rounded-md bg-[#AAF0BE] w-fit font-semibold text-sm lg:mt-4">BERHASIL
+                        </p>
+                        @else
+                        <p class="lg:p-2 rounded-md bg-[#D9D9D9] w-fit font-semibold text-sm lg:mt-4">GAGAL
+                        </p>
+                        @endif
                     </div>
+                    @endforeach
+                    @foreach($reg_kb as $user_rkb)
                     <div class="bg-white lg:mb-8 rounded-xl lg:p-4">
                         <h3 class="font-semibold text-lg">PSYTALK 66</h3>
                         <p class="text-xs">5 Oktober 2022</p>
-                        <p class="lg:p-2 rounded-md bg-[#AAF0BE] w-fit font-semibold text-sm lg:mt-4">SELESAI
+                        @if($user_rkb->status_pendaftaran == 'konfirmasi_admin')
+                        <p class="lg:p-2 rounded-md bg-[#FFEAB2] w-fit font-semibold text-sm lg:mt-4">MENUNGGU
+                            KONFIRMASI
+                            ADMIN
                         </p>
-                    </div>
-                    <div class="bg-white lg:mb-8 rounded-xl lg:p-4">
-                        <h3 class="font-semibold text-lg">PSYTALK 66</h3>
-                        <p class="text-xs">5 Oktober 2022</p>
-                        <p class="lg:p-2 rounded-md bg-[#D9D9D9] w-fit font-semibold text-sm lg:mt-4">BATAL
+                        @elseif($user_rkb->status_pendaftaran == 'berhasil')
+                        <p class="lg:p-2 rounded-md bg-[#AAF0BE] w-fit font-semibold text-sm lg:mt-4">BERHASIL
                         </p>
+                        @else
+                        <p class="lg:p-2 rounded-md bg-[#D9D9D9] w-fit font-semibold text-sm lg:mt-4">GAGAL
+                        </p>
+                        @endif
                     </div>
+                    @endforeach
                 </div>
             </div>
             <div class="" id="editProfil" role="tabpanel" aria-labelledby="editProfil-tab">

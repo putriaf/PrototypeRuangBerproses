@@ -92,7 +92,7 @@
             <input class="form-control mt-5" type="file" id="bukti_transfer" name="bukti_transfer">
             </div>
             <input class="form-control mt-5 hidden" type="text" id="status_pendaftaran" name="status_pendaftaran"
-                value="Menunggu Konfirmasi">
+                value="konfirmasi_admin">
             </div>
 
             <input type="button" name="previous" class="previous action-button" value="Previous" />

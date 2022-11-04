@@ -23,7 +23,12 @@ class UserController extends Controller
         ])->get('https://ruangberproses-be.herokuapp.com/api/profile');
         $response = $response->object();
         $profilUser = $response->profile;
-        return view('/user/profile', compact(['title', 'profilUser']));
+        $reg_procounseling = $response->reg_procounseling;
+        $reg_peercounseling = $response->reg_peercounseling;
+        $reg_sg = $response->reg_sg;
+        $reg_psytalk = $response->reg_psytalk;
+        $reg_kb = $response->reg_kb;
+        return view('/user/profile', compact(['title', 'profilUser', 'reg_procounseling', 'reg_peercounseling', 'reg_sg', 'reg_psytalk', 'reg_kb']));
     }
 
     /**

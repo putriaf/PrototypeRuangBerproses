@@ -53,9 +53,10 @@
                         data-popper-placement="bottom"
                         style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate3d(0px, 43.3333px, 0px);">
                         <div class="py-3 px-4">
-                            <span class="block text-sm text-gray-900 dark:text-white">Bon</span>
                             <span
-                                class="block text-sm font-medium text-gray-500 truncate dark:text-gray-400">name@flowbite.com</span>
+                                class="block text-sm text-gray-900 dark:text-white">{{ session()->get('nama') }}</span>
+                            <span
+                                class="block text-sm font-medium text-gray-500 truncate dark:text-gray-400">{{ session()->get('email') }}</span>
                         </div>
                         <ul class="py-1" aria-labelledby="user-menu-button">
                             <li>
@@ -64,7 +65,7 @@
                                     Saya</a>
                             </li>
                             <li>
-                                <a href="#"
+                                <a href="/profil"
                                     class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Riwayat
                                     Pendaftaran</a>
                             </li>
@@ -94,7 +95,7 @@
                     <ul
                         class="flex flex-col p-4 mt-4 bg-gray-50 rounded-lg border border-gray-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-normal md:border-0 md:bg-transparent dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
                         <li>
-                            <a href="#"
+                            <a href="/"
                                 class="block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-neutral-200 md:p-0 dark:text-white"
                                 aria-current="page">Home</a>
                         </li>
