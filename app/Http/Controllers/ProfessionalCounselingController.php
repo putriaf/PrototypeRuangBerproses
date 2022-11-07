@@ -106,12 +106,13 @@ class ProfessionalCounselingController extends Controller
         ];
         $validatedData = $request->validate($rules);
 
-        Http::asForm()->post("https://ruangberproses-be.herokuapp.com/api/layanan/professional-counseling/" . $id . '?_method=PUT', [
-            'status' => $request->input('status'),
-            'bukti_transfer' => $request->input('bukti_transfer'),
+        Http::asForm()->post("https://ruangberproses-be.herokuapp.com/api/admin/layanan/procounseling-list/" . $id . '?_method=PUT', [
+            'nama_konselor' => $request->input('nama_konselor'),
+            'waktu' => $request->input('waktu'),
+            'biaya' => $request->input('biaya')
         ]);
 
-        return redirect('/admin/layanan/professional-counseling');
+        return redirect('/admin');
     }
 
     /**
@@ -122,10 +123,10 @@ class ProfessionalCounselingController extends Controller
      */
     public function destroy($id)
     {
-        $response = Http::delete("https://ruangberproses-be.herokuapp.com/api/admin/layanan/professional-counseling/" . $id);
+        $response = Http::delete("https://ruangberproses-be.herokuapp.com/api/admin/layanan/procounseling-list/" . $id);
 
         if ($response->status() == 200) {
-            return redirect('/layanan')->with('success', 'Professional Counseling data has been deleted!');
+            return redirect('/admin')->with('success', 'Professional Counseling data has been deleted!');
         }
     }
 }

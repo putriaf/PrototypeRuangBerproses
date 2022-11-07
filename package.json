@@ -33,6 +33,7 @@
   },
   "homepage": "https://github.com/putriaf/RuangBerproses-Dev#readme",
   "dependencies": {
+    "chart.js": "^3.9.1",
     "feather-icons": "^4.29.0"
   }
 }

@@ -14,6 +14,7 @@ use App\Http\Controllers\RegistrationProCounselingController;
 use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\PsytalkController;
 use App\Http\Controllers\KelasBerprosesController;
+use App\Http\Controllers\ScreeningController;
 use App\Http\Controllers\TentangController;
 use App\Models\User;
 use Illuminate\Support\Facades\Artisan;
@@ -54,6 +55,14 @@ Route::get('/profile/{username}', function ($username) {
 
 // ADMINISTRASI
 Route::get('/admin', [AdminController::class, 'index']);
+
+// SCREENING
+Route::get('/screening', [ScreeningController::class, 'create'])->middleware('token');
+Route::post('/screening', [ScreeningController::class, 'store']);
+Route::get('/admin/screening/{screenings:id}', [ScreeningController::class, 'show']);
+Route::get('/admin/screening/{screenings:id}/edit', [ScreeningController::class, 'edit']);
+Route::put('/admin/screening/{screenings:id}', [ScreeningController::class, 'update']);
+Route::delete('/admin/screening/{screenings:id}', [ScreeningController::class, 'destroy']);
 
 // LAYANAN
 Route::get('/layanan', [LayananController::class, 'index']);
