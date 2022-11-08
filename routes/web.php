@@ -45,13 +45,8 @@ Route::post('/logout', [LoginController::class, 'logout']);
 Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
 Route::post('/register', [RegisterController::class, 'store']);
 
-Route::resource('/profil', UserController::class)->middleware('token');
-Route::get('/profile/{username}', function ($username) {
-    $title = "My Profile";
-    $username = User::where('username', $username)->first()->username;
-    $id = User::where('username', $username)->first()->id;
-    return view('/user/profile', compact(['title']));
-});
+Route::get('/profile', [UserController::class, 'index'])->middleware('token');
+Route::put('/profile/{users:username}', [UserController::class, 'update']);
 
 // ADMINISTRASI
 Route::get('/admin', [AdminController::class, 'index']);

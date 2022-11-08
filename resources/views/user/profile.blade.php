@@ -31,8 +31,8 @@ nav ul li a {
             <div class="">
                 <div class="text-center">
                     <img src="{{ asset('img/user/avatar.png') }}" alt="User Profile" class="w-20 mx-auto">
-                    <h1 class="text-2xl font-bold lg:mb-2">{{ session()->get('nama') }}</h1>
-                    <p>{{ session()->get('email') }}</p>
+                    <h1 class="text-2xl font-bold lg:mb-2">{{ $profilUser->nama }}</h1>
+                    <p>{{ $profilUser->email }}</p>
                 </div>
                 <hr class="mt-1 mb-3 bg-gray-200 border-0 dark:bg-gray-700">
                 <div class="">
@@ -45,7 +45,7 @@ nav ul li a {
                                         NOMOR TELEPON
                                     </th>
                                     <td class="py-2 px-2">
-                                        0812939379373
+                                        {{ $profilUser->no_telp }}
                                     </td>
                                 </tr>
                                 <tr class="bg-white dark:bg-gray-800 dark:border-gray-700">
@@ -54,7 +54,7 @@ nav ul li a {
                                         TANGGAL LAHIR
                                     </th>
                                     <td class="py-2 px-2">
-                                        18/12/2001
+                                        {{ $profilUser->tgl_lahir }}
                                     </td>
                                 </tr>
                                 <tr class="bg-white dark:bg-gray-800 dark:border-gray-700">
@@ -63,7 +63,7 @@ nav ul li a {
                                         JENIS KELAMIN
                                     </th>
                                     <td class="py-2 px-2">
-                                        Perempuan
+                                        {{ $profilUser->jk }}
                                     </td>
                                 </tr>
                                 <tr class="bg-white dark:bg-gray-800">
@@ -72,7 +72,7 @@ nav ul li a {
                                         DOMISILI
                                     </th>
                                     <td class="py-2 px-2">
-                                        Tangerang
+                                        {{ $profilUser->domisili }}
                                     </td>
                                 </tr>
                                 <tr class="bg-white dark:bg-gray-800">
@@ -81,7 +81,7 @@ nav ul li a {
                                         PEKERJAAN
                                     </th>
                                     <td class="py-2 px-2">
-                                        Mahasiswa
+                                        {{ $profilUser->pekerjaan }}
                                     </td>
                                 </tr>
                             </tbody>
@@ -222,81 +222,81 @@ nav ul li a {
             <div class="" id="editProfil" role="tabpanel" aria-labelledby="editProfil-tab">
                 <h2 class="text-3xl font-semibold lg:mb-12">Edit Profil</h2>
                 <div class="pb-10">
-                    <form method="POST" action="/profil/{{ $profilUser->username }}" enctype="multipart/form-data">
+                    <form method="POST" action="/profile/{{ $profilUser->username }}" enctype="multipart/form-data">
                         @method('put')
                         @csrf
                         <div class="mb-6">
                             <label for="nama"
                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Nama</label>
-                            <input type="text" id="nama"
+                            <input type="text" id="nama" name="nama"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                required="" value="{{ old('nama', $profilUser->nama) }}">
+                                value="{{ old('nama', $profilUser->nama) }}">
                         </div>
                         <div class="mb-6">
                             <label for="no_telp"
                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Nomor
                                 Telepon</label>
-                            <input type="text" id="no_telp"
+                            <input type="text" id="no_telp" name="no_telp"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                required="" value="{{ old('no_telp', $profilUser->no_telp) }}">
+                                value="{{ old('no_telp', $profilUser->no_telp) }}">
                         </div>
                         <div class="mb-6">
                             <label for="tgl_lahir"
                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Tanggal
                                 Lahir</label>
-                            <input type="text" id="tgl_lahir"
+                            <input type="text" id="tgl_lahir" name="tgl_lahir"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                required="" value="{{ old('tgl_lahir', $profilUser->tgl_lahir) }}">
+                                value="{{ old('tgl_lahir', $profilUser->tgl_lahir) }}">
                         </div>
                         <div class="mb-6">
                             <label for="domisili"
                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Domisili</label>
-                            <input type="text" id="domisili"
+                            <input type="text" id="domisili" name="domisili"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                required="" value="{{ old('domisili', $profilUser->domisili) }}">
+                                value="{{ old('domisili', $profilUser->domisili) }}">
                         </div>
                         <div class="mb-6">
                             <label for="agama"
                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Agama</label>
-                            <input type="text" id="agama"
+                            <input type="text" id="agama" name="agama"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                required="" value="{{ old('agama', $profilUser->agama) }}">
+                                value="{{ old('agama', $profilUser->agama) }}">
                         </div>
                         <div class="mb-6">
                             <label for="pendidikan"
                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Pendidikan</label>
-                            <input type="text" id="pendidikan"
+                            <input type="text" id="pendidikan" name="pendidikan"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                required="" value="{{ old('pendidikan', $profilUser->pendidikan) }}">
+                                value="{{ old('pendidikan', $profilUser->pendidikan) }}">
                         </div>
                         <div class="mb-6">
                             <label for="pekerjaan"
                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Pekerjaan</label>
-                            <input type="text" id="pekerjaan"
+                            <input type="text" id="pekerjaan" name="pekerjaan"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                required="" value="{{ old('pekerjaan', $profilUser->pekerjaan) }}">
+                                value="{{ old('pekerjaan', $profilUser->pekerjaan) }}">
                         </div>
                         <div class="mb-6">
                             <label for="foto_profil"
                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Foto
                                 Profil</label>
-                            <input type="file" id="password"
+                            <input type="file" id="foto_profil" name="foto_profil"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                required="" value="{{ old('foto_profil', $profilUser->foto_profil) }}">
+                                value="{{ old('foto_profil', $profilUser->foto_profil) }}">
                         </div>
                         <div class="mb-6">
                             <label for="status"
                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Status</label>
-                            <input type="text" id="status"
+                            <input type="text" id="status" name="status"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                required="" value="{{ old('status', $profilUser->status) }}">
+                                value="{{ old('status', $profilUser->status) }}">
                         </div>
                         <div class="mb-6">
                             <label for="password"
                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Password</label>
-                            <input type="text" id="password"
+                            <input type="text" id="password" name="password"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                required="" value="{{ old('password', $profilUser->password) }}">
+                                value="{{ old('password')}}">
                         </div>
                         <button type="submit"
                             class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>

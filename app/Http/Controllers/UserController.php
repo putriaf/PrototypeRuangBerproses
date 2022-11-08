@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Log\Logger;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Hash;
@@ -83,55 +84,48 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $id = session()->get('id');
-        $profilUser = Http::withHeaders([
+        $response = Http::withHeaders([
             'Accept' => 'application/json',
             'Authorization' => 'Bearer ' . session('token'),
-        ])->get('https://ruangberproses-be.herokuapp.com/api/profile/' . session()->get('username') . '/edit');
-        $profilUsers = $profilUser->object();
+        ])->get('https://ruangberproses-be.herokuapp.com/api/profile');
+        $response = $response->object();
+        $profilUser = $response->profile;
         $pass = null;
         $profil = null;
         $rules = [
             'nama' => 'required|max:255',
             'no_telp' => 'required|numeric|digits_between:10,14',
             'jk' => 'required|max:1',
-            // 'posisi' => 'required|max:255',
+            'tgl_lahir' => 'required'
         ];
-        foreach ($profilUsers as $profilUser) {
-            if ($request->username != $profilUser->username) {
-                $rules['username'] = 'required|min:3|max:255|unique:users';
-            }
-            if ($request->email != $profilUser->email) {
-                $rules['email'] = 'required|email:dns|unique:users';
-            }
+        if ($request->password != null) {
+            $rules['password'] = 'required|min:3|max:255';
+            $pass = Hash::make($request->password);
+        }
+        // $validatedData = $request->validate($rules);
 
-            if ($request->password != null) {
-                $rules['password'] = 'required|min:3|max:255';
-                $pass = Hash::make($request->password);
+        if ($request->file('foto_profil')) {
+            if ($request->oldImage) {
+                Storage::delete($request->oldImage);
             }
-            $validatedData = $request->validate($rules);
-
-            if ($request->file('foto_profil')) {
-                if ($request->oldImage) {
-                    Storage::delete($request->oldImage);
-                }
-                $profil = $request->file('foto_profil')->store('foto-profil');
-            }
+            $profil = $request->file('foto_profil')->store('foto-profil');
         }
         $validatedData['id'] = $id;
         $response = Http::withHeaders([
             'Accept' => 'application/json',
             'Authorization' => 'Bearer ' . session('token'),
-        ])
-            ->asForm()->post("https://ruangberproses-be.herokuapp.com/api/profile/" . session()->get('id') . '?_method=PUT', [
-                'nama' => $request->input('nama'),
-                'username' => $request->input('username'),
-                'no_telp' => $request->input('no_telp'),
-                'email' => $request->input('email'),
-                'jk' => $request->input('jk'),
-                'password' => $pass,
-                'foto_profil' => $profil,
-            ]);
+        ])->asForm()->post("https://ruangberproses-be.herokuapp.com/api/profile/" . session('username') . '?_method=PUT', [
+            'nama' => $request->input('nama'),
+            'no_telp' => $request->input('no_telp'),
+            'tgl_lahir' => $request->input('tgl_lahir'),
+            'password' => $pass,
+            'foto_profil' => $profil,
+            'domisili' => $request->input('domisili'),
+            'agama' => $request->input('agama'),
+            'pendidikan' => $request->input('pendidikan'),
+            'pekerjaan' => $request->input('pekerjaan'),
+            'status' => $request->input('status')
+        ]);
         $resp = $response->object();
         if ($response->status() == 200) {
             $response = $resp->data;
@@ -141,7 +135,6 @@ class UserController extends Controller
             session(['foto_profil' => $foto_profil]);
             return redirect('/profile')->with('success', 'Profil berhasil diupdate!');
         }
-        return redirect('/profile/' . session()->get('username') . '/edit')->with('success', 'Profil berhasil diupdate!');
     }
 
     /**
