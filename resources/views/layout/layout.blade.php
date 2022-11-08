@@ -29,7 +29,7 @@
         <nav class="border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900 fixed top-0 w-full z-50"
             id="navigation">
             <div class="container flex flex-wrap justify-between items-center mx-auto">
-                <a href="https://flowbite.com/" class="flex items-center">
+                <a href="/" class="flex items-center">
                     <img src="{{ asset('img/ruang-berproses/rb-logo-text.png') }}" class="mr-3 h-6 sm:h-9"
                         alt="Logo Ruang Berproses">
                 </a>

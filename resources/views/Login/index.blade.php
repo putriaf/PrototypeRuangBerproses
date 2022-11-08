@@ -43,7 +43,7 @@ nav ul li a {
 </div>
 @endif
 <div class="grid grid-cols-2 font-quicksand lg:ml-16 gap-6">
-    <div class="lg:py-12">
+    <div class="lg:pb-12 lg:pt-32">
         <h1 class="lg:text-4xl font-bold">Berproses Menuju Versi Terbaikmu Dimulai Disini</h1>
         <form action="/login" method="POST" class="lg:mt-14 lg:mr-52">
             @csrf
@@ -77,7 +77,7 @@ nav ul li a {
         </form>
         <p class="text-sm lg:mt-3">Belum punya akun? <a href="/register" class="font-semibold">Daftar sekarang!</a></p>
     </div>
-    <div class="">
+    <div class="lg:pb-12 lg:pt-20">
         <img src="{{ asset('img/illustrations/login.png') }}" alt="">
     </div>
 </div>

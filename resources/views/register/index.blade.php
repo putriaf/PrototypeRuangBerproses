@@ -1,7 +1,7 @@
 @extends('layout.layout')
 
 @section('content')
-<section class="lg:mx-16 lg:py-12 font-quicksand">
+<section class="lg:mx-16 lg:pb-12 lg:pt-32 font-quicksand">
     <h1 class="text-3xl font-bold lg:mb-2">Buat Akun dan Akses Layanan</h1>
     <h1 class="text-3xl font-bold lg:mb-16">Sepenuhnya</h1>
     <form method="POST" action="/register" enctype="multipart/form-data" class="lg:mr-52">

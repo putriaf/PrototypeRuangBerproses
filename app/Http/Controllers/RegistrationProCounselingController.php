@@ -25,13 +25,12 @@ class RegistrationProCounselingController extends Controller
      */
     public function create()
     {
-        $response = Http::get('https://ruangberproses-be.herokuapp.com/api/layanan/professional-counseling/daftar');
+        $response = Http::get('https://ruangberproses-be.herokuapp.com/api/admin/layanan/procounseling-list');
         $response = $response->object();
-
         return view('layanan.professionalCounseling.daftar', [
             'title' => 'Pendaftaran Virtual Professional Counseling',
             'message' => NULL,
-            'procounselings' => $response->procounselings
+            'procounselings' => $response->data
         ]);
     }
 
