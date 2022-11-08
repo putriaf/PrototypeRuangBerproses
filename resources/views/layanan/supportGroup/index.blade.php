@@ -2,7 +2,7 @@
 
 <!--  Hero -->
 @section('content')
-<section class="-mt-20 font-quicksand">
+<section class="font-quicksand">
     <div
         class="pt-52 sm:px-12 h-screen bg-hero-sg bg-no-repeat bg-cover bg-center bg-fixed mx-auto text-center text-slate-100 xl:px-64">
         <h1 class="font-bold text-3xl sm:text-4xl md:text-5xl mb-3 sm:mb-4" style="line-height: 1.2">Virtual Support

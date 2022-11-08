@@ -11,6 +11,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('https://ruangberproses-dev.herokuapp.com/css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/multistep-form.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/navbar-scroll.css') }}" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Quicksand:wght@300;400;500;600;700&display=swap"
@@ -18,13 +19,15 @@
     <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.3/dist/flowbite.min.css" />
     <script src="https://unpkg.com/feather-icons"></script>
     <script src="https://unpkg.com/flowbite@1.5.3/dist/datepicker.js"></script>
+    <script src="{{ asset('js/navbar-scroll.js') }}"></script>
     @stack('styles')
 </head>
 
 <body>
     <!-- Start Header -->
     <header class="font-montserrat">
-        <nav class="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900">
+        <nav class="border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900 fixed top-0 w-full z-50"
+            id="navigation">
             <div class="container flex flex-wrap justify-between items-center mx-auto">
                 <a href="https://flowbite.com/" class="flex items-center">
                     <img src="{{ asset('img/ruang-berproses/rb-logo-text.png') }}" class="mr-3 h-6 sm:h-9"
@@ -60,12 +63,12 @@
                         </div>
                         <ul class="py-1" aria-labelledby="user-menu-button">
                             <li>
-                                <a href="/profil"
+                                <a href="/profile"
                                     class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Profil
                                     Saya</a>
                             </li>
                             <li>
-                                <a href="/profil"
+                                <a href="/profile"
                                     class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Riwayat
                                     Pendaftaran</a>
                             </li>
@@ -103,7 +106,7 @@
                         class="flex flex-col p-4 mt-4 bg-gray-50 rounded-lg border border-gray-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-normal md:border-0 md:bg-transparent dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
                         <li>
                             <a href="/"
-                                class="block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-neutral-200 md:p-0 dark:text-white"
+                                class="block py-2 pr-4 pl-3 bg-blue-700 rounded md:bg-transparent md:text-neutral-200 md:p-0 nav-item-text"
                                 aria-current="page">Home</a>
                         </li>
                         <li>
@@ -124,17 +127,17 @@
                                     aria-labelledby="dropdownLayananButton">
                                     <li>
                                         <a href="/layanan/professional-counseling"
-                                            class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Professional
+                                            class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white nav-item-text">Professional
                                             Counseling</a>
                                     </li>
                                     <li>
                                         <a href="/layanan/peer-counseling"
-                                            class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Peer
+                                            class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white nav-item-text">Peer
                                             Counseling</a>
                                     </li>
                                     <li>
                                         <a href="/layanan/support-group"
-                                            class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Virtual
+                                            class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white nav-item-text">Virtual
                                             Support Group</a>
                                     </li>
                                 </ul>
@@ -188,7 +191,7 @@
                             </a>
                             <!-- Dropdown Program -->
                             <div id="dropdownTentang"
-                                class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700">
+                                class="hidden z-20 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700">
                                 <ul class="py-1 text-sm text-gray-700 dark:text-gray-200"
                                     aria-labelledby="dropdownTentangButton">
                                     <li>

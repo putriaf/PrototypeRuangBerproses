@@ -25,9 +25,9 @@ nav ul li a {
 @endpush
 
 @section('content')
-<section class="font-quicksand mx-20 my-8">
+<section class="font-quicksand mx-20">
     <div class="grid grid-cols-4 h-screen gap-8">
-        <div class="shadow-md rounded-md">
+        <div class="shadow-md rounded-md lg:mb-16 lg:mt-20">
             <div class="">
                 <div class="text-center">
                     <img src="{{ asset('img/user/avatar.png') }}" alt="User Profile" class="w-20 mx-auto">
@@ -114,10 +114,10 @@ nav ul li a {
                         </div>
                     </div>
                 </div>
-                <a href="" class="mt-52 underline text-xs text-center mx-auto block lg:mt-4">Logout</a>
+                <a href="" class="underline text-xs text-center mx-auto block lg:my-4">Logout</a>
             </div>
         </div>
-        <div class="col-span-3 max-h-screen shadow-md rounded-md lg:p-12 overflow-y-auto overflow-x-hidden bg-[#F3F3F3] lg:mb-16"
+        <div class="col-span-3 max-h-screen shadow-md rounded-md lg:p-12 overflow-y-auto overflow-x-hidden bg-[#F3F3F3] lg:mb-16 lg:mt-20"
             id="profileMenuContent">
             <div class="" id="riwayatLayanan" role="tabpanel" aria-labelledby="riwayatLayanan-tab">
                 <h2 class="text-3xl font-semibold lg:mb-12">Riwayat Pendaftaran Layanan</h2>
@@ -281,14 +281,14 @@ nav ul li a {
                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Foto
                                 Profil</label>
                             <input type="file" id="foto_profil" name="foto_profil"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                class="rounded-md border border-gray-600"
                                 value="{{ old('foto_profil', $profilUser->foto_profil) }}">
                         </div>
                         <div class="mb-6">
                             <label for="status"
                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Status</label>
                             <input type="text" id="status" name="status"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                class="bg-gray-50 border-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                 value="{{ old('status', $profilUser->status) }}">
                         </div>
                         <div class="mb-6">

@@ -1100,6 +1100,11 @@ input:checked + .toggle-bg {
   position: relative;
 }
 
+.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+}
+
 .inset-0 {
   top: 0px;
   right: 0px;
@@ -1278,6 +1283,16 @@ input:checked + .toggle-bg {
   margin-right: 4rem;
 }
 
+.my-20 {
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+}
+
+.mx-8 {
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+
 .mb-10 {
   margin-bottom: 2.5rem;
 }
@@ -1446,6 +1461,10 @@ input:checked + .toggle-bg {
   margin-right: 5rem;
 }
 
+.mt-32 {
+  margin-top: 8rem;
+}
+
 .block {
   display: block;
 }
@@ -1552,6 +1571,10 @@ input:checked + .toggle-bg {
 
 .max-h-40 {
   max-height: 10rem;
+}
+
+.max-h-32 {
+  max-height: 8rem;
 }
 
 .min-h-screen {
@@ -2198,6 +2221,16 @@ input:checked + .toggle-bg {
   border-color: rgb(26 86 219 / var(--tw-border-opacity));
 }
 
+.border-gray-400 {
+  --tw-border-opacity: 1;
+  border-color: rgb(156 163 175 / var(--tw-border-opacity));
+}
+
+.border-gray-600 {
+  --tw-border-opacity: 1;
+  border-color: rgb(75 85 99 / var(--tw-border-opacity));
+}
+
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
@@ -2595,6 +2628,10 @@ input:checked + .toggle-bg {
   padding-top: 0.5rem;
 }
 
+.pt-48 {
+  padding-top: 12rem;
+}
+
 .text-left {
   text-align: left;
 }
@@ -2705,6 +2742,14 @@ input:checked + .toggle-bg {
 
 .leading-9 {
   line-height: 2.25rem;
+}
+
+.leading-loose {
+  line-height: 2;
+}
+
+.leading-relaxed {
+  line-height: 1.625;
 }
 
 .tracking-tight {
@@ -3453,6 +3498,11 @@ input:checked + .toggle-bg {
     grid-column: span 3 / span 3;
   }
 
+  .sm\:mx-10 {
+    margin-left: 2.5rem;
+    margin-right: 2.5rem;
+  }
+
   .sm\:mb-4 {
     margin-bottom: 1rem;
   }
@@ -3471,6 +3521,10 @@ input:checked + .toggle-bg {
 
   .sm\:ml-3 {
     margin-left: 0.75rem;
+  }
+
+  .sm\:mb-20 {
+    margin-bottom: 5rem;
   }
 
   .sm\:block {
@@ -3784,6 +3838,36 @@ input:checked + .toggle-bg {
     margin-right: 8rem;
   }
 
+  .lg\:my-16 {
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+  }
+
+  .lg\:my-4 {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .lg\:mx-52 {
+    margin-left: 13rem;
+    margin-right: 13rem;
+  }
+
+  .lg\:mx-60 {
+    margin-left: 15rem;
+    margin-right: 15rem;
+  }
+
+  .lg\:mx-72 {
+    margin-left: 18rem;
+    margin-right: 18rem;
+  }
+
+  .lg\:mx-64 {
+    margin-left: 16rem;
+    margin-right: 16rem;
+  }
+
   .lg\:mb-2 {
     margin-bottom: 0.5rem;
   }
@@ -3892,6 +3976,18 @@ input:checked + .toggle-bg {
     margin-right: 0.5rem;
   }
 
+  .lg\:mt-32 {
+    margin-top: 8rem;
+  }
+
+  .lg\:mt-16 {
+    margin-top: 4rem;
+  }
+
+  .lg\:mt-12 {
+    margin-top: 3rem;
+  }
+
   .lg\:w-24 {
     width: 6rem;
   }
@@ -3959,6 +4055,46 @@ input:checked + .toggle-bg {
   .lg\:py-20 {
     padding-top: 5rem;
     padding-bottom: 5rem;
+  }
+
+  .lg\:px-32 {
+    padding-left: 8rem;
+    padding-right: 8rem;
+  }
+
+  .lg\:px-36 {
+    padding-left: 9rem;
+    padding-right: 9rem;
+  }
+
+  .lg\:px-\[155px\] {
+    padding-left: 155px;
+    padding-right: 155px;
+  }
+
+  .lg\:px-\[165px\] {
+    padding-left: 165px;
+    padding-right: 165px;
+  }
+
+  .lg\:px-\[175px\] {
+    padding-left: 175px;
+    padding-right: 175px;
+  }
+
+  .lg\:px-\[180px\] {
+    padding-left: 180px;
+    padding-right: 180px;
+  }
+
+  .lg\:px-20 {
+    padding-left: 5rem;
+    padding-right: 5rem;
+  }
+
+  .lg\:px-12 {
+    padding-left: 3rem;
+    padding-right: 3rem;
   }
 
   .lg\:pt-10 {

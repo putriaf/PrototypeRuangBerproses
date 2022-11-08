@@ -9,7 +9,7 @@ nav ul li a {
 @endpush
 
 @section('content')
-<section class="lg:mx-20 lg:my-10">
+<section class="lg:mx-20 lg:mt-20 lg:mb-10">
     <div class="mx-auto font-quicksand text-center lg:mb-12">
         <h1 class="text-3xl font-bold lg:mb-3">Kelas Berproses</h1>
         <p class="text-md">Pematerian sekaligus pelatihan psikologi</p>
