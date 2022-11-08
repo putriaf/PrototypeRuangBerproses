@@ -62,14 +62,32 @@ class RegistrationProCounselingController extends Controller
             $imagePath = NULL;
         }
 
+        $response = Http::get('https://ruangberproses-be.herokuapp.com/api/admin/screening/user/' . session('id'));
+        $response = $response->object();
+        $screening = $response->data;
+
         $response = Http::asForm()->post("https://ruangberproses-be.herokuapp.com/api/layanan/professional-counseling/daftar", [
             'user_id' => $request->input('user_id'),
+            'screening_id' => $screening->id,
             'procounseling_id' => $request->input('procounseling_id'),
             'preferensi_jk_konselor' => $request->input('preferensi_jk_konselor'),
             'consent_sharing' => $request->input('consent_sharing'),
             'consent_screening' => $request->input('consent_screening'),
             'bukti_transfer' => $imagePath,
             'status_pendaftaran' => $request->input('status_pendaftaran'),
+            'perubahan_fisik' => '0',
+            'perubahan_emosi' => '0',
+            'riwayat_kecemasan' => '0',
+            'penyakit_kronis' => '0',
+            'konsumsi_alkohol' => '0',
+            'konsumsi_obat' => '0',
+            'pola_tidur' => '0',
+            'pola_makan' => '0',
+            'kondisi_keuangan' => '0',
+            'ringkasan_masalah' => '0',
+            'pernah_konseling' => '0',
+            'menyakiti_diri' => '0',
+            'mengakhiri_hidup' => '0',
         ]);
         if ($response->status() == 200) {
             return redirect('/layanan/professional-counseling')->with('success', 'Pendaftaran berhasil!');

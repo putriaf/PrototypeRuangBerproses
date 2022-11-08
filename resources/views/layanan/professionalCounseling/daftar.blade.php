@@ -71,7 +71,7 @@
                         <option selected="">Pilih Konselor</option>
                         @if($procounselings != NULL)
                         @foreach($procounselings as $pc)
-                        <option value="{{ $pc->id }}">{{ $pc->nama_konselor}}</option>
+                        <option value="{{ $pc->id }}">{{ $pc->id}}</option>
                         @endforeach
                         @endif
                     </select>
