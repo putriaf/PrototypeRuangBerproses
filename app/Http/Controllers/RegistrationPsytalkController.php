@@ -62,7 +62,7 @@ class RegistrationPsytalkController extends Controller
             $imagePath = NULL;
         }
 
-        $response = Http::asForm()->post("https://ruangberproses-be.herokuapp.com/api/layanan/professional-counseling/daftar", [
+        $response = Http::asForm()->post("https://ruangberproses-be.herokuapp.com/api/program/psytalk/daftar", [
             'user_id' => $request->input('user_id'),
             'psytalk_id' => $request->input('psytalk_id'),
             'alasan' => $request->input('alasan'),

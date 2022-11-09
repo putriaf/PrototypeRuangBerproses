@@ -35,7 +35,7 @@ class LoginController extends Controller
             $username = $response->username;
             $foto_profil = $response->foto_profil;
             $nama = $response->nama;
-            $notelp = $response->notelp;
+            $no_telp = $response->no_telp;
             $tgl_lahir = $response->tgl_lahir;
             $jk = $response->jk;
             $email = $response->email;
@@ -45,7 +45,7 @@ class LoginController extends Controller
             session(['username' => $username]);
             session(['foto_profil' => $foto_profil]);
             session(['nama' => $nama]);
-            session(['notelp' => $notelp]);
+            session(['no_telp' => $no_telp]);
             session(['tgl_lahir' => $tgl_lahir]);
             session(['jk' => $jk]);
             session(['email' => $email]);
