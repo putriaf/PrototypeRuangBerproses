@@ -14,9 +14,12 @@ class PsytalkController extends Controller
      */
     public function index()
     {
+        $response = Http::get('https://ruangberproses-be.herokuapp.com/api/admin/program/psytalk-list');
+        $psytalks = $response->object();
         return view('program.psytalk.index', [
             'title' => 'Psychology Talk',
-            'message' => NULL
+            'message' => NULL,
+            'psytalks' => $psytalks->data
         ]);
     }
 

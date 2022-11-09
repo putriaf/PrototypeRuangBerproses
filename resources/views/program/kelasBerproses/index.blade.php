@@ -15,6 +15,7 @@ nav ul li a {
         <p class="text-md">Pematerian sekaligus pelatihan psikologi</p>
     </div>
     <div class="grid grid-cols-3 gap-10 lg:mb-8">
+        @foreach($kbs as $kb)
         <div
             class="max-w-xs bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
             <a href="#">
@@ -22,8 +23,8 @@ nav ul li a {
             </a>
             <div class="px-8 py-5">
                 <a href="#">
-                    <h5 class="mb-4 text-lg font-bold tracking-tight text-gray-900 dark:text-white">How to Start
-                        Shifting Your Career in Technology</h5>
+                    <h5 class="mb-4 text-lg font-bold tracking-tight text-gray-900 dark:text-white">{{ $kb->topik }}
+                    </h5>
                 </a>
                 <ul class="mb-6 text-sm">
                     <li class="mb-2">
@@ -33,7 +34,7 @@ nav ul li a {
                                 d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z">
                             </path>
                         </svg>
-                        Jumat, 9 Oktober 2022
+                        {{ $kb->tanggal }}
                     </li>
                     <li class="mb-2">
                         <svg class="w-5 h-5 inline lg:mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"
@@ -41,7 +42,7 @@ nav ul li a {
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                         </svg>
-                        19.00 - 21.00
+                        {{ $kb->waktu }}
                     </li>
                     <li class="mb-2">
                         <svg class="w-5 h-5 inline lg:mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"
@@ -50,7 +51,7 @@ nav ul li a {
                                 d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z">
                             </path>
                         </svg>
-                        Rp40.000
+                        {{ $kb->biaya }}
                     </li>
                 </ul>
                 <a href="#"
@@ -59,94 +60,7 @@ nav ul li a {
                 </a>
             </div>
         </div>
-        <div
-            class="max-w-xs bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
-            <a href="#">
-                <img class="rounded-t-lg" src="{{ asset('img/illustrations/jumbotron-home.png') }}" alt="">
-            </a>
-            <div class="px-8 pt-5">
-                <a href="#">
-                    <h5 class="mb-4 text-lg font-bold tracking-tight text-gray-900 dark:text-white">How to Start
-                        Shifting Your Career in Technology</h5>
-                </a>
-                <ul class="mb-6 text-sm">
-                    <li class="mb-2">
-                        <svg class="w-5 h-5 inline lg:mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z">
-                            </path>
-                        </svg>
-                        Jumat, 9 Oktober 2022
-                    </li>
-                    <li class="mb-2">
-                        <svg class="w-5 h-5 inline lg:mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                        </svg>
-                        19.00 - 21.00
-                    </li>
-                    <li class="mb-2">
-                        <svg class="w-5 h-5 inline lg:mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z">
-                            </path>
-                        </svg>
-                        Rp40.000
-                    </li>
-                </ul>
-                <a href="#"
-                    class="mx-16 block text-md items-center py-2 font-medium text-center text-white bg-[#FB8D66] rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                    Daftar
-                </a>
-            </div>
-        </div>
-        <div
-            class="max-w-xs bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
-            <a href="#">
-                <img class="rounded-t-lg" src="{{ asset('img/illustrations/jumbotron-home.png') }}" alt="">
-            </a>
-            <div class="px-8 pt-5">
-                <a href="#">
-                    <h5 class="mb-4 text-lg font-bold tracking-tight text-gray-900 dark:text-white">How to Start
-                        Shifting Your Career in Technology</h5>
-                </a>
-                <ul class="mb-6 text-sm">
-                    <li class="mb-2">
-                        <svg class="w-5 h-5 inline lg:mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z">
-                            </path>
-                        </svg>
-                        Jumat, 9 Oktober 2022
-                    </li>
-                    <li class="mb-2">
-                        <svg class="w-5 h-5 inline lg:mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                        </svg>
-                        19.00 - 21.00
-                    </li>
-                    <li class="mb-2">
-                        <svg class="w-5 h-5 inline lg:mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z">
-                            </path>
-                        </svg>
-                        Rp40.000
-                    </li>
-                </ul>
-                <a href="#"
-                    class="mx-16 block text-md items-center py-2 font-medium text-center text-white bg-[#FB8D66] rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                    Daftar
-                </a>
-            </div>
-        </div>
+        @endforeach
     </div>
     <div class="lg:p-20 font-quicksand">
         <h3 class="font-semibold text-xl lg:mb-8 text-center">Pertanyaan Sahabat Berproses</h3>

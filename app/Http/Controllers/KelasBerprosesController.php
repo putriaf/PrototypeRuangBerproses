@@ -14,9 +14,12 @@ class KelasBerprosesController extends Controller
      */
     public function index()
     {
+        $response = Http::get('https://ruangberproses-be.herokuapp.com/api/admin/program/kb-list');
+        $kbs = $response->object();
         return view('program.kelasBerproses.index', [
             'title' => 'Kelas Berproses',
-            'message' => NULL
+            'message' => NULL,
+            'kbs' => $kbs->data
         ]);
     }
 
