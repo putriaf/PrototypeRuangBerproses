@@ -14,6 +14,7 @@ class AdminController extends Controller
      */
     public function index()
     {
+        $screening_variable = ["marah_sepele", "mulut_kering", "tdk_melihat_hal_positif", "gangguan_napas", "tdk_kuat_kegiatan", "overreacting", "anggota_tubuh_lemah", "sulit_bersantai", "cemas_berlebih", "pesimis", "mudah_kesal", "energi_habis", "sedih_depresi", "tidak_sabaran", "kelelahan", "hilang_minat", "merasa_tdk_layak", "mudah_tersinggung", "berkeringat", "takut_tanpa_alasan", "merasa_tdk_berharga", "sulit_istirahat", "sulit_menelan", "tdk_menikmati_aktivitas", "perubahan_denyut_nadi", "hilang_harapan", "mudah_marah", "mudah_panik", "sulit_tenang", "takut_terhambat", "sulit_antusias", "sulit_toleransi_gangguan", "tegang", "tdk_memaklumi_halangan", "ketakutan", "tdk_ada_harapan", "hidup_tdk_berarti", "mudah_gelisah", "khawatir_dg_situasi", "gemetar", "sulit_inisiatif"];
         $response = Http::get('https://ruangberproses-be.herokuapp.com/api/admin');
         $response = $response->object();
 
@@ -28,7 +29,9 @@ class AdminController extends Controller
             'regpsytalks' => $response->regpsytalks,
             'kb' => $response->kb,
             'regkbs' => $response->regkbs,
-            'artikels' => $response->artikels
+            'artikels' => $response->artikels,
+            'screening_variable' => $screening_variable,
+            'screenings' => $response->screenings
         ]);
     }
 
