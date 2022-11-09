@@ -27,10 +27,19 @@ class RegistrationProCounselingController extends Controller
     {
         $response = Http::get('https://ruangberproses-be.herokuapp.com/api/admin/layanan/procounseling-list');
         $response = $response->object();
+        $response_screening = Http::get('https://ruangberproses-be.herokuapp.com/api/admin/screening/user/' . session('id'));
+        $response_screening = $response_screening->object();
+        $response_profile = Http::withHeaders([
+            'Accept' => 'application/json',
+            'Authorization' => 'Bearer ' . session('token'),
+        ])->get('https://ruangberproses-be.herokuapp.com/api/profile');
+        $response_profile = $response_profile->object();
         return view('layanan.professionalCounseling.daftar', [
             'title' => 'Pendaftaran Virtual Professional Counseling',
             'message' => NULL,
-            'procounselings' => $response->data
+            'procounselings' => $response->data,
+            'screening' => $response_screening->data,
+            'profilUser' => $response_profile->profile
         ]);
     }
 

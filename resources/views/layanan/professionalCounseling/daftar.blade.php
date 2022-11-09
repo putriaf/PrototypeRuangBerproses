@@ -3,6 +3,16 @@
 <!--  Hero -->
 @section('content')
 <section class="font-quicksand">
+    @if($screening == NULL)
+    <div class="mt-20">
+        <a href="/screening">Screening</a>
+    </div>
+    @if($profilUser->nama != NULL && $profilUser->username != NULL && $profilUser->email != NULL && $profilUser->no_telp
+    != NULL && $profilUser->tgl_lahir != NULL && $profilUser->domisili != NULL && $profilUser->pendidikan != NULL &&
+    $profilUser->agama != NULL && $profilUser->pekerjaan != NULL && $profilUser->status != NULL)
+    <a href="/profile">Edit Profil</a>
+    @endif
+    @else
     <form id="msform" class="font-quicksand max-h-screen" method="POST" action="/layanan/professional-counseling/daftar"
         enctype="multipart/form-data">
         @csrf
@@ -37,7 +47,7 @@
                         TELEPON</label>
                     <input type="text"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        value="{{ session()->get('notelp') }}" required>
+                        value="{{ session()->get('no_telp') }}" required>
                 </div>
                 <div>
                     <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">JENIS
@@ -107,5 +117,6 @@
     <!-- jQuery easing plugin -->
     <script src="http://thecodeplayer.com/uploads/js/jquery.easing.min.js" type="text/javascript"></script>
     <script src="{{ asset('js/multistep-form.js') }}"></script>
+    @endif
     <section>
         @endsection
