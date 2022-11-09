@@ -13,10 +13,10 @@ use App\Http\Controllers\ProfessionalCounselingController;
 use App\Http\Controllers\RegistrationProCounselingController;
 use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\PsytalkController;
+use App\Http\Controllers\RegistrationPsytalkController;
 use App\Http\Controllers\KelasBerprosesController;
 use App\Http\Controllers\ScreeningController;
 use App\Http\Controllers\TentangController;
-use App\Models\User;
 use Illuminate\Support\Facades\Artisan;
 
 use App\Http\Middleware\AuthCustom;
@@ -96,13 +96,18 @@ Route::delete('/admin/layanan/professional-counseling/{professional_counselings:
 // PROGRAM
 Route::get('/program', [ProgramController::class, 'index']);
 // Psytalk
-Route::get('/program/psytalk/daftar', [PsytalkController::class, 'create'])->middleware('token');
-Route::post('/program/psytalk/daftar', [PsytalkController::class, 'store']);
 Route::get('/program/psytalk', [PsytalkController::class, 'index']);
-Route::get('/program/psytalk/{psytalks:id}', [PsytalkController::class, 'show']);
-Route::get('/program/psytalk/{psytalks:id}/edit', [PsytalkController::class, 'edit']);
-Route::put('/program/psytalk/{psytalks:id}', [PsytalkController::class, 'update']);
-Route::delete('/program/psytalk/{psytalks:id}', [PsytalkController::class, 'destroy']);
+Route::post('/admin/program/psytalk-list/tambah', [PsytalkController::class, 'store'])->middleware('token');
+Route::get('/admin/program/psytalk-list', [PsytalkController::class, 'all']);
+Route::get('/admin/program/psytalk-list/{id}', [PsytalkController::class, 'show']);
+Route::put('/admin/program/psytalk-list/{id}', [PsytalkController::class, 'update']);
+Route::delete('/admin/program/psytalk-list/{id}', [PsytalkController::class, 'destroy']);
+// Psytalk Registration Data
+Route::get('/program/psytalk/daftar', [RegistrationPsytalkController::class, 'create'])->middleware('token');
+Route::post('/program/psytalk/daftar', [RegistrationPsytalkController::class, 'store']);
+Route::get('/program/psytalk/{id}', [RegistrationPsytalkController::class, 'show']);
+Route::put('/admin/program/psytalk/{id}', [RegistrationPsytalkController::class, 'update']);
+Route::delete('/admin/program/psytalk/{id}', [RegistrationPsytalkController::class, 'destroy']);
 // Kelas Berproses
 Route::get('/program/kelas-berproses/daftar', [KelasBerprosesController::class, 'create'])->middleware('token');
 Route::post('/program/kelas-berproses/daftar', [KelasBerprosesController::class, 'store']);

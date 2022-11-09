@@ -1,116 +1,119 @@
 @extends('layout.layout')
 
+<!--  Hero -->
 @section('content')
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
-<div class="font-montserrat my-10">
-    <div class="flex justify-center item-center mt-8">
-        <h1 class="text-2xl font-bold">Form Pendaftaran Psytalk</h1>
-    </div>
-    <div class="flex justify-center item-center">
-        <form method="POST" action="/program/psytalk/daftar" enctype="multipart/form-data" class="w-6/12">
+<section class="font-quicksand">
+    <form id="msform" class="font-quicksand max-h-screen" method="POST" action="/program/psytalk/daftar"
+        enctype="multipart/form-data">
         @csrf
-        <div class="bg-abu rounded-lg">
-        <div class="m-10 py-10">
-            <div class="flex flex-col md:flex-row pb-4 mb-4">
-                <div class="w-44 font-bold h-6 mx-2 mt-3">Usia</div>
-                <div class="flex-1 flex flex-col md:flex-row">
-                    <div class="w-full flex-1 mx-2">
-                        <div class="my-2 p-1 bg-white flex border border-gray-200 rounded">
-                            <input type="text" class="p-1 px-2 w-full" name="usia" id="usia" value="{{ old('usia')}}">
-                        </div>
-                    </div>
+        <!-- progressbar -->
+        <ul id="progressbar">
+            <li class="active rounded-full">Informasi Diri</li>
+            <li>Latar Belakang</li>
+            <li>Pembayaran</li>
+        </ul>
+        <!-- fieldsets -->
+        <fieldset style="overflow: auto">
+            <h2 class="fs-title lg:mb-8">INFORMASI DIRI</h2>
+            <div class="w-1/2 lg:mb-6 text-left">
+                <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">EMAIL</label>
+                <input type="email" id="email"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    value="{{ session()->get('email') }}" required disabled>
+            </div>
+            <div class="grid grid-cols-2 gap-4 relative text-left">
+                @if (session()->has('token'))
+                <input type="hidden" id="user_id" name="user_id" value="{{ session()->get('id') }}">
+                @endif
+                <div class="">
+                    <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">NAMA
+                        LENGKAP</label>
+                    <input type="text"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        value="{{ session()->get('nama') }}" required disabled>
+                </div>
+                <div class="">
+                    <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">NOMOR
+                        TELEPON</label>
+                    <input type="text"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        value="{{ session()->get('no_telp') }}" required>
+                </div>
+                <div>
+                    <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">JENIS
+                        KELAMIN</label>
+                    <input type="text"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        value="{{ session()->get('jk') }}" required disabled>
+                </div>
+                <div>
+                    <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">TANGGAL LAHIR</label>
+                    <input type="text"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        value="{{ session()->get('tgl_lahir') }}" required disabled>
+                </div>
+                <div class="">
+                    <label for="psytalk_id"
+                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Pilih Topik</label>
+                    <select id="psytalk_id" name="psytalk_id"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        <option selected="">Pilih Konselor</option>
+                        @if($psytalks != NULL)
+                        @foreach($psytalks as $psy)
+                        <option value="{{ $psy->id }}">{{ $psy->topik }}</option>
+                        @endforeach
+                        @endif
+                    </select>
                 </div>
             </div>
-            <div class="flex flex-col md:flex-row pb-4 mb-4">
-                <div class="w-44 font-bold h-6 mx-2 mt-3">Pilihan Webinar</div>
-                <div class="flex-1 flex flex-col md:flex-row">
-                    <div class="w-full flex-1 mx-2">
-                        <div class="my-2 p-1 bg-white flex border border-gray-200 rounded">
-                            <input type="text" class="p-1 px-2 w-full" name="pilihan_webinar" id="pilihan_webinar" value="{{ old('pilihan_webinar')}}">
-                        </div>
-                    </div>
-                </div>
             </div>
-            <div class="flex flex-col md:flex-row pb-4 mb-4">
-                <div class="w-44 font-bold h-6 mx-2 mt-3">Domisili</div>
-                <div class="flex-1 flex flex-col md:flex-row">
-                    <div class="w-full flex-1 mx-2">
-                        <div class="my-2 p-1 bg-white flex border border-gray-200 rounded">
-                            <input type="text" class="p-1 px-2 w-full" name="domisili" id="domisili" value="{{ old('domisili')}}">
-                        </div>
-                    </div>
-                </div>
+            <input type="button" name="next" class="next action-button mb-8 rounded-full" value="Lanjut" />
+        </fieldset>
+        <fieldset>
+            <h2 class="fs-title">Latar Belakang</h2>
+            <div>
+                <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">ALASAN</label>
+                <input type="text" id="alasan" name="alasan"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    required>
             </div>
-            <div class="flex flex-col md:flex-row pb-4 mb-4">
-                <div class="w-44 font-bold h-6 mx-2 mt-3">Pekerjaan</div>
-                <div class="flex-1 flex flex-col md:flex-row">
-                    <div class="w-full flex-1 mx-2">
-                        <div class="my-2 p-1 bg-white flex border border-gray-200 rounded">
-                            <input type="text" class="p-1 px-2 w-full" name="pekerjaan" id="pekerjaan" value="{{ old('pekerjaan')}}">
-                        </div>
-                    </div>
-                </div>
+            <div>
+                <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">ASAL INFO</label>
+                <input type="text" id="asal_info" name="asal_info"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    required>
             </div>
-            <div class="flex flex-col md:flex-row pb-4 mb-4">
-                <div class="w-44 font-bold h-6 mx-2 mt-3">Alasan</div>
-                <div class="flex-1 flex flex-col md:flex-row">
-                    <div class="w-full flex-1 mx-2">
-                        <div class="my-2 p-1 bg-white flex border border-gray-200 rounded">
-                            <input type="text" class="p-1 px-2 w-full" name="alasan" id="alasan" value="{{ old('alasan')}}">
-                        </div>
-                    </div>
-                </div>
+            <div>
+                <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">PERTANYAAN</label>
+                <input type="text" id="pertanyaan" name="pertanyaan"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    required>
             </div>
-            <div class="flex flex-col md:flex-row pb-4 mb-4">
-                <div class="w-44 font-bold h-6 mx-2 mt-3">Pernah Gabung</div>
-                <div class="flex-1 flex flex-col md:flex-row">
-                    <div class="w-full flex-1 mx-2">
-                        <div class="my-2 p-1 bg-white flex border border-gray-200 rounded">
-                            <input type="text" class="p-1 px-2 w-full" name="pernah_gabung" id="pernah_gabung" value="{{ old('pernah_gabung')}}">
-                        </div>
-                    </div>
-                </div>
+            <div>
+                <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">IDE TOPIK</label>
+                <input type="text" id="ide_topik" name="ide_topik"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    required>
             </div>
-            <div class="flex flex-col md:flex-row pb-4 mb-4">
-                <div class="w-44 text-base font-bold h-6 mx-2 mt-3">Pertanyaan</div>
-                <div class="flex-1 flex flex-col md:flex-row">
-                    <div class="w-full flex-1 mx-2">
-                        <div class="my-2 p-1 bg-white flex border border-gray-200 rounded">
-                            <input type="text" class="p-1 px-2 w-full" name="pertanyaan" id="pertanyaan" value="{{ old('pertanyaan')}}">
-                        </div>
-                    </div>
-                </div>
+            <input type="button" name="previous" class="previous action-button" value="Kembali" />
+            <input type="button" name="next" class="next action-button" value="Lanjut" />
+        </fieldset>
+        <fieldset>
+            <h2 class="fs-title">Upload Bukti Pembayaran</h2>
+            <input class="form-control mt-5" type="file" id="bukti_transfer" name="bukti_transfer">
             </div>
-            <div class="flex flex-col md:flex-row pb-4 mb-4">
-                <div class="w-44 text-base font-bold h-6 mx-2 mt-3">Sumber Info</div>
-                <div class="flex-1 flex flex-col md:flex-row">
-                    <div class="w-full flex-1 mx-2">
-                        <div class="my-2 p-1 bg-white flex border border-gray-200 rounded">
-                            <input type="text" class="p-1 px-2 w-full" name="sumber_info" id="sumber_info" value="{{ old('sumber_info')}}">
-                        </div>
-                    </div>
-                </div>
+            <input class="form-control mt-5 hidden" type="text" id="status_pendaftaran" name="status_pendaftaran"
+                value="konfirmasi_admin">
             </div>
-            <div class="flex flex-col md:flex-row pb-4 mb-4">
-                <div class="w-44 text-base font-bold h-6 mx-2 mt-3">Bukti Transfer</div>
-                <div class="flex-1 flex flex-col md:flex-row">
-                    <div class="w-full flex-1 mx-2">
-                        <div class="my-2 p-1 bg-white flex border border-gray-200 rounded">
-                            <input type="text" class="p-1 px-2 w-full" name="bukti_transfer" id="bukti_transfer" value="{{ old('bukti_transfer')}}">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </div>
-        @if(session()->has('token'))
-            <input id="user_id" type="hidden" name="user_id" value="{{ session()->get('id') }}">
-        @endif
-        <div class="flex justify-center item-center pb-4">
-            <button class="px-8 py-2 font-semibold rounded-lg bg-dongker border-2 border-[#123C69] text-white hover:bg-dongker/40 hover:border-[#123C69]/40" type="submit">Submit</button>
-        </div>
-        </form>
-    </div>
-</div>
+            <input type="button" name="previous" class="previous action-button" value="Previous" />
+            <button type="submit"
+                class="text-white font-bold bg-red-400 hover:bg-rb-light-orange focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Selesai</button>
+        </fieldset>
+    </form>
+    <!-- jQuery -->
+    <script src="http://thecodeplayer.com/uploads/js/jquery-1.9.1.min.js" type="text/javascript"></script>
+    <!-- jQuery easing plugin -->
+    <script src="http://thecodeplayer.com/uploads/js/jquery.easing.min.js" type="text/javascript"></script>
+    <script src="{{ asset('js/multistep-form.js') }}"></script>
+</section>
 @endsection

@@ -42,32 +42,20 @@ class PsytalkController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'user_id' => 'required',
-            'usia' => 'required',
-            'pilihan_webinar' => 'required',
-            'domisili' => 'required',
-            'pekerjaan' => 'required',
-            'alasan' => 'required',
-            'pernah_gabung' => 'required',
-            'pertanyaan' => 'required',
-            'sumber_info' => 'required',
-            'bukti_transfer' => 'required'
+            'topik' => 'required',
+            'pembicara' => 'required',
+            'waktu' => 'required',
+            'biaya' => 'required'
         ]);
 
         $response = Http::asForm()->post("https://ruangberproses-be.herokuapp.com/api/program/psytalk/daftar", [
-            'usia' => $request->input('usia'),
-            'pilihan_webinar' => $request->input('pilihan_webinar'),
-            'domisili' => $request->input('domisili'),
-            'pekerjaan' => $request->input('pekerjaan'),
-            'alasan' => $request->input('alasan'),
-            'pernah_gabung' => $request->input('pernah_gabung'),
-            'pertanyaan' => $request->input('pertanyaan'),
-            'sumber_info' => $request->input('sumber_info'),
-            'bukti_transfer' => $request->input('bukti_transfer'),
-            'user_id' => $request->input('user_id'),
+            'topik' => $request->input('topik'),
+            'pembicara' => $request->input('pembicara'),
+            'waktu' => $request->input('waktu'),
+            'biaya' => $request->input('biaya'),
         ]);
         if ($response->status() == 200) {
-            return redirect('/program')->with('success', 'Pendaftaran berhasil!');
+            return redirect('/program/psytalk')->with('success', 'Pendaftaran berhasil!');
         } else {
             return redirect('/program/psytalk/daftar')->with('success', 'Pendaftaran gagal!');
         }
