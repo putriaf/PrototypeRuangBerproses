@@ -3,8 +3,8 @@
 <!--  Hero -->
 @section('content')
 <section class="font-quicksand">
-    <form id="msform" class="font-quicksand max-h-screen" method="POST" action="/program/psytalk/daftar"
-        enctype="multipart/form-data">
+    <form id="msform" class="font-quicksand max-h-screen" method="POST"
+        action="/program/psytalk/{{ $psytalk_id }}/daftar" enctype="multipart/form-data">
         @csrf
         <!-- progressbar -->
         <ul id="progressbar">
@@ -52,18 +52,10 @@
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                         value="{{ session()->get('tgl_lahir') }}" required disabled>
                 </div>
-                <div class="">
-                    <label for="psytalk_id"
-                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Pilih Topik</label>
-                    <select id="psytalk_id" name="psytalk_id"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                        <option selected="">Pilih Konselor</option>
-                        @if($psytalks != NULL)
-                        @foreach($psytalks as $psy)
-                        <option value="{{ $psy->id }}">{{ $psy->topik }}</option>
-                        @endforeach
-                        @endif
-                    </select>
+                <div>
+                    <input type="text" id="psytalk_id" name="psytalk_id"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 hidden"
+                        required value="{{ $psytalk_id }}">
                 </div>
             </div>
             </div>

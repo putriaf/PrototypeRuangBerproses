@@ -22,14 +22,15 @@ class RegistrationPsytalkController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
         $response = Http::get('https://ruangberproses-be.herokuapp.com/api/admin/program/psytalk-list');
         $response = $response->object();
         return view('program.psytalk.daftar', [
             'title' => 'Pendaftaran Psytalk',
             'message' => NULL,
-            'psytalks' => $response->data
+            'psytalks' => $response->data,
+            'psytalk_id' => $id
         ]);
     }
 
@@ -39,8 +40,9 @@ class RegistrationPsytalkController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $id)
     {
+        $id = $id;
         $validatedData = $request->validate([
             'user_id' => 'required',
             'psytalk_id' => 'required',
@@ -75,7 +77,7 @@ class RegistrationPsytalkController extends Controller
         if ($response->status() == 200) {
             return redirect('/program/psytalk')->with('success', 'Pendaftaran berhasil!');
         } else {
-            return redirect('/program/psytalk/daftar')->with('success', 'Pendaftaran gagal!');
+            return redirect('/program/psytalk/{{$id}}/daftar')->with('success', 'Pendaftaran gagal!');
         }
     }
 

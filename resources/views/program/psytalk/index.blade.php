@@ -55,7 +55,7 @@ nav ul li a {
                         {{ $psytalk->biaya }}
                     </li>
                 </ul>
-                <a href="#"
+                <a href="/program/psytalk/{{ $psytalk->id }}/daftar"
                     class="mx-16 block text-md items-center py-2 font-medium text-center text-white bg-[#FB8D66] rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                     Daftar
                 </a>

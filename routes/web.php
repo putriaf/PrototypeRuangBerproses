@@ -103,8 +103,8 @@ Route::get('/admin/program/psytalk-list/{id}', [PsytalkController::class, 'show'
 Route::put('/admin/program/psytalk-list/{id}', [PsytalkController::class, 'update']);
 Route::delete('/admin/program/psytalk-list/{id}', [PsytalkController::class, 'destroy']);
 // Psytalk Registration Data
-Route::get('/program/psytalk/daftar', [RegistrationPsytalkController::class, 'create'])->middleware('token');
-Route::post('/program/psytalk/daftar', [RegistrationPsytalkController::class, 'store']);
+Route::get('/program/psytalk/{id}/daftar', [RegistrationPsytalkController::class, 'create'])->middleware('token');
+Route::post('/program/psytalk/{id}/daftar', [RegistrationPsytalkController::class, 'store']);
 Route::get('/program/psytalk/{id}', [RegistrationPsytalkController::class, 'show']);
 Route::put('/admin/program/psytalk/{id}', [RegistrationPsytalkController::class, 'update']);
 Route::delete('/admin/program/psytalk/{id}', [RegistrationPsytalkController::class, 'destroy']);
