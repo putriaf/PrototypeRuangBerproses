@@ -3,6 +3,11 @@
 <!--  Hero -->
 @section('content')
 <section class="font-quicksand">
+    @if($profilUser->nama != NULL && $profilUser->username != NULL && $profilUser->email != NULL && $profilUser->no_telp
+    != NULL && $profilUser->tgl_lahir != NULL && $profilUser->domisili != NULL && $profilUser->pendidikan != NULL &&
+    $profilUser->agama != NULL && $profilUser->pekerjaan != NULL && $profilUser->status != NULL)
+    <a href="/profile">Edit Profil</a>
+    @else
     <form id="msform" class="font-quicksand max-h-screen" method="POST"
         action="/program/psytalk/{{ $psytalk_id }}/daftar" enctype="multipart/form-data">
         @csrf
@@ -107,5 +112,6 @@
     <!-- jQuery easing plugin -->
     <script src="http://thecodeplayer.com/uploads/js/jquery.easing.min.js" type="text/javascript"></script>
     <script src="{{ asset('js/multistep-form.js') }}"></script>
+    @endif
 </section>
 @endsection

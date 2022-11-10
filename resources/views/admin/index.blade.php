@@ -120,16 +120,6 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                 </svg>
             </div>
-            <!-- <div class="relative w-full max-w-md sm:-ml-2">
-                <svg aria-hidden="true" viewBox="0 0 20 20" fill="currentColor"
-                    class="absolute h-6 w-6 mt-2.5 ml-2 text-gray-400">
-                    <path fill-rule="evenodd"
-                        d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
-                        clip-rule="evenodd" />
-                </svg>
-                <input type="text" role="search" placeholder="Search..."
-                    class="py-2 pl-10 pr-4 w-full border-4 border-transparent placeholder-gray-400 focus:bg-gray-50 rounded-lg" />
-            </div> -->
             <div class="flex flex-shrink-0 items-center ml-auto">
                 <button class="relative inline-flex items-center p-2 hover:bg-gray-100 focus:bg-gray-100 rounded-lg"
                     @click="panel = !panel" @click.away="panel = false">
@@ -159,17 +149,6 @@
                     <div class="p-2 hover:bg-blue-100 cursor-pointer"><a href="/admin">Administrator</a></div>
                 </div>
                 <div class="border-l pl-3 ml-3 space-x-1">
-                    <!-- <button
-                        class="relative p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-600 focus:bg-gray-100 focus:text-gray-600 rounded-full">
-                        <span class="sr-only">Notifications</span>
-                        <span class="absolute top-0 right-0 h-2 w-2 mt-1 mr-2 bg-red-500 rounded-full"></span>
-                        <span
-                            class="absolute top-0 right-0 h-2 w-2 mt-1 mr-2 bg-red-500 rounded-full animate-ping"></span>
-                        <svg aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-6 w-6">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
-                        </svg>
-                    </button> -->
                     <form action="/logout" method="POST">
                         @csrf
                         <button
@@ -186,6 +165,7 @@
             </div>
         </header>
         <main class="p-6 sm:p-10 space-y-6 max-h-screen overflow-y-auto" id="myTabContent">
+            <!-- SCREENING -->
             <div class="" id="screening" role="tabpanel" aria-labelledby="screening-tab">
                 <div class="flex flex-col space-y-6 md:space-y-0 md:flex-row justify-between">
                     <div class="mr-6">
@@ -234,9 +214,6 @@
                                         {{ $sv }}
                                     </th>
                                     @endforeach
-                                    <th scope="col" class="py-3 px-6">
-                                        Aksi
-                                    </th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -254,127 +231,15 @@
                                         {{ $screening->$sv }}
                                     </td>
                                     @endforeach
-                                    <td class="py-4 px-6">
-                                        <!-- Modal toggle -->
-                                        <a href="#" type="button" data-modal-toggle="editscreeningModal"
-                                            class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit
-                                        </a>
-                                        <a href="#" type="button" data-modal-toggle="deletepcListModal"
-                                            class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Delete
-                                        </a>
-                                    </td>
                                 </tr>
                                 @endforeach
                                 @endif
                             </tbody>
                         </table>
-                        <!-- Edit Pro Counseling List modal -->
-                        <div id="editscreeningModal" tabindex="-1" aria-hidden="true"
-                            class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center p-4 w-full md:inset-0 h-modal md:h-full">
-                            <div class="relative w-full max-w-2xl h-full md:h-auto">
-                                <!-- Modal content -->
-                                <form action="" method="POST" enctype="multipart/form-data"
-                                    class="relative bg-white rounded-lg shadow dark:bg-gray-700">
-                                    @method('put')
-                                    @csrf
-                                    <!-- Modal header -->
-                                    <div
-                                        class="flex justify-between items-start p-4 rounded-t border-b dark:border-gray-600">
-                                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
-                                            Edit Data Screening
-                                        </h3>
-                                        <button type="button"
-                                            class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
-                                            data-modal-toggle="editpcListModal">
-                                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
-                                                xmlns="http://www.w3.org/2000/svg">
-                                                <path fill-rule="evenodd"
-                                                    d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                                                    clip-rule="evenodd"></path>
-                                            </svg>
-                                        </button>
-                                    </div>
-                                    <!-- Modal body -->
-                                    <div class="p-6 space-y-6">
-                                        <div class="grid grid-cols-6 gap-6">
-                                            <div class="col-span-6 sm:col-span-3">
-                                                <label for="nama_konselor"
-                                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Marah
-                                                    Sepele</label>
-                                                <input type="text" name="marah_sepele" id="marah_sepele"
-                                                    class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                                    value="{{ old('marah_sepele', $screening->marah_sepele) }}"
-                                                    required="">
-                                            </div>
-                                            <div class="col-span-6 sm:col-span-3">
-                                                <label for="berkeringat"
-                                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Berkeringat</label>
-                                                <input type="text" name="berkeringat" id="berkeringat"
-                                                    class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                                    value="{{ old('berkeringat', $screening->berkeringat) }}"
-                                                    required="">
-                                            </div>
-                                            <div class="col-span-6 sm:col-span-3">
-                                                <label for="ketakutan"
-                                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Ketakutan</label>
-                                                <input type="text" name="ketakutan" id="ketakutan"
-                                                    class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                                    value="{{ old('ketakutan', $screening->ketakutan) }}" required="">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- Modal footer -->
-                                    <div
-                                        class="flex items-center p-6 space-x-2 rounded-b border-t border-gray-200 dark:border-gray-600">
-                                        <button type="submit"
-                                            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Update</button>
-                                    </div>
-
-                                </form>
-
-                            </div>
-                        </div>
-                        <!-- Delete Pro Counseling List modal -->
-                        <div id="deletepcListModal" tabindex="-1" aria-hidden="true"
-                            class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center p-4 w-full md:inset-0 h-modal md:h-full">
-                            <div class="relative w-full max-w-2xl h-full md:h-auto">
-                                <form action="" method="post" enctype="multipart/form-data"
-                                    class="relative bg-white rounded-lg shadow dark:bg-gray-700">
-                                    @method('delete')
-                                    @csrf
-                                    <!-- Modal header -->
-                                    <div
-                                        class="flex justify-between items-start p-4 rounded-t border-b dark:border-gray-600">
-                                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
-                                            Hapus Data Konseling
-                                        </h3>
-                                        <button type="button"
-                                            class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
-                                            data-modal-toggle="deletepcListModal">
-                                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
-                                                xmlns="http://www.w3.org/2000/svg">
-                                                <path fill-rule="evenodd"
-                                                    d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                                                    clip-rule="evenodd"></path>
-                                            </svg>
-                                        </button>
-                                    </div>
-                                    <!-- Modal body -->
-                                    <div class="p-6 space-y-6">
-                                        <p>Data yang sudah dihapus tidak bisa dikembalikan lagi</p>
-                                    </div>
-                                    <!-- Modal footer -->
-                                    <div
-                                        class="flex items-center p-6 space-x-2 rounded-b border-t border-gray-200 dark:border-gray-600">
-                                        <button type="submit"
-                                            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Hapus</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
                     </div>
                 </section>
             </div>
+            <!-- PROFFESSIONAL COUNSELING -->
             <div class="" id="proCounseling" role="tabpanel" aria-labelledby="proCounseling-tab">
                 <div class="mb-4 border-b border-gray-200 dark:border-gray-700">
                     <ul class="flex flex-wrap -mb-px text-sm font-medium text-center" id="pcSubTab"
@@ -438,15 +303,11 @@
                                             <th scope="col" class="py-3 px-6">
                                                 ID
                                             </th>
+                                            @foreach($counseling_fields as $csf)
                                             <th scope="col" class="py-3 px-6">
-                                                Nama Konselor
+                                                {{ $csf }}
                                             </th>
-                                            <th scope="col" class="py-3 px-6">
-                                                Waktu
-                                            </th>
-                                            <th scope="col" class="py-3 px-6">
-                                                Biaya
-                                            </th>
+                                            @endforeach
                                             <th scope="col" class="py-3 px-6">
                                                 Aksi
                                             </th>
@@ -462,15 +323,11 @@
                                                 class="flex items-center py-4 px-6 text-gray-900 whitespace-nowrap dark:text-white">
                                                 <div class="text-base font-semibold">{{ $proc->id}}</div>
                                             </th>
+                                            @foreach($counseling_fields as $csf)
                                             <td class="py-4 px-6">
-                                                {{ $proc->nama_konselor }}
+                                                {{ $proc->$csf}}
                                             </td>
-                                            <td class="py-4 px-6">
-                                                {{ $proc->waktu }}
-                                            </td>
-                                            <td class="py-4 px-6">
-                                                {{ $proc->biaya }}
-                                            </td>
+                                            @endforeach
                                             <td class="py-4 px-6">
                                                 <!-- Modal toggle -->
                                                 <a href="#" type="button" data-modal-toggle="editpcListModal"
@@ -490,7 +347,7 @@
                                     class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center p-4 w-full md:inset-0 h-modal md:h-full">
                                     <div class="relative w-full max-w-2xl h-full md:h-auto">
                                         <!-- Modal content -->
-                                        <form action="/admin/layanan/procounseling-list/{{ $proc->id }}" method="POST"
+                                        <form action="/admin/layanan/procounseling-list/" method="POST"
                                             enctype="multipart/form-data"
                                             class="relative bg-white rounded-lg shadow dark:bg-gray-700">
                                             @method('put')
@@ -521,8 +378,7 @@
                                                             Konselor</label>
                                                         <input type="text" name="nama_konselor" id="nama_konselor"
                                                             class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                                            value="{{ old('nama_konselor', $proc->nama_konselor) }}"
-                                                            required="">
+                                                            value="" required="">
                                                     </div>
                                                     <div class="col-span-6 sm:col-span-3">
                                                         <label for="waktu"
@@ -530,14 +386,14 @@
                                                             Waktu</label>
                                                         <input type="text" name="waktu" id="waktu"
                                                             class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                                            value="{{ old('waktu', $proc->waktu) }}" required="">
+                                                            value="" required="">
                                                     </div>
                                                     <div class="col-span-6 sm:col-span-3">
                                                         <label for="biaya"
                                                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
                                                         <input type="text" name="biaya" id="biaya"
                                                             class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                                            value="{{ old('biaya', $proc->biaya) }}" required="">
+                                                            value="" required="">
                                                     </div>
                                                 </div>
                                             </div>
@@ -556,7 +412,7 @@
                                 <div id="deletepcListModal" tabindex="-1" aria-hidden="true"
                                     class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center p-4 w-full md:inset-0 h-modal md:h-full">
                                     <div class="relative w-full max-w-2xl h-full md:h-auto">
-                                        <form action="/admin/layanan/procounseling-list/{{ $proc->id }}" method="post"
+                                        <form action="/admin/layanan/procounseling-list/" method="post"
                                             enctype="multipart/form-data"
                                             class="relative bg-white rounded-lg shadow dark:bg-gray-700">
                                             @method('delete')
@@ -594,6 +450,7 @@
                             </div>
                         </section>
                     </div>
+                    <!-- PROFESSIONAL COUNSELING REGISTRATION -->
                     <div class="hidden p-4 bg-gray-50 rounded-lg dark:bg-gray-800" id="pcReg" role="tabpanel"
                         aria-labelledby="pcReg-tab">
                         <div class="flex flex-col space-y-6 md:space-y-0 md:flex-row justify-between">
@@ -638,18 +495,11 @@
                                             <th scope="col" class="py-3 px-6">
                                                 ID
                                             </th>
+                                            @foreach($regprocounseling_fields as $rprof)
                                             <th scope="col" class="py-3 px-6">
-                                                User ID
+                                                {{ $rprof }}
                                             </th>
-                                            <th scope="col" class="py-3 px-6">
-                                                Screening ID
-                                            </th>
-                                            <th scope="col" class="py-3 px-6">
-                                                Bukti Transfer
-                                            </th>
-                                            <th scope="col" class="py-3 px-6">
-                                                Status Pendaftaran
-                                            </th>
+                                            @endforeach
                                             <th scope="col" class="py-3 px-6">
                                                 Aksi
                                             </th>
@@ -664,22 +514,18 @@
                                                 class="flex items-center py-4 px-6 text-gray-900 whitespace-nowrap dark:text-white">
                                                 <div class="text-base font-semibold">{{ $regproc->id}}</div>
                                             </th>
+                                            @foreach($regprocounseling_fields as $rprof)
                                             <td class="py-4 px-6">
-                                                {{ $regproc->user_id }}
+                                                {{ $regproc->rprof }}
                                             </td>
-                                            <td class="py-4 px-6">
-                                                {{ $regproc->screening_id }}
-                                            </td>
-                                            <td class="py-4 px-6">
-                                                {{ $regproc->bukti_transfer }}
-                                            </td>
-                                            <td class="py-4 px-6">
-                                                {{ $regproc->status_pendaftaran }}
-                                            </td>
+                                            @endforeach
                                             <td class="py-4 px-6">
                                                 <!-- Modal toggle -->
                                                 <a href="#" type="button" data-modal-toggle="editpcRegModal"
                                                     class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit
+                                                </a>
+                                                <a href="#" type="button" data-modal-toggle="deletepcRegModal"
+                                                    class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Delete
                                                 </a>
                                             </td>
                                         </tr>
@@ -687,7 +533,7 @@
                                         @endif
                                     </tbody>
                                 </table>
-                                <!-- Edit user modal -->
+                                <!-- Edit professional counseling registration modal -->
                                 <div id="editpcRegModal" tabindex="-1" aria-hidden="true"
                                     class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center p-4 w-full md:inset-0 h-modal md:h-full">
                                     <div class="relative w-full max-w-2xl h-full md:h-auto">
@@ -792,26 +638,27 @@
                     </div>
                 </div>
             </div>
+            <!-- PEER COUNSELING -->
             <div class="" id="peerCounseling" role="tabpanel" aria-labelledby="peerCounseling-tab">
                 <div class="mb-4 border-b border-gray-200 dark:border-gray-700">
-                    <ul class="flex flex-wrap -mb-px text-sm font-medium text-center" id="pcSubTab"
-                        data-tabs-toggle="#pcSubTabContent" role="tablist">
+                    <ul class="flex flex-wrap -mb-px text-sm font-medium text-center" id="pecSubTab"
+                        data-tabs-toggle="#pecSubTabContent" role="tablist">
                         <li class="mr-2" role="presentation">
                             <button
                                 class="inline-block p-4 rounded-t-lg border-b-2 text-blue-600 hover:text-blue-600 dark:text-blue-500 dark:hover:text-blue-500 border-blue-600 dark:border-blue-500"
-                                id="pcList-tab" data-tabs-target="#pcList" type="button" role="tab"
-                                aria-controls="pcList" aria-selected="true">Daftar Konseling Tersedia</button>
+                                id="pecList-tab" data-tabs-target="#pecList" type="button" role="tab"
+                                aria-controls="pecList" aria-selected="true">Daftar Konseling Tersedia</button>
                         </li>
                         <li class="mr-2" role="presentation">
                             <button
                                 class="inline-block p-4 rounded-t-lg border-b-2 border-transparent hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 dark:border-transparent text-gray-500 dark:text-gray-400 border-gray-100 dark:border-gray-700"
-                                id="pcReg-tab" data-tabs-target="#pcReg" type="button" role="tab" aria-controls="pcReg"
-                                aria-selected="false">Data Pendaftaran</button>
+                                id="pecReg-tab" data-tabs-target="#pecReg" type="button" role="tab"
+                                aria-controls="pecReg" aria-selected="false">Data Pendaftaran</button>
                         </li>
                     </ul>
                 </div>
-                <div id="pcSubTabContent">
-                    <div class="p-4 rounded-lg dark:bg-gray-800" id="pcList" role="tabpanel"
+                <div id="pecSubTabContent">
+                    <div class="p-4 rounded-lg dark:bg-gray-800" id="pecList" role="tabpanel"
                         aria-labelledby="pcList-tab">
                         <div class="flex flex-col space-y-6 md:space-y-0 md:flex-row justify-between">
                             <div class="mr-6">
@@ -855,45 +702,37 @@
                                             <th scope="col" class="py-3 px-6">
                                                 ID
                                             </th>
+                                            @foreach($counseling_fields as $pef)
                                             <th scope="col" class="py-3 px-6">
-                                                Nama Konselor
+                                                {{ $pef }}
                                             </th>
-                                            <th scope="col" class="py-3 px-6">
-                                                Waktu
-                                            </th>
-                                            <th scope="col" class="py-3 px-6">
-                                                Biaya
-                                            </th>
+                                            @endforeach
                                             <th scope="col" class="py-3 px-6">
                                                 Aksi
                                             </th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @if($professionalcounselings == NULL)
+                                        @if($peercounselings == NULL)
                                         @else
-                                        @foreach($professionalcounselings as $proc)
+                                        @foreach($peercounselings as $pec)
                                         <tr
                                             class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                                             <th scope="row"
                                                 class="flex items-center py-4 px-6 text-gray-900 whitespace-nowrap dark:text-white">
                                                 <div class="text-base font-semibold">{{ $proc->id}}</div>
                                             </th>
+                                            @foreach($counseling_fields as $pef)
                                             <td class="py-4 px-6">
-                                                {{ $proc->nama_konselor }}
+                                                {{ $pec->pef }}
                                             </td>
-                                            <td class="py-4 px-6">
-                                                {{ $proc->waktu }}
-                                            </td>
-                                            <td class="py-4 px-6">
-                                                {{ $proc->biaya }}
-                                            </td>
+                                            @endforeach
                                             <td class="py-4 px-6">
                                                 <!-- Modal toggle -->
-                                                <a href="#" type="button" data-modal-toggle="editpcListModal"
+                                                <a href="#" type="button" data-modal-toggle="editpecListModal"
                                                     class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit
                                                 </a>
-                                                <a href="#" type="button" data-modal-toggle="deletepcListModal"
+                                                <a href="#" type="button" data-modal-toggle="deletepecListModal"
                                                     class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Delete
                                                 </a>
                                             </td>
@@ -902,12 +741,12 @@
                                         @endif
                                     </tbody>
                                 </table>
-                                <!-- Edit Pro Counseling List modal -->
-                                <div id="editpcListModal" tabindex="-1" aria-hidden="true"
+                                <!-- Edit Peer Counseling List modal -->
+                                <div id="editpecListModal" tabindex="-1" aria-hidden="true"
                                     class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center p-4 w-full md:inset-0 h-modal md:h-full">
                                     <div class="relative w-full max-w-2xl h-full md:h-auto">
                                         <!-- Modal content -->
-                                        <form action="/admin/layanan/procounseling-list/{{ $proc->id }}" method="POST"
+                                        <form action="/admin/layanan/procounseling-list/" method="POST"
                                             enctype="multipart/form-data"
                                             class="relative bg-white rounded-lg shadow dark:bg-gray-700">
                                             @method('put')
@@ -938,8 +777,7 @@
                                                             Konselor</label>
                                                         <input type="text" name="nama_konselor" id="nama_konselor"
                                                             class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                                            value="{{ old('nama_konselor', $proc->nama_konselor) }}"
-                                                            required="">
+                                                            value="" required="">
                                                     </div>
                                                     <div class="col-span-6 sm:col-span-3">
                                                         <label for="waktu"
@@ -947,14 +785,14 @@
                                                             Waktu</label>
                                                         <input type="text" name="waktu" id="waktu"
                                                             class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                                            value="{{ old('waktu', $proc->waktu) }}" required="">
+                                                            value="" required="">
                                                     </div>
                                                     <div class="col-span-6 sm:col-span-3">
                                                         <label for="biaya"
                                                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
                                                         <input type="text" name="biaya" id="biaya"
                                                             class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                                            value="{{ old('biaya', $proc->biaya) }}" required="">
+                                                            value="" required="">
                                                     </div>
                                                 </div>
                                             </div>
@@ -969,11 +807,11 @@
 
                                     </div>
                                 </div>
-                                <!-- Delete Pro Counseling List modal -->
-                                <div id="deletepcListModal" tabindex="-1" aria-hidden="true"
+                                <!-- Delete Peer Counseling List modal -->
+                                <div id="deletepecListModal" tabindex="-1" aria-hidden="true"
                                     class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center p-4 w-full md:inset-0 h-modal md:h-full">
                                     <div class="relative w-full max-w-2xl h-full md:h-auto">
-                                        <form action="/admin/layanan/procounseling-list/{{ $proc->id }}" method="post"
+                                        <form action="/admin/layanan/procounseling-list/" method="post"
                                             enctype="multipart/form-data"
                                             class="relative bg-white rounded-lg shadow dark:bg-gray-700">
                                             @method('delete')
@@ -1011,8 +849,8 @@
                             </div>
                         </section>
                     </div>
-                    <div class="hidden p-4 bg-gray-50 rounded-lg dark:bg-gray-800" id="pcReg" role="tabpanel"
-                        aria-labelledby="pcReg-tab">
+                    <div class="hidden p-4 bg-gray-50 rounded-lg dark:bg-gray-800" id="pecReg" role="tabpanel"
+                        aria-labelledby="pecReg-tab">
                         <div class="flex flex-col space-y-6 md:space-y-0 md:flex-row justify-between">
                             <div class="mr-6">
                                 <h1 class="text-4xl font-semibold mb-2">Data Pendaftaran</h1>
@@ -1055,47 +893,33 @@
                                             <th scope="col" class="py-3 px-6">
                                                 ID
                                             </th>
+                                            @foreach($regpeercounseling_fields as $rpecf)
                                             <th scope="col" class="py-3 px-6">
-                                                User ID
+                                                {{ $rpecf }}
                                             </th>
-                                            <th scope="col" class="py-3 px-6">
-                                                Screening ID
-                                            </th>
-                                            <th scope="col" class="py-3 px-6">
-                                                Bukti Transfer
-                                            </th>
-                                            <th scope="col" class="py-3 px-6">
-                                                Status Pendaftaran
-                                            </th>
+                                            @endforeach
                                             <th scope="col" class="py-3 px-6">
                                                 Aksi
                                             </th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @if($regprofessionalcounselings != NULL)
-                                        @foreach($regprofessionalcounselings as $regproc)
+                                        @if($regpeercounselings != NULL)
+                                        @foreach($regpeercounselings as $regpec)
                                         <tr
                                             class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                                             <th scope="row"
                                                 class="flex items-center py-4 px-6 text-gray-900 whitespace-nowrap dark:text-white">
                                                 <div class="text-base font-semibold">{{ $regproc->id}}</div>
                                             </th>
+                                            @foreach($regpeercounseling_fields as $rpecf)
                                             <td class="py-4 px-6">
-                                                {{ $regproc->user_id }}
+                                                {{ $regpec->rpecf }}
                                             </td>
-                                            <td class="py-4 px-6">
-                                                {{ $regproc->screening_id }}
-                                            </td>
-                                            <td class="py-4 px-6">
-                                                {{ $regproc->bukti_transfer }}
-                                            </td>
-                                            <td class="py-4 px-6">
-                                                {{ $regproc->status_pendaftaran }}
-                                            </td>
+                                            @endforeach
                                             <td class="py-4 px-6">
                                                 <!-- Modal toggle -->
-                                                <a href="#" type="button" data-modal-toggle="editpcRegModal"
+                                                <a href="#" type="button" data-modal-toggle="editpecRegModal"
                                                     class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit
                                                 </a>
                                             </td>
@@ -1105,7 +929,7 @@
                                     </tbody>
                                 </table>
                                 <!-- Edit user modal -->
-                                <div id="editpcRegModal" tabindex="-1" aria-hidden="true"
+                                <div id="editpecRegModal" tabindex="-1" aria-hidden="true"
                                     class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center p-4 w-full md:inset-0 h-modal md:h-full">
                                     <div class="relative w-full max-w-2xl h-full md:h-auto">
                                         <!-- Modal content -->
@@ -1209,27 +1033,28 @@
                     </div>
                 </div>
             </div>
+            <!-- SUPPORT GROUP -->
             <div class="" id="supportGroup" role="tabpanel" aria-labelledby="supportGroup-tab">
                 <div class="mb-4 border-b border-gray-200 dark:border-gray-700">
-                    <ul class="flex flex-wrap -mb-px text-sm font-medium text-center" id="pcSubTab"
-                        data-tabs-toggle="#pcSubTabContent" role="tablist">
+                    <ul class="flex flex-wrap -mb-px text-sm font-medium text-center" id="sgSubTab"
+                        data-tabs-toggle="#sgSubTabContent" role="tablist">
                         <li class="mr-2" role="presentation">
                             <button
                                 class="inline-block p-4 rounded-t-lg border-b-2 text-blue-600 hover:text-blue-600 dark:text-blue-500 dark:hover:text-blue-500 border-blue-600 dark:border-blue-500"
-                                id="pcList-tab" data-tabs-target="#pcList" type="button" role="tab"
-                                aria-controls="pcList" aria-selected="true">Daftar Konseling Tersedia</button>
+                                id="sgList-tab" data-tabs-target="#sgList" type="button" role="tab"
+                                aria-controls="sgList" aria-selected="true">Daftar Konseling Tersedia</button>
                         </li>
                         <li class="mr-2" role="presentation">
                             <button
                                 class="inline-block p-4 rounded-t-lg border-b-2 border-transparent hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 dark:border-transparent text-gray-500 dark:text-gray-400 border-gray-100 dark:border-gray-700"
-                                id="pcReg-tab" data-tabs-target="#pcReg" type="button" role="tab" aria-controls="pcReg"
+                                id="sgReg-tab" data-tabs-target="#sgReg" type="button" role="tab" aria-controls="sgReg"
                                 aria-selected="false">Data Pendaftaran</button>
                         </li>
                     </ul>
                 </div>
-                <div id="pcSubTabContent">
-                    <div class="p-4 rounded-lg dark:bg-gray-800" id="pcList" role="tabpanel"
-                        aria-labelledby="pcList-tab">
+                <div id="sgSubTabContent">
+                    <div class="p-4 rounded-lg dark:bg-gray-800" id="sgList" role="tabpanel"
+                        aria-labelledby="sgList-tab">
                         <div class="flex flex-col space-y-6 md:space-y-0 md:flex-row justify-between">
                             <div class="mr-6">
                                 <h1 class="text-4xl font-semibold mb-2">Support Group</h1>
@@ -1272,45 +1097,37 @@
                                             <th scope="col" class="py-3 px-6">
                                                 ID
                                             </th>
+                                            @foreach($sg_fields as $sgf)
                                             <th scope="col" class="py-3 px-6">
-                                                Nama Konselor
+                                                {{ $sgf }}
                                             </th>
-                                            <th scope="col" class="py-3 px-6">
-                                                Waktu
-                                            </th>
-                                            <th scope="col" class="py-3 px-6">
-                                                Biaya
-                                            </th>
+                                            @endforeach
                                             <th scope="col" class="py-3 px-6">
                                                 Aksi
                                             </th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @if($professionalcounselings == NULL)
+                                        @if($supportgroups == NULL)
                                         @else
-                                        @foreach($professionalcounselings as $proc)
+                                        @foreach($supportgroups as $sg)
                                         <tr
                                             class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                                             <th scope="row"
                                                 class="flex items-center py-4 px-6 text-gray-900 whitespace-nowrap dark:text-white">
-                                                <div class="text-base font-semibold">{{ $proc->id}}</div>
+                                                <div class="text-base font-semibold">{{ $sg->id }}</div>
                                             </th>
+                                            @foreach($sg_fields as $sgf)
                                             <td class="py-4 px-6">
-                                                {{ $proc->nama_konselor }}
+                                                {{ $sg->$sgf }}
                                             </td>
-                                            <td class="py-4 px-6">
-                                                {{ $proc->waktu }}
-                                            </td>
-                                            <td class="py-4 px-6">
-                                                {{ $proc->biaya }}
-                                            </td>
+                                            @endforeach
                                             <td class="py-4 px-6">
                                                 <!-- Modal toggle -->
-                                                <a href="#" type="button" data-modal-toggle="editpcListModal"
+                                                <a href="#" type="button" data-modal-toggle="editsgListModal"
                                                     class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit
                                                 </a>
-                                                <a href="#" type="button" data-modal-toggle="deletepcListModal"
+                                                <a href="#" type="button" data-modal-toggle="deletesgListModal"
                                                     class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Delete
                                                 </a>
                                             </td>
@@ -1320,11 +1137,11 @@
                                     </tbody>
                                 </table>
                                 <!-- Edit Pro Counseling List modal -->
-                                <div id="editpcListModal" tabindex="-1" aria-hidden="true"
+                                <div id="editsgListModal" tabindex="-1" aria-hidden="true"
                                     class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center p-4 w-full md:inset-0 h-modal md:h-full">
                                     <div class="relative w-full max-w-2xl h-full md:h-auto">
                                         <!-- Modal content -->
-                                        <form action="/admin/layanan/procounseling-list/{{ $proc->id }}" method="POST"
+                                        <form action="/admin/layanan/procounseling-list/" method="POST"
                                             enctype="multipart/form-data"
                                             class="relative bg-white rounded-lg shadow dark:bg-gray-700">
                                             @method('put')
@@ -1355,8 +1172,7 @@
                                                             Konselor</label>
                                                         <input type="text" name="nama_konselor" id="nama_konselor"
                                                             class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                                            value="{{ old('nama_konselor', $proc->nama_konselor) }}"
-                                                            required="">
+                                                            value="" required="">
                                                     </div>
                                                     <div class="col-span-6 sm:col-span-3">
                                                         <label for="waktu"
@@ -1364,14 +1180,14 @@
                                                             Waktu</label>
                                                         <input type="text" name="waktu" id="waktu"
                                                             class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                                            value="{{ old('waktu', $proc->waktu) }}" required="">
+                                                            value="" required="">
                                                     </div>
                                                     <div class="col-span-6 sm:col-span-3">
                                                         <label for="biaya"
                                                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
                                                         <input type="text" name="biaya" id="biaya"
                                                             class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                                            value="{{ old('biaya', $proc->biaya) }}" required="">
+                                                            value="" required="">
                                                     </div>
                                                 </div>
                                             </div>
@@ -1386,11 +1202,11 @@
 
                                     </div>
                                 </div>
-                                <!-- Delete Pro Counseling List modal -->
-                                <div id="deletepcListModal" tabindex="-1" aria-hidden="true"
+                                <!-- Delete Support Group List modal -->
+                                <div id="deletesgListModal" tabindex="-1" aria-hidden="true"
                                     class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center p-4 w-full md:inset-0 h-modal md:h-full">
                                     <div class="relative w-full max-w-2xl h-full md:h-auto">
-                                        <form action="/admin/layanan/procounseling-list/{{ $proc->id }}" method="post"
+                                        <form action="/admin/layanan/procounseling-list" method="post"
                                             enctype="multipart/form-data"
                                             class="relative bg-white rounded-lg shadow dark:bg-gray-700">
                                             @method('delete')
@@ -1428,8 +1244,8 @@
                             </div>
                         </section>
                     </div>
-                    <div class="hidden p-4 bg-gray-50 rounded-lg dark:bg-gray-800" id="pcReg" role="tabpanel"
-                        aria-labelledby="pcReg-tab">
+                    <div class="hidden p-4 bg-gray-50 rounded-lg dark:bg-gray-800" id="sgReg" role="tabpanel"
+                        aria-labelledby="sgReg-tab">
                         <div class="flex flex-col space-y-6 md:space-y-0 md:flex-row justify-between">
                             <div class="mr-6">
                                 <h1 class="text-4xl font-semibold mb-2">Data Pendaftaran</h1>
@@ -1472,44 +1288,30 @@
                                             <th scope="col" class="py-3 px-6">
                                                 ID
                                             </th>
+                                            @foreach($regsg_fields as $rsgf)
                                             <th scope="col" class="py-3 px-6">
-                                                User ID
+                                                {{ $rsgf }}
                                             </th>
-                                            <th scope="col" class="py-3 px-6">
-                                                Screening ID
-                                            </th>
-                                            <th scope="col" class="py-3 px-6">
-                                                Bukti Transfer
-                                            </th>
-                                            <th scope="col" class="py-3 px-6">
-                                                Status Pendaftaran
-                                            </th>
+                                            @endforeach
                                             <th scope="col" class="py-3 px-6">
                                                 Aksi
                                             </th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @if($regprofessionalcounselings != NULL)
-                                        @foreach($regprofessionalcounselings as $regproc)
+                                        @if($regsupportgroups != NULL)
+                                        @foreach($regsupportgroups as $regsg)
                                         <tr
                                             class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                                             <th scope="row"
                                                 class="flex items-center py-4 px-6 text-gray-900 whitespace-nowrap dark:text-white">
                                                 <div class="text-base font-semibold">{{ $regproc->id}}</div>
                                             </th>
+                                            @foreach($regsg_fields as $rsgf)
                                             <td class="py-4 px-6">
-                                                {{ $regproc->user_id }}
+                                                {{ $regsg->rsgf }}
                                             </td>
-                                            <td class="py-4 px-6">
-                                                {{ $regproc->screening_id }}
-                                            </td>
-                                            <td class="py-4 px-6">
-                                                {{ $regproc->bukti_transfer }}
-                                            </td>
-                                            <td class="py-4 px-6">
-                                                {{ $regproc->status_pendaftaran }}
-                                            </td>
+                                            @endforeach
                                             <td class="py-4 px-6">
                                                 <!-- Modal toggle -->
                                                 <a href="#" type="button" data-modal-toggle="editpcRegModal"
@@ -1522,7 +1324,7 @@
                                     </tbody>
                                 </table>
                                 <!-- Edit user modal -->
-                                <div id="editpcRegModal" tabindex="-1" aria-hidden="true"
+                                <div id="editsgRegModal" tabindex="-1" aria-hidden="true"
                                     class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center p-4 w-full md:inset-0 h-modal md:h-full">
                                     <div class="relative w-full max-w-2xl h-full md:h-auto">
                                         <!-- Modal content -->
@@ -1629,24 +1431,24 @@
             <div class="" id="psytalk" role="tabpanel" aria-labelledby="psytalk-tab">
                 <div class="mb-4 border-b border-gray-200 dark:border-gray-700">
                     <ul class="flex flex-wrap -mb-px text-sm font-medium text-center" id="pcSubTab"
-                        data-tabs-toggle="#pcSubTabContent" role="tablist">
+                        data-tabs-toggle="#psySubTabContent" role="tablist">
                         <li class="mr-2" role="presentation">
                             <button
                                 class="inline-block p-4 rounded-t-lg border-b-2 text-blue-600 hover:text-blue-600 dark:text-blue-500 dark:hover:text-blue-500 border-blue-600 dark:border-blue-500"
-                                id="pcList-tab" data-tabs-target="#pcList" type="button" role="tab"
-                                aria-controls="pcList" aria-selected="true">Daftar Konseling Tersedia</button>
+                                id="psyList-tab" data-tabs-target="#psyList" type="button" role="tab"
+                                aria-controls="pcList" aria-selected="true">Daftar Psytalk Tersedia</button>
                         </li>
                         <li class="mr-2" role="presentation">
                             <button
                                 class="inline-block p-4 rounded-t-lg border-b-2 border-transparent hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 dark:border-transparent text-gray-500 dark:text-gray-400 border-gray-100 dark:border-gray-700"
-                                id="pcReg-tab" data-tabs-target="#pcReg" type="button" role="tab" aria-controls="pcReg"
-                                aria-selected="false">Data Pendaftaran</button>
+                                id="psyReg-tab" data-tabs-target="#psyReg" type="button" role="tab"
+                                aria-controls="psyReg" aria-selected="false">Data Pendaftaran</button>
                         </li>
                     </ul>
                 </div>
-                <div id="pcSubTabContent">
-                    <div class="p-4 rounded-lg dark:bg-gray-800" id="pcList" role="tabpanel"
-                        aria-labelledby="pcList-tab">
+                <div id="psySubTabContent">
+                    <div class="p-4 rounded-lg dark:bg-gray-800" id="psyList" role="tabpanel"
+                        aria-labelledby="psyList-tab">
                         <div class="flex flex-col space-y-6 md:space-y-0 md:flex-row justify-between">
                             <div class="mr-6">
                                 <h1 class="text-4xl font-semibold mb-2">PSYTALK</h1>
@@ -1689,45 +1491,37 @@
                                             <th scope="col" class="py-3 px-6">
                                                 ID
                                             </th>
+                                            @foreach($program_fields as $psyf)
                                             <th scope="col" class="py-3 px-6">
-                                                Nama Konselor
+                                                {{ $psyf }}
                                             </th>
-                                            <th scope="col" class="py-3 px-6">
-                                                Waktu
-                                            </th>
-                                            <th scope="col" class="py-3 px-6">
-                                                Biaya
-                                            </th>
+                                            @endforeach
                                             <th scope="col" class="py-3 px-6">
                                                 Aksi
                                             </th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @if($professionalcounselings == NULL)
+                                        @if($psytalks == NULL)
                                         @else
-                                        @foreach($professionalcounselings as $proc)
+                                        @foreach($psytalks as $psytalk)
                                         <tr
                                             class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                                             <th scope="row"
                                                 class="flex items-center py-4 px-6 text-gray-900 whitespace-nowrap dark:text-white">
                                                 <div class="text-base font-semibold">{{ $proc->id}}</div>
                                             </th>
+                                            @foreach($program_fields as $psyf)
                                             <td class="py-4 px-6">
-                                                {{ $proc->nama_konselor }}
+                                                {{ $psytalk->psyf }}
                                             </td>
-                                            <td class="py-4 px-6">
-                                                {{ $proc->waktu }}
-                                            </td>
-                                            <td class="py-4 px-6">
-                                                {{ $proc->biaya }}
-                                            </td>
+                                            @endforeach
                                             <td class="py-4 px-6">
                                                 <!-- Modal toggle -->
-                                                <a href="#" type="button" data-modal-toggle="editpcListModal"
+                                                <a href="#" type="button" data-modal-toggle="editpsyListModal"
                                                     class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit
                                                 </a>
-                                                <a href="#" type="button" data-modal-toggle="deletepcListModal"
+                                                <a href="#" type="button" data-modal-toggle="deletepsyListModal"
                                                     class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Delete
                                                 </a>
                                             </td>
@@ -1737,11 +1531,11 @@
                                     </tbody>
                                 </table>
                                 <!-- Edit Pro Counseling List modal -->
-                                <div id="editpcListModal" tabindex="-1" aria-hidden="true"
+                                <div id="editpsyListModal" tabindex="-1" aria-hidden="true"
                                     class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center p-4 w-full md:inset-0 h-modal md:h-full">
                                     <div class="relative w-full max-w-2xl h-full md:h-auto">
                                         <!-- Modal content -->
-                                        <form action="/admin/layanan/procounseling-list/{{ $proc->id }}" method="POST"
+                                        <form action="/admin/layanan/procounseling-list/" method="POST"
                                             enctype="multipart/form-data"
                                             class="relative bg-white rounded-lg shadow dark:bg-gray-700">
                                             @method('put')
@@ -1772,8 +1566,7 @@
                                                             Konselor</label>
                                                         <input type="text" name="nama_konselor" id="nama_konselor"
                                                             class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                                            value="{{ old('nama_konselor', $proc->nama_konselor) }}"
-                                                            required="">
+                                                            value="" required="">
                                                     </div>
                                                     <div class="col-span-6 sm:col-span-3">
                                                         <label for="waktu"
@@ -1781,14 +1574,14 @@
                                                             Waktu</label>
                                                         <input type="text" name="waktu" id="waktu"
                                                             class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                                            value="{{ old('waktu', $proc->waktu) }}" required="">
+                                                            value="" required="">
                                                     </div>
                                                     <div class="col-span-6 sm:col-span-3">
                                                         <label for="biaya"
                                                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
                                                         <input type="text" name="biaya" id="biaya"
                                                             class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                                            value="{{ old('biaya', $proc->biaya) }}" required="">
+                                                            value="" required="">
                                                     </div>
                                                 </div>
                                             </div>
@@ -1804,10 +1597,10 @@
                                     </div>
                                 </div>
                                 <!-- Delete Pro Counseling List modal -->
-                                <div id="deletepcListModal" tabindex="-1" aria-hidden="true"
+                                <div id="deletepsyListModal" tabindex="-1" aria-hidden="true"
                                     class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center p-4 w-full md:inset-0 h-modal md:h-full">
                                     <div class="relative w-full max-w-2xl h-full md:h-auto">
-                                        <form action="/admin/layanan/procounseling-list/{{ $proc->id }}" method="post"
+                                        <form action="/admin/layanan/procounseling-list/" method="post"
                                             enctype="multipart/form-data"
                                             class="relative bg-white rounded-lg shadow dark:bg-gray-700">
                                             @method('delete')
@@ -1845,8 +1638,8 @@
                             </div>
                         </section>
                     </div>
-                    <div class="hidden p-4 bg-gray-50 rounded-lg dark:bg-gray-800" id="pcReg" role="tabpanel"
-                        aria-labelledby="pcReg-tab">
+                    <div class="hidden p-4 bg-gray-50 rounded-lg dark:bg-gray-800" id="psyReg" role="tabpanel"
+                        aria-labelledby="psyReg-tab">
                         <div class="flex flex-col space-y-6 md:space-y-0 md:flex-row justify-between">
                             <div class="mr-6">
                                 <h1 class="text-4xl font-semibold mb-2">Data Pendaftaran</h1>
@@ -1889,44 +1682,30 @@
                                             <th scope="col" class="py-3 px-6">
                                                 ID
                                             </th>
+                                            @foreach($regpsytalk_fields as $rpsyf)
                                             <th scope="col" class="py-3 px-6">
-                                                User ID
+                                                {{ $rpsyf }}
                                             </th>
-                                            <th scope="col" class="py-3 px-6">
-                                                Screening ID
-                                            </th>
-                                            <th scope="col" class="py-3 px-6">
-                                                Bukti Transfer
-                                            </th>
-                                            <th scope="col" class="py-3 px-6">
-                                                Status Pendaftaran
-                                            </th>
+                                            @endforeach
                                             <th scope="col" class="py-3 px-6">
                                                 Aksi
                                             </th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @if($regprofessionalcounselings != NULL)
-                                        @foreach($regprofessionalcounselings as $regproc)
+                                        @if($regpsytalks != NULL)
+                                        @foreach($regpsytalks as $regpsytalk)
                                         <tr
                                             class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                                             <th scope="row"
                                                 class="flex items-center py-4 px-6 text-gray-900 whitespace-nowrap dark:text-white">
                                                 <div class="text-base font-semibold">{{ $regproc->id}}</div>
                                             </th>
+                                            @foreach($program_fields as $psyf)
                                             <td class="py-4 px-6">
-                                                {{ $regproc->user_id }}
+                                                {{ $regpsytalk->psyf }}
                                             </td>
-                                            <td class="py-4 px-6">
-                                                {{ $regproc->screening_id }}
-                                            </td>
-                                            <td class="py-4 px-6">
-                                                {{ $regproc->bukti_transfer }}
-                                            </td>
-                                            <td class="py-4 px-6">
-                                                {{ $regproc->status_pendaftaran }}
-                                            </td>
+                                            @endforeach
                                             <td class="py-4 px-6">
                                                 <!-- Modal toggle -->
                                                 <a href="#" type="button" data-modal-toggle="editpcRegModal"
@@ -1939,7 +1718,7 @@
                                     </tbody>
                                 </table>
                                 <!-- Edit user modal -->
-                                <div id="editpcRegModal" tabindex="-1" aria-hidden="true"
+                                <div id="editpsyRegModal" tabindex="-1" aria-hidden="true"
                                     class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center p-4 w-full md:inset-0 h-modal md:h-full">
                                     <div class="relative w-full max-w-2xl h-full md:h-auto">
                                         <!-- Modal content -->
@@ -2043,27 +1822,28 @@
                     </div>
                 </div>
             </div>
+            <!-- KELAS BERPROSES -->
             <div class="" id="kb" role="tabpanel" aria-labelledby="kb-tab">
                 <div class="mb-4 border-b border-gray-200 dark:border-gray-700">
-                    <ul class="flex flex-wrap -mb-px text-sm font-medium text-center" id="pcSubTab"
-                        data-tabs-toggle="#pcSubTabContent" role="tablist">
+                    <ul class="flex flex-wrap -mb-px text-sm font-medium text-center" id="kbSubTab"
+                        data-tabs-toggle="#kbSubTabContent" role="tablist">
                         <li class="mr-2" role="presentation">
                             <button
                                 class="inline-block p-4 rounded-t-lg border-b-2 text-blue-600 hover:text-blue-600 dark:text-blue-500 dark:hover:text-blue-500 border-blue-600 dark:border-blue-500"
-                                id="pcList-tab" data-tabs-target="#pcList" type="button" role="tab"
-                                aria-controls="pcList" aria-selected="true">Daftar Konseling Tersedia</button>
+                                id="kbList-tab" data-tabs-target="#kbList" type="button" role="tab"
+                                aria-controls="kbList" aria-selected="true">Daftar Kelas Berproses Tersedia</button>
                         </li>
                         <li class="mr-2" role="presentation">
                             <button
                                 class="inline-block p-4 rounded-t-lg border-b-2 border-transparent hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 dark:border-transparent text-gray-500 dark:text-gray-400 border-gray-100 dark:border-gray-700"
-                                id="pcReg-tab" data-tabs-target="#pcReg" type="button" role="tab" aria-controls="pcReg"
+                                id="kbReg-tab" data-tabs-target="#kbReg" type="button" role="tab" aria-controls="kbReg"
                                 aria-selected="false">Data Pendaftaran</button>
                         </li>
                     </ul>
                 </div>
-                <div id="pcSubTabContent">
-                    <div class="p-4 rounded-lg dark:bg-gray-800" id="pcList" role="tabpanel"
-                        aria-labelledby="pcList-tab">
+                <div id="kbSubTabContent">
+                    <div class="p-4 rounded-lg dark:bg-gray-800" id="kbList" role="tabpanel"
+                        aria-labelledby="kbList-tab">
                         <div class="flex flex-col space-y-6 md:space-y-0 md:flex-row justify-between">
                             <div class="mr-6">
                                 <h1 class="text-4xl font-semibold mb-2">Kelas Berproses</h1>
@@ -2106,39 +1886,31 @@
                                             <th scope="col" class="py-3 px-6">
                                                 ID
                                             </th>
+                                            @foreach($program_fields as $kbf)
                                             <th scope="col" class="py-3 px-6">
-                                                Nama Konselor
+                                                {{ $kbf }}
                                             </th>
-                                            <th scope="col" class="py-3 px-6">
-                                                Waktu
-                                            </th>
-                                            <th scope="col" class="py-3 px-6">
-                                                Biaya
-                                            </th>
+                                            @endforeach
                                             <th scope="col" class="py-3 px-6">
                                                 Aksi
                                             </th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @if($professionalcounselings == NULL)
+                                        @if($kbs == NULL)
                                         @else
-                                        @foreach($professionalcounselings as $proc)
+                                        @foreach($kbs as $kb)
                                         <tr
                                             class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                                             <th scope="row"
                                                 class="flex items-center py-4 px-6 text-gray-900 whitespace-nowrap dark:text-white">
-                                                <div class="text-base font-semibold">{{ $proc->id}}</div>
+                                                <div class="text-base font-semibold">{{ $kb->id}}</div>
                                             </th>
+                                            @foreach($kb_fields as $kbf)
                                             <td class="py-4 px-6">
-                                                {{ $proc->nama_konselor }}
+                                                {{ $kb->kbf }}
                                             </td>
-                                            <td class="py-4 px-6">
-                                                {{ $proc->waktu }}
-                                            </td>
-                                            <td class="py-4 px-6">
-                                                {{ $proc->biaya }}
-                                            </td>
+                                            @endforeach
                                             <td class="py-4 px-6">
                                                 <!-- Modal toggle -->
                                                 <a href="#" type="button" data-modal-toggle="editpcListModal"
@@ -2154,11 +1926,11 @@
                                     </tbody>
                                 </table>
                                 <!-- Edit Pro Counseling List modal -->
-                                <div id="editpcListModal" tabindex="-1" aria-hidden="true"
+                                <div id="editkbListModal" tabindex="-1" aria-hidden="true"
                                     class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center p-4 w-full md:inset-0 h-modal md:h-full">
                                     <div class="relative w-full max-w-2xl h-full md:h-auto">
                                         <!-- Modal content -->
-                                        <form action="/admin/layanan/procounseling-list/{{ $proc->id }}" method="POST"
+                                        <form action="/admin/layanan/procounseling-list/" method="POST"
                                             enctype="multipart/form-data"
                                             class="relative bg-white rounded-lg shadow dark:bg-gray-700">
                                             @method('put')
@@ -2189,8 +1961,7 @@
                                                             Konselor</label>
                                                         <input type="text" name="nama_konselor" id="nama_konselor"
                                                             class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                                            value="{{ old('nama_konselor', $proc->nama_konselor) }}"
-                                                            required="">
+                                                            value="" required="">
                                                     </div>
                                                     <div class="col-span-6 sm:col-span-3">
                                                         <label for="waktu"
@@ -2198,14 +1969,14 @@
                                                             Waktu</label>
                                                         <input type="text" name="waktu" id="waktu"
                                                             class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                                            value="{{ old('waktu', $proc->waktu) }}" required="">
+                                                            value="" required="">
                                                     </div>
                                                     <div class="col-span-6 sm:col-span-3">
                                                         <label for="biaya"
                                                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
                                                         <input type="text" name="biaya" id="biaya"
                                                             class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                                            value="{{ old('biaya', $proc->biaya) }}" required="">
+                                                            value="" required="">
                                                     </div>
                                                 </div>
                                             </div>
@@ -2220,11 +1991,11 @@
 
                                     </div>
                                 </div>
-                                <!-- Delete Pro Counseling List modal -->
-                                <div id="deletepcListModal" tabindex="-1" aria-hidden="true"
+                                <!-- Delete Kelas Berproses List modal -->
+                                <div id="deletekbListModal" tabindex="-1" aria-hidden="true"
                                     class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center p-4 w-full md:inset-0 h-modal md:h-full">
                                     <div class="relative w-full max-w-2xl h-full md:h-auto">
-                                        <form action="/admin/layanan/procounseling-list/{{ $proc->id }}" method="post"
+                                        <form action="/admin/layanan/procounseling-list/" method="post"
                                             enctype="multipart/form-data"
                                             class="relative bg-white rounded-lg shadow dark:bg-gray-700">
                                             @method('delete')
@@ -2233,7 +2004,7 @@
                                             <div
                                                 class="flex justify-between items-start p-4 rounded-t border-b dark:border-gray-600">
                                                 <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
-                                                    Hapus Data Konseling
+                                                    Hapus Data Kelas Berproses
                                                 </h3>
                                                 <button type="button"
                                                     class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
@@ -2262,12 +2033,12 @@
                             </div>
                         </section>
                     </div>
-                    <div class="hidden p-4 bg-gray-50 rounded-lg dark:bg-gray-800" id="pcReg" role="tabpanel"
-                        aria-labelledby="pcReg-tab">
+                    <div class="hidden p-4 bg-gray-50 rounded-lg dark:bg-gray-800" id="kbReg" role="tabpanel"
+                        aria-labelledby="kbReg-tab">
                         <div class="flex flex-col space-y-6 md:space-y-0 md:flex-row justify-between">
                             <div class="mr-6">
                                 <h1 class="text-4xl font-semibold mb-2">Data Pendaftaran</h1>
-                                <h2 class="text-gray-600 ml-0.5">Konseling dengan psikolog professional</h2>
+                                <h2 class="text-gray-600 ml-0.5">Kelas Berproses</h2>
                             </div>
                             <div class="flex flex-wrap items-start justify-end -mb-3 text-sm">
                                 <button
@@ -2306,44 +2077,30 @@
                                             <th scope="col" class="py-3 px-6">
                                                 ID
                                             </th>
+                                            @foreach($regkb_fields as $rkbf)
                                             <th scope="col" class="py-3 px-6">
-                                                User ID
+                                                {{ $rkbf }}
                                             </th>
-                                            <th scope="col" class="py-3 px-6">
-                                                Screening ID
-                                            </th>
-                                            <th scope="col" class="py-3 px-6">
-                                                Bukti Transfer
-                                            </th>
-                                            <th scope="col" class="py-3 px-6">
-                                                Status Pendaftaran
-                                            </th>
+                                            @endforeach
                                             <th scope="col" class="py-3 px-6">
                                                 Aksi
                                             </th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @if($regprofessionalcounselings != NULL)
-                                        @foreach($regprofessionalcounselings as $regproc)
+                                        @if($regkbs != NULL)
+                                        @foreach($regkbs as $regkb)
                                         <tr
                                             class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                                             <th scope="row"
                                                 class="flex items-center py-4 px-6 text-gray-900 whitespace-nowrap dark:text-white">
                                                 <div class="text-base font-semibold">{{ $regproc->id}}</div>
                                             </th>
+                                            @foreach($regkb_fields as $rkbf)
                                             <td class="py-4 px-6">
-                                                {{ $regproc->user_id }}
+                                                {{ $regkb->rkbf }}
                                             </td>
-                                            <td class="py-4 px-6">
-                                                {{ $regproc->screening_id }}
-                                            </td>
-                                            <td class="py-4 px-6">
-                                                {{ $regproc->bukti_transfer }}
-                                            </td>
-                                            <td class="py-4 px-6">
-                                                {{ $regproc->status_pendaftaran }}
-                                            </td>
+                                            @endforeach
                                             <td class="py-4 px-6">
                                                 <!-- Modal toggle -->
                                                 <a href="#" type="button" data-modal-toggle="editpcRegModal"
@@ -2356,7 +2113,7 @@
                                     </tbody>
                                 </table>
                                 <!-- Edit user modal -->
-                                <div id="editpcRegModal" tabindex="-1" aria-hidden="true"
+                                <div id="editkbRegModal" tabindex="-1" aria-hidden="true"
                                     class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center p-4 w-full md:inset-0 h-modal md:h-full">
                                     <div class="relative w-full max-w-2xl h-full md:h-auto">
                                         <!-- Modal content -->
@@ -2590,21 +2347,21 @@
                                                     class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Judul</label>
                                                 <input type="text" name="judul" id="judul"
                                                     class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                                    value="{{ old('judul', $artikel->judul) }}" required="">
+                                                    value="" required="">
                                             </div>
                                             <div class="col-span-6 sm:col-span-3">
                                                 <label for="isi"
                                                     class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Isi</label>
                                                 <input type="text" name="isi" id="isi"
                                                     class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                                    value="{{ old('isi', $artikel->isi) }}" required="">
+                                                    value="" required="">
                                             </div>
                                             <div class="col-span-6 sm:col-span-3">
                                                 <label for="poster"
                                                     class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Poster</label>
                                                 <input type="file" name="poster" id="poster"
                                                     class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                                    value="{{ old('poster', $artikel->poster) }}" required="">
+                                                    value="" required="">
                                             </div>
                                         </div>
                                     </div>

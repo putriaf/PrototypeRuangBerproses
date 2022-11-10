@@ -26,11 +26,17 @@ class RegistrationPsytalkController extends Controller
     {
         $response = Http::get('https://ruangberproses-be.herokuapp.com/api/admin/program/psytalk-list');
         $response = $response->object();
+        $response_profile = Http::withHeaders([
+            'Accept' => 'application/json',
+            'Authorization' => 'Bearer ' . session('token'),
+        ])->get('https://ruangberproses-be.herokuapp.com/api/profile');
+        $response_profile = $response_profile->object();
         return view('program.psytalk.daftar', [
             'title' => 'Pendaftaran Psytalk',
             'message' => NULL,
             'psytalks' => $response->data,
-            'psytalk_id' => $id
+            'psytalk_id' => $id,
+            'profilUser' => $response_profile->profile
         ]);
     }
 
