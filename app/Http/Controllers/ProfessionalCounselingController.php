@@ -41,18 +41,20 @@ class ProfessionalCounselingController extends Controller
         $validatedData = $request->validate([
             'nama_konselor' => 'required',
             'waktu' => 'required',
+            'tanggal' => 'required',
             'biaya' => 'required'
         ]);
 
-        $response = Http::asForm()->post("https://ruangberproses-be.herokuapp.com/api/layanan/professional-counseling/daftar", [
+        $response = Http::asForm()->post("https://ruangberproses-be.herokuapp.com/api/admin/layanan/procounseling-list/tambah", [
             'nama_konselor' => $request->input('nama_konselor'),
             'waktu' => $request->input('waktu'),
+            'tanggal' => $request->input('tanggal'),
             'biaya' => $request->input('biaya')
         ]);
         if ($response->status() == 200) {
-            return redirect('/admin/layanan/professional-counseling')->with('success', 'Pendaftaran berhasil!');
+            return redirect('/admin')->with('success', 'Pendaftaran berhasil!');
         } else {
-            return redirect('/admin/layanan/professional-counseling/daftar')->with('success', 'Pendaftaran gagal!');
+            return redirect('/admin')->with('success', 'Pendaftaran gagal!');
         }
     }
 
@@ -105,7 +107,6 @@ class ProfessionalCounselingController extends Controller
             'biaya' => 'required'
         ];
         $validatedData = $request->validate($rules);
-
         Http::asForm()->post("https://ruangberproses-be.herokuapp.com/api/admin/layanan/procounseling-list/" . $id . '?_method=PUT', [
             'nama_konselor' => $request->input('nama_konselor'),
             'waktu' => $request->input('waktu'),

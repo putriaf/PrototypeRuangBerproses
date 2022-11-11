@@ -267,7 +267,7 @@
                                 <h2 class="text-gray-600 ml-0.5">Konseling dengan psikolog professional</h2>
                             </div>
                             <div class="flex flex-wrap items-start justify-end -mb-3 text-sm">
-                                <button
+                                <button data-modal-toggle="createpcListModal"
                                     class="inline-flex px-5 py-3 text-white bg-blue-600 hover:bg-purple-700 focus:bg-blue-700 rounded-md ml-6 mb-3">
                                     <svg aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor"
                                         class="flex-shrink-0 h-4 w-4 text-white -ml-1 mr-2 self-center">
@@ -314,8 +314,6 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @if($professionalcounselings == NULL)
-                                        @else
                                         @foreach($professionalcounselings as $proc)
                                         <tr
                                             class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
@@ -330,122 +328,164 @@
                                             @endforeach
                                             <td class="py-4 px-6">
                                                 <!-- Modal toggle -->
-                                                <a href="#" type="button" data-modal-toggle="editpcListModal"
+                                                <a href="#" type="button"
+                                                    data-modal-toggle="editpcListModal{{ $proc->id }}"
                                                     class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit
                                                 </a>
-                                                <a href="#" type="button" data-modal-toggle="deletepcListModal"
+                                                <a href="#" type="button"
+                                                    data-modal-toggle="deletepcListModal{{ $proc->id }}"
                                                     class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Delete
                                                 </a>
                                             </td>
-                                        </tr>
-                                        @endforeach
-                                        @endif
-                                    </tbody>
-                                </table>
-                                <!-- Edit Pro Counseling List modal -->
-                                <div id="editpcListModal" tabindex="-1" aria-hidden="true"
-                                    class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center p-4 w-full md:inset-0 h-modal md:h-full">
-                                    <div class="relative w-full max-w-2xl h-full md:h-auto">
-                                        <!-- Modal content -->
-                                        <form action="/admin/layanan/procounseling-list/" method="POST"
-                                            enctype="multipart/form-data"
-                                            class="relative bg-white rounded-lg shadow dark:bg-gray-700">
-                                            @method('put')
-                                            @csrf
-                                            <!-- Modal header -->
-                                            <div
-                                                class="flex justify-between items-start p-4 rounded-t border-b dark:border-gray-600">
-                                                <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
-                                                    Edit Data Konseling Tersedia
-                                                </h3>
-                                                <button type="button"
-                                                    class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
-                                                    data-modal-toggle="editpcListModal">
-                                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
-                                                        xmlns="http://www.w3.org/2000/svg">
-                                                        <path fill-rule="evenodd"
-                                                            d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                                                            clip-rule="evenodd"></path>
-                                                    </svg>
-                                                </button>
-                                            </div>
-                                            <!-- Modal body -->
-                                            <div class="p-6 space-y-6">
-                                                <div class="grid grid-cols-6 gap-6">
-                                                    <div class="col-span-6 sm:col-span-3">
-                                                        <label for="nama_konselor"
-                                                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama
-                                                            Konselor</label>
-                                                        <input type="text" name="nama_konselor" id="nama_konselor"
-                                                            class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                                            value="" required="">
-                                                    </div>
-                                                    <div class="col-span-6 sm:col-span-3">
-                                                        <label for="waktu"
-                                                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                                                            Waktu</label>
-                                                        <input type="text" name="waktu" id="waktu"
-                                                            class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                                            value="" required="">
-                                                    </div>
-                                                    <div class="col-span-6 sm:col-span-3">
-                                                        <label for="biaya"
-                                                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
-                                                        <input type="text" name="biaya" id="biaya"
-                                                            class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                                            value="" required="">
-                                                    </div>
+                                            <!-- Edit Pro Counseling List modal -->
+                                            <div id="editpcListModal{{ $proc->id }}" tabindex="-1" aria-hidden="true"
+                                                class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center p-4 w-full md:inset-0 h-modal md:h-full">
+                                                <div
+                                                    class="bg-white relative w-full max-w-2xl h-full md:h-auto rounded-md">
+                                                    <!-- Modal content -->
+                                                    <form action="/admin/layanan/procounseling-list/{{ $proc->id }}"
+                                                        method="POST" id="editpcList" enctype="multipart/form-data"
+                                                        class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                                                        @method('put')
+                                                        @csrf
+                                                        <!-- Modal header -->
+                                                        <div
+                                                            class="flex justify-between items-start p-4 rounded-t border-b dark:border-gray-600">
+                                                            <h3
+                                                                class="text-xl font-semibold text-gray-900 dark:text-white">
+                                                                Edit Data Konseling Tersedia
+                                                            </h3>
+                                                            <button type="button"
+                                                                class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                                                                data-modal-toggle="editpcListModal{{ $proc->id}}">
+                                                                <svg class="w-5 h-5" fill="currentColor"
+                                                                    viewBox="0 0 20 20"
+                                                                    xmlns="http://www.w3.org/2000/svg">
+                                                                    <path fill-rule="evenodd"
+                                                                        d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                                                                        clip-rule="evenodd"></path>
+                                                                </svg>
+                                                            </button>
+                                                        </div>
+                                                        <!-- Modal body -->
+                                                        <div class="p-6 space-y-6">
+                                                            <div class="grid grid-cols-6 gap-6">
+                                                                @foreach($counseling_fields as $csf)
+                                                                <div class="col-span-6 sm:col-span-3">
+                                                                    <label for="{{ $csf }}"
+                                                                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{ $csf }}</label>
+                                                                    <input type="text" name="{{ $csf }}" id="{{ $csf }}"
+                                                                        class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                                                        value="{{ old( $csf, $proc->$csf) }}"
+                                                                        required="">
+                                                                </div>
+                                                                @endforeach
+                                                            </div>
+                                                        </div>
+                                                        <!-- Modal footer -->
+                                                        <div
+                                                            class="flex items-center p-6 space-x-2 rounded-b border-t border-gray-200 dark:border-gray-600">
+                                                            <button type="submit"
+                                                                class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Update</button>
+                                                        </div>
+                                                    </form>
                                                 </div>
                                             </div>
-                                            <!-- Modal footer -->
-                                            <div
-                                                class="flex items-center p-6 space-x-2 rounded-b border-t border-gray-200 dark:border-gray-600">
-                                                <button type="submit"
-                                                    class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Update</button>
+                                            <!-- Delete Pro Counseling List modal -->
+                                            <div id="deletepcListModal{{ $proc->id }}" tabindex="-1" aria-hidden="true"
+                                                class="w-full hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center p-4 md:inset-0 h-modal md:h-full">
+                                                <div
+                                                    class="relative w-full max-w-2xl h-full md:h-auto bg-white rounded-md">
+                                                    <form action="/admin/layanan/procounseling-list/{{ $proc->id }}"
+                                                        method="post" enctype="multipart/form-data"
+                                                        class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                                                        @method('delete')
+                                                        @csrf
+                                                        <!-- Modal header -->
+                                                        <div
+                                                            class="flex justify-between items-start p-4 rounded-t border-b dark:border-gray-600">
+                                                            <h3
+                                                                class="text-xl font-semibold text-gray-900 dark:text-white">
+                                                                Hapus Data Konseling
+                                                            </h3>
+                                                            <button type="button"
+                                                                class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                                                                data-modal-toggle="deletepcListModal{{ $proc->id }}">
+                                                                <svg class="w-5 h-5" fill="currentColor"
+                                                                    viewBox="0 0 20 20"
+                                                                    xmlns="http://www.w3.org/2000/svg">
+                                                                    <path fill-rule="evenodd"
+                                                                        d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                                                                        clip-rule="evenodd"></path>
+                                                                </svg>
+                                                            </button>
+                                                        </div>
+                                                        <!-- Modal body -->
+                                                        <div class="p-6 space-y-6">
+                                                            <p>Data yang sudah dihapus tidak bisa dikembalikan lagi</p>
+                                                        </div>
+                                                        <!-- Modal footer -->
+                                                        <div
+                                                            class="flex items-center p-6 space-x-2 rounded-b border-t border-gray-200 dark:border-gray-600">
+                                                            <button type="submit"
+                                                                class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Hapus</button>
+                                                        </div>
+                                                    </form>
+                                                </div>
                                             </div>
+                                            @endforeach
+                                        </tr>
+                                    </tbody>
+                                </table>
 
-                                        </form>
-
-                                    </div>
-                                </div>
-                                <!-- Delete Pro Counseling List modal -->
-                                <div id="deletepcListModal" tabindex="-1" aria-hidden="true"
-                                    class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center p-4 w-full md:inset-0 h-modal md:h-full">
-                                    <div class="relative w-full max-w-2xl h-full md:h-auto">
-                                        <form action="/admin/layanan/procounseling-list/" method="post"
-                                            enctype="multipart/form-data"
-                                            class="relative bg-white rounded-lg shadow dark:bg-gray-700">
-                                            @method('delete')
-                                            @csrf
-                                            <!-- Modal header -->
-                                            <div
-                                                class="flex justify-between items-start p-4 rounded-t border-b dark:border-gray-600">
-                                                <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
-                                                    Hapus Data Konseling
-                                                </h3>
-                                                <button type="button"
-                                                    class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
-                                                    data-modal-toggle="deletepcListModal">
-                                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
-                                                        xmlns="http://www.w3.org/2000/svg">
-                                                        <path fill-rule="evenodd"
-                                                            d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                                                            clip-rule="evenodd"></path>
-                                                    </svg>
-                                                </button>
+                            </div>
+                            <!-- Create Pro Counseling List modal -->
+                            <div id="createpcListModal" tabindex="-1" aria-hidden="true"
+                                class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center p-4 w-full md:inset-0 h-modal md:h-full">
+                                <div class="relative w-full max-w-2xl h-full md:h-auto">
+                                    <!-- Modal content -->
+                                    <form action="/admin/layanan/procounseling-list/tambah" method="POST"
+                                        id="createpcList" enctype="multipart/form-data"
+                                        class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                                        @csrf
+                                        <!-- Modal header -->
+                                        <div
+                                            class="flex justify-between items-start p-4 rounded-t border-b dark:border-gray-600">
+                                            <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+                                                Tambah Data Konseling
+                                            </h3>
+                                            <button type="button"
+                                                class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                                                data-modal-toggle="createpcListModal">
+                                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path fill-rule="evenodd"
+                                                        d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                                                        clip-rule="evenodd"></path>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                        <!-- Modal body -->
+                                        <div class="p-6 space-y-6">
+                                            <div class="grid grid-cols-6 gap-6">
+                                                @foreach($counseling_fields as $csf)
+                                                <div class="col-span-6 sm:col-span-3">
+                                                    <label for="{{ $csf }}"
+                                                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{ $csf }}</label>
+                                                    <input type="text" name="{{ $csf }}" id="{{ $csf }}"
+                                                        class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                                        value="{{ old( $csf ) }}" required="">
+                                                </div>
+                                                @endforeach
                                             </div>
-                                            <!-- Modal body -->
-                                            <div class="p-6 space-y-6">
-                                                <p>Data yang sudah dihapus tidak bisa dikembalikan lagi</p>
-                                            </div>
-                                            <!-- Modal footer -->
-                                            <div
-                                                class="flex items-center p-6 space-x-2 rounded-b border-t border-gray-200 dark:border-gray-600">
-                                                <button type="submit"
-                                                    class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Hapus</button>
-                                            </div>
-                                        </form>
-                                    </div>
+                                        </div>
+                                        <!-- Modal footer -->
+                                        <div
+                                            class="flex items-center p-6 space-x-2 rounded-b border-t border-gray-200 dark:border-gray-600">
+                                            <button type="submit"
+                                                class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Update</button>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                         </section>
@@ -759,7 +799,7 @@
                                                 </h3>
                                                 <button type="button"
                                                     class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
-                                                    data-modal-toggle="editpcListModal">
+                                                    data-modal-toggle="editpecListModal">
                                                     <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
                                                         xmlns="http://www.w3.org/2000/svg">
                                                         <path fill-rule="evenodd"
@@ -824,7 +864,7 @@
                                                 </h3>
                                                 <button type="button"
                                                     class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
-                                                    data-modal-toggle="deletepcListModal">
+                                                    data-modal-toggle="deletepecListModal">
                                                     <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
                                                         xmlns="http://www.w3.org/2000/svg">
                                                         <path fill-rule="evenodd"
@@ -1154,7 +1194,7 @@
                                                 </h3>
                                                 <button type="button"
                                                     class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
-                                                    data-modal-toggle="editpcListModal">
+                                                    data-modal-toggle="editsgListModal">
                                                     <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
                                                         xmlns="http://www.w3.org/2000/svg">
                                                         <path fill-rule="evenodd"
@@ -1219,7 +1259,7 @@
                                                 </h3>
                                                 <button type="button"
                                                     class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
-                                                    data-modal-toggle="deletepcListModal">
+                                                    data-modal-toggle="deletesgListModal">
                                                     <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
                                                         xmlns="http://www.w3.org/2000/svg">
                                                         <path fill-rule="evenodd"
@@ -1548,7 +1588,7 @@
                                                 </h3>
                                                 <button type="button"
                                                     class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
-                                                    data-modal-toggle="editpcListModal">
+                                                    data-modal-toggle="editpsyListModal">
                                                     <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
                                                         xmlns="http://www.w3.org/2000/svg">
                                                         <path fill-rule="evenodd"
@@ -1613,7 +1653,7 @@
                                                 </h3>
                                                 <button type="button"
                                                     class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
-                                                    data-modal-toggle="deletepcListModal">
+                                                    data-modal-toggle="deletepsyListModal">
                                                     <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
                                                         xmlns="http://www.w3.org/2000/svg">
                                                         <path fill-rule="evenodd"
@@ -1913,10 +1953,10 @@
                                             @endforeach
                                             <td class="py-4 px-6">
                                                 <!-- Modal toggle -->
-                                                <a href="#" type="button" data-modal-toggle="editpcListModal"
+                                                <a href="#" type="button" data-modal-toggle="editkbListModal"
                                                     class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit
                                                 </a>
-                                                <a href="#" type="button" data-modal-toggle="deletepcListModal"
+                                                <a href="#" type="button" data-modal-toggle="deletekbListModal"
                                                     class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Delete
                                                 </a>
                                             </td>
@@ -1943,7 +1983,7 @@
                                                 </h3>
                                                 <button type="button"
                                                     class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
-                                                    data-modal-toggle="editpcListModal">
+                                                    data-modal-toggle="editkbListModal">
                                                     <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
                                                         xmlns="http://www.w3.org/2000/svg">
                                                         <path fill-rule="evenodd"
@@ -2008,7 +2048,7 @@
                                                 </h3>
                                                 <button type="button"
                                                     class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
-                                                    data-modal-toggle="deletepcListModal">
+                                                    data-modal-toggle="deletekbListModal">
                                                     <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
                                                         xmlns="http://www.w3.org/2000/svg">
                                                         <path fill-rule="evenodd"
@@ -2330,7 +2370,7 @@
                                         </h3>
                                         <button type="button"
                                             class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
-                                            data-modal-toggle="editpcListModal">
+                                            data-modal-toggle="editkbListModal">
                                             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
                                                 xmlns="http://www.w3.org/2000/svg">
                                                 <path fill-rule="evenodd"
