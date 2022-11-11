@@ -145,8 +145,7 @@
                     </svg>
                 </button>
                 <div class="absolute top-20 bg-white border rounded-md p-2 w-56" x-show="panel" style="display:none">
-                    <div class="p-2 hover:bg-blue-100 cursor-pointer"><a href="/profil">Profil</a></div>
-                    <div class="p-2 hover:bg-blue-100 cursor-pointer"><a href="/admin">Administrator</a></div>
+                    <div class="p-2 hover:bg-blue-100 cursor-pointer"><a href="/profile">Profil</a></div>
                 </div>
                 <div class="border-l pl-3 ml-3 space-x-1">
                     <form action="/logout" method="POST">
@@ -437,7 +436,6 @@
                                         </tr>
                                     </tbody>
                                 </table>
-
                             </div>
                             <!-- Create Pro Counseling List modal -->
                             <div id="createpcListModal" tabindex="-1" aria-hidden="true"
@@ -498,17 +496,6 @@
                                 <h1 class="text-4xl font-semibold mb-2">Data Pendaftaran</h1>
                                 <h2 class="text-gray-600 ml-0.5">Konseling dengan psikolog professional</h2>
                             </div>
-                            <div class="flex flex-wrap items-start justify-end -mb-3 text-sm">
-                                <button
-                                    class="inline-flex px-5 py-3 text-white bg-blue-600 hover:bg-purple-700 focus:bg-blue-700 rounded-md ml-6 mb-3">
-                                    <svg aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                                        class="flex-shrink-0 h-4 w-4 text-white -ml-1 mr-2 self-center">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-                                    </svg>
-                                    Tambah Data
-                                </button>
-                            </div>
                         </div>
                         <section class="grid md:grid-cols-1">
                             <div class="flex justify-end items-center py-4 dark:bg-gray-800">
@@ -545,8 +532,8 @@
                                             </th>
                                         </tr>
                                     </thead>
+                                    @if($regprofessionalcounselings != NULL)
                                     <tbody>
-                                        @if($regprofessionalcounselings != NULL)
                                         @foreach($regprofessionalcounselings as $regproc)
                                         <tr
                                             class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
@@ -556,123 +543,120 @@
                                             </th>
                                             @foreach($regprocounseling_fields as $rprof)
                                             <td class="py-4 px-6">
-                                                {{ $regproc->rprof }}
+                                                {{ $regproc->$rprof }}
                                             </td>
                                             @endforeach
                                             <td class="py-4 px-6">
                                                 <!-- Modal toggle -->
-                                                <a href="#" type="button" data-modal-toggle="editpcRegModal"
+                                                <a href="#" type="button"
+                                                    data-modal-toggle="editpcRegModal{{ $regproc->id }}"
                                                     class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit
                                                 </a>
-                                                <a href="#" type="button" data-modal-toggle="deletepcRegModal"
+                                                <a href="#" type="button"
+                                                    data-modal-toggle="deletepcRegModal{{$regproc->id }}"
                                                     class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Delete
                                                 </a>
                                             </td>
                                         </tr>
+                                        <!-- Edit professional counseling registration modal -->
+                                        <div id="editpcRegModal{{ $regproc->id }}" tabindex="-1" aria-hidden="true"
+                                            class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center p-4 w-full md:inset-0 h-modal md:h-full">
+                                            <div
+                                                class="relative w-full max-w-2xl h-full md:h-auto rounded overflow-y-auto bg-white">
+                                                <!-- Modal content -->
+                                                <form action="/admin/layanan/professional-counseling/{{ $regproc->id }}"
+                                                    method="POST" enctype="multipart/form-data" id="editpcReg"
+                                                    class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                                                    <!-- Modal header -->
+                                                    @method('put')
+                                                    @csrf
+                                                    <div
+                                                        class="flex justify-between items-start p-4 rounded-t border-b dark:border-gray-600">
+                                                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+                                                            Konfirmasi Pembayaran
+                                                        </h3>
+                                                        <button type="button"
+                                                            class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                                                            data-modal-toggle="editpcRegModal{{ $regproc->id }}">
+                                                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+                                                                xmlns="http://www.w3.org/2000/svg">
+                                                                <path fill-rule="evenodd"
+                                                                    d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                                                                    clip-rule="evenodd"></path>
+                                                            </svg>
+                                                        </button>
+                                                    </div>
+                                                    <!-- Modal body -->
+                                                    <div class="p-6 space-y-6">
+                                                        <div class="grid grid-cols-6 gap-6">
+                                                            <div class="col-span-6 sm:col-span-3">
+                                                                <img src="{{ asset('storage/' . $regproc->bukti_transfer) }}"
+                                                                    alt="Bukti Pembayaran">
+                                                            </div>
+                                                        </div>
+                                                        <label for="status_pendaftaran"
+                                                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Status
+                                                            Pendaftaran</label>
+                                                        <select id="status_pendaftaran" name="status_pendaftaran"
+                                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                                            <option selected="">Edit Status Pendaftaran</option>
+                                                            <option value="berhasil">Berhasil</option>
+                                                            <option value="gagal">Ditolak</option>
+                                                        </select>
+                                                    </div>
+                                                    <!-- Modal footer -->
+                                                    <div
+                                                        class="flex items-center p-6 space-x-2 rounded-b border-t border-gray-200 dark:border-gray-600">
+                                                        <button type="submit"
+                                                            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Update
+                                                        </button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                        <!-- Delete Pro Counseling List modal -->
+                                        <div id="deletepcRegModal{{ $regproc->id }}" tabindex="-1" aria-hidden="true"
+                                            class="w-full hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center p-4 md:inset-0 h-modal md:h-full">
+                                            <div class="relative w-full max-w-2xl h-full md:h-auto bg-white rounded-md">
+                                                <form action="/admin/layanan/professional-counseling/{{ $regproc->id }}"
+                                                    method="post" enctype="multipart/form-data"
+                                                    class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                                                    @method('delete')
+                                                    @csrf
+                                                    <!-- Modal header -->
+                                                    <div
+                                                        class="flex justify-between items-start p-4 rounded-t border-b dark:border-gray-600">
+                                                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+                                                            Hapus Data Konseling
+                                                        </h3>
+                                                        <button type="button"
+                                                            class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                                                            data-modal-toggle="deletepcListModal{{ $proc->id }}">
+                                                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+                                                                xmlns="http://www.w3.org/2000/svg">
+                                                                <path fill-rule="evenodd"
+                                                                    d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                                                                    clip-rule="evenodd"></path>
+                                                            </svg>
+                                                        </button>
+                                                    </div>
+                                                    <!-- Modal body -->
+                                                    <div class="p-6 space-y-6">
+                                                        <p>Data yang sudah dihapus tidak bisa dikembalikan lagi</p>
+                                                    </div>
+                                                    <!-- Modal footer -->
+                                                    <div
+                                                        class="flex items-center p-6 space-x-2 rounded-b border-t border-gray-200 dark:border-gray-600">
+                                                        <button type="submit"
+                                                            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Hapus</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
                                         @endforeach
                                         @endif
                                     </tbody>
                                 </table>
-                                <!-- Edit professional counseling registration modal -->
-                                <div id="editpcRegModal" tabindex="-1" aria-hidden="true"
-                                    class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center p-4 w-full md:inset-0 h-modal md:h-full">
-                                    <div class="relative w-full max-w-2xl h-full md:h-auto">
-                                        <!-- Modal content -->
-                                        <form action="#" class="relative bg-white rounded-lg shadow dark:bg-gray-700">
-                                            <!-- Modal header -->
-                                            <div
-                                                class="flex justify-between items-start p-4 rounded-t border-b dark:border-gray-600">
-                                                <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
-                                                    Edit user
-                                                </h3>
-                                                <button type="button"
-                                                    class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
-                                                    data-modal-toggle="editpcRegModal">
-                                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
-                                                        xmlns="http://www.w3.org/2000/svg">
-                                                        <path fill-rule="evenodd"
-                                                            d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                                                            clip-rule="evenodd"></path>
-                                                    </svg>
-                                                </button>
-                                            </div>
-                                            <!-- Modal body -->
-                                            <div class="p-6 space-y-6">
-                                                <div class="grid grid-cols-6 gap-6">
-                                                    <div class="col-span-6 sm:col-span-3">
-                                                        <label for="first-name"
-                                                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">First
-                                                            Name</label>
-                                                        <input type="text" name="first-name" id="first-name"
-                                                            class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                                            placeholder="Bonnie" required="">
-                                                    </div>
-                                                    <div class="col-span-6 sm:col-span-3">
-                                                        <label for="last-name"
-                                                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Last
-                                                            Name</label>
-                                                        <input type="text" name="last-name" id="last-name"
-                                                            class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                                            placeholder="Green" required="">
-                                                    </div>
-                                                    <div class="col-span-6 sm:col-span-3">
-                                                        <label for="email"
-                                                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
-                                                        <input type="email" name="email" id="email"
-                                                            class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                                            placeholder="example@company.com" required="">
-                                                    </div>
-                                                    <div class="col-span-6 sm:col-span-3">
-                                                        <label for="phone-number"
-                                                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Phone
-                                                            Number</label>
-                                                        <input type="number" name="phone-number" id="phone-number"
-                                                            class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                                            placeholder="e.g. +(12)3456 789" required="">
-                                                    </div>
-                                                    <div class="col-span-6 sm:col-span-3">
-                                                        <label for="department"
-                                                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Department</label>
-                                                        <input type="text" name="department" id="department"
-                                                            class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                                            placeholder="Development" required="">
-                                                    </div>
-                                                    <div class="col-span-6 sm:col-span-3">
-                                                        <label for="company"
-                                                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Company</label>
-                                                        <input type="number" name="company" id="company"
-                                                            class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                                            placeholder="123456" required="">
-                                                    </div>
-                                                    <div class="col-span-6 sm:col-span-3">
-                                                        <label for="current-password"
-                                                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Current
-                                                            Password</label>
-                                                        <input type="password" name="current-password"
-                                                            id="current-password"
-                                                            class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                                            placeholder="••••••••" required="">
-                                                    </div>
-                                                    <div class="col-span-6 sm:col-span-3">
-                                                        <label for="new-password"
-                                                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">New
-                                                            Password</label>
-                                                        <input type="password" name="new-password" id="new-password"
-                                                            class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                                            placeholder="••••••••" required="">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- Modal footer -->
-                                            <div
-                                                class="flex items-center p-6 space-x-2 rounded-b border-t border-gray-200 dark:border-gray-600">
-                                                <button type="submit"
-                                                    class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Save
-                                                    all</button>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
                             </div>
                         </section>
                     </div>
@@ -982,7 +966,7 @@
                                                 </h3>
                                                 <button type="button"
                                                     class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
-                                                    data-modal-toggle="editpcRegModal">
+                                                    data-modal-toggle=" ">
                                                     <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
                                                         xmlns="http://www.w3.org/2000/svg">
                                                         <path fill-rule="evenodd"
@@ -1354,7 +1338,7 @@
                                             @endforeach
                                             <td class="py-4 px-6">
                                                 <!-- Modal toggle -->
-                                                <a href="#" type="button" data-modal-toggle="editpcRegModal"
+                                                <a href="#" type="button" data-modal-toggle=" "
                                                     class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit
                                                 </a>
                                             </td>
@@ -1377,7 +1361,7 @@
                                                 </h3>
                                                 <button type="button"
                                                     class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
-                                                    data-modal-toggle="editpcRegModal">
+                                                    data-modal-toggle=" ">
                                                     <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
                                                         xmlns="http://www.w3.org/2000/svg">
                                                         <path fill-rule="evenodd"
@@ -1748,7 +1732,7 @@
                                             @endforeach
                                             <td class="py-4 px-6">
                                                 <!-- Modal toggle -->
-                                                <a href="#" type="button" data-modal-toggle="editpcRegModal"
+                                                <a href="#" type="button" data-modal-toggle=" "
                                                     class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit
                                                 </a>
                                             </td>
@@ -1771,7 +1755,7 @@
                                                 </h3>
                                                 <button type="button"
                                                     class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
-                                                    data-modal-toggle="editpcRegModal">
+                                                    data-modal-toggle=" ">
                                                     <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
                                                         xmlns="http://www.w3.org/2000/svg">
                                                         <path fill-rule="evenodd"
@@ -2143,7 +2127,7 @@
                                             @endforeach
                                             <td class="py-4 px-6">
                                                 <!-- Modal toggle -->
-                                                <a href="#" type="button" data-modal-toggle="editpcRegModal"
+                                                <a href="#" type="button" data-modal-toggle=" "
                                                     class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit
                                                 </a>
                                             </td>
@@ -2166,7 +2150,7 @@
                                                 </h3>
                                                 <button type="button"
                                                     class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
-                                                    data-modal-toggle="editpcRegModal">
+                                                    data-modal-toggle=" ">
                                                     <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
                                                         xmlns="http://www.w3.org/2000/svg">
                                                         <path fill-rule="evenodd"
