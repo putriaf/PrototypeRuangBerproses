@@ -166,11 +166,6 @@
                                             class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Kelas
                                             Berproses</a>
                                     </li>
-                                    <li>
-                                        <a href="/program/ig-live"
-                                            class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">IG
-                                            Live</a>
-                                    </li>
                                 </ul>
                             </div>
                         </li>
@@ -202,12 +197,6 @@
                                         <a href="/tentang/associate-psychologist"
                                             class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Associate
                                             Psychologist</a>
-                                    </li>
-                                    <li>
-                                        <a href="/program/tim-rb"
-                                            class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Tim
-                                            Ruang Berproses
-                                        </a>
                                     </li>
                                 </ul>
                             </div>

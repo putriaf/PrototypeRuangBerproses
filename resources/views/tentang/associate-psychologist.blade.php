@@ -9,7 +9,7 @@ nav ul li a {
 @endpush
 
 @section('content')
-<section class="lg:mx-10 lg:my-10 font-quicksand">
+<section class="lg:mx-10 lg:my-10 font-quicksand lg:mt-20">
     <div class="text-center lg:mb-14">
         <h1 class="text-3xl font-bold lg:mb-4">Associate Psychologist</h1>
         <p>Tenaga psikolog professional untuk mendampingimu berproses</p>

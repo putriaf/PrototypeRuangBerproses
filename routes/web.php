@@ -128,4 +128,4 @@ Route::delete('/admin/artikel-berproses/{id}', [ArtikelController::class, 'destr
 // TENTANG
 Route::get('/tentang/ruang-berproses', [TentangController::class, 'index']);
 Route::get('/tentang/associate-psychologist', [TentangController::class, 'viewPsychologist']);
-Route::get('/tentang/tim-ruang-berproses', [TentangController::class, 'viewTeam']);
+Route::get('/tentang/tim-rb', [TentangController::class, 'viewTeam']);
