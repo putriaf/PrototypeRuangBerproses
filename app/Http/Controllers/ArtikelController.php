@@ -85,9 +85,12 @@ class ArtikelController extends Controller
      */
     public function show($id)
     {
+        $response = Http::get("https://ruangberproses-be.herokuapp.com/api/artikel-berproses/" . $id);
+        $response = $response->object();
         return view('artikel.view', [
-            'title' => 'Artikel Berproses',
-            'message' => NULL
+            'title' => 'Detail Artikel Berproses',
+            'active' => 'artikel',
+            'artikel' => $response->data,
         ]);
     }
 

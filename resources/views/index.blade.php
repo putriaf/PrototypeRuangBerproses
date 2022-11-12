@@ -29,13 +29,15 @@
             </div>
             <div class="items-center">
                 <img src="{{ asset('img/illustrations/usp-2.png') }}" alt="" srcset="" class="mx-auto lg:w-24 lg:mb-4">
-                <h4 class="lg:text-2xl font-bold hover:lg:text-3xl transition-all ease-in-out duration-1000 delay-200">
+                <h4
+                    class="lg:text-2xl font-bold hover:lg:text-3xl transition-all ease-in-out duration-1000 delay-200 hover:text-[#e64322]">
                     200+</h4>
                 <p class="lg:px-16 lg:mt-2">total sesi konseling terlaksana</p>
             </div>
             <div class="items-center">
                 <img src="{{ asset('img/illustrations/usp-3.png') }}" alt="" srcset="" class="mx-auto lg:w-24 lg:mb-4">
-                <h4 class="lg:text-2xl font-bold hover:lg:text-3xl transition-all ease-in-out duration-1000 delay-200">
+                <h4
+                    class="lg:text-2xl font-bold hover:lg:text-3xl transition-all ease-in-out duration-1000 delay-200 hover:text-[#e64322]">
                     80+</h4>
                 <p class="lg:px-16 lg:mt-2">total sesi edukasi psikologi terlaksana</p>
             </div>
