@@ -30,7 +30,6 @@ h1 {
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
 .timeline ul {
-    background: #456990;
     padding: 50px 0;
 }
 
@@ -40,7 +39,7 @@ h1 {
     width: 6px;
     margin: 0 auto;
     padding-top: 50px;
-    background: #fff;
+    background: #e2e2e2;
 }
 
 .timeline ul li::after {
@@ -61,7 +60,6 @@ h1 {
     bottom: 0;
     width: 400px;
     padding: 15px;
-    background: #f45b69;
 }
 
 .timeline ul li div::before {
@@ -80,7 +78,7 @@ h1 {
 .timeline ul li:nth-child(odd) div::before {
     left: -15px;
     border-width: 8px 16px 8px 0;
-    border-color: transparent #f45b69 transparent transparent;
+    border-color: transparent #1D1F4E transparent transparent;
 }
 
 .timeline ul li:nth-child(even) div {
@@ -90,7 +88,7 @@ h1 {
 .timeline ul li:nth-child(even) div::before {
     right: -15px;
     border-width: 8px 0 8px 16px;
-    border-color: transparent transparent transparent #f45b69;
+    border-color: transparent transparent transparent #1D1F4E;
 }
 
 time {
@@ -109,7 +107,7 @@ time {
 }
 
 .timeline ul li.in-view::after {
-    background: #f45b69;
+    background: #FB8D66;
 }
 
 .timeline ul li div {
@@ -258,27 +256,28 @@ time {
         <section class="timeline text-white">
             <ul>
                 <li>
-                    <div class="rounded">
-                        <time>1934</time> At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis
-                        praesentium At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis
-                        praesentium
+                    <div class="rounded bg-primary-dark-blue">
+                        <time>Juli 2020</time> Ruang berproses didirikan oleh Yohana Sondang Activa Hutabarat, M.Psi
+                        pada Juli 2020. Ruang Berproses merupakan sebuah StartUp psikologi sekaligus media yang membantu
+                        teman-teman berproses bersama menuju versi terbaiknya dengan menjaga kesehatan mentalnya
                     </div>
                 </li>
                 <li>
-                    <div>
-                        <time>1937</time> Proin quam velit, efficitur vel neque vitae, rhoncus commodo mi. Suspendisse
+                    <div class="rounded bg-primary-dark-blue">
+                        <time>Juli 2020</time> Proin quam velit, efficitur vel neque vitae, rhoncus commodo mi.
+                        Suspendisse
                         finibus mauris et bibendum molestie. Aenean ex augue, varius et pulvinar in, pretium non nisi.
                     </div>
                 </li>
                 <li>
-                    <div>
-                        <time>1940</time> Proin iaculis, nibh eget efficitur varius, libero tellus porta dolor, at
+                    <div class="rounded bg-primary-dark-blue">
+                        <time>2021</time> Proin iaculis, nibh eget efficitur varius, libero tellus porta dolor, at
                         pulvinar tortor ex eget ligula. Integer eu dapibus arcu, sit amet sollicitudin eros.
                     </div>
                 </li>
                 <li>
-                    <div>
-                        <time>1943</time> In mattis elit vitae odio posuere, nec maximus massa varius. Suspendisse
+                    <div class="rounded bg-primary-dark-blue">
+                        <time>2022</time> In mattis elit vitae odio posuere, nec maximus massa varius. Suspendisse
                         varius volutpat mattis. Vestibulum id magna est.
                     </div>
                 </li>
