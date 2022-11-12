@@ -10,11 +10,11 @@
         <h2 class="font-light text-sm sm:text-md px-8 sm:px-6 mb-6 sm:mb-10 lg:px-16 leading-relaxed">Butuh ruang aman
             dan
             nyaman untuk bercerita? Tenaga profesional siap mendampingimu berproses menuju versi terbaik!</h2>
-        <a href=""
-            class="block bg-gradient-to-r from-[#FB8D66] mx-8 py-2 sm:mx-10 sm:py-4 lg:mx-64 rounded-3xl font-semibold lg:mt-8">Daftar
+        <a href="/layanan/professional-counseling"
+            class="block bg-gradient-to-r from-[#FB8D66] mx-8 py-2 sm:mx-10 sm:py-4 lg:mx-64 rounded-3xl font-semibold lg:mt-8 hover:scale-90 transition-all ease-out duration-100 delay-150 hover:bg-gradient-to-r hover:from-[#EB6536]">Daftar
             Sekarang</a>
     </div>
-    <div class="bg-[#FAFAF2] py-20">
+    <div class=" bg-[#FAFAF2] py-20">
         <div class="mx-auto text-center">
             <h3 class="lg:text-2xl font-semibold lg:mb-2">Gabung Bersama Sahabat Berproses Lainnya</h3>
             <p class="lg:text-md">Bicarakan apa yang menjadi beban, lepas semua penat, dan urai pikiran kusutmu</p>
@@ -22,17 +22,21 @@
         <div class="container grid grid-cols-3 gap-3 text-center mx-auto lg:px-40 lg:pt-10">
             <div class="items-center">
                 <img src="{{ asset('img/illustrations/usp-1.png') }}" alt="" srcset="" class="mx-auto lg:w-24 lg:mb-4">
-                <h4 class="lg:text-2xl font-bold">7000+</h4>
+                <h4
+                    class="lg:text-2xl font-bold hover:lg:text-3xl transition-all ease-in-out duration-1000 delay-200 hover:text-[#e64322]">
+                    7000+</h4>
                 <p class="lg:px-16 lg:mt-2">pengikut di sosial media</p>
             </div>
             <div class="items-center">
                 <img src="{{ asset('img/illustrations/usp-2.png') }}" alt="" srcset="" class="mx-auto lg:w-24 lg:mb-4">
-                <h4 class="lg:text-2xl font-bold">200+</h4>
+                <h4 class="lg:text-2xl font-bold hover:lg:text-3xl transition-all ease-in-out duration-1000 delay-200">
+                    200+</h4>
                 <p class="lg:px-16 lg:mt-2">total sesi konseling terlaksana</p>
             </div>
             <div class="items-center">
                 <img src="{{ asset('img/illustrations/usp-3.png') }}" alt="" srcset="" class="mx-auto lg:w-24 lg:mb-4">
-                <h4 class="lg:text-2xl font-bold">80+</h4>
+                <h4 class="lg:text-2xl font-bold hover:lg:text-3xl transition-all ease-in-out duration-1000 delay-200">
+                    80+</h4>
                 <p class="lg:px-16 lg:mt-2">total sesi edukasi psikologi terlaksana</p>
             </div>
         </div>
@@ -68,12 +72,13 @@
                     Counseling</a>
             </div>
         </div>
-        <div id="indicators-carousel" class="relative" data-carousel="static">
+
+        <div id="default-carousel" class="relative" data-carousel="static">
             <!-- Carousel wrapper -->
             <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
                 <!-- Item 1 -->
                 <div class="duration-700 ease-in-out absolute inset-0 transition-all transform translate-x-0 z-20"
-                    data-carousel-item="active">
+                    data-carousel-item="">
                     <div class="container absolute block -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
                         <div class="grid grid-cols-3 gap-10 place-items-center lg:mx-28">
                             <img src="{{ asset('img/illustrations/virtual-support-group.jpg') }}"
@@ -89,7 +94,7 @@
                     </div>
                 </div>
                 <!-- Item 2 -->
-                <div class="duration-700 ease-in-out absolute inset-0 transition-all transform translate-x-full z-10"
+                <div class="duration-700 ease-in-out absolute inset-0 transition-all transform translate-x-full z-10 active:z-20"
                     data-carousel-item="">
                     <div class="container absolute block -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
                         <div class="grid grid-cols-3 gap-10 place-items-center lg:mx-28">
@@ -107,7 +112,7 @@
                     </div>
                 </div>
                 <!-- Item 3 -->
-                <div class="hidden duration-700 ease-in-out absolute inset-0 transition-all transform"
+                <div class="duration-700 ease-in-out absolute inset-0 transition-all transform -translate-x-full z-10"
                     data-carousel-item="">
                     <div class="container absolute block -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
                         <div class="grid grid-cols-3 gap-10 place-items-center lg:mx-28">
@@ -125,18 +130,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- Item 4 -->
-                <div class="hidden duration-700 ease-in-out absolute inset-0 transition-all transform"
-                    data-carousel-item="">
-                    <img src="/docs/images/carousel/carousel-4.svg"
-                        class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-                </div>
-                <!-- Item 5 -->
-                <div class="duration-700 ease-in-out absolute inset-0 transition-all transform -translate-x-full z-10"
-                    data-carousel-item="">
-                    <img src="/docs/images/carousel/carousel-5.svg"
-                        class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-                </div>
             </div>
             <!-- Slider indicators -->
             <div class="absolute z-30 flex space-x-3 -translate-x-1/2 bottom-5 left-1/2">
@@ -148,12 +141,6 @@
                 <button type="button"
                     class="w-3 h-3 rounded-full bg-white/50 dark:bg-gray-800/50 hover:bg-white dark:hover:bg-gray-800"
                     aria-current="false" aria-label="Slide 3" data-carousel-slide-to="2"></button>
-                <button type="button"
-                    class="w-3 h-3 rounded-full bg-white/50 dark:bg-gray-800/50 hover:bg-white dark:hover:bg-gray-800"
-                    aria-current="false" aria-label="Slide 4" data-carousel-slide-to="3"></button>
-                <button type="button"
-                    class="w-3 h-3 rounded-full bg-white/50 dark:bg-gray-800/50 hover:bg-white dark:hover:bg-gray-800"
-                    aria-current="false" aria-label="Slide 5" data-carousel-slide-to="4"></button>
             </div>
             <!-- Slider controls -->
             <button type="button"

@@ -228,8 +228,8 @@ time {
 @endpush
 
 @section('content')
-<section class="lg:mx-10 lg:my-10 font-quicksand">
-    <div class="text-center">
+<section class="lg:mx-10 lg:my-10 font-quicksand overflow-x-hidden lg:pt-20">
+    <div class=" text-center">
         <h1 class="text-3xl font-bold lg:mb-4">Ruang Berproses</h1>
         <p>Selalu ada ruang untuk kamu berproses menuju versi terbaikmu</p>
     </div>

@@ -10,7 +10,8 @@ module.exports = {
     extend: {
       fontFamily:{
         'quicksand': ['Quicksand'],
-        'montserrat': ['Montserrat']
+        'montserrat': ['Montserrat'],
+        'poppins': ['Poppins']
       },
       textColor:{
       },
