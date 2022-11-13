@@ -12,6 +12,15 @@ nav ul li a {
 @section('content')
 <section class="font-quicksand min-h-screen">
     @if($screening == NULL)
+    <div class="block lg:mx-44 lg:p-14 bg-pale-yellow lg:mt-40 text-center rounded-xl text-[#2b2b2b]">
+        <h1 class="font-bold text-3xl lg:mb-5">Screening dulu yuk!</h1>
+        <p class="lg:mb-10">Kamu perlu melakukan screening terlebih dahulu, sehingga psikolog kami bisa memahamimu lebih
+            baik.<span class="italic">A single information matters!
+                :)</span></p>
+        <a href="/screening"
+            class="button block mx-auto bg-[#eb6536] rounded-full w-1/3 lg:px-4 lg:py-3 text-white font-semibold uppercase motion-safe:animate-bounce-slow text-sm">Mulai
+            Screening</a>
+    </div>
     <div class="mt-20">
         <a href="/screening">Screening</a>
     </div>
