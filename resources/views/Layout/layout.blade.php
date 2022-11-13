@@ -11,6 +11,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('https://ruangberproses-dev.herokuapp.com/css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/multistep-form.css') }}" rel="stylesheet">
+    <link href="{{ asset('scss/submit-btn.css') }}" rel="stylesheet">
     <link href="{{ asset('css/navbar-scroll.css') }}" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -20,6 +21,7 @@
     <script src="https://unpkg.com/feather-icons"></script>
     <script src="https://unpkg.com/flowbite@1.5.3/dist/datepicker.js"></script>
     <script src="{{ asset('js/navbar-scroll.js') }}"></script>
+    @vite(['resources/scss/app.scss'])
     @stack('styles')
 </head>
 
@@ -37,7 +39,7 @@
                     <button type="button"
                         class="flex mr-3 text-sm rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600">
                         <a href="/login"
-                            class="text-[#e5e5e5] rounded-2xl bg-[#eb6536] lg:px-10 lg:py-2 font-medium hover:bg-[#cf5225] shadow-md login-btn">Login</a>
+                            class="text-[#e5e5e5] rounded-2xl bg-[#eb6536] px-10 py-2 font-medium hover:bg-[#cf5225] shadow-md login-btn">Login</a>
                     </button>
                     @else
                     <button type="button"
@@ -89,7 +91,7 @@
                         </ul>
                     </div>
                     <button data-collapse-toggle="mobile-menu-2" type="button"
-                        class="inline-flex items-center p-2 ml-1 text-sm text-slate-100 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                        class="inline-flex items-center p-2 ml-1 text-sm text-slate-100 rounded-lg md:hidden hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600 mobile-menu"
                         aria-controls="mobile-menu-2" aria-expanded="false">
                         <span class="sr-only">Open main menu</span>
                         <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
@@ -111,7 +113,7 @@
                         <li>
                             <a href="#" id="dropdownLayananButton" data-dropdown-toggle="dropdownLayanan"
                                 data-dropdown-placement="bottom"
-                                class="block pr-4 pl-3 text-neutral-200 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-neutral-200 md:hover:font-medium md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Layanan
+                                class="block py-2 pr-4 pl-3 rounded md:bg-transparent md:text-neutral-200 md:p-0 nav-item-text md:hover:font-medium">Layanan
                                 <svg class="ml-2 w-4 h-4 inline" aria-hidden="true" fill="currentColor"
                                     viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd"
@@ -126,17 +128,15 @@
                                     aria-labelledby="dropdownLayananButton">
                                     <li>
                                         <a href="/layanan/professional-counseling"
-                                            class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white nav-item-text">Professional
+                                            class="block py-2 px-4 nav-item-text">Professional
                                             Counseling</a>
                                     </li>
                                     <li>
-                                        <a href="/layanan/peer-counseling"
-                                            class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white nav-item-text">Peer
+                                        <a href="/layanan/peer-counseling" class="block py-2 px-4 nav-item-text">Peer
                                             Counseling</a>
                                     </li>
                                     <li>
-                                        <a href="/layanan/support-group"
-                                            class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white nav-item-text">Virtual
+                                        <a href="/layanan/support-group" class="block py-2 px-4 nav-item-text">Virtual
                                             Support Group</a>
                                     </li>
                                 </ul>
@@ -144,7 +144,7 @@
                         </li>
                         <li>
                             <a href="#" id="dropdownProgramButton" data-dropdown-toggle="dropdownProgram"
-                                class="block py-2 pr-4 pl-3 text-neutral-200 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-neutral-200 md:hover:font-medium md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Program
+                                class="block py-2 pr-4 pl-3 rounded md:bg-transparent md:text-neutral-200 md:p-0 nav-item-text md:hover:font-medium">Program
                                 <svg class="ml-2 w-4 h-4 inline" aria-hidden="true" fill="currentColor"
                                     viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd"
@@ -158,12 +158,10 @@
                                 <ul class="py-1 text-sm text-gray-700 dark:text-gray-200"
                                     aria-labelledby="dropdownProgramButton">
                                     <li>
-                                        <a href="/program/psytalk"
-                                            class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">PSYTALK</a>
+                                        <a href="/program/psytalk" class="block py-2 px-4">PSYTALK</a>
                                     </li>
                                     <li>
-                                        <a href="/program/kelas-berproses"
-                                            class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Kelas
+                                        <a href="/program/kelas-berproses" class="block py-2 px-4">Kelas
                                             Berproses</a>
                                     </li>
                                 </ul>
@@ -171,11 +169,11 @@
                         </li>
                         <li>
                             <a href="/artikel-berproses"
-                                class="block py-2 pr-4 pl-3 text-neutral-200 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-neutral-200 md:hover:font-medium md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Artikel</a>
+                                class="block py-2 pr-4 pl-3 rounded md:bg-transparent md:text-neutral-200 md:p-0 nav-item-text md:hover:font-medium">Artikel</a>
                         </li>
                         <li>
                             <a href="#" id="dropdownTentangButton" data-dropdown-toggle="dropdownTentang"
-                                class="block py-2 pr-4 pl-3 text-neutral-200 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-neutral-200 md:hover:font-medium md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Tentang
+                                class="block py-2 pr-4 pl-3 rounded md:bg-transparent md:text-neutral-200 md:p-0 nav-item-text md:hover:font-medium">Tentang
                                 <svg class="ml-2 w-4 h-4 inline" aria-hidden="true" fill="currentColor"
                                     viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd"
@@ -205,8 +203,6 @@
                 </div>
             </div>
         </nav>
-
-
     </header>
     <!-- End Header -->
 
@@ -256,6 +252,7 @@
     <script>
     feather.replace()
     </script>
+    <script src="{{ asset('js/submit-btn.js') }}"></script>
     <script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>
 </body>
 

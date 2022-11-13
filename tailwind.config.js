@@ -27,6 +27,9 @@ module.exports = {
         'hero-sg': "url('/img/illustrations/hero-support-group.png');",
         'hero-peercounseling': "url('/img/illustrations/hero-peer-counseling.jpg');"
       },
+      animation: {
+        'bounce-slow': 'bounce 3s infinite',
+      }
     },
   },
   plugins: [

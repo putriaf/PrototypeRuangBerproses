@@ -98,7 +98,6 @@ class RegistrationProCounselingController extends Controller
             'menyakiti_diri' => '0',
             'mengakhiri_hidup' => '0'
         ]);
-        dd($response->status());
         if ($response->status() == 200) {
             return redirect('/layanan/professional-counseling')->with('success', 'Pendaftaran berhasil!');
         } else {

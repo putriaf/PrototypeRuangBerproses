@@ -1,25 +1,31 @@
 @extends('layout.layout')
 
+@push('styles')
+<style>
+nav ul li a {
+    color: black !important;
+}
+</style>
+@endpush
+
 <!--  Hero -->
 @section('content')
-<section class="font-quicksand">
+<section class="font-quicksand min-h-screen">
     @if($screening == NULL)
     <div class="mt-20">
         <a href="/screening">Screening</a>
     </div>
+    @endif
     @if($profilUser->nama != NULL && $profilUser->username != NULL && $profilUser->email != NULL && $profilUser->no_telp
     != NULL && $profilUser->tgl_lahir != NULL && $profilUser->domisili != NULL && $profilUser->pendidikan != NULL &&
     $profilUser->agama != NULL && $profilUser->pekerjaan != NULL && $profilUser->status != NULL)
-    <a href="/profile">Edit Profil</a>
-    @endif
-    @else
-    <form id="msform" class="font-quicksand max-h-screen" method="POST" action="/layanan/professional-counseling/daftar"
-        enctype="multipart/form-data">
+    <form id="msform" class="font-quicksand max-h-screen mt-20" method="POST"
+        action="/layanan/professional-counseling/daftar" enctype="multipart/form-data">
         @csrf
         <!-- progressbar -->
         <ul id="progressbar">
             <li class="active rounded-full">Informasi Diri</li>
-            <li>Screening</li>
+            <li>Kondisi Diri</li>
             <li>Pembayaran</li>
         </ul>
         <!-- fieldsets -->
@@ -108,8 +114,25 @@
             </div>
 
             <input type="button" name="previous" class="previous action-button" value="Previous" />
-            <button type="submit"
-                class="text-white font-bold bg-red-400 hover:bg-rb-light-orange focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Selesai</button>
+            <div class="">
+                <button class="c-btn__continue" id="continue-btn" type="submit">
+                    <span>Continue</span>
+                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                        x="0px" y="0px" viewBox="0 0 37 37" xml:space="preserve" class="u-loading" id="loading">
+                        <path class="circ path"
+                            style="fill:none;stroke:#fff;stroke-width:3;stroke-linejoin:round;stroke-miterlimit:10;"
+                            d="
+	M30.5,6.5L30.5,6.5c6.6,6.6,6.6,17.4,0,24l0,0c-6.6,6.6-17.4,6.6-24,0l0,0c-6.6-6.6-6.6-17.4,0-24l0,0C13.1-0.2,23.9-0.2,30.5,6.5z" />
+                    </svg>
+                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                        x="0px" y="0px" viewBox="0 0 37 37" xml:space="preserve" class="u-success">
+                        <polyline class="tick path"
+                            style="fill:none;stroke:#fff;stroke-width:3;stroke-linejoin:round;stroke-miterlimit:10;"
+                            points="
+	11.6,20 15.9,24.2 26.4,13.8 " />
+                    </svg>
+                </button>
+            </div>
         </fieldset>
     </form>
     <!-- jQuery -->
@@ -117,6 +140,18 @@
     <!-- jQuery easing plugin -->
     <script src="http://thecodeplayer.com/uploads/js/jquery.easing.min.js" type="text/javascript"></script>
     <script src="{{ asset('js/multistep-form.js') }}"></script>
+    @else
+    <div class="block lg:mx-44 lg:p-14 bg-pale-yellow lg:mt-40 text-center rounded-xl text-[#2b2b2b]">
+        <h1 class="font-bold text-3xl lg:mb-5">Lengkapi Profilmu!</h1>
+        <p class="lg:mb-10">Untuk mendaftarkan diri ke layanan konseling, kamu perlu melengkapi informasi dirimu nih!
+            Ini
+            ditujukan agar
+            psikolog kami bisa memahami lebih jauh tentang dirimu. <span class="italic">A single information matters!
+                :)</span></p>
+        <a href="/profile"
+            class="button block mx-auto bg-[#eb6536] rounded-full w-1/3 lg:px-4 lg:py-3 text-white font-semibold uppercase motion-safe:animate-bounce-slow text-sm">Edit
+            Profil</a>
+    </div>
     @endif
 </section>
 @endsection

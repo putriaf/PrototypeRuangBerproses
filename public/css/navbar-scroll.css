@@ -32,3 +32,7 @@
     background-color: #eb6536;
     color: #fff;
 }
+
+.nav-scrolled .mobile-menu svg {
+    color: #eb6536;
+}

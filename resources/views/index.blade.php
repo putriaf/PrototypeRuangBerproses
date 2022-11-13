@@ -16,7 +16,7 @@
     </div>
     <div class=" bg-[#FAFAF2] py-20">
         <div class="mx-auto text-center">
-            <h3 class="lg:text-2xl font-semibold lg:mb-2">Gabung Bersama Sahabat Berproses Lainnya</h3>
+            <h3 class="lg:text-2xl md:text-xl font-semibold lg:mb-2">Gabung Bersama Sahabat Berproses Lainnya</h3>
             <p class="lg:text-md">Bicarakan apa yang menjadi beban, lepas semua penat, dan urai pikiran kusutmu</p>
         </div>
         <div class="container grid grid-cols-3 gap-3 text-center mx-auto lg:px-40 lg:pt-10">

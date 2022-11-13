@@ -1,0 +1,118 @@
+//text color
+$bg: linear-gradient(180deg,#00b6e3, #0288D1);
+$text: rgb(66, 66, 66);
+$btn: rgb(0, 87, 183);
+$success: rgb(19, 170, 65);
+
+//mobile query based on bootstrap
+$phone: "only screen and (min-width : 576px)";
+$tablet: "only screen and (min-width : 768px)";
+$laptop: "only screen and (min-width : 992px)";
+$desktop: "only screen and (min-width : 1200px)";
+  
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.c-container{
+  background: white;
+  max-width: 90vw;
+  width: 100%;
+  height: 100%;
+  max-height: 60vh;
+  border-radius: 2em;
+  box-shadow: 1px 1px 100px rgba(0,0,0,0.2);
+  @include flex-center;
+  @media #{$tablet} {
+    max-width: 50vw;
+    width: 100%;
+    height: 100%;
+    max-height: 60vh;
+  }
+} 
+
+.c-btn__continue {
+  background: $btn;
+  width: 200px;
+  height: 40px;
+  color: white;
+  border: 0;
+  border-radius: 1.5em;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+  overflow: hidden;
+  .u-loading,
+  .u-success {
+    display: none; }
+  &:hover {
+    cursor: pointer;
+      opacity: 0.9; }
+  &:active{
+    transform: scale(0.97); }
+}
+.c-btn__loading {
+  span {
+    display: none;}
+  .u-loading {
+    display: block;
+    margin: 0 auto;
+    width: 90%;
+    stroke-dasharray: 200;
+    stroke-dashoffset: 200;
+      animation: dash 1s ease-in infinite alternate;}
+}
+.c-btn__finished {
+  background: $success;
+  transition: background ease 500ms;
+  span, 
+  .u-loading {
+    display: none;}
+  .u-success {
+    display: block;
+    margin: 0 auto;
+      animation: fade-in 500ms ease-in; }
+}
+//loading and tick svg settings
+.u-loading {
+  width: 25px;
+  height: 25px;
+}
+.u-success {
+  width: 30px;
+  height: 30px;
+} 
+.u-hide {
+  display: none;
+}
+.u-logo {
+  position: absolute;
+  right: 1em;
+  bottom: 1em;
+  color: white;
+  &__svg {
+    margin-left: 0.5em;
+  }  
+  &:hover {
+    opacity: 0.9;
+    cursor: pointer;
+  }
+}
+// animation settings
+@keyframes dash {
+  0% {
+    stroke-dashoffset: 200;}
+  100% {
+    stroke-dashoffset: 0;}
+}
+@keyframes fade-in{
+  0% {
+    opacity: 0;
+    transform: translateY(40%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }}

@@ -21,13 +21,17 @@ section {
 nav ul li a {
     color: black !important;
 }
+
+nav {
+    background-color: #fff;
+}
 </style>
 @endpush
 
 @section('content')
-<section class="font-quicksand mx-20">
+<section class="font-quicksand px-20">
     <div class="grid grid-cols-4 h-screen gap-8">
-        <div class="shadow-md rounded-md lg:mb-16 lg:mt-20">
+        <div class="shadow-md rounded-md lg:mb-16 lg:mt-20 bg-white">
             <div class="">
                 <div class="text-center">
                     <img src="{{ asset('img/user/avatar.png') }}" alt="User Profile" class="w-20 mx-auto">
