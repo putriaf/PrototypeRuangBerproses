@@ -28,11 +28,11 @@ nav ul li a {
     @if($profilUser->nama != NULL && $profilUser->username != NULL && $profilUser->email != NULL && $profilUser->no_telp
     != NULL && $profilUser->tgl_lahir != NULL && $profilUser->domisili != NULL && $profilUser->pendidikan != NULL &&
     $profilUser->agama != NULL && $profilUser->pekerjaan != NULL && $profilUser->status != NULL)
-    <form id="msform" class="font-quicksand max-h-screen mt-20" method="POST"
+    <form id="msform" class="font-quicksand max-h-screen mt-20 min-h-screen" method="POST"
         action="/layanan/professional-counseling/daftar" enctype="multipart/form-data">
         @csrf
         <!-- progressbar -->
-        <ul id="progressbar">
+        <ul id="progressbar" class="mt-32">
             <li class="active rounded-full">Informasi Diri</li>
             <li>Kondisi Diri</li>
             <li>Pembayaran</li>
