@@ -253,7 +253,6 @@
     feather.replace()
     </script>
     <script src="{{ asset('js/submit-btn.js') }}"></script>
-    <script src="{{ asset('https://ruangberproses-dev.herokuapp.com/js/submit-btn.js') }}"></script>
     <script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>
 </body>
 
