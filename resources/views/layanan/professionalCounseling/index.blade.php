@@ -78,38 +78,89 @@
         </ul>
     </div>
     <div class="lg:p-20">
-        <h3 class="font-semibold text-xl lg:mb-8 text-center">Psikolog Berpengalaman Kami</h3>
+        <h3 class="font-semibold text-xl text-center">Psikolog Berpengalaman Kami</h3>
         <div class="cover-wrapper">
             <div id="client-logos" class="owl-carousel text-center">
-                <div class="item">
+                <div class="item rounded-lg">
                     <div class="client-inners">
-                        <img src="{{ asset('img/clients/saint-john.png') }}" alt="Saint John" srcset="">
-                    </div>
-                    <p>St. John's Catholic School</p>
-                </div>
-                <div class="item">
-                    <div class="client-inners">
-                        hi 2
+                        <img src="{{ asset('img/psychologists/ariyanto.png') }}" alt="Saint John" srcset=""
+                            class="max-w-fit rounded-lg mx-auto">
+                        <p class="mt-2">Ariyanto Yanwar, M.Psi., Psikolog</p>
                     </div>
                 </div>
                 <div class="item">
                     <div class="client-inners">
-                        hi 3
+                        <img src="{{ asset('img/psychologists/ayu.jpeg') }}" alt="Basuki Pratama Engineering" srcset=""
+                            class="max-w-fit rounded-lg mx-auto">
+                        <p class="mt-2">Ayu Pradani S. Putri, M.Psi., Psikolog</p>
                     </div>
                 </div>
                 <div class="item">
                     <div class="client-inners">
-                        hi 4
+                        <img src="{{ asset('img/psychologists/daniswara.jpeg') }}"
+                            alt="Daniswara Agusta Wijaya, M.Psi., Psikolog" srcset=""
+                            class="max-w-fit rounded-lg mx-auto">
+                        <p class="mt-2">Daniswara Agusta Wijaya, M.Psi., Psikolog</p>
                     </div>
                 </div>
                 <div class="item">
                     <div class="client-inners">
-                        hi 5
+                        <img src="{{ asset('img/psychologists/laurentia.jpg') }}"
+                            alt="Laurentia Wahyu Prastiti, S.Psi.,M.Psi.,Psikolog" srcset=""
+                            class="max-w-fit rounded-lg mx-auto">
+                        <p class="mt-2">Laurentia Wahyu Prastiti, S.Psi.,M.Psi.,Psikolog</p>
                     </div>
                 </div>
                 <div class="item">
                     <div class="client-inners">
-                        hi 6
+                        <img src="{{ asset('img/psychologists/lebda.jpeg') }}" alt="Lebda Katodhia., M.Psi., Psikolog"
+                            srcset="" class="max-w-fit rounded-lg mx-auto">
+                        <p class="mt-2">Lebda Katodhia., M.Psi., Psikolog</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="client-inners">
+                        <img src="{{ asset('img/psychologists/nica.jpg') }}"
+                            alt="Eukaristianica Theofani, M.Psi., Psikolog" srcset=""
+                            class="max-w-fit rounded-lg mx-auto">
+                        <p class="mt-2">Eukaristianica Theofani, M.Psi., Psikolog</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="client-inners">
+                        <img src="{{ asset('img/psychologists/rininta.jpg') }}"
+                            alt="Rininta Meyftanoria, S.Psi, M.Psi, Psikolog" srcset=""
+                            class="max-w-fit rounded-lg mx-auto">
+                        <p class="mt-2">Rininta Meyftanoria, S.Psi, M.Psi, Psikolog</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="client-inners">
+                        <img src="{{ asset('img/psychologists/stenny.jpg') }}"
+                            alt="Stenny Prawitasari, M. Psi., Psikolog" srcset="" class="max-w-fit rounded-lg mx-auto">
+                        <p class="mt-2">Stenny Prawitasari, M. Psi., Psikolog</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="client-inners">
+                        <img src="{{ asset('img/psychologists/tiara.jpg') }}"
+                            alt="Tiara Adjeng Endrastyana, S.Psi., M.Psi., Psikolog" srcset=""
+                            class="max-w-fit rounded-lg mx-auto">
+                        <p class="mt-2">Tiara Adjeng Endrastyana, S.Psi., M.Psi., Psikolog</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="client-inners">
+                        <img src="{{ asset('img/psychologists/utari.jpeg') }}"
+                            alt="Utari Krisnamurthi, M.Psi,. Psikolog" srcset="" class="max-w-fit rounded-lg mx-auto">
+                        <p class="mt-2">Utari Krisnamurthi, M.Psi,. Psikolog</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="client-inners">
+                        <img src="{{ asset('img/psychologists/vanessa.jpg') }}" alt="PT Rodeo Kerta Kencana" srcset=""
+                            class="max-w-fit rounded-lg mx-auto">
+                        <p class="mt-2">Vanessa Adistiafany Pricillia, M. Psi., Psikolog </p>
                     </div>
                 </div>
             </div>
