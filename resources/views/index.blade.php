@@ -1,10 +1,14 @@
 @extends('layout.layout')
 
+@push('styles')
+<link href="{{ asset('css/slick-carousel.css') }}" rel="stylesheet">
+@endpush
+
 <!--  Hero -->
 @section('content')
 <section class="font-quicksand">
     <div
-        class="pt-80 sm:pt-48 sm:px-12 h-screen bg-jumbotron-home bg-no-repeat bg-cover bg-center bg-fixed mx-auto text-center text-slate-100 xl:px-64">
+        class="lg:pt-80 sm:pt-48 sm:px-12 h-screen bg-jumbotron-home bg-no-repeat bg-cover bg-center bg-fixed mx-auto text-center text-slate-100 xl:px-64">
         <h1 class="font-bold text-3xl sm:text-4xl md:text-4xl mb-3 sm:mb-4" style="line-height: 1.2">Solusi Terbaik
             Kembalikan Senyum Bahagiamu</h1>
         <h2 class="font-light text-sm sm:text-md px-8 sm:px-6 mb-6 sm:mb-10 lg:px-16 leading-relaxed">Butuh ruang aman
@@ -269,7 +273,50 @@
     </div>
     <div class="py-20">
         <div class="mx-auto text-center">
-            <h3 class="lg:text-2xl font-semibold lg:mb-2">Klien Kami</h3>
+            <h3 class="lg:text-2xl font-semibold lg:mb-2 text-black">Klien Kami</h3>
+            <div class="cover-wrapper">
+                <div id="client-logos" class="owl-carousel text-center">
+                    <div class="item">
+                        <div class="client-inners">
+                            <img src="{{ asset('img/clients/saint-john.png') }}" alt="Saint John" srcset="">
+                            <p class="mt-2">St. John's Catholic School</p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="client-inners">
+                            <img src="{{ asset('img/clients/basuki-grup.jpg') }}" alt="Basuki Pratama Engineering"
+                                srcset="">
+                            <p class="mt-2">Basuki Pratama Engineering</p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="client-inners">
+                            <img src="{{ asset('img/clients/kelas-harmoni.jpg') }}" alt="Kelas Main Harmoni" srcset="">
+                            <p class="mt-2">Kelas Main Harmoni</p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="client-inners">
+                            <img src="{{ asset('img/clients/defasindo.jpeg') }}" alt="PT Defasindo Kreasi Prima"
+                                srcset="">
+                            <p class="mt-2">PT Defasindo Kreasi Prima</p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="client-inners">
+                            <img src="{{ asset('img/clients/stockbit.jpg') }}" alt="Stockbit" srcset="">
+                            <p class="mt-2">Stockbit</p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="client-inners">
+                            <img src="{{ asset('img/clients/rodeo-kerta-kencana.jpg') }}" alt="PT Rodeo Kerta Kencana"
+                                srcset="">
+                            <p class="mt-2">PT Rodeo Kerta Kencana</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </section>

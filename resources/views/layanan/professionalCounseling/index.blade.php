@@ -75,6 +75,41 @@
     </div>
     <div class="lg:p-20">
         <h3 class="font-semibold text-xl lg:mb-8 text-center">Psikolog Berpengalaman Kami</h3>
+        <div class="cover-wrapper">
+            <div id="client-logos" class="owl-carousel text-center">
+                <div class="item">
+                    <div class="client-inners">
+                        <img src="{{ asset('img/clients/saint-john.png') }}" alt="Saint John" srcset="">
+                    </div>
+                    <p>St. John's Catholic School</p>
+                </div>
+                <div class="item">
+                    <div class="client-inners">
+                        hi 2
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="client-inners">
+                        hi 3
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="client-inners">
+                        hi 4
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="client-inners">
+                        hi 5
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="client-inners">
+                        hi 6
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <div class="lg:p-20 bg-pale-yellow">
         <h3 class="font-semibold text-xl lg:mb-8 text-center">Pertanyaan Sahabat Berproses</h3>

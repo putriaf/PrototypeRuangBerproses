@@ -21,6 +21,8 @@
     <script src="https://unpkg.com/feather-icons"></script>
     <script src="https://unpkg.com/flowbite@1.5.3/dist/datepicker.js"></script>
     <script src="{{ asset('js/navbar-scroll.js') }}"></script>
+    <link rel="stylesheet" type="text/css"
+        href="http://www.24limousine.com/wp-content/themes/24Limousine/assets/css/owl.carousel.min.css">
     @vite(['resources/scss/app.scss'])
     @stack('styles')
 </head>
@@ -254,6 +256,33 @@
     </script>
     <script src="{{ asset('js/submit-btn.js') }}"></script>
     <script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript"
+        src="http://www.24limousine.com/wp-content/themes/24Limousine/assets/js/owl.carousel.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        $('#client-logos').owlCarousel({
+            loop: true,
+            margin: 15,
+            nav: true,
+            responsive: {
+                0: {
+                    items: 2
+                },
+                600: {
+                    items: 4
+                },
+                1000: {
+                    items: 5
+                }
+            },
+            navText: ["<img src='http://pixsector.com/cache/a8009c95/av8a49a4f81c3318dc69d.png'/>",
+                "<img src='http://pixsector.com/cache/81183b13/avcc910c4ee5888b858fe.png'/>"
+            ]
+        });
+
+    });
+    </script>
 </body>
 
 </html>

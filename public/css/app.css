@@ -1209,14 +1209,19 @@ input:checked + .toggle-bg {
   margin-right: auto;
 }
 
-.mx-8 {
-  margin-left: 2rem;
-  margin-right: 2rem;
+.mx-32 {
+  margin-left: 8rem;
+  margin-right: 8rem;
 }
 
 .mx-4 {
   margin-left: 1rem;
   margin-right: 1rem;
+}
+
+.mx-8 {
+  margin-left: 2rem;
+  margin-right: 2rem;
 }
 
 .my-6 {
@@ -1269,16 +1274,6 @@ input:checked + .toggle-bg {
   margin-right: 4rem;
 }
 
-.mx-32 {
-  margin-left: 8rem;
-  margin-right: 8rem;
-}
-
-.mx-40 {
-  margin-left: 10rem;
-  margin-right: 10rem;
-}
-
 .mb-10 {
   margin-bottom: 2.5rem;
 }
@@ -1307,8 +1302,16 @@ input:checked + .toggle-bg {
   margin-bottom: 1.5rem;
 }
 
-.mb-14 {
-  margin-bottom: 3.5rem;
+.mb-2 {
+  margin-bottom: 0.5rem;
+}
+
+.mb-4 {
+  margin-bottom: 1rem;
+}
+
+.mb-7 {
+  margin-bottom: 1.75rem;
 }
 
 .mt-2 {
@@ -1341,10 +1344,6 @@ input:checked + .toggle-bg {
 
 .ml-0 {
   margin-left: 0px;
-}
-
-.mb-2 {
-  margin-bottom: 0.5rem;
 }
 
 .mt-3 {
@@ -1383,10 +1382,6 @@ input:checked + .toggle-bg {
   margin-left: -0.25rem;
 }
 
-.mb-4 {
-  margin-bottom: 1rem;
-}
-
 .-mb-px {
   margin-bottom: -1px;
 }
@@ -1401,6 +1396,10 @@ input:checked + .toggle-bg {
 
 .mr-3 {
   margin-right: 0.75rem;
+}
+
+.mt-6 {
+  margin-top: 1.5rem;
 }
 
 .mb-8 {
@@ -1429,14 +1428,6 @@ input:checked + .toggle-bg {
 
 .mt-32 {
   margin-top: 8rem;
-}
-
-.mb-7 {
-  margin-bottom: 1.75rem;
-}
-
-.mt-6 {
-  margin-top: 1.5rem;
 }
 
 .block {
@@ -1559,6 +1550,10 @@ input:checked + .toggle-bg {
   width: 1rem;
 }
 
+.w-24 {
+  width: 6rem;
+}
+
 .w-2\/3 {
   width: 66.666667%;
 }
@@ -1641,18 +1636,6 @@ input:checked + .toggle-bg {
 
 .w-64 {
   width: 16rem;
-}
-
-.w-24 {
-  width: 6rem;
-}
-
-.w-1\/5 {
-  width: 20%;
-}
-
-.w-3\/4 {
-  width: 75%;
 }
 
 .max-w-6xl {
@@ -1904,10 +1887,6 @@ input:checked + .toggle-bg {
   gap: 2.5rem;
 }
 
-.gap-4 {
-  gap: 1rem;
-}
-
 .gap-2 {
   gap: 0.5rem;
 }
@@ -1918,6 +1897,10 @@ input:checked + .toggle-bg {
 
 .gap-5 {
   gap: 1.25rem;
+}
+
+.gap-4 {
+  gap: 1rem;
 }
 
 .space-y-2 > :not([hidden]) ~ :not([hidden]) {
@@ -2412,9 +2395,19 @@ input:checked + .toggle-bg {
   padding-bottom: 5rem;
 }
 
+.px-5 {
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
 .py-16 {
   padding-top: 4rem;
   padding-bottom: 4rem;
+}
+
+.px-12 {
+  padding-left: 3rem;
+  padding-right: 3rem;
 }
 
 .px-4 {
@@ -2440,11 +2433,6 @@ input:checked + .toggle-bg {
 .px-2 {
   padding-left: 0.5rem;
   padding-right: 0.5rem;
-}
-
-.px-5 {
-  padding-left: 1.25rem;
-  padding-right: 1.25rem;
 }
 
 .py-2\.5 {
@@ -2482,21 +2470,16 @@ input:checked + .toggle-bg {
   padding-bottom: 1.25rem;
 }
 
-.px-12 {
-  padding-left: 3rem;
-  padding-right: 3rem;
-}
-
-.pt-48 {
-  padding-top: 12rem;
-}
-
-.pt-20 {
-  padding-top: 5rem;
+.pt-80 {
+  padding-top: 20rem;
 }
 
 .pt-8 {
   padding-top: 2rem;
+}
+
+.pt-20 {
+  padding-top: 5rem;
 }
 
 .pt-0 {
@@ -2555,10 +2538,6 @@ input:checked + .toggle-bg {
   padding-top: 0.5rem;
 }
 
-.pt-80 {
-  padding-top: 20rem;
-}
-
 .text-left {
   text-align: left;
 }
@@ -2573,10 +2552,6 @@ input:checked + .toggle-bg {
 
 .text-justify {
   text-align: justify;
-}
-
-.align-middle {
-  vertical-align: middle;
 }
 
 .align-bottom {
@@ -2610,14 +2585,14 @@ input:checked + .toggle-bg {
   line-height: 1.25rem;
 }
 
-.text-lg {
-  font-size: 1.125rem;
-  line-height: 1.75rem;
-}
-
 .text-xs {
   font-size: 0.75rem;
   line-height: 1rem;
+}
+
+.text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
 }
 
 .text-4xl {
@@ -3466,10 +3441,6 @@ input:checked + .toggle-bg {
     grid-column: span 3 / span 3;
   }
 
-  .sm\:col-span-2 {
-    grid-column: span 2 / span 2;
-  }
-
   .sm\:mx-28 {
     margin-left: 7rem;
     margin-right: 7rem;
@@ -3514,12 +3485,8 @@ input:checked + .toggle-bg {
     margin-bottom: 1.5rem;
   }
 
-  .sm\:mr-1 {
-    margin-right: 0.25rem;
-  }
-
-  .sm\:mr-3 {
-    margin-right: 0.75rem;
+  .sm\:mb-14 {
+    margin-bottom: 3.5rem;
   }
 
   .sm\:ml-0 {
@@ -3528,10 +3495,6 @@ input:checked + .toggle-bg {
 
   .sm\:ml-3 {
     margin-left: 0.75rem;
-  }
-
-  .sm\:mb-14 {
-    margin-bottom: 3.5rem;
   }
 
   .sm\:mb-5 {
@@ -3544,10 +3507,6 @@ input:checked + .toggle-bg {
 
   .sm\:flex {
     display: flex;
-  }
-
-  .sm\:hidden {
-    display: none;
   }
 
   .sm\:h-10 {
@@ -3564,10 +3523,6 @@ input:checked + .toggle-bg {
 
   .sm\:h-9 {
     height: 2.25rem;
-  }
-
-  .sm\:h-screen {
-    height: 100vh;
   }
 
   .sm\:w-20 {
@@ -3594,10 +3549,6 @@ input:checked + .toggle-bg {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .sm\:grid-cols-3 {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
   .sm\:flex-col {
     flex-direction: column;
   }
@@ -3616,20 +3567,6 @@ input:checked + .toggle-bg {
 
   .sm\:gap-3 {
     gap: 0.75rem;
-  }
-
-  .sm\:gap-5 {
-    gap: 1.25rem;
-  }
-
-  .sm\:gap-10 {
-    gap: 2.5rem;
-  }
-
-  .sm\:truncate {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
   }
 
   .sm\:rounded-lg {
@@ -3680,14 +3617,13 @@ input:checked + .toggle-bg {
     padding-right: 1rem;
   }
 
-  .sm\:py-10 {
-    padding-top: 2.5rem;
-    padding-bottom: 2.5rem;
-  }
-
   .sm\:py-12 {
     padding-top: 3rem;
     padding-bottom: 3rem;
+  }
+
+  .sm\:pt-48 {
+    padding-top: 12rem;
   }
 
   .sm\:pt-8 {
@@ -3696,10 +3632,6 @@ input:checked + .toggle-bg {
 
   .sm\:pt-0 {
     padding-top: 0px;
-  }
-
-  .sm\:pt-48 {
-    padding-top: 12rem;
   }
 
   .sm\:text-left {
@@ -3720,21 +3652,14 @@ input:checked + .toggle-bg {
     line-height: 1.25rem;
   }
 
-  .sm\:text-base {
-    font-size: 1rem;
-    line-height: 1.5rem;
-  }
-
   .sm\:text-2xl {
     font-size: 1.5rem;
     line-height: 2rem;
   }
 
-  .sm\:line-clamp-2 {
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
+  .sm\:text-base {
+    font-size: 1rem;
+    line-height: 1.5rem;
   }
 
   .sm\:line-clamp-3 {
@@ -4072,10 +3997,6 @@ input:checked + .toggle-bg {
     display: flex;
   }
 
-  .lg\:hidden {
-    display: none;
-  }
-
   .lg\:h-full {
     height: 100%;
   }
@@ -4204,6 +4125,10 @@ input:checked + .toggle-bg {
 
   .lg\:pl-32 {
     padding-left: 8rem;
+  }
+
+  .lg\:pt-80 {
+    padding-top: 20rem;
   }
 
   .lg\:text-2xl {
