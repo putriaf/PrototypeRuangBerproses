@@ -207,74 +207,102 @@
         </div>
         <section class="testimonials">
             <div class="container">
-
                 <div class="row">
                     <div class="col-sm-12">
                         <div id="customers-testimonials" class="owl-carousel">
-
                             <!--TESTIMONIAL 1 -->
                             <div class="item">
-                                <div class="shadow-effect">
-                                    <img class="img-circle"
-                                        src="http://themes.audemedia.com/html/goodgrowth/images/testimonial3.jpg"
-                                        alt="">
-                                    <p>Dramatically maintain clicks-and-mortar solutions without functional solutions.
-                                        Completely synergize resource taxing relationships via premier niche markets.
-                                        Professionally cultivate.</p>
+                                <div class="shadow-effect rounded-md py-10 px-6">
+                                    <p class="text-base lg:mb-7 font-poppins">Pembicaranya asik dan moderatornya juga
+                                        keren. Disetiap
+                                        pembicara selesai
+                                        menjawab pertanyaan peserta, moderator selalu menyimpulkan jawaban pembicara
+                                    </p>
+                                    <div class="flex lg:mt-4">
+                                        <div class="basis-1/5 mr-3"><img class="rounded-full"
+                                                src="{{ asset('img/user/avatar.png') }}" alt=""></div>
+                                        <div class="basis-4/5 self-center text-left mb-5">
+                                            <p class="text-sm font-semibold">R.A.B, 21 tahun</p>
+                                            <p>Mahasiswa Psikologi</p>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="testimonial-name">EMILIANO AQUILANI</div>
+                                <div class="testimonial-name bg-primary-dark-blue">PSYTALK</div>
                             </div>
                             <!--END OF TESTIMONIAL 1 -->
                             <!--TESTIMONIAL 2 -->
                             <div class="item">
-                                <div class="shadow-effect">
-                                    <img class="img-circle"
-                                        src="http://themes.audemedia.com/html/goodgrowth/images/testimonial3.jpg"
-                                        alt="">
-                                    <p>Dramatically maintain clicks-and-mortar solutions without functional solutions.
-                                        Completely synergize resource taxing relationships via premier niche markets.
-                                        Professionally cultivate.</p>
+                                <div class="shadow-effect rounded-md py-10 px-6">
+                                    <p class="text-base lg:mb-7 font-poppins">Kesan webinar sangat baik. Saya mendapat
+                                        wawasan lebih luas dan mendalam mengenai journaling serta manfaatnya secara
+                                        spesifik terhadap kesehatan mental, karena saya belum pernah mendalami mengenai
+                                        journaling
+                                    </p>
+                                    <div class="flex lg:mt-4">
+                                        <div class="basis-1/5 mr-3"><img class="rounded-full"
+                                                src="{{ asset('img/user/avatar.png') }}" alt=""></div>
+                                        <div class="basis-4/5 self-center text-left mb-5">
+                                            <p class="text-sm font-semibold">S.E.A 42 tahun</p>
+                                            <p>Konselor Sekolah</p>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="testimonial-name">ANNA ITURBE</div>
+                                <div class="testimonial-name bg-primary-dark-blue">Kelas Berproses</div>
                             </div>
                             <!--END OF TESTIMONIAL 2 -->
                             <!--TESTIMONIAL 3 -->
                             <div class="item">
-                                <div class="shadow-effect">
-                                    <img class="img-circle"
-                                        src="http://themes.audemedia.com/html/goodgrowth/images/testimonial3.jpg"
-                                        alt="">
-                                    <p>Dramatically maintain clicks-and-mortar solutions without functional solutions.
-                                        Completely synergize resource taxing relationships via premier niche markets.
-                                        Professionally cultivate.</p>
+                                <div class="shadow-effect rounded-md py-10 px-6">
+                                    <p class="text-base lg:mb-7 font-poppins">Menurutku gak terlalu mahal dan Psikolog
+                                        RB yang konseling aku waktu itu juga baik & bisa menghangatkan suasana, ngga
+                                        canggung juga, yang jelas aku bisa mengatasi masalahku.
+                                    </p>
+                                    <div class="flex lg:mt-4">
+                                        <div class="basis-1/5 mr-3"><img class="rounded-full"
+                                                src="{{ asset('img/user/avatar.png') }}" alt=""></div>
+                                        <div class="basis-4/5 self-center text-left mb-5">
+                                            <p class="text-sm font-semibold">N</p>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="testimonial-name">LARA ATKINSON</div>
+                                <div class="testimonial-name bg-primary-dark-blue">Professional Counseling</div>
                             </div>
                             <!--END OF TESTIMONIAL 3 -->
                             <!--TESTIMONIAL 4 -->
                             <div class="item">
-                                <div class="shadow-effect">
-                                    <img class="img-circle"
-                                        src="http://themes.audemedia.com/html/goodgrowth/images/testimonial3.jpg"
-                                        alt="">
-                                    <p>Dramatically maintain clicks-and-mortar solutions without functional solutions.
-                                        Completely synergize resource taxing relationships via premier niche markets.
-                                        Professionally cultivate.</p>
+                                <div class="shadow-effect rounded-md py-10 px-6">
+                                    <p class="text-base lg:mb-7 font-poppins">Seru bangetttt menjadi pengalaman dalam
+                                        hidup saya karena dengan adanya sesi ini saya dapat bercerita apa yang dialami
+                                        oleh saya sehingga saya mendapatkan kesempatan untuk bercerita pada sesi ini
+                                    </p>
+                                    <div class="flex lg:mt-4">
+                                        <div class="basis-1/5 mr-3"><img class="rounded-full"
+                                                src="{{ asset('img/user/avatar.png') }}" alt=""></div>
+                                        <div class="basis-4/5 self-center text-left mb-5">
+                                            <p class="text-sm font-semibold">M</p>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="testimonial-name">IAN OWEN</div>
+                                <div class="testimonial-name bg-primary-dark-blue">Support Group</div>
                             </div>
                             <!--END OF TESTIMONIAL 4 -->
                             <!--TESTIMONIAL 5 -->
                             <div class="item">
-                                <div class="shadow-effect">
-                                    <img class="img-circle"
-                                        src="http://themes.audemedia.com/html/goodgrowth/images/testimonial3.jpg"
-                                        alt="">
-                                    <p>Dramatically maintain clicks-and-mortar solutions without functional solutions.
-                                        Completely synergize resource taxing relationships via premier niche markets.
-                                        Professionally cultivate.</p>
+                                <div class="shadow-effect rounded-md py-10 px-6">
+                                    <p class="text-base lg:mb-7 font-poppins">Awalnya saya merasa takut dan ragu untuk
+                                        bercerita pada orang lain. Namun setelah saya melakukan sesi konseling saya
+                                        merasa lega, nyaman, dan seperti menemukan hal yang saya cari selama ini. Bukan
+                                        sekedar omongan motivasi melainkan ilmu dan solusi.
+                                    </p>
+                                    <div class="flex lg:mt-4">
+                                        <div class="basis-1/5 mr-3"><img class="rounded-full"
+                                                src="{{ asset('img/user/avatar.png') }}" alt=""></div>
+                                        <div class="basis-4/5 self-center text-left mb-5">
+                                            <p class="text-sm font-semibold">S</p>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="testimonial-name">MICHAEL TEDDY</div>
+                                <div class="testimonial-name bg-primary-dark-blue">Peer Counseling</div>
                             </div>
                             <!--END OF TESTIMONIAL 5 -->
                         </div>
