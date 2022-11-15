@@ -22,8 +22,6 @@
 
 #customers-testimonials .item {
     text-align: center;
-    padding: 50px;
-    margin-bottom: 80px;
     opacity: 0.2;
     -webkit-transform: scale3d(0.8, 0.8, 1);
     transform: scale3d(0.8, 0.8, 1);
@@ -38,15 +36,16 @@
     transform: scale3d(1, 1, 1);
 }
 
-.owl-carousel .owl-item img {
+.owl-carousel .owl-item .owl-img {
     transform-style: preserve-3d;
     max-width: 90px;
 }
 
 #customers-testimonials.owl-carousel .owl-dots .owl-dot.active span,
 #customers-testimonials.owl-carousel .owl-dots .owl-dot:hover span {
-    background: #3190e7;
+    background: #1d1f4e;
     transform: translate3d(0px, -50%, 0px) scale(0.7);
+    border-radius: 9999px;
 }
 
 #customers-testimonials.owl-carousel .owl-dots {
@@ -60,7 +59,7 @@
 }
 
 #customers-testimonials.owl-carousel .owl-dots .owl-dot span {
-    background: #3190e7;
+    background: #1d1f4e;
     display: inline-block;
     height: 20px;
     margin: 0 2px 5px;

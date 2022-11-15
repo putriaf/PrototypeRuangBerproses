@@ -211,7 +211,7 @@
                     <div class="col-sm-12">
                         <div id="customers-testimonials" class="owl-carousel">
                             <!--TESTIMONIAL 1 -->
-                            <div class="item">
+                            <div class="item px-12 pt-7 mb-5">
                                 <div class="shadow-effect rounded-md py-10 px-6">
                                     <p class="text-base lg:mb-7 font-poppins">Pembicaranya asik dan moderatornya juga
                                         keren. Disetiap
@@ -219,7 +219,7 @@
                                         menjawab pertanyaan peserta, moderator selalu menyimpulkan jawaban pembicara
                                     </p>
                                     <div class="flex lg:mt-4">
-                                        <div class="basis-1/5 mr-3"><img class="rounded-full"
+                                        <div class="basis-1/5 mr-3"><img class="rounded-full owl-img"
                                                 src="{{ asset('img/user/avatar.png') }}" alt=""></div>
                                         <div class="basis-4/5 self-center text-left mb-5">
                                             <p class="text-sm font-semibold">R.A.B, 21 tahun</p>
@@ -231,7 +231,7 @@
                             </div>
                             <!--END OF TESTIMONIAL 1 -->
                             <!--TESTIMONIAL 2 -->
-                            <div class="item">
+                            <div class="item px-12 pt-7 mb-8">
                                 <div class="shadow-effect rounded-md py-10 px-6">
                                     <p class="text-base lg:mb-7 font-poppins">Kesan webinar sangat baik. Saya mendapat
                                         wawasan lebih luas dan mendalam mengenai journaling serta manfaatnya secara
@@ -239,7 +239,7 @@
                                         journaling
                                     </p>
                                     <div class="flex lg:mt-4">
-                                        <div class="basis-1/5 mr-3"><img class="rounded-full"
+                                        <div class="basis-1/5 mr-3"><img class="rounded-full owl-img"
                                                 src="{{ asset('img/user/avatar.png') }}" alt=""></div>
                                         <div class="basis-4/5 self-center text-left mb-5">
                                             <p class="text-sm font-semibold">S.E.A 42 tahun</p>
@@ -251,14 +251,14 @@
                             </div>
                             <!--END OF TESTIMONIAL 2 -->
                             <!--TESTIMONIAL 3 -->
-                            <div class="item">
+                            <div class="item px-12 pt-7 mb-8">
                                 <div class="shadow-effect rounded-md py-10 px-6">
                                     <p class="text-base lg:mb-7 font-poppins">Menurutku gak terlalu mahal dan Psikolog
                                         RB yang konseling aku waktu itu juga baik & bisa menghangatkan suasana, ngga
                                         canggung juga, yang jelas aku bisa mengatasi masalahku.
                                     </p>
                                     <div class="flex lg:mt-4">
-                                        <div class="basis-1/5 mr-3"><img class="rounded-full"
+                                        <div class="basis-1/5 mr-3"><img class="rounded-full owl-img"
                                                 src="{{ asset('img/user/avatar.png') }}" alt=""></div>
                                         <div class="basis-4/5 self-center text-left mb-5">
                                             <p class="text-sm font-semibold">N</p>
@@ -269,14 +269,14 @@
                             </div>
                             <!--END OF TESTIMONIAL 3 -->
                             <!--TESTIMONIAL 4 -->
-                            <div class="item">
+                            <div class="item px-12 pt-7 mb-8">
                                 <div class="shadow-effect rounded-md py-10 px-6">
                                     <p class="text-base lg:mb-7 font-poppins">Seru bangetttt menjadi pengalaman dalam
                                         hidup saya karena dengan adanya sesi ini saya dapat bercerita apa yang dialami
                                         oleh saya sehingga saya mendapatkan kesempatan untuk bercerita pada sesi ini
                                     </p>
                                     <div class="flex lg:mt-4">
-                                        <div class="basis-1/5 mr-3"><img class="rounded-full"
+                                        <div class="basis-1/5 mr-3"><img class="rounded-full owl-img"
                                                 src="{{ asset('img/user/avatar.png') }}" alt=""></div>
                                         <div class="basis-4/5 self-center text-left mb-5">
                                             <p class="text-sm font-semibold">M</p>
@@ -287,7 +287,7 @@
                             </div>
                             <!--END OF TESTIMONIAL 4 -->
                             <!--TESTIMONIAL 5 -->
-                            <div class="item">
+                            <div class="item px-12 pt-7 mb-8">
                                 <div class="shadow-effect rounded-md py-10 px-6">
                                     <p class="text-base lg:mb-7 font-poppins">Awalnya saya merasa takut dan ragu untuk
                                         bercerita pada orang lain. Namun setelah saya melakukan sesi konseling saya
@@ -295,7 +295,7 @@
                                         sekedar omongan motivasi melainkan ilmu dan solusi.
                                     </p>
                                     <div class="flex lg:mt-4">
-                                        <div class="basis-1/5 mr-3"><img class="rounded-full"
+                                        <div class="basis-1/5 mr-3"><img class="rounded-full owl-img"
                                                 src="{{ asset('img/user/avatar.png') }}" alt=""></div>
                                         <div class="basis-4/5 self-center text-left mb-5">
                                             <p class="text-sm font-semibold">S</p>
@@ -316,7 +316,7 @@
             <h3 class="lg:text-2xl font-semibold">Artikel Berproses</h3>
         </div>
         <div class="grid sm:grid-cols-2 lg:mx-20 sm:mx-10 mx-8">
-            <div class="grid grid-cols-3 lg:gap-2 sm:gap-3 gap-2 lg:mb-10 mb-6">
+            <div class="grid grid-cols-3 lg:gap-4 sm:gap-3 gap-2 lg:mb-10 mb-6">
                 <div class="lg:mr-3">
                     <img src="{{ asset('img/illustrations/jumbotron-home.png' ) }}" alt=""
                         class="rounded-lg lg:h-full lg:w-full object-cover aspect-video">
