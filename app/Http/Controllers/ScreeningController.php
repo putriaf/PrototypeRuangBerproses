@@ -24,10 +24,12 @@ class ScreeningController extends Controller
      */
     public function create()
     {
-        $screening_variable = ["marah_sepele", "mulut_kering", "tdk_melihat_hal_positif", "gangguan_napas", "tdk_kuat_kegiatan", "overreacting", "anggota_tubuh_lemah", "sulit_bersantai", "cemas_berlebih", "pesimis", "mudah_kesal", "energi_habis", "sedih_depresi", "tidak_sabaran", "kelelahan", "hilang_minat", "merasa_tdk_layak", "mudah_tersinggung", "berkeringat", "takut_tanpa_alasan", "merasa_tdk_berharga", "sulit_istirahat", "sulit_menelan", "tdk_menikmati_aktivitas", "perubahan_denyut_nadi", "hilang_harapan", "mudah_marah", "mudah_panik", "sulit_tenang", "takut_terhambat", "sulit_antusias", "sulit_toleransi_gangguan", "tegang", "tdk_memaklumi_halangan", "ketakutan", "tdk_ada_harapan", "hidup_tdk_berarti", "mudah_gelisah", "khawatir_dg_situasi", "gemetar", "sulit_inisiatif"];
+        $screening_variable = ["marah_sepele", "mulut_kering", "tdk_melihat_hal_positif", "gangguan_napas", "tdk_kuat_kegiatan", "overreacting", "anggota_tubuh_lemah", "sulit_bersantai", "cemas_berlebih", "pesimis", "mudah_kesal", "energi_habis", "sedih_depresi", "tidak_sabaran", "kelelahan", "hilang_minat", "merasa_tdk_layak", "mudah_tersinggung", "berkeringat", "takut_tanpa_alasan", "merasa_hdp_tdk_berharga", "sulit_istirahat", "sulit_menelan", "tdk_menikmati_aktivitas", "perubahan_denyut_nadi", "hilang_harapan", "mudah_marah", "mudah_panik", "sulit_tenang", "takut_terhambat", "sulit_antusias", "sulit_toleransi_gangguan", "tegang", "merasa_tdk_berharga", "tdk_memaklumi_halangan", "ketakutan", "tdk_ada_harapan", "hidup_tdk_berarti", "mudah_gelisah", "khawatir_dg_situasi", "gemetar", "sulit_inisiatif"];
+        $screening_label = ["Menjadi marah karena hal-hal kecil/sepele", "Mulut terasa kering", "Tidak dapat melihat hal yang positif dari suatu kejadian", "Merasakan gangguan dalam bernapas (napas cepat,sulit bernapas)", "Merasa sepertinya tidak kuat lagi untuk melakukan suatu kegiatan", "Cenderung bereaksi berlebihan pada situasi", "Kelemahan pada anggota tubuh", "Kesulitan untuk relaksasi/bersantai", "Cemas yang berlebihan dalam suatu situasi namun bisa lega jika hal/situasi itu berakhir", "Pesimis", "Mudah merasa kesal", "Merasa banyak menghabiskan energi karena cemas", "Merasa sedih dan depresi", "Tidak sabaran", "Kelelahan", "Kehilangan minat pada banyak hal (misal: makan, ambulasi, sosialisasi)", "Merasa diri tidak layak", "Mudah tersinggung", "Berkeringat (misal: tangan berkeringat) tanpa stimulasi oleh cuaca maupun latihan fisik", "Ketakutan tanpa alasan yang jelas", "Merasa hidup tidak berharga", "Sulit untuk beristirahat", "Kesulitan dalam menelan", "Tidak dapat menikmati hal-hal yang saya lakukan", "Perubahan kegiatan jantung dan denyut nadi tanpa stimulasi oleh latihan fisik", "Merasa hilang harapan dan putus asa", "Mudah marah", "Mudah panik", "Kesulitan untuk tenang setelah sesuatu yang mengganggu", "Takut diri terhambat oleh tugas-tugas yang tidak biasa dilakukan", "Sulit untuk antusias pada banyak hal", "Sulit mentoleransi gangguan-gangguan terhadap hal yang sedang dilakukan", "Berada pada keadaan tegang", "Merasa tidak berharga", "Tidak dapat memaklumi hal apapun yang menghalangi anda untuk menyelesaikan hal yang sedang Anda lakukan", "Ketakutan", "Tidak ada harapan untuk masa depan", "Merasa hidup tidak berarti", "Mudah gelisah", "Khawatir dengan situasi saat diri Anda mungkin menjadi panik dan mempermalukan diri sendiri", "Gemetar", "Sulit untuk meningkatkan inisiatif dalam melakukan sesuatu"];
         return view('screening.create', [
             'title' => 'Screening Pre-konseling',
             'screening_variables' => $screening_variable,
+            'screening_labels' => $screening_label,
             'message' => NULL
         ]);
     }
@@ -62,7 +64,7 @@ class ScreeningController extends Controller
             'mudah_tersinggung' => 'required',
             'berkeringat' => 'required',
             'takut_tanpa_alasan' => 'required',
-            'merasa_tdk_berharga' => 'required',
+            'merasa_hdp_tdk_berharga' => 'required',
             'sulit_istirahat' => 'required',
             'sulit_menelan' => 'required',
             'tdk_menikmati_aktivitas' => 'required',
@@ -75,6 +77,7 @@ class ScreeningController extends Controller
             'sulit_antusias' => 'required',
             'sulit_toleransi_gangguan' => 'required',
             'tegang' => 'required',
+            'merasa_tdk_berharga' => 'required',
             'tdk_memaklumi_halangan' => 'required',
             'ketakutan' => 'required',
             'tdk_ada_harapan' => 'required',
@@ -130,9 +133,9 @@ class ScreeningController extends Controller
             'sulit_inisiatif' => $request->input('sulit_inisiatif')
         ]);
         if ($response->status() == 200) {
-            return redirect('/screening')->with('success', 'Screening berhasil!');
+            return redirect('/layanan/professional-counseling/daftar')->with('success', 'Screening berhasil!');
         } else {
-            return redirect('/')->with('success', 'Screening gagal!');
+            return redirect('/screening')->with('success', 'Screening gagal!');
         }
     }
 
