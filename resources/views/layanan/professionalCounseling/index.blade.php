@@ -1,5 +1,9 @@
 @extends('layout.layout')
 
+@push('styles')
+<link href="{{ asset('css/slick-carousel.css') }}" rel="stylesheet">
+@endpush
+
 <!--  Hero -->
 @section('content')
 <section class="font-quicksand">

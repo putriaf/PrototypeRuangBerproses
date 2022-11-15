@@ -1538,6 +1538,14 @@ input:checked + .toggle-bg {
   min-height: 100vh;
 }
 
+.min-h-\[50vh\] {
+  min-height: 50vh;
+}
+
+.min-h-\[75vh\] {
+  min-height: 75vh;
+}
+
 .w-\[700px\] {
   width: 700px;
 }
@@ -2875,6 +2883,20 @@ input:checked + .toggle-bg {
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
+}
+
+.line-clamp-3 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+.line-clamp-1 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
 }
 
 .hover\:scale-90:hover {

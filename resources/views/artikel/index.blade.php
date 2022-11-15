@@ -42,20 +42,22 @@ nav ul li a {
     </div>
     <div class="lg:mt-14 font-quicksand w-2/3">
         <h2 class="text-xl lg:mb-8 font-semibold">Artikel Terbaru</h2>
-        @foreach($artikels as $artikel)
-        <a href="/artikel-berproses/{{ $artikel->id }}">
-            <div class="grid grid-cols-3 gap-2 lg:mb-10">
-                <div class="lg:mr-3">
-                    <img src="{{ asset('img/illustrations/jumbotron-home.png' ) }}" alt=""
-                        class="rounded-lg h-full w-full">
+        <div class="min-h-[75vh]">
+            @foreach($artikels as $artikel)
+            <a href="/artikel-berproses/{{ $artikel->id }}">
+                <div class="grid grid-cols-3 gap-2 lg:mb-10">
+                    <div class="lg:mr-3">
+                        <img src="{{ asset('img/illustrations/jumbotron-home.png' ) }}" alt=""
+                            class="rounded-lg h-full w-full">
+                    </div>
+                    <div class="col-span-2">
+                        <div class="col-span-2 self-end font-semibold text-lg line-clamp-1">{{ $artikel->judul }}</div>
+                        <div class="row-span-2 col-span-2 text-base line-clamp-3">{{ $artikel->isi }}</div>
+                    </div>
                 </div>
-                <div class="col-span-2">
-                    <div class="col-span-2 self-end font-semibold text-lg">{{ $artikel->judul }}</div>
-                    <div class="row-span-2 col-span-2 text-base">{{ $artikel->isi }}</div>
-                </div>
-            </div>
-        </a>
-        @endforeach
+            </a>
+            @endforeach
+        </div>
     </div>
 </section>
 @endsection
