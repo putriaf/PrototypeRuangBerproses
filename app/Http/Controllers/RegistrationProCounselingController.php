@@ -77,26 +77,27 @@ class RegistrationProCounselingController extends Controller
 
         $response = Http::asForm()->post("https://ruangberproses-be.herokuapp.com/api/layanan/professional-counseling/daftar", [
             'user_id' => $request->input('user_id'),
-            'screening_id' => '2',
+            'screening_id' => $request->input('screening_id'),
             'procounseling_id' => $request->input('procounseling_id'),
             'preferensi_jk_konselor' => $request->input('preferensi_jk_konselor'),
             'consent_sharing' => $request->input('consent_sharing'),
             'consent_screening' => $request->input('consent_screening'),
             'bukti_transfer' => $imagePath,
             'status_pendaftaran' => $request->input('status_pendaftaran'),
-            'perubahan_fisik' => '0',
-            'perubahan_emosi' => '0',
-            'riwayat_kecemasan' => '0',
-            'penyakit_kronis' => '0',
-            'konsumsi_alkohol' => '0',
-            'konsumsi_obat' => '0',
-            'pola_tidur' => '0',
-            'pola_makan' => '0',
-            'kondisi_keuangan' => '0',
-            'ringkasan_masalah' => '0',
-            'pernah_konseling' => '0',
-            'menyakiti_diri' => '0',
-            'mengakhiri_hidup' => '0'
+            'perubahan_fisik' => $request->input('perubahan_fisik'),
+            'perubahan_emosi' => $request->input('perubahan_emosi'),
+            'riwayat_kecemasan' => $request->input('riwayat_kecemasan'),
+            'penyakit_kronis' => $request->input('penyakit_kronis'),
+            'konsumsi_alkohol' => $request->input('konsumsi_alkohol'),
+            'konsumsi_obat' => $request->input('konsumsi_obat'),
+            'pola_tidur' => $request->input('pola_tidur'),
+            'pola_makan' => $request->input('pola_makan'),
+            'kondisi_keuangan' => $request->input('kondisi_keuangan'),
+            'ringkasan_masalah' => $request->input('ringkasan_masalah'),
+            'pernah_konseling' => 'N/A',
+            'menyakiti_diri' => $request->input('menyakiti_diri'),
+            'mengakhiri_hidup' => $request->input('mengakhiri_hidup'),
+            'sesi' => $request->input('sesi')
         ]);
         if ($response->status() == 200) {
             return redirect('/layanan/professional-counseling')->with('success', 'Pendaftaran berhasil!');

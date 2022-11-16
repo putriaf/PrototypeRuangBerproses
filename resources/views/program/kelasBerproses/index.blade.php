@@ -19,7 +19,7 @@ nav ul li a {
         <div
             class="max-w-xs bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
             <a href="#">
-                <img class="rounded-t-lg" src="{{ asset('img/illustrations/jumbotron-home.png') }}" alt="">
+                <img class="rounded-t-lg" src="{{ asset('img/illustrations/compressed/jumbotron-home.png') }}" alt="">
             </a>
             <div class="px-8 py-5">
                 <a href="#">

@@ -318,7 +318,7 @@
         <div class="grid sm:grid-cols-2 lg:mx-20 sm:mx-10 mx-8">
             <div class="grid grid-cols-3 lg:gap-4 sm:gap-3 gap-2 lg:mb-10 mb-6">
                 <div class="lg:mr-3">
-                    <img src="{{ asset('img/illustrations/jumbotron-home.png' ) }}" alt=""
+                    <img src="{{ asset('img/illustrations/compressed/jumbotron-home.png' ) }}" alt=""
                         class="rounded-lg lg:h-full lg:w-full object-cover aspect-video">
                 </div>
                 <div class="col-span-2">

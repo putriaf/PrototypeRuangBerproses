@@ -1,4 +1,4 @@
-@extends('layout.layout')
+@extends('layout.layout'),
 
 @push('styles')
 <style>
@@ -10,7 +10,7 @@ nav ul li a {
 
 <!--  Hero -->
 @section('content')
-<section class="font-quicksand min-h-screen">
+<section class="font-quicksand">
     @if($screening == NULL)
     <div class="block lg:mx-44 lg:p-14 bg-pale-yellow lg:mt-40 text-center rounded-xl text-[#2b2b2b]">
         <h1 class="font-bold text-3xl lg:mb-5">Screening dulu yuk!</h1>
@@ -40,15 +40,19 @@ nav ul li a {
         <!-- fieldsets -->
         <fieldset style="overflow: auto">
             <h2 class="fs-title lg:mb-8">INFORMASI DIRI</h2>
-            <div class="w-1/2 lg:mb-6 text-left">
-                <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">EMAIL</label>
-                <input type="email" id="email"
-                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    value="{{ session()->get('email') }}" required disabled>
+            <div class="w-1/2 lg:mb-6 text-left gri grid-cols-2 gap-4">
+                <div class="">
+                    <label for="email"
+                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">EMAIL</label>
+                    <input type="email" id="email"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        value="{{ session()->get('email') }}" required disabled>
+                </div>
             </div>
             <div class="grid grid-cols-2 gap-4 relative text-left">
                 @if (session()->has('token'))
                 <input type="hidden" id="user_id" name="user_id" value="{{ session()->get('id') }}">
+                <input type="hidden" id="screening_id" name="screening_id" value="2">
                 @endif
                 <div class="">
                     <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">NAMA
@@ -63,13 +67,6 @@ nav ul li a {
                     <input type="text"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                         value="{{ session()->get('no_telp') }}" required>
-                </div>
-                <div>
-                    <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">JENIS
-                        KELAMIN</label>
-                    <input type="text"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        value="{{ session()->get('jk') }}" required disabled>
                 </div>
                 <div>
                     <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">TANGGAL LAHIR</label>
@@ -96,21 +93,144 @@ nav ul li a {
                         <option selected="">Pilih Konselor</option>
                         @if($procounselings != NULL)
                         @foreach($procounselings as $pc)
-                        <option value="{{ $pc->id }}">{{ $pc->id}}</option>
+                        <option value="{{ $pc->id }}">{{ $pc->nama_konselor}}, {{ $pc->tanggal }} {{ $pc->waktu }}
+                        </option>
                         @endforeach
                         @endif
                     </select>
                 </div>
+                <div class="">
+                    <label for="sesi"
+                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Sesi</label>
+                    <select id="sesi" name="sesi"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        <option selected="">Sesi</option>
+                        <option value="1">1
+                        </option>
+                        <option value="2">2
+                        </option>
+                        <option value="2">2
+                        </option>
+                    </select>
+                </div>
                 <input class="form-control mt-5 hidden" type="text" id="consent_sharing" name="consent_sharing"
-                    value="L">
+                    value="Ya">
                 <input class="form-control mt-5 hidden" type="text" id="consent_screening" name="consent_screening"
-                    value="L">
+                    value="Ya">
             </div>
             </div>
             <input type="button" name="next" class="next action-button mb-8 rounded-full" value="Lanjut" />
         </fieldset>
-        <fieldset>
-            <h2 class="fs-title">Screening</h2>
+        <fieldset class="overflow-y-auto  max-h-[80vh]">
+            <h2 class="fs-title mb-2">Kondisi Diri</h2>
+            <div class="mb-5 mt-7">
+                <label for="perubahan_fisik"
+                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white text-left">Ceritakan
+                    gejala/perubahan fisik yang kamu alami akhir-akhir ini
+                </label>
+                <textarea id="perubahan_fisik" rows="2" name="perubahan_fisik"
+                    class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    placeholder="Tuangkan apa yang di pikiranmu di sini..." required></textarea>
+            </div>
+            <div class="mb-5">
+                <label for="perubahan_emosi"
+                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white text-left">Ceritakan gejala/
+                    perubahan emosi yang kamu alami akhir-akhir ini
+                </label>
+                <textarea id="perubahan_emosi" rows="2" name="perubahan_emosi"
+                    class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    placeholder="Tuangkan apa yang di pikiranmu di sini..." required></textarea>
+            </div>
+            <div class="mb-5">
+                <label for="riwayat_kecemasan"
+                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white text-left">Bila kamu memiliki
+                    riwayat kecemasan/ fobia, silahkan ceritakan
+                </label>
+                <textarea id="riwayat_kecemasan" rows="2" name="riwayat_kecemasan"
+                    class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    placeholder="Tuangkan apa yang di pikiranmu di sini..." required></textarea>
+            </div>
+            <div class="mb-5">
+                <label for="penyakit_kronis"
+                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white text-left">Jika kamu memiliki
+                    penyakit kronis, tolong ceritakan
+                </label>
+                <textarea id="penyakit_kronis" rows="2" name="penyakit_kronis"
+                    class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    placeholder="Tuangkan apa yang di pikiranmu di sini..." required></textarea>
+            </div>
+            <div class="mb-5">
+                <label for="konsumsi_alkohol"
+                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white text-left">Apakah kamu
+                    mengonsumsi alkohol?
+                </label>
+                <textarea id="konsumsi_alkohol" rows="2" name="konsumsi_alkohol"
+                    class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    placeholder="Tuangkan apa yang di pikiranmu di sini..." required></textarea>
+            </div>
+            <div class="mb-5">
+                <label for="konsumsi_obat"
+                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white text-left">Apakah kamu
+                    mengonsumsi obat-obatan yang termasuk narkotika?
+                </label>
+                <textarea id="konsumsi_obat" rows="2" name="konsumsi_obat"
+                    class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    placeholder="Tuangkan apa yang di pikiranmu di sini..." required></textarea>
+            </div>
+            <div class="mb-5">
+                <label for="pola_tidur"
+                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white text-left">Ceritakan mengenai
+                    pola tidurmu
+                </label>
+                <textarea id="pola_tidur" rows="2" name="pola_tidur"
+                    class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    placeholder="Tuangkan apa yang di pikiranmu di sini..." required></textarea>
+            </div>
+            <div class="mb-5">
+                <label for="pola_makan"
+                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white text-left">Ceritakan mengenai
+                    pola makanmu
+                </label>
+                <textarea id="pola_makan" rows="2" name="pola_makan"
+                    class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    placeholder="Tuangkan apa yang di pikiranmu di sini..." required></textarea>
+            </div>
+            <div class="mb-5">
+                <label for="kondisi_keuangan"
+                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white text-left">Ceritakan mengenai
+                    kondisi keuanganmu
+                </label>
+                <textarea id="kondisi_keuangan" rows="2" name="kondisi_keuangan"
+                    class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    placeholder="Tuangkan apa yang di pikiranmu di sini..." required></textarea>
+            </div>
+            <div class="mb-5">
+                <label for="ringkasan_masalah"
+                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white text-left">Ceritakan mengenai
+                    ringkasan masalahmu
+                </label>
+                <textarea id="ringkasan_masalah" rows="2" name="ringkasan_masalah"
+                    class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    placeholder="Tuangkan apa yang di pikiranmu di sini..." required></textarea>
+            </div>
+            <div class="mb-5">
+                <label for="menyakiti_diri"
+                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white text-left">Ceritakan
+                    gejala/perubahan fisik yang kamu alami akhir-akhir ini
+                </label>
+                <textarea id="menyakiti_diri" rows="2" name="menyakiti_diri"
+                    class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    placeholder="Tuangkan apa yang di pikiranmu di sini..." required></textarea>
+            </div>
+            <div class="mb-5">
+                <label for="mengakhiri_hidup"
+                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white text-left">Ceritakan
+                    gejala/perubahan fisik yang kamu alami akhir-akhir ini
+                </label>
+                <textarea id="mengakhiri_hidup" rows="2" name="mengakhiri_hidup"
+                    class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    placeholder="Tuangkan apa yang di pikiranmu di sini..." required></textarea>
+            </div>
             <input type="button" name="previous" class="previous action-button" value="Kembali" />
             <input type="button" name="next" class="next action-button" value="Lanjut" />
         </fieldset>
@@ -119,7 +239,7 @@ nav ul li a {
             <input class="form-control mt-5" type="file" id="bukti_transfer" name="bukti_transfer">
             </div>
             <input class="form-control mt-5 hidden" type="text" id="status_pendaftaran" name="status_pendaftaran"
-                value="konfirmasi_admin">
+                value="konfirmasi_admin" required>
             </div>
 
             <input type="button" name="previous" class="previous action-button" value="Previous" />
@@ -144,11 +264,6 @@ nav ul li a {
             </div>
         </fieldset>
     </form>
-    <!-- jQuery -->
-    <script src="http://thecodeplayer.com/uploads/js/jquery-1.9.1.min.js" type="text/javascript"></script>
-    <!-- jQuery easing plugin -->
-    <script src="http://thecodeplayer.com/uploads/js/jquery.easing.min.js" type="text/javascript"></script>
-    <script src="{{ asset('js/multistep-form.js') }}"></script>
     @else
     <div class="block lg:mx-44 lg:p-14 bg-pale-yellow lg:mt-40 text-center rounded-xl text-[#2b2b2b]">
         <h1 class="font-bold text-3xl lg:mb-5">Lengkapi Profilmu!</h1>

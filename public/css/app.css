@@ -1534,6 +1534,10 @@ input:checked + .toggle-bg {
   max-height: 10rem;
 }
 
+.max-h-\[80vh\] {
+  max-height: 80vh;
+}
+
 .min-h-screen {
   min-height: 100vh;
 }
@@ -2297,7 +2301,7 @@ input:checked + .toggle-bg {
 }
 
 .bg-jumbotron-home {
-  background-image: url('/img/illustrations/jumbotron-home.png');;
+  background-image: url('/img/illustrations/compressed/jumbotron-home.png');;
 }
 
 .bg-gradient-to-r {
@@ -2305,15 +2309,15 @@ input:checked + .toggle-bg {
 }
 
 .bg-hero-peercounseling {
-  background-image: url('/img/illustrations/hero-peer-counseling.jpg');;
+  background-image: url('/img/illustrations/compressed/hero-peer-counseling.jpg');;
 }
 
 .bg-hero-procounseling {
-  background-image: url('/img/illustrations/hero-professional-counseling.png');;
+  background-image: url('/img/illustrations/compressed/hero-professional-counseling.png');;
 }
 
 .bg-hero-sg {
-  background-image: url('/img/illustrations/hero-support-group.png');;
+  background-image: url('/img/illustrations/compressed/hero-support-group.png');;
 }
 
 .from-\[\#FB8D66\] {
@@ -4001,6 +4005,10 @@ input:checked + .toggle-bg {
     margin-right: 4rem;
   }
 
+  .lg\:mt-9 {
+    margin-top: 2.25rem;
+  }
+
   .lg\:mb-14 {
     margin-bottom: 3.5rem;
   }
@@ -4019,10 +4027,6 @@ input:checked + .toggle-bg {
 
   .lg\:mr-2 {
     margin-right: 0.5rem;
-  }
-
-  .lg\:mt-9 {
-    margin-top: 2.25rem;
   }
 
   .lg\:block {
