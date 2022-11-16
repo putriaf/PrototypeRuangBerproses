@@ -257,64 +257,11 @@
     <script src="{{ asset('js/submit-btn.js') }}"></script>
     <script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="{{ asset('js/testimonial-carousel.js') }}"></script>
     <script type="text/javascript"
         src="http://www.24limousine.com/wp-content/themes/24Limousine/assets/js/owl.carousel.min.js"></script>
-    <script>
-    $(document).ready(function() {
-        $('#client-logos').owlCarousel({
-            loop: true,
-            margin: 15,
-            nav: true,
-            responsive: {
-                0: {
-                    items: 2
-                },
-                600: {
-                    items: 4
-                },
-                1000: {
-                    items: 5
-                }
-            },
-            navText: ["<img src='http://pixsector.com/cache/a8009c95/av8a49a4f81c3318dc69d.png'/>",
-                "<img src='http://pixsector.com/cache/81183b13/avcc910c4ee5888b858fe.png'/>"
-            ]
-        });
-
-    });
-    </script>
-    <script>
-    jQuery(document).ready(function($) {
-        "use strict";
-        //  TESTIMONIALS CAROUSEL HOOK
-        $('#customers-testimonials').owlCarousel({
-            loop: true,
-            center: true,
-            items: 3,
-            margin: 0,
-            autoplay: true,
-            dots: true,
-            autoplayTimeout: 8500,
-            smartSpeed: 450,
-            responsive: {
-                0: {
-                    items: 1
-                },
-                768: {
-                    items: 2
-                },
-                1170: {
-                    items: 3
-                }
-            }
-        });
-    });
-    </script>
-    <!-- jQuery -->
-    <script src="http://thecodeplayer.com/uploads/js/jquery-1.9.1.min.js" type="text/javascript"></script>
-    <!-- jQuery easing plugin -->
-    <script src="http://thecodeplayer.com/uploads/js/jquery.easing.min.js" type="text/javascript"></script>
-    <script src="{{ asset('js/multistep-form.js') }}"></script>
+    <script src="{{ asset('js/slick-carousel.js') }}"></script>
+    @stack('scripts')
 </body>
 
 </html>

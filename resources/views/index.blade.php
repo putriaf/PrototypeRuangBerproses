@@ -1,8 +1,8 @@
 @extends('layout.layout')
 
 @push('styles')
-<link href="{{ asset('css/slick-carousel.css') }}" rel="stylesheet">
 <link href="{{ asset('css/testimonial-carousel.css') }}" rel="stylesheet">
+<link href="{{ asset('css/slick-carousel.css') }}" rel="stylesheet">
 @endpush
 
 <!--  Hero -->

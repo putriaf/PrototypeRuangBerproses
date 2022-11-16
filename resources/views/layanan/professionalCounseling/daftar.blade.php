@@ -21,9 +21,6 @@ nav ul li a {
             class="button block mx-auto bg-[#eb6536] rounded-full w-1/3 lg:px-4 lg:py-3 text-white font-semibold uppercase motion-safe:animate-bounce-slow text-sm">Mulai
             Screening</a>
     </div>
-    <div class="mt-20">
-        <a href="/screening">Screening</a>
-    </div>
     @endif
     @if($profilUser->nama != NULL && $profilUser->username != NULL && $profilUser->email != NULL && $profilUser->no_telp
     != NULL && $profilUser->tgl_lahir != NULL && $profilUser->domisili != NULL && $profilUser->pendidikan != NULL &&
@@ -265,7 +262,7 @@ nav ul li a {
         </fieldset>
     </form>
     @else
-    <div class="block lg:mx-44 lg:p-14 bg-pale-yellow lg:mt-40 text-center rounded-xl text-[#2b2b2b]">
+    <div class="block lg:mx-44 lg:p-14 bg-pale-yellow lg:mt-40 text-center rounded-xl text-[#2b2b2b] mb-10">
         <h1 class="font-bold text-3xl lg:mb-5">Lengkapi Profilmu!</h1>
         <p class="lg:mb-10">Untuk mendaftarkan diri ke layanan konseling, kamu perlu melengkapi informasi dirimu nih!
             Ini
@@ -279,3 +276,12 @@ nav ul li a {
     @endif
 </section>
 @endsection
+
+@push('scripts')
+<!-- MULTI STEP FORM -->
+<!-- jQuery -->
+<script src="http://thecodeplayer.com/uploads/js/jquery-1.9.1.min.js" type="text/javascript"></script>
+<!-- jQuery easing plugin -->
+<script src="http://thecodeplayer.com/uploads/js/jquery.easing.min.js" type="text/javascript"></script>
+<script src="{{ asset('js/multistep-form.js') }}"></script>
+@endpush
