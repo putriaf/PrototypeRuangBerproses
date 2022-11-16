@@ -11,7 +11,6 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('https://ruangberproses-dev.herokuapp.com/css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/multistep-form.css') }}" rel="stylesheet">
-    <link href="{{ asset('https://ruangberproses-dev.herokuapp.com/scss/submit-btn.scss') }}" rel="stylesheet">
     <link href="{{ asset('css/navbar-scroll.css') }}" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -254,7 +253,6 @@
     <script>
     feather.replace()
     </script>
-    <script src="{{ asset('js/submit-btn.js') }}"></script>
     <script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="{{ asset('js/testimonial-carousel.js') }}"></script>

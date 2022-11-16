@@ -1,6 +1,7 @@
 @extends('layout.layout'),
 
 @push('styles')
+<link href="{{ asset('scss/submit-btn.scss') }}" rel="stylesheet">
 <style>
 nav ul li a {
     color: black !important;
@@ -49,8 +50,8 @@ nav ul li a {
             <div class="grid grid-cols-2 gap-4 relative text-left">
                 @if (session()->has('token'))
                 <input type="hidden" id="user_id" name="user_id" value="{{ session()->get('id') }}">
-                <input type="hidden" id="screening_id" name="screening_id" value="2">
                 @endif
+                <input type="hidden" id="screening_id" name="screening_id" value="2">
                 <div class="">
                     <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">NAMA
                         LENGKAP</label>
@@ -106,7 +107,7 @@ nav ul li a {
                         </option>
                         <option value="2">2
                         </option>
-                        <option value="2">2
+                        <option value="3">3
                         </option>
                     </select>
                 </div>
@@ -238,26 +239,29 @@ nav ul li a {
             <input class="form-control mt-5 hidden" type="text" id="status_pendaftaran" name="status_pendaftaran"
                 value="konfirmasi_admin" required>
             </div>
-
-            <input type="button" name="previous" class="previous action-button" value="Previous" />
-            <div class="">
-                <button class="c-btn__continue" id="continue-btn" type="submit">
-                    <span>Continue</span>
-                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                        x="0px" y="0px" viewBox="0 0 37 37" xml:space="preserve" class="u-loading" id="loading">
-                        <path class="circ path"
-                            style="fill:none;stroke:#fff;stroke-width:3;stroke-linejoin:round;stroke-miterlimit:10;"
-                            d="
+            <div class="flex">
+                <div class="rounded-full"><input type="button" name="previous"
+                        class="previous action-button uppercase rounded-full" value="Previous" />
+                </div>
+                <div class="">
+                    <button class="c-btn__continue" id="continue-btn" type="submit">
+                        <span>Submit</span>
+                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                            x="0px" y="0px" viewBox="0 0 37 37" xml:space="preserve" class="u-loading" id="loading">
+                            <path class="circ path"
+                                style="fill:none;stroke:#fff;stroke-width:3;stroke-linejoin:round;stroke-miterlimit:10;"
+                                d="
 	M30.5,6.5L30.5,6.5c6.6,6.6,6.6,17.4,0,24l0,0c-6.6,6.6-17.4,6.6-24,0l0,0c-6.6-6.6-6.6-17.4,0-24l0,0C13.1-0.2,23.9-0.2,30.5,6.5z" />
-                    </svg>
-                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                        x="0px" y="0px" viewBox="0 0 37 37" xml:space="preserve" class="u-success">
-                        <polyline class="tick path"
-                            style="fill:none;stroke:#fff;stroke-width:3;stroke-linejoin:round;stroke-miterlimit:10;"
-                            points="
+                        </svg>
+                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                            x="0px" y="0px" viewBox="0 0 37 37" xml:space="preserve" class="u-success">
+                            <polyline class="tick path"
+                                style="fill:none;stroke:#fff;stroke-width:3;stroke-linejoin:round;stroke-miterlimit:10;"
+                                points="
 	11.6,20 15.9,24.2 26.4,13.8 " />
-                    </svg>
-                </button>
+                        </svg>
+                    </button>
+                </div>
             </div>
         </fieldset>
     </form>
@@ -284,4 +288,5 @@ nav ul li a {
 <!-- jQuery easing plugin -->
 <script src="http://thecodeplayer.com/uploads/js/jquery.easing.min.js" type="text/javascript"></script>
 <script src="{{ asset('js/multistep-form.js') }}"></script>
+<script src="{{ asset('js/submit-btn.js') }}"></script>
 @endpush
