@@ -20,6 +20,7 @@
     <script src="https://unpkg.com/feather-icons"></script>
     <script src="https://unpkg.com/flowbite@1.5.3/dist/datepicker.js"></script>
     <script src="{{ asset('js/navbar-scroll.js') }}"></script>
+    <script src="https://ruangberproses-dev.herokuapp.com/js/navbar-scroll.js"></script>
     <link rel="stylesheet" type="text/css"
         href="http://www.24limousine.com/wp-content/themes/24Limousine/assets/css/owl.carousel.min.css">
     @vite(['resources/scss/app.scss'])
