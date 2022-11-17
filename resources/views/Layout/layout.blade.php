@@ -12,6 +12,7 @@
     <link href="{{ asset('https://ruangberproses-dev.herokuapp.com/css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/multistep-form.css') }}" rel="stylesheet">
     <link href="{{ asset('css/navbar-scroll.css') }}" rel="stylesheet">
+    <link href="{{ asset('https://ruangberproses-dev.herokuapp.com/css/navbar-scroll.css') }}" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;600;700&family=Poppins:wght@300;400;500;700&family=Quicksand:wght@300;400;500;600;700&display=swap"
@@ -20,7 +21,7 @@
     <script src="https://unpkg.com/feather-icons"></script>
     <script src="https://unpkg.com/flowbite@1.5.3/dist/datepicker.js"></script>
     <script src="{{ asset('js/navbar-scroll.js') }}"></script>
-    <script src="https://ruangberproses-dev.herokuapp.com/js/navbar-scroll.js"></script>
+    <script src="{{ asset('https://ruangberproses-dev.herokuapp.com/js/navbar-scroll.js') }}"></script>
     <link rel="stylesheet" type="text/css"
         href="http://www.24limousine.com/wp-content/themes/24Limousine/assets/css/owl.carousel.min.css">
     @vite(['resources/scss/app.scss'])
