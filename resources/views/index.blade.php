@@ -316,14 +316,14 @@
             <h3 class="lg:text-2xl font-semibold">Artikel Berproses</h3>
         </div>
         <div class="grid sm:grid-cols-2 lg:mx-20 sm:mx-10 mx-8">
-            <div class="grid grid-cols-3 lg:gap-4 sm:gap-3 gap-2 lg:mb-10 mb-6">
+            <div class="grid grid-cols-3 gap-2 sm:gap-3 lg:gap-4 lg:mb-10 mb-6">
                 <div class="lg:mr-3">
                     <img src="{{ asset('img/illustrations/compressed/jumbotron-home.png' ) }}" alt=""
                         class="rounded-lg lg:h-full lg:w-full object-cover aspect-video">
                 </div>
                 <div class="col-span-2">
                     <div class="col-span-2 self-end font-semibold lg:text-lg sm:text-base">Judul Artikel</div>
-                    <div class="row-span-2 col-span-2 lg:text-base sm:text-sm text-xs sm:line-clamp-3">Lorem ipsum dolor
+                    <div class="row-span-2 col-span-2 text-base sm:text-sm sm:line-clamp-3">Lorem ipsum dolor
                         sit
                         amet
                         consectetur

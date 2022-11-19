@@ -12,18 +12,18 @@
         <a href=""
             class="bg-gradient-to-r from-[#FB8D66] px-8 py-2 sm:px-10 sm:py-4 rounded-3xl font-semibold lg:mt-4 inline-block">Daftar
             Sekarang</a>
-        <p class="text-white font-semibold text-sm lg:mt-5">bergabung dengan 200+ orang yang sudah mendaftar</p>
+        <p class="text-white font-semibold text-sm mt-5">bergabung dengan 200+ orang yang sudah mendaftar</p>
     </div>
-    <div class="grid grid-cols-2 gap-2 lg:m-20">
+    <div class="sm:grid sm:grid-cols-2 gap-2 my-10 mx-5 lg:m-20">
         <div class="">
-            <div class="lg:mb-10">
-                <h3 class="font-semibold text-xl lg:mb-4">Apa Sih Konseling Itu?</h3>
+            <div class="mb-10 lg:mb-10">
+                <h3 class="font-semibold text-xl mb-4">Apa Sih Konseling Itu?</h3>
                 <p>Konseling adalah sebuah upaya untuk membantu mengatasi konflik, hambatan dan kesulitan dalam memenuhi
                     kebutuhan pada individu, serta upaya untuk meningkatkan kesehatan mental.</p>
             </div>
             <div class="">
-                <h3 class="font-semibold text-xl lg:mb-4">Tanda-Tanda Kamu Butuh Konseling</h3>
-                <ul class="list-disc list-outside lg:ml-5">
+                <h3 class="font-semibold text-xl mb-4">Tanda-Tanda Kamu Butuh Konseling</h3>
+                <ul class="list-disc list-outside ml-5">
                     <li>Tidak tahu harus berbuat apa ketika kamu punya masalah</li>
                     <li>Tidak ada orang yang bisa kamu percaya</li>
                     <li>Kamu merasa ada perubahan baik secara emosi, perilaku, maupun pikiran yang berpengaruh terhadap
@@ -34,9 +34,9 @@
                 </ul>
             </div>
         </div>
-        <div class="mx-auto">
+        <div class="sm:mx-auto my-7 lg:m-auto">
             <div href="#"
-                class="block bg-[#1D1F4E] text-white p-6 max-w-sm rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+                class="block bg-[#1D1F4E] text-white p-6 sm:max-w-sm rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
                 <div class="grid grid-cols-3">
                     <div class="col-span-2">
                         <h4 class="mb-2 text-lg tracking-tight dark:text-white">PAKET </h4>
@@ -46,38 +46,26 @@
                         <h5 class="mb-2 text-2xl font-bold tracking-tight dark:text-white">Rp100.000</h5>
                     </div>
                 </div>
-                <p class="font-normal dark:text-gray-400 lg:my-5 text-xl">1 SESI | 60 menit</p>
+                <p class="font-normal dark:text-gray-400 mb-5 lg:my-5 text-xl">1 SESI | 60 menit</p>
                 <ul>
-                    <li class="flex flex-row lg:mb-3">
-                        <i data-feather="check-circle" class="inline basis-auto lg:mr-3"></i>
+                    <li class="flex flex-row mb-2 lg:mb-3">
+                        <i data-feather="check-circle" class="inline basis-auto mr-2 lg:mr-3"></i>
                         <p class="basis-4/5">Sesi konseling melalui platform online meeting</p>
                     </li>
-                    <li class="flex flex-row lg:mb-3">
-                        <i data-feather="check-circle" class="inline basis-auto lg:mr-3"></i>
+                    <li class="flex flex-row mb-2 lg:mb-3">
+                        <i data-feather="check-circle" class="inline basis-auto mr-2 lg:mr-3"></i>
                         <p class="basis-4/5">Ditangani psikolog klinis</p>
                     </li>
-                    <li class="flex flex-row lg:mb-3">
-                        <i data-feather="check-circle" class="inline basis-auto lg:mr-3"></i>
+                    <li class="flex flex-row mb-2 lg:mb-3">
+                        <i data-feather="check-circle" class="inline basis-auto mr-2 lg:mr-3"></i>
                         <p class="basis-4/5">Catatan konsultasi</p>
                     </li>
                 </ul>
             </div>
         </div>
     </div>
-    <div class="lg:mx-32 lg:py-20 bg-pale-yellow rounded-2xl">
-        <h3 class="font-semibold text-xl lg:mb-8 text-center">Alur Konseling</h3>
-        <ul class="list-decimal content-center font-medium list-inside mx-auto table">
-            <li class="lg:mb-2">Daftar Konseling</li>
-            <li class="lg:mb-2">Selesaikan Pembayaran</li>
-            <li class="lg:mb-2">Dapatkan Jadwal dan Link Konseling</li>
-            <li>Mulai Konseling!</li>
-        </ul>
-    </div>
-    <div class="lg:p-20">
-        <h3 class="font-semibold text-xl lg:mb-8 text-center">Psikolog Berpengalaman Kami</h3>
-    </div>
-    <div class="lg:p-20">
-        <h3 class="font-semibold text-xl lg:mb-8 text-center">Pertanyaan Sahabat Berproses</h3>
+    <div class="px-5 py-10 lg:p-20 bg-pale-yellow">
+        <h3 class="font-semibold text-xl mb-5 lg:mb-8 text-center">Pertanyaan Sahabat Berproses</h3>
         <div id="accordion-collapse" data-accordion="collapse">
             <h2 id="accordion-collapse-heading-1">
                 <button type="button"
