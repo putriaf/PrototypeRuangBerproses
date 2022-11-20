@@ -2,9 +2,12 @@
 
 @push('styles')
 <style>
-body,
-html {
-    overflow: hidden
+@media only screen and (min-width: 768px) {
+
+    body,
+    html {
+        overflow: hidden
+    }
 }
 
 ::-webkit-scrollbar {
@@ -29,18 +32,18 @@ nav {
 @endpush
 
 @section('content')
-<section class="font-quicksand px-20">
-    <div class="grid grid-cols-4 h-screen gap-8">
-        <div class="shadow-md rounded-md lg:mb-16 lg:mt-20 bg-white">
-            <div class="">
+<section class="font-quicksand px-5 sm:px-20 overflow-auto sm:overflow-hidden">
+    <div class="grid grid-cols-1 sm:grid-cols-4 lg:grid-cols-4 h-auto sm:h-screen sm:gap-8">
+        <div class="shadow-md rounded-md mb-5 lg:mb-16 mt-20 sm:mt-20 lg:mt-20 bg-white">
+            <div class="mx-5">
                 <div class="text-center">
                     <img src="{{ asset('img/user/avatar.png') }}" alt="User Profile" class="w-20 mx-auto">
                     <h1 class="text-2xl font-bold lg:mb-2">{{ $profilUser->nama }}</h1>
                     <p>{{ $profilUser->email }}</p>
                 </div>
                 <hr class="mt-1 mb-3 bg-gray-200 border-0 dark:bg-gray-700">
-                <div class="">
-                    <div class="relative max-h-40 overflow-y-auto overflow-x-hidden">
+                <div class="hidden sm:block">
+                    <div class="relative sm:max-h-40 overflow-y-auto overflow-x-hidden">
                         <table class="w-full text-left text-gray-500 dark:text-gray-400 text-xs">
                             <tbody>
                                 <tr class="bg-white dark:bg-gray-800 dark:border-gray-700">
@@ -93,15 +96,15 @@ nav {
                     </div>
                 </div>
                 <div id="profileMenu" data-tabs-toggle="#profileMenuContent" role="tablist">
-                    <div class="bg-rb-light-orange lg:mx-10 font-bold rounded-md" role="presentation">
-                        <button class="block mx-auto lg:px-10 lg:py-2 lg:my-5 text-xs" id="editProfil-tab"
+                    <div class="bg-rb-light-orange mx-20 lg:mx-10 font-bold rounded-md" role="presentation">
+                        <button class="block mx-auto px-3 py-2 lg:px-10 lg:py-2 lg:my-5 text-xs" id="editProfil-tab"
                             data-tabs-target="#editProfil" type="button" role="tab" aria-controls="editProfil"
                             aria-selected="false">
                             <p class="text-white">Edit
                                 Profil</p>
                         </button>
                     </div>
-                    <div class="grid grid-cols-2 mx-auto text-center text-xs gap-2 lg:px-4">
+                    <div class="grid grid-cols-2 sm:mx-auto text-center text-xs gap-2 px-2 lg:px-4 mt-5 sm:mt-auto">
                         <div role="presentation">
                             <button href="" id="riwayatLayanan-tab" data-tabs-target="#riwayatLayanan" type="button"
                                 role="tab" aria-controls="riwayatLayanan" aria-selected="true">
@@ -118,28 +121,28 @@ nav {
                         </div>
                     </div>
                 </div>
-                <a href="" class="underline text-xs text-center mx-auto block lg:my-4">Logout</a>
+                <a href="" class="underline text-xs text-center mx-auto block my-3 lg:my-4">Logout</a>
             </div>
         </div>
-        <div class="col-span-3 max-h-screen shadow-md rounded-md lg:p-12 overflow-y-auto overflow-x-hidden bg-[#F3F3F3] lg:mb-16 lg:mt-20"
+        <div class="col-span-3 max-h-screen shadow-md rounded-md p-5 lg:p-12 overflow-y-auto overflow-x-hidden bg-[#F3F3F3] mb-5 lg:mb-16 lg:mt-20"
             id="profileMenuContent">
             <div class="" id="riwayatLayanan" role="tabpanel" aria-labelledby="riwayatLayanan-tab">
-                <h2 class="text-3xl font-semibold lg:mb-12">Riwayat Pendaftaran Layanan</h2>
+                <h2 class="text-xl sm:text-3xl font-semibold mb-5 lg:mb-12">Riwayat Pendaftaran Layanan</h2>
                 <div class="pb-10">
                     @foreach($reg_procounseling as $user_rpc)
-                    <div class="bg-white lg:mb-8 rounded-xl lg:p-4">
+                    <div class="bg-white mb-4 lg:mb-8 rounded-xl p-4 lg:p-4">
                         <h3 class="font-semibold text-lg">PSYTALK 66</h3>
                         <p class="text-xs">5 Oktober 2022</p>
                         @if($user_rpc->status_pendaftaran == 'konfirmasi_admin')
-                        <p class="lg:p-2 rounded-md bg-[#FFEAB2] w-fit font-semibold text-sm lg:mt-4">MENUNGGU
+                        <p class="p-2 lg:p-2 rounded-md bg-[#FFEAB2] w-fit font-semibold text-sm lg:mt-4">MENUNGGU
                             KONFIRMASI
                             ADMIN
                         </p>
                         @elseif($user_rpc->status_pendaftaran == 'berhasil')
-                        <p class="lg:p-2 rounded-md bg-[#AAF0BE] w-fit font-semibold text-sm lg:mt-4">BERHASIL
+                        <p class="p-2 lg:p-2 rounded-md bg-[#AAF0BE] w-fit font-semibold text-sm lg:mt-4">BERHASIL
                         </p>
                         @else
-                        <p class="lg:p-2 rounded-md bg-[#D9D9D9] w-fit font-semibold text-sm lg:mt-4">GAGAL
+                        <p class="p-2 lg:p-2 rounded-md bg-[#D9D9D9] w-fit font-semibold text-sm lg:mt-4">GAGAL
                         </p>
                         @endif
                     </div>
@@ -182,8 +185,8 @@ nav {
                     @endforeach
                 </div>
             </div>
-            <div class="" id="riwayatProgram" role="tabpanel" aria-labelledby="riwayatProgram-tab">
-                <h2 class="text-3xl font-semibold lg:mb-12">Riwayat Pendaftaran Program</h2>
+            <div id="riwayatProgram" role="tabpanel" aria-labelledby="riwayatProgram-tab">
+                <h2 class="text-xl sm:text-3xl font-semibold lg:mb-12">Riwayat Pendaftaran Program</h2>
                 <div class="pb-10">
                     @foreach($reg_psytalk as $user_rpsytalk)
                     <div class="bg-white lg:mb-8 rounded-xl lg:p-4">
@@ -224,7 +227,7 @@ nav {
                 </div>
             </div>
             <div class="" id="editProfil" role="tabpanel" aria-labelledby="editProfil-tab">
-                <h2 class="text-3xl font-semibold lg:mb-12">Edit Profil</h2>
+                <h2 class="text-xl sm:text-3xl font-semibold mb-5 lg:mb-12">Edit Profil</h2>
                 <div class="pb-10">
                     <form method="POST" action="/profile/{{ $profilUser->username }}" enctype="multipart/form-data">
                         @method('put')

@@ -216,13 +216,14 @@
     <!-- End Main -->
 
     <!-- Start Footer -->
-    <footer class="bg-primary-dark-blue font-montserrat text-neutral-200 lg:px-5 sm:px-5 lg:py-14 sm:py-12">
-        <div class="grid grid-cols-2 lg:gap-14 gap-10">
+    <footer class="bg-primary-dark-blue font-montserrat text-neutral-200 lg:px-5 px-5 sm:px-5 py-10 lg:py-14 sm:py-12">
+        <div class="grid grid-cols-2 gap-10 lg:gap-14">
             <div class="">
                 <img src="{{ asset('img/ruang-berproses/rb-only-logo.png') }}" alt="Logo Ruang Berproses"
-                    class="lg:w-1/5 sm:w-2/5">
-                <h2 class="text-xl font-semibold lg:my-3 sm:my-2">Ruang Berproses</h2>
-                <p class="text-sm lg:w-3/4">Jangan ragu untuk menghubungi kami melalui telepon, email, atau media sosial
+                    class="w-2/5 lg:w-1/5 sm:w-2/5">
+                <h2 class="text-lg sm:text-xl font-semibold my-2 lg:my-3 sm:my-2">Ruang Berproses</h2>
+                <p class="text-xs sm:text-sm lg:w-3/4">Jangan ragu untuk menghubungi kami melalui telepon, email, atau
+                    media sosial
                     kami. Kami pasti akan kembali menghubungi Anda sesegera mungkin.</p>
                 <div class="flex flex-row lg:mt-8 mt-6 gap-5">
                     <i data-feather="facebook"></i>
@@ -231,21 +232,21 @@
                     <i data-feather="youtube"></i>
                 </div>
             </div>
-            <div class="grid grid-cols-3 lg:mt-10">
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:mt-10 mt-10">
                 <div class="">
-                    <h3 class="font-semibold lg:mb-5 sm:mb-5">Telusuri</h3>
-                    <ul class="text-sm">
-                        <li class="lg:mb-2"><a href="/">Home</a></li>
-                        <li class="lg:mb-2"><a href="">Layanan</a></li>
-                        <li class="lg:mb-2"><a href="">Program</a></li>
+                    <h3 class="font-semibold mb-3 lg:mb-5 sm:mb-5">Telusuri</h3>
+                    <ul class="text-xs sm:text-sm">
+                        <li class="mb-1 lg:mb-2"><a href="/">Home</a></li>
+                        <li class="mb-1 lg:mb-2"><a href="">Layanan</a></li>
+                        <li class="mb-1 lg:mb-2"><a href="">Program</a></li>
                         <li><a href="">Artikel</a></li>
                     </ul>
                 </div>
                 <div class="">
-                    <h3 class="font-semibold lg:mb-5 sm:mb-5">Informasi</h3>
-                    <ul class="text-sm">
-                        <li class="lg:mb-2"><a href="/">Tentang Kami</a></li>
-                        <li><a href="">Kontal</a></li>
+                    <h3 class="font-semibold mb-3 lg:mb-5 sm:mb-5">Informasi</h3>
+                    <ul class="text-xs sm:text-sm">
+                        <li class="mb-1 lg:mb-2"><a href="/">Tentang Kami</a></li>
+                        <li><a href="">Kontak</a></li>
                     </ul>
                 </div>
             </div>

@@ -46,7 +46,7 @@
                         <h5 class="mb-2 text-2xl font-bold tracking-tight dark:text-white">Rp100.000</h5>
                     </div>
                 </div>
-                <p class="font-normal dark:text-gray-400  mb-5 lg:my-5 text-xl">1 SESI | 60 menit</p>
+                <p class="font-normal dark:text-gray-400 mb-5 lg:my-5 text-xl">1 SESI | 60 menit</p>
                 <ul>
                     <li class="flex flex-row mb-2 lg:mb-3">
                         <i data-feather="check-circle" class="inline basis-auto mr-2 lg:mr-3"></i>

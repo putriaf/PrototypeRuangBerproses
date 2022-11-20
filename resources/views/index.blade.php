@@ -9,19 +9,21 @@
 @section('content')
 <section class="font-quicksand">
     <div
-        class="pt-[40vh] sm:px-12 h-screen bg-jumbotron-home bg-no-repeat bg-cover bg-center bg-fixed mx-auto text-center text-slate-100 xl:px-64">
-        <h1 class="font-bold te xt-3xl sm:text-4xl md:text-4xl mb-3 sm:mb-4" style="line-height: 1.2">Solusi Terbaik
+        class="pt-[40vh] px-8 sm:px-12 h-screen bg-jumbotron-home bg-no-repeat bg-cover bg-center bg-fixed mx-auto text-center text-slate-100 xl:px-64">
+        <h1 class="font-bold text-2xl sm:text-4xl md:text-4xl mb-3 sm:mb-4" style="line-height: 1.2">Solusi Terbaik
             Kembalikan Senyum Bahagiamu</h1>
-        <h2 class="font-light text-sm sm:text-md px-8 sm:px-6 mb-6 sm:mb-10 lg:px-16 leading-relaxed">Butuh ruang aman
+        <h2 class="font-light text-sm sm:text-md px-3 sm:px-6 mb-6 sm:mb-10 lg:px-16 leading-relaxed">Butuh ruang
+            aman
             dan
             nyaman untuk bercerita? Tenaga profesional siap mendampingimu berproses menuju versi terbaik!</h2>
         <a href="/layanan/professional-counseling"
-            class="block bg-gradient-to-r from-[#FB8D66] mx-32 sm:mx-28 py-2 sm:py-4 lg:mx-64 rounded-3xl font-semibold lg:mt-8 hover:scale-90 transition-all ease-out duration-100 delay-150 hover:bg-gradient-to-r hover:from-[#EB6536]">Daftar
+            class="block bg-gradient-to-r from-[#FB8D66] mx-32 sm:mx-28 py-2 sm:py-4 lg:mx-64 rounded-3xl font-semibold mt-8 lg:mt-8 hover:scale-90 transition-all ease-out duration-100 delay-150 hover:bg-gradient-to-r hover:from-[#EB6536]">Daftar
             Sekarang</a>
     </div>
     <div class=" bg-[#FAFAF2] py-20">
         <div class="mx-auto text-center">
-            <h3 class="lg:text-2xl md:text-xl font-semibold lg:mb-2 sm:mb-2 mb-2">Gabung Bersama Sahabat Berproses
+            <h3 class="text-xl lg:text-2xl md:text-xl font-semibold lg:mb-2 sm:mb-2 mb-2">Gabung Bersama Sahabat
+                Berproses
                 Lainnya
             </h3>
             <p class="lg:text-md mx-4 sm:mx-6 sm:text-sm text-sm">Bicarakan apa yang menjadi beban, lepas semua penat,
@@ -75,7 +77,7 @@
     </div>
     <div class="bg-[#FAFAF2] py-20">
         <div class="mx-auto text-center">
-            <h3 class="lg:text-2xl font-semibold lg:mb-2 sm:mb-2 mb-2">Layanan Kami</h3>
+            <h3 class="text-xl lg:text-2xl font-semibold lg:mb-2 sm:mb-2 mb-2">Layanan Kami</h3>
             <p class="lg:text-md sm:text-sm text-sm">Berbagai macam layanan tersedia untuk setiap kebutuhanmu</p>
             <div class="hidden lg:block sm:mt-8 lg:mt-8">
                 <a href=""
@@ -203,7 +205,7 @@
     </div>
     <div class="py-20">
         <div class="mx-auto text-center">
-            <h3 class="lg:text-2xl font-semibold lg:mb-2">Kata Mereka</h3>
+            <h3 class="text-xl lg:text-2xl font-semibold lg:mb-2">Kata Mereka</h3>
         </div>
         <section class="testimonials">
             <div class="container">
@@ -313,7 +315,7 @@
     </div>
     <div class="pt-20">
         <div class="mx-auto text-center mb-7 sm:mb-14">
-            <h3 class="lg:text-2xl font-semibold">Artikel Berproses</h3>
+            <h3 class="text-xl lg:text-2xl font-semibold">Artikel Berproses</h3>
         </div>
         <div class="grid sm:grid-cols-2 lg:mx-20 sm:mx-10 mx-8">
             <div class="grid grid-cols-3 gap-2 sm:gap-3 lg:gap-4 lg:mb-10 mb-6">
@@ -379,7 +381,7 @@
     </div>
     <div class="py-20">
         <div class="mx-auto text-center">
-            <h3 class="lg:text-2xl font-semibold lg:mb-2 text-black">Klien Kami</h3>
+            <h3 class="text-xl lg:text-2xl font-semibold lg:mb-2 text-black">Klien Kami</h3>
             <div class="cover-wrapper">
                 <div id="client-logos" class="owl-carousel text-center">
                     <div class="item">
