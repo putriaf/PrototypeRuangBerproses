@@ -134,15 +134,15 @@ nav {
                         <h3 class="font-semibold text-lg">PSYTALK 66</h3>
                         <p class="text-xs">5 Oktober 2022</p>
                         @if($user_rpc->status_pendaftaran == 'konfirmasi_admin')
-                        <p class="p-2 lg:p-2 rounded-md bg-[#FFEAB2] w-fit font-semibold text-sm lg:mt-4">MENUNGGU
+                        <p class="p-2 lg:p-2 rounded-md bg-[#FFEAB2] w-fit font-semibold text-sm mt-3 lg:mt-4">MENUNGGU
                             KONFIRMASI
                             ADMIN
                         </p>
                         @elseif($user_rpc->status_pendaftaran == 'berhasil')
-                        <p class="p-2 lg:p-2 rounded-md bg-[#AAF0BE] w-fit font-semibold text-sm lg:mt-4">BERHASIL
+                        <p class="p-2 lg:p-2 rounded-md bg-[#AAF0BE] w-fit font-semibold text-sm mt-3 lg:mt-4">BERHASIL
                         </p>
                         @else
-                        <p class="p-2 lg:p-2 rounded-md bg-[#D9D9D9] w-fit font-semibold text-sm lg:mt-4">GAGAL
+                        <p class="p-2 lg:p-2 rounded-md bg-[#D9D9D9] w-fit font-semibold text-sm mt-3 lg:mt-4">GAGAL
                         </p>
                         @endif
                     </div>

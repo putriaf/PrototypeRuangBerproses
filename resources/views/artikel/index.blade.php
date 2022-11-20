@@ -28,9 +28,9 @@ nav ul li a {
 @endpush
 
 @section('content')
-<section class="lg:mx-20 lg:mt-20 lg:mb-10">
+<section class="lg:mx-20 mt-14 lg:mt-20 mb-10 lg:mb-10">
     <div class="mx-auto font-quicksand text-center lg:mb-12">
-        <h1 class="text-3xl font-bold lg:mb-6">Artikel Berproses</h1>
+        <h1 class="text-3xl font-bold mb-6 lg:mb-6">Artikel Berproses</h1>
     </div>
     <div class="">
         <form class="flex justify-center items-center" action="/artikel-berproses" autocomplete="off">
@@ -60,19 +60,20 @@ nav ul li a {
             </button>
         </form>
     </div>
-    <div class="lg:mt-14 font-quicksand w-2/3">
-        <h2 class="text-xl lg:mb-8 font-semibold">Artikel Terbaru</h2>
+    <div class="mt-8 lg:mt-14 font-quicksand sm:w-2/3 mx-5 sm:mx-auto">
+        <h2 class="text-xl mb-5 lg:mb-8 font-semibold">Artikel Terbaru</h2>
         <div class="min-h-[75vh]">
             @foreach($artikels as $artikel)
             <a href="/artikel-berproses/{{ $artikel->id }}">
-                <div class="grid grid-cols-3 gap-2 lg:mb-10">
-                    <div class="lg:mr-3">
+                <div class="grid grid-cols-3 gap-2 mb-8 lg:mb-10">
+                    <div class="mr-3 lg:mr-3">
                         <img src="{{ asset('img/illustrations/jumbotron-home.png' ) }}" alt=""
-                            class="rounded-lg h-full w-full">
+                            class="rounded-lg aspect-video h-full sm:w-full">
                     </div>
                     <div class="col-span-2">
                         <div class="col-span-2 self-end font-semibold text-lg line-clamp-1">{{ $artikel->judul }}</div>
-                        <div class="row-span-2 col-span-2 text-base line-clamp-3">{{ $artikel->isi }}</div>
+                        <div class="row-span-2 col-span-2 text-base line-clamp-2 sm:line-clamp-3">{{ $artikel->isi }}
+                        </div>
                     </div>
                 </div>
             </a>
@@ -80,8 +81,60 @@ nav ul li a {
         </div>
     </div>
 </section>
-@endsection
 
-@push('scripts')
-<script src="{{ asset('js/autocomplete-search.js') }}"></script>
-@endpush
+<div class="flex flex-col items-center my-10">
+    <!-- Help text -->
+    <span class="text-sm text-gray-700 dark:text-gray-400">
+        Showing Page <span class="font-semibold text-gray-900 dark:text-white">{{$page->current_page}}</span>
+    </span>
+    <div class="inline-flex mt-2 xs:mt-0">
+        @if($page->last_page > 1)
+        @if($page->current_page == 1)
+        <a href="#"
+            class="inline-flex items-center py-2 px-4 mr-3 text-sm font-medium text-gray-500 bg-white rounded-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+            <svg class="mr-2 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd"
+                    d="M7.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l2.293 2.293a1 1 0 010 1.414z"
+                    clip-rule="evenodd"></path>
+            </svg>
+            Previous
+        </a>
+        @else
+        <a href="/artikel-berproses?page={{$page->current_page - 1}}"
+            class="inline-flex items-center py-2 px-4 mr-3 text-sm font-medium text-gray-500 bg-white rounded-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+            <svg class="mr-2 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd"
+                    d="M7.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l2.293 2.293a1 1 0 010 1.414z"
+                    clip-rule="evenodd"></path>
+            </svg>
+            Previous
+        </a>
+        @endif
+        @if($page->current_page == $page->last_page)
+        <a href="/artikel-berproses?page={{$page->last_page}}"
+            class="inline-flex items-center py-2 px-4 text-sm font-medium text-gray-500 bg-white rounded-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+            Next
+            <svg class="ml-2 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd"
+                    d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
+                    clip-rule="evenodd"></path>
+            </svg>
+        </a>
+        @else
+        <a href="/artikel-berproses?page={{$page->current_page + 1}}"
+            class="inline-flex items-center py-2 px-4 text-sm font-medium text-gray-500 bg-white rounded-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+            Next
+            <svg class="ml-2 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd"
+                    d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
+                    clip-rule="evenodd"></path>
+            </svg>
+        </a>
+        @endif
+        @endif
+    </div>
+    @endsection
+
+    @push('scripts')
+    <script src="{{ asset('js/autocomplete-search.js') }}"></script>
+    @endpush

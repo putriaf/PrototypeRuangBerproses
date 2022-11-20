@@ -22,7 +22,7 @@ class PsytalkController extends Controller
             'title' => 'Psychology Talk',
             'message' => NULL,
             'psytalks' => $psytalks->data,
-            'page' => $response
+            'page' => $psytalks
         ]);
     }
 

@@ -15,14 +15,15 @@ class ArtikelController extends Controller
     public function index(Request $request)
     {
         $response = Http::get('https://ruangberproses-be.herokuapp.com/api/artikel-berproses', [
-            'search' => $request->query('search')
+            'search' => $request->query('search'),
+            'page' => $request->query('page')
         ]);
         $response = $response->object();
-
         return view('artikel.index', [
             'title' => 'Artikel Berproses',
             'message' => NULL,
-            'artikels' => $response->data
+            'artikels' => $response->data,
+            'page' => $response
         ]);
     }
 
