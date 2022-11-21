@@ -100,7 +100,7 @@ class RegistrationProCounselingController extends Controller
             'sesi' => $request->input('sesi')
         ]);
         if ($response->status() == 200) {
-            return redirect('/layanan/professional-counseling')->with('success', 'Pendaftaran berhasil!');
+            return redirect('/layanan/professional-counseling/daftar/success')->with('success', 'Pendaftaran berhasil!');
         } else {
             return redirect('/layanan/professional-counseling/daftar')->with('success', 'Pendaftaran gagal!');
         }
@@ -180,5 +180,12 @@ class RegistrationProCounselingController extends Controller
         if ($response->status() == 200) {
             return redirect('/admin')->with('success', 'Professional Counseling data has been deleted!');
         }
+    }
+
+    public function regSuccess()
+    {
+        return view('layanan.registration-success', [
+            'message' => NULL,
+        ]);
     }
 }

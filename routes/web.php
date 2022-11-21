@@ -87,6 +87,7 @@ Route::delete('/admin/layanan/procounseling-list/{id}', [ProfessionalCounselingC
 // Professional Counseling Registration Data
 Route::get('/layanan/professional-counseling/daftar', [RegistrationProCounselingController::class, 'create'])->middleware('token');
 Route::post('/layanan/professional-counseling/daftar', [RegistrationProCounselingController::class, 'store']);
+Route::get('/layanan/professional-counseling/daftar/success', [RegistrationProCounselingController::class, 'regSuccess']);
 Route::get('/layanan/professional-counseling', [ProfessionalCounselingController::class, 'index']);
 Route::get('/layanan/professional-counseling/{professional_counselings:id}', [RegistrationProCounselingController::class, 'show']);
 Route::get('/layanan/professional-counseling/{professional_counselings:id}/edit', [RegistrationProCounselingController::class, 'edit']);
