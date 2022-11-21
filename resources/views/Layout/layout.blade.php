@@ -221,7 +221,8 @@
     <!-- End Main -->
 
     <!-- Start Footer -->
-    <footer class="bg-primary-dark-blue font-montserrat text-neutral-200 lg:px-5 px-5 sm:px-5 py-10 lg:py-14 sm:py-12">
+    <footer class="bg-primary-dark-blue font-montserrat text-neutral-200 lg:px-5 px-5 sm:px-5 py-10 lg:py-14 sm:py-12"
+        id="footer">
         <div class="grid grid-cols-2 gap-10 lg:gap-14">
             <div class="">
                 <img src="{{ asset('img/ruang-berproses/rb-only-logo.png') }}" alt="Logo Ruang Berproses"

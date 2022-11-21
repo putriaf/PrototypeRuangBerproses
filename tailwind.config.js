@@ -25,7 +25,8 @@ module.exports = {
         'jumbotron-home': "url('/img/illustrations/compressed/jumbotron-home.png');", 
         'hero-procounseling': "url('/img/illustrations/compressed/hero-professional-counseling.png');",
         'hero-sg': "url('/img/illustrations/compressed/hero-support-group.png');",
-        'hero-peercounseling': "url('/img/illustrations/compressed/hero-peer-counseling.jpg');"
+        'hero-peercounseling': "url('/img/illustrations/compressed/hero-peer-counseling.jpg');",
+        'hero-login': "url('img/illustrations/login.png')"
       },
       animation: {
         'bounce-slow': 'bounce 3s infinite',

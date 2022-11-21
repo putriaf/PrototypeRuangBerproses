@@ -33,10 +33,10 @@ nav ul li a {
         <h1 class="text-3xl font-bold mb-6 lg:mb-6">Artikel Berproses</h1>
     </div>
     <div class="">
-        <form class="flex justify-center items-center" action="/artikel-berproses" autocomplete="off">
+        <form class="flex justify-center items-start" action="/artikel-berproses" autocomplete="off">
             <label for="simple-search" class="sr-only">Search</label>
             <div class="relative w-1/2">
-                <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
+                <div class="flex absolute inset-y-0 left-0 pt-3 pl-3 pointer-events-none">
                     <svg aria-hidden="true" class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor"
                         viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd"
@@ -44,10 +44,12 @@ nav ul li a {
                             clip-rule="evenodd"></path>
                     </svg>
                 </div>
-                <input type="text" id="search" name="search"
-                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    placeholder="Search" value="{{ request('search') }}" required="">
-                <div id="result"></div>
+                <div class="">
+                    <input type="text" id="search" name="search"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        placeholder="Search" value="{{ request('search') }}" required="">
+                    <div id="result" class="list-none"></div>
+                </div>
             </div>
             <button type="submit"
                 class="p-2.5 ml-2 text-sm font-medium text-white bg-red-400 rounded-lg border border-red-500 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
