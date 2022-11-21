@@ -14,6 +14,13 @@ nav ul li a {
         <h1 class="text-3xl font-bold lg:mb-3">Kelas Berproses</h1>
         <p class="text-md">Pematerian sekaligus pelatihan psikologi</p>
     </div>
+    @if($kbs == NULL)
+    <div class="text-center mx-auto mt-24">
+        <img src="{{ asset('img/illustrations/empty.svg') }}" alt="" class="w-56 mx-auto block">
+        <p class="text-sm font-medium mt-5">Nantikan pelatihan terbaru bersama kami ya, Sahabat Berproses!
+        </p>
+    </div>
+    @else
     <div class="grid grid-cols-3 md:grid-cols-3 gap-5 lg:gap-10 lg:mb-8">
         @foreach($kbs as $kb)
         <div
@@ -61,6 +68,7 @@ nav ul li a {
             </div>
         </div>
         @endforeach
+        @endif
     </div>
     <div class="py-16 lg:p-20 font-quicksand">
         <h3 class="font-semibold text-xl mb-8 lg:mb-8 text-center">Pertanyaan Sahabat Berproses</h3>
