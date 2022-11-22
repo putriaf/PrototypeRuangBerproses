@@ -14,12 +14,15 @@ module.exports = {
         'poppins': ['Poppins']
       },
       textColor:{
+        'dark-orange': '#cf5225',
+        'dark-blue': '#1D1F4E'
       },
       backgroundColor:{
         'pale-yellow': '#FAFAF2',
         'rb-light-orange': '#FB8D66',
+        'rb-dark-orange': '#cf5225',
         'pale-orange': '#FB8D66',
-        'primary-dark-blue': '#1D1F4E'
+        'primary-dark-blue': '#1D1F4E',
       },
       backgroundImage: {
         'jumbotron-home': "url('/img/illustrations/compressed/jumbotron-home.png');", 
@@ -30,6 +33,20 @@ module.exports = {
       },
       animation: {
         'bounce-slow': 'bounce 3s infinite',
+      },
+      colors: {
+        'dark-blue': '#1D1F4E'
+      },
+      screens: {
+        'xs': {'max': '640px'},
+        'sm': {'min': '640px', 'max': '767px'},
+        // => @media (min-width: 640px and max-width: 767px) { ... }
+  
+        'md': {'min': '768px', 'max': '1023px'},
+        // => @media (min-width: 768px and max-width: 1023px) { ... }
+  
+        'lg': {'min': '1024px'},
+        // => @media (min-width: 1024px and max-width: 1279px) { ... }
       }
     },
   },
@@ -37,4 +54,7 @@ module.exports = {
     require('flowbite/plugin'),
     require('@tailwindcss/line-clamp')
   ],
+  corePlugins: {
+    preflight: false,
+  }
 }

@@ -46,15 +46,18 @@ nav ul li a {
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 </div>
 @endif
-<div class="grid grid-cols-1 sm:grid-cols-2 font-quicksand lg:ml-16 gap-6 bg-hero-login sm:bg-none">
-    <div class="lg:pb-12 pt-32 md:pt-32 px-10 sm:px-auto md:px-0 lg:px-0 xl:px-0">
-        <h1 class="text-2xl sm:text-4xl md:text-4xl lg:text-4xl font-bold">Berproses Menuju Versi Terbaikmu Dimulai
+
+<div class="grid xs:grid-cols-1 md:grid-cols-2 font-quicksand lg:pl-2 gap-6 bg-hero-login sm:bg-none bg-slate-50">
+    <div class="lg:pb-12 sm:pt-20 md:pt-20 pt-32 px-10 sm:px-auto md:px-10 lg:px-10 xl:px-10">
+        <h1 class="xs:text-2xl sm:text-4xl md:text-3xl lg:text-4xl font-bold" style="line-height: 1.5;">Berproses Menuju
+            Versi Terbaikmu
+            Dimulai
             Disini</h1>
         <form action="/login" method="POST" class="mt-8 lg:mt-14 lg:mr-52">
             @csrf
-            <div class="relative z-0 mb-4 sm:mb-4 md:mb-8 lg:mb-8 w-full group">
+            <div class="relative z-0 mb-4 sm:mb-4 md:mb-8 lg:mb-6 w-full group">
                 <input type="email" name="email" id="email"
-                    class="@error('email') is-invalid @enderror block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                    class="@error('email') is-invalid @enderror bg-transparent block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 rounded-lg border-1 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-gray-300 peer"
                     placeholder=" " autofocus required="" value="{{ old('email') }}">
                 @error('email')
                 <div class="invalid-feedback block">
@@ -62,11 +65,11 @@ nav ul li a {
                 </div>
                 @enderror
                 <label for="email"
-                    class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:bg-gray-900 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1">EMAIL</label>
+                    class="bg-slate-50 absolute text-sm text-gray-500 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] px-2 peer-focus:px-2 peer-focus:text-dark-blue peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1">EMAIL</label>
             </div>
-            <div class="relative z-0 mb-4 md:mb-8  w-full group">
+            <div class="relative z-0 xs:mb-5 sm:mb-8 md:mb-8 lg:mb-8 w-full group">
                 <input type="password" name="password" id="password"
-                    class="@error('password') is-invalid @enderror block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                    class="@error('password') is-invalid @enderror block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-gray-300 peer"
                     placeholder=" " required="" value="{{ old('password') }}">
                 @error('password')
                 <div class="invalid-feedback block">
@@ -74,17 +77,18 @@ nav ul li a {
                 </div>
                 @enderror
                 <label for="password"
-                    class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:bg-gray-900 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1">PASSWORD</label>
+                    class="bg-slate-50 absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] dark:bg-gray-900 px-2 peer-focus:px-2 peer-focus:text-dark-blue peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1">PASSWORD</label>
             </div>
             <button type="submit"
-                class="text-white font-bold bg-red-400 hover:bg-rb-light-orange focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Masuk
+                class="text-white font-bold bg-red-500 hover:bg-red-600 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">Masuk
                 Sekarang</button>
         </form>
-        <p class="text-sm mt-3 lg:mt-3">Belum punya akun? <a href="/register" class="font-semibold">Daftar sekarang!</a>
+        <p class="text-sm mt-3 lg:mt-3">Belum punya akun? <a href="/register" class="font-semibold">Daftar
+                sekarang!</a>
         </p>
     </div>
-    <div class="lg:pb-12 lg:pt-20 hidden sm:block">
-        <img src="{{ asset('img/illustrations/login.png') }}" alt="">
+    <div class="md:pt-32 lg:pt-20 hidden sm:hidden md:block lg:block xl:block min-h-screen">
+        <img src="{{ asset('img/illustrations/login.png') }}" alt="" class="">
     </div>
 </div>
 @endsection
