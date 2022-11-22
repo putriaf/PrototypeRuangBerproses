@@ -2,6 +2,25 @@
 
 @push('styles')
 <link href="{{ asset('css/slick-carousel.css') }}" rel="stylesheet">
+
+<style>
+.faq {
+    color: black;
+}
+
+.faq button {
+    background-color: #FB8D6650;
+}
+
+.faq button:focus {
+    font-weight: 700;
+}
+
+.faq .answer {
+    background-color: #ffffff80;
+    font-weight: 500;
+}
+</style>
 @endpush
 
 <!--  Hero -->
@@ -11,14 +30,14 @@
         class="pt-52 sm:px-12 h-screen bg-hero-procounseling bg-no-repeat bg-cover bg-center bg-fixed mx-auto text-center text-slate-100 xl:px-64">
         <h1 class="font-bold text-3xl sm:text-4xl md:text-5xl mb-3 sm:mb-4" style="line-height: 1.2">Konseling dengan
             Psikolog Professional</h1>
-        <h2 class="font-light text-sm sm:text-md px-8 sm:px-6 mb-6 sm:mb-10 lg:px-16">Butuh ruang aman dan nyaman untuk
+        <h2 class=" text-sm sm:text-md px-8 sm:px-6 mb-6 sm:mb-10 lg:px-16">Butuh ruang aman dan nyaman untuk
             bercerita? Tenaga profesional siap mendampingimu berproses menuju versi terbaik!</h2>
         <a href="/layanan/professional-counseling/daftar"
             class="bg-gradient-to-r from-[#FB8D66] px-8 py-2 sm:px-10 sm:py-4 rounded-3xl font-semibold lg:mt-4 inline-block">Daftar
             Sekarang</a>
         <p class="text-white font-semibold text-sm mt-5">bergabung dengan 200+ orang yang sudah mendaftar</p>
     </div>
-    <div class="grid sm:grid-cols-2 gap-2 lg:m-20 my-10 mx-5">
+    <div class="grid md:grid-cols-2 gap-2 lg:m-20 my-10 mx-5">
         <div class="">
             <div class="lg:mb-10 mb-10">
                 <h3 class="font-semibold text-xl mb-4">Apa Sih Konseling Itu?</h3>
@@ -38,7 +57,7 @@
                 </ul>
             </div>
         </div>
-        <div class="sm:mx-auto my-7 lg:m-auto">
+        <div class="xs:mx-auto my-7 lg:m-auto sm:w-full">
             <div href="#"
                 class="block bg-[#1D1F4E] text-white p-6 sm:max-w-sm rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
                 <div class="grid grid-cols-3">
@@ -166,12 +185,12 @@
             </div>
         </div>
     </div>
-    <div class="lg:p-20 px-5 py-14 bg-pale-yellow">
+    <div class="lg:p-20 px-5 py-14 bg-pale-yellow faq">
         <h3 class="font-semibold text-xl mb-8 text-center">Pertanyaan Sahabat Berproses</h3>
         <div id="accordion-collapse" data-accordion="collapse">
             <h2 id="accordion-collapse-heading-1">
                 <button type="button"
-                    class="flex items-center justify-between w-full p-5 font-medium text-left border border-b-0 border-gray-200 rounded-t-xl focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 bg-pale-orange text-gray-900 dark:text-white"
+                    class="flex items-center justify-between w-full p-5 font-medium text-left border border-b-0 border-gray-200 rounded-t-xl focus:ring-4 focus:ring-gray-200 bg-pale-orange text-gray-900"
                     data-accordion-target="#accordion-collapse-body-1" aria-expanded="true"
                     aria-controls="accordion-collapse-body-1">
                     <span>Apa perbedaan konseling professional dan konseling dengan konselor sebaya (peer
@@ -184,9 +203,10 @@
                     </svg>
                 </button>
             </h2>
-            <div id="accordion-collapse-body-1" class="" aria-labelledby="accordion-collapse-heading-1">
-                <div class="p-5 font-light border border-b-0 border-gray-200 dark:border-gray-700 dark:bg-gray-900">
-                    <p class="mb-2 text-gray-500 dark:text-gray-400">
+            <div id="accordion-collapse-body-1" class="text-gray-800 answer"
+                aria-labelledby="accordion-collapse-heading-1">
+                <div class="p-5 font-medium border border-b-0 border-gray-200">
+                    <p class="mb-2">
                         Perbedaannya yaitu:
                     <ol>
                         <li>Konseling profesional merupakan layanan konseling secara virtual yang dilakukan oleh para
@@ -199,15 +219,11 @@
                             menjaga kerahasiaan dan berada di bawah supervisi profesional.</li>
                     </ol>
                     </p>
-                    <p class="text-gray-500 dark:text-gray-400">Check out this guide to learn how to <a
-                            href="/docs/getting-started/introduction/"
-                            class="text-blue-600 dark:text-blue-500 hover:underline">get started</a> and start
-                        developing websites even faster with components on top of Tailwind CSS.</p>
                 </div>
             </div>
             <h2 id="accordion-collapse-heading-2">
                 <button type="button"
-                    class="flex items-center justify-between w-full p-5 font-medium text-left text-gray-500 border border-b-0 border-gray-200 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800"
+                    class="flex items-center justify-between w-full p-5 font-medium text-left text-gray-500 border border-b-0 border-gray-200 "
                     data-accordion-target="#accordion-collapse-body-2" aria-expanded="false"
                     aria-controls="accordion-collapse-body-2">
                     <span>Apakah semua layanan konseling Ruang Berproses gratis?</span>
@@ -219,9 +235,9 @@
                     </svg>
                 </button>
             </h2>
-            <div id="accordion-collapse-body-2" class="hidden" aria-labelledby="accordion-collapse-heading-2">
-                <div class="p-5 font-light border border-b-0 border-gray-200 dark:border-gray-700">
-                    <p class="mb-2 text-gray-500 dark:text-gray-400">Apabila kamu ingin berkonsultasi dengan peer
+            <div id="accordion-collapse-body-2" class="hidden answer" aria-labelledby="accordion-collapse-heading-2">
+                <div class="p-5 font-medium border border-b-0 border-gray-200">
+                    <p class="mb-2">Apabila kamu ingin berkonsultasi dengan peer
                         counselor, layanan ini tidak dipungut biaya. Akan tetapi, apabila kamu ingin berkonsultasi
                         dengan associate psychologist, maka klien akan dikenakan biaya sebesar Rp100.000/sesi. Kedua
                         layanan ini dilakukan secara virtual.</p>
@@ -229,7 +245,7 @@
             </div>
             <h2 id="accordion-collapse-heading-3">
                 <button type="button"
-                    class="flex items-center justify-between w-full p-5 font-medium text-left text-gray-500 border border-gray-200 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800"
+                    class="flex items-center justify-between w-full p-5 font-medium text-left text-gray-500 border border-gray-200"
                     data-accordion-target="#accordion-collapse-body-3" aria-expanded="false"
                     aria-controls="accordion-collapse-body-3">
                     <span>Bagaimana cara mendaftarnya?</span>
@@ -241,9 +257,9 @@
                     </svg>
                 </button>
             </h2>
-            <div id="accordion-collapse-body-3" class="hidden" aria-labelledby="accordion-collapse-heading-3">
-                <div class="p-5 font-light border border-t-0 border-gray-200 dark:border-gray-700">
-                    <p class="mb-2 text-gray-500 dark:text-gray-400">Kamu dapat melihat website atau media sosial Ruang
+            <div id="accordion-collapse-body-3" class="hidden answer" aria-labelledby="accordion-collapse-heading-3">
+                <div class="p-5 font-medium border border-t-0 border-gray-200">
+                    <p class="mb-2">Kamu dapat melihat website atau media sosial Ruang
                         Berproses lainnya, kemudian daftarkan diri dengan mengisi data diri serta permasalahan yang
                         sedang dihadapi. Selanjutnya, data ini akan diproses oleh tim untuk pelaksanaan konselingnya.
                     </p>

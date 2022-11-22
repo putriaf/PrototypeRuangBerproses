@@ -1964,6 +1964,10 @@ input:checked + .toggle-bg {
   background-color: rgb(251 141 102 / var(--tw-bg-opacity));
 }
 
+.bg-\[\#FB8D6670\] {
+  background-color: #FB8D6670;
+}
+
 .bg-opacity-50 {
   --tw-bg-opacity: 0.5;
 }
@@ -4240,6 +4244,11 @@ input:checked + .toggle-bg {
   .xs\:mx-20 {
     margin-left: 5rem;
     margin-right: 5rem;
+  }
+
+  .xs\:mx-auto {
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .xs\:mt-0 {
