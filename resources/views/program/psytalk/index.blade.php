@@ -5,11 +5,28 @@
 nav ul li a {
     color: black !important;
 }
+
+.faq {
+    color: black;
+}
+
+.faq button {
+    background-color: #FB8D6650;
+}
+
+.faq button:focus {
+    font-weight: 700;
+}
+
+.faq .answer {
+    background-color: #ffffff80;
+    font-weight: 500;
+}
 </style>
 @endpush
 
 @section('content')
-<section class="mx-5 lg:mx-20 mt-20 lg:mt-28 lg:mb-10">
+<section class="mt-20 lg:mt-28 lg:pt-10">
     <div class="mx-auto font-quicksand text-center mb-8 lg:mb-12">
         <h1 class="text-3xl font-bold mb-3">PSYTALK</h1>
         <p class="text-md">Webinar edukasi psikologi</p>
@@ -21,7 +38,7 @@ nav ul li a {
         </p>
     </div>
     @else
-    <div class="grid grid-cols-2 md:grid-cols-3 gap-5 lg:gap-10 mb-5 lg:mb-8">
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-5 lg:gap-10 mb-5 xs:mx-5 lg:mx-20 sm:mx-5 md:mx-15 lg:mb-8">
         @foreach($psytalks as $psytalk)
         <div
             class="max-w-xs bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 font-montserrat">
@@ -69,72 +86,69 @@ nav ul li a {
             </div>
         </div>
         @endforeach
-        <div class="flex flex-col items-center my-10">
-            <span class="text-sm text-gray-700 dark:text-gray-400">
-                Showing Page <span class="font-semibold text-gray-900 dark:text-white">{{$page->current_page}}</span>
-            </span>
-            <div class="inline-flex mt-2 xs:mt-0">
-                @if($page->last_page > 1)
-                @if($page->current_page == 1)
-                <a href="#"
-                    class="inline-flex items-center py-2 px-4 mr-3 text-sm font-medium text-gray-500 bg-white rounded-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
-                    <svg class="mr-2 w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd"
-                            d="M7.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l2.293 2.293a1 1 0 010 1.414z"
-                            clip-rule="evenodd"></path>
-                    </svg>
-                    Previous
-                </a>
-                @else
-                <a href="/program/psytalk?page={{$page->current_page - 1}}"
-                    class="inline-flex items-center py-2 px-4 mr-3 text-sm font-medium text-gray-500 bg-white rounded-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
-                    <svg class="mr-2 w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd"
-                            d="M7.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l2.293 2.293a1 1 0 010 1.414z"
-                            clip-rule="evenodd"></path>
-                    </svg>
-                    Previous
-                </a>
-                @endif
-                @if($page->current_page == $page->last_page)
-                <a href="/program/psytalk?page={{$page->last_page}}"
-                    class="inline-flex items-center py-2 px-4 text-sm font-medium text-gray-500 bg-white rounded-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
-                    Next
-                    <svg class="ml-2 w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd"
-                            d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
-                            clip-rule="evenodd"></path>
-                    </svg>
-                </a>
-                @else
-                <a href="/program/psytalk?page={{$page->current_page + 1}}"
-                    class="inline-flex items-center py-2 px-4 text-sm font-medium text-gray-500 bg-white rounded-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
-                    Next
-                    <svg class="ml-2 w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd"
-                            d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
-                            clip-rule="evenodd"></path>
-                    </svg>
-                </a>
-                @endif
-                @endif
-            </div>
-        </div>
-        @endif
     </div>
-    <div class="py-16 lg:p-20 font-quicksand">
-        <h3 class="font-semibold text-xl mb-8 lg:mb-8 text-center">Pertanyaan Sahabat Berproses</h3>
-        <div id="accordion-collapse" data-accordion="collapse">
+    <div class="flex flex-col items-center my-10">
+        <span class="text-sm text-gray-700 dark:text-gray-400">
+            Showing Page <span class="font-semibold text-gray-900 dark:text-white">{{$page->current_page}}</span>
+        </span>
+        <div class="inline-flex mt-2 xs:mt-0">
+            @if($page->last_page > 1)
+            @if($page->current_page == 1)
+            <a href="#"
+                class="inline-flex items-center py-2 px-4 mr-3 text-sm font-medium text-gray-500 bg-white rounded-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                <svg class="mr-2 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                        d="M7.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l2.293 2.293a1 1 0 010 1.414z"
+                        clip-rule="evenodd"></path>
+                </svg>
+                Previous
+            </a>
+            @else
+            <a href="/program/psytalk?page={{$page->current_page - 1}}"
+                class="inline-flex items-center py-2 px-4 mr-3 text-sm font-medium text-gray-500 bg-white rounded-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                <svg class="mr-2 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                        d="M7.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l2.293 2.293a1 1 0 010 1.414z"
+                        clip-rule="evenodd"></path>
+                </svg>
+                Previous
+            </a>
+            @endif
+            @if($page->current_page == $page->last_page)
+            <a href="/program/psytalk?page={{$page->last_page}}"
+                class="inline-flex items-center py-2 px-4 text-sm font-medium text-gray-500 bg-white rounded-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                Next
+                <svg class="ml-2 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                        d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
+                        clip-rule="evenodd"></path>
+                </svg>
+            </a>
+            @else
+            <a href="/program/psytalk?page={{$page->current_page + 1}}"
+                class="inline-flex items-center py-2 px-4 text-sm font-medium text-gray-500 bg-white rounded-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                Next
+                <svg class="ml-2 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                        d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
+                        clip-rule="evenodd"></path>
+                </svg>
+            </a>
+            @endif
+            @endif
+        </div>
+    </div>
+    @endif
+    <div class="lg:p-20 px-5 py-14 bg-pale-yellow faq font-quicksand">
+        <h3 class="font-semibold text-xl mb-8 text-center">Pertanyaan Sahabat Berproses</h3>
+        <div id="accordion-collapse" data-accordion="collapse" class="lg:px-20">
             <h2 id="accordion-collapse-heading-1">
                 <button type="button"
-                    class="flex items-center justify-between w-full p-5 font-medium text-left border border-b-0 border-gray-200 rounded-t-xl focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white"
+                    class="flex items-center justify-between w-full p-5 font-medium text-left border border-b-0 border-gray-200 rounded-t-xl focus:ring-4 focus:ring-gray-200 bg-pale-orange text-gray-900"
                     data-accordion-target="#accordion-collapse-body-1" aria-expanded="true"
                     aria-controls="accordion-collapse-body-1">
-                    <span>What is Flowbite?</span>
+                    <span>Apa perbedaan konseling professional dan konseling dengan konselor sebaya (peer
+                        counseling)?</span>
                     <svg data-accordion-icon="" class="w-6 h-6 rotate-180 shrink-0" fill="currentColor"
                         viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd"
@@ -143,23 +157,30 @@ nav ul li a {
                     </svg>
                 </button>
             </h2>
-            <div id="accordion-collapse-body-1" class="" aria-labelledby="accordion-collapse-heading-1">
-                <div class="p-5 font-light border border-b-0 border-gray-200 dark:border-gray-700 dark:bg-gray-900">
-                    <p class="mb-2 text-gray-500 dark:text-gray-400">Flowbite is an open-source library of interactive
-                        components built on top of Tailwind CSS including buttons, dropdowns, modals, navbars, and more.
+            <div id="accordion-collapse-body-1" class="text-gray-800 answer"
+                aria-labelledby="accordion-collapse-heading-1">
+                <div class="p-5 font-medium border border-b-0 border-gray-200">
+                    <p class="mb-2">
+                        Perbedaannya yaitu:
+                    <ol>
+                        <li>Konseling profesional merupakan layanan konseling secara virtual yang dilakukan oleh para
+                            associate psychologist di Ruang Berproses yang berkompeten sesuai dengan ranah atau
+                            bidangnya masing-masing, seperti ranah klinis dewasa, klinis anak, pendidikan, serta
+                            industri dan organisasi.
+                        </li>
+                        <li>Peer counselor merupakan tenaga terlatih konseling yang siap untuk menjadi pendengar dan
+                            membantu menemukan solusi dalam masalah atau isu kesehatan mental non-klinis dengan tetap
+                            menjaga kerahasiaan dan berada di bawah supervisi profesional.</li>
+                    </ol>
                     </p>
-                    <p class="text-gray-500 dark:text-gray-400">Check out this guide to learn how to <a
-                            href="/docs/getting-started/introduction/"
-                            class="text-blue-600 dark:text-blue-500 hover:underline">get started</a> and start
-                        developing websites even faster with components on top of Tailwind CSS.</p>
                 </div>
             </div>
             <h2 id="accordion-collapse-heading-2">
                 <button type="button"
-                    class="flex items-center justify-between w-full p-5 font-medium text-left text-gray-500 border border-b-0 border-gray-200 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800"
+                    class="flex items-center justify-between w-full p-5 font-medium text-left text-gray-500 border border-b-0 border-gray-200 "
                     data-accordion-target="#accordion-collapse-body-2" aria-expanded="false"
                     aria-controls="accordion-collapse-body-2">
-                    <span>Is there a Figma file available?</span>
+                    <span>Apakah semua layanan konseling Ruang Berproses gratis?</span>
                     <svg data-accordion-icon="" class="w-6 h-6 shrink-0" fill="currentColor" viewBox="0 0 20 20"
                         xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd"
@@ -168,22 +189,20 @@ nav ul li a {
                     </svg>
                 </button>
             </h2>
-            <div id="accordion-collapse-body-2" class="hidden" aria-labelledby="accordion-collapse-heading-2">
-                <div class="p-5 font-light border border-b-0 border-gray-200 dark:border-gray-700">
-                    <p class="mb-2 text-gray-500 dark:text-gray-400">Flowbite is first conceptualized and designed using
-                        the Figma software so everything you see in the library has a design equivalent in our Figma
-                        file.</p>
-                    <p class="text-gray-500 dark:text-gray-400">Check out the <a href="https://flowbite.com/figma/"
-                            class="text-blue-600 dark:text-blue-500 hover:underline">Figma design system</a> based on
-                        the utility classes from Tailwind CSS and components from Flowbite.</p>
+            <div id="accordion-collapse-body-2" class="hidden answer" aria-labelledby="accordion-collapse-heading-2">
+                <div class="p-5 font-medium border border-b-0 border-gray-200">
+                    <p class="mb-2">Apabila kamu ingin berkonsultasi dengan peer
+                        counselor, layanan ini tidak dipungut biaya. Akan tetapi, apabila kamu ingin berkonsultasi
+                        dengan associate psychologist, maka klien akan dikenakan biaya sebesar Rp100.000/sesi. Kedua
+                        layanan ini dilakukan secara virtual.</p>
                 </div>
             </div>
             <h2 id="accordion-collapse-heading-3">
                 <button type="button"
-                    class="flex items-center justify-between w-full p-5 font-medium text-left text-gray-500 border border-gray-200 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800"
+                    class="flex items-center justify-between w-full p-5 font-medium text-left text-gray-500 border border-gray-200"
                     data-accordion-target="#accordion-collapse-body-3" aria-expanded="false"
                     aria-controls="accordion-collapse-body-3">
-                    <span>What are the differences between Flowbite and Tailwind UI?</span>
+                    <span>Bagaimana cara mendaftarnya?</span>
                     <svg data-accordion-icon="" class="w-6 h-6 shrink-0" fill="currentColor" viewBox="0 0 20 20"
                         xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd"
@@ -192,22 +211,12 @@ nav ul li a {
                     </svg>
                 </button>
             </h2>
-            <div id="accordion-collapse-body-3" class="hidden" aria-labelledby="accordion-collapse-heading-3">
-                <div class="p-5 font-light border border-t-0 border-gray-200 dark:border-gray-700">
-                    <p class="mb-2 text-gray-500 dark:text-gray-400">The main difference is that the core components
-                        from Flowbite are open source under the MIT license, whereas Tailwind UI is a paid product.
-                        Another difference is that Flowbite relies on smaller and standalone components, whereas
-                        Tailwind UI offers sections of pages.</p>
-                    <p class="mb-2 text-gray-500 dark:text-gray-400">However, we actually recommend using both Flowbite,
-                        Flowbite Pro, and even Tailwind UI as there is no technical reason stopping you from using the
-                        best of two worlds.</p>
-                    <p class="mb-2 text-gray-500 dark:text-gray-400">Learn more about these technologies:</p>
-                    <ul class="pl-5 text-gray-500 list-disc dark:text-gray-400">
-                        <li><a href="https://flowbite.com/pro/"
-                                class="text-blue-600 dark:text-blue-500 hover:underline">Flowbite Pro</a></li>
-                        <li><a href="https://tailwindui.com/" rel="nofollow"
-                                class="text-blue-600 dark:text-blue-500 hover:underline">Tailwind UI</a></li>
-                    </ul>
+            <div id="accordion-collapse-body-3" class="hidden answer" aria-labelledby="accordion-collapse-heading-3">
+                <div class="p-5 font-medium border border-t-0 border-gray-200">
+                    <p class="mb-2">Kamu dapat melihat website atau media sosial Ruang
+                        Berproses lainnya, kemudian daftarkan diri dengan mengisi data diri serta permasalahan yang
+                        sedang dihadapi. Selanjutnya, data ini akan diproses oleh tim untuk pelaksanaan konselingnya.
+                    </p>
                 </div>
             </div>
         </div>
