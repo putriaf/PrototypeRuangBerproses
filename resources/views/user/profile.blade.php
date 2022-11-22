@@ -33,7 +33,7 @@ nav {
 
 @section('content')
 <section class="font-quicksand px-5 sm:px-20 overflow-auto sm:overflow-hidden">
-    <div class="grid grid-cols-1 sm:grid-cols-4 lg:grid-cols-4 h-auto sm:h-screen sm:gap-8">
+    <div class="grid grid-cols-1 sm:grid-cols-4 lg:grid-cols-4 h-auto sm:h-screen sm:gap-8 lg:gap-4">
         <div class="shadow-md rounded-md mb-5 lg:mb-16 mt-20 sm:mt-20 lg:mt-20 bg-white">
             <div class="mx-5">
                 <div class="text-center">
@@ -42,7 +42,7 @@ nav {
                     <p>{{ $profilUser->email }}</p>
                 </div>
                 <hr class="mt-1 mb-3 bg-gray-200 border-0 dark:bg-gray-700">
-                <div class="hidden sm:block">
+                <div class="hidden sm:block md:mb-5">
                     <div class="relative sm:max-h-40 overflow-y-auto overflow-x-hidden">
                         <table class="w-full text-left text-gray-500 dark:text-gray-400 text-xs">
                             <tbody>
@@ -96,10 +96,10 @@ nav {
                     </div>
                 </div>
                 <div id="profileMenu" data-tabs-toggle="#profileMenuContent" role="tablist">
-                    <div class="bg-rb-light-orange mx-20 lg:mx-10 font-bold rounded-md" role="presentation">
-                        <button class="block mx-auto px-3 py-2 lg:px-10 lg:py-2 lg:my-5 text-xs" id="editProfil-tab"
-                            data-tabs-target="#editProfil" type="button" role="tab" aria-controls="editProfil"
-                            aria-selected="false">
+                    <div class="bg-rb-light-orange mx-20 md:mx-15 lg:mx-10 font-bold rounded-md" role="presentation">
+                        <button class="block mx-auto px-3 py-2 md:px-20 lg:px-10 lg:py-2 lg:my-5 text-xs"
+                            id="editProfil-tab" data-tabs-target="#editProfil" type="button" role="tab"
+                            aria-controls="editProfil" aria-selected="false">
                             <p class="text-white">Edit
                                 Profil</p>
                         </button>
@@ -126,7 +126,7 @@ nav {
         </div>
         <div class="col-span-3 max-h-screen shadow-md rounded-md p-5 lg:p-12 overflow-y-auto overflow-x-hidden bg-[#F3F3F3] mb-5 lg:mb-16 lg:mt-20"
             id="profileMenuContent">
-            <div class="" id="riwayatLayanan" role="tabpanel" aria-labelledby="riwayatLayanan-tab">
+            <div class="lg:max-h-[70vh]" id="riwayatLayanan" role="tabpanel" aria-labelledby="riwayatLayanan-tab">
                 <h2 class="text-xl sm:text-3xl font-semibold mb-5 lg:mb-12">Riwayat Pendaftaran Layanan</h2>
                 <div class="pb-10">
                     @foreach($reg_procounseling as $user_rpc)
@@ -190,7 +190,7 @@ nav {
                     @endforeach
                 </div>
             </div>
-            <div id="riwayatProgram" role="tabpanel" aria-labelledby="riwayatProgram-tab">
+            <div id="riwayatProgram" role="tabpanel" aria-labelledby="riwayatProgram-tab" class="lg:max-h-[70vh]">
                 <h2 class="text-xl sm:text-3xl font-semibold lg:mb-12">Riwayat Pendaftaran Program</h2>
                 <div class="pb-10">
                     @foreach($reg_psytalk as $user_rpsytalk)
@@ -231,7 +231,7 @@ nav {
                     @endforeach
                 </div>
             </div>
-            <div class="" id="editProfil" role="tabpanel" aria-labelledby="editProfil-tab">
+            <div class="lg:max-h-[70vh]" id="editProfil" role="tabpanel" aria-labelledby="editProfil-tab">
                 <h2 class="text-xl sm:text-3xl font-semibold mb-5 lg:mb-12">Edit Profil</h2>
                 <div class="pb-10">
                     <form method="POST" action="/profile/{{ $profilUser->username }}" enctype="multipart/form-data">
@@ -303,6 +303,8 @@ nav {
                                 class="bg-gray-50 border-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                 value="{{ old('status', $profilUser->status) }}">
                         </div>
+                        <hr class="mb-2">
+                        <p class="uppercase text-sm font-semibold text-gray-600 mb-3">Reset Password (opsional)</p>
                         <div class="mb-6">
                             <label for="password"
                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Password</label>
@@ -311,7 +313,8 @@ nav {
                                 value="{{ old('password')}}">
                         </div>
                         <button type="submit"
-                            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
+                            class="text-white hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                            style="background-color: #1D1F4E;">Submit</button>
                     </form>
                 </div>
             </div>

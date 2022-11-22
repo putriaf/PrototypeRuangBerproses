@@ -30,7 +30,7 @@ nav ul li a {
         action="/layanan/professional-counseling/daftar" enctype="multipart/form-data">
         @csrf
         <!-- progressbar -->
-        <ul id="progressbar" class="mt-32">
+        <ul id="progressbar" class="mt-32 xs:max-w-screen-[100vw]">
             <li class="active rounded-full">Informasi Diri</li>
             <li>Kondisi Diri</li>
             <li>Pembayaran</li>
