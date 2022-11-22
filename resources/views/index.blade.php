@@ -5,6 +5,30 @@
 <link href="{{ asset('css/slick-carousel.css') }}" rel="stylesheet">
 @endpush
 
+@section('content')
+@if(session()->has('success'))
+<!-- Main modal -->
+<div id="defaultModal" tabindex="-1" aria-hidden="true" data-modal-show="true"
+    class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 p-4 w-full md:inset-0 h-modal md:h-full font-poppins">
+    <div class="relative w-50 max-w-2xl h-auto">
+        <!-- Modal content -->
+        <div class="relative bg-white rounded-lg shadow">
+            <!-- Modal body -->
+            <div class="text-center pt-10 px-10">
+                <i class="text-green-400 w-24 h-24 inline-block mb-6" data-feather="user-check"></i>
+                <p class="border-t border-b py-2 text-sm border-green-100">Yeay, Anda berhasil login. Selamat Berproses!
+                </p>
+            </div>
+            <!-- Modal footer -->
+            <div class="flex items-center p-6 space-x-2 rounded-b border-gray-200 dark:border-gray-600">
+                <button data-modal-toggle="defaultModal" type="button"
+                    class="mx-auto text-white bg-red-500 hover:bg-red-600 focus:ring-4 focus:outline-none rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 focus:z-10">OK</button>
+            </div>
+        </div>
+    </div>
+</div>
+@endif
+
 <!--  Hero -->
 @section('content')
 <section class="font-quicksand">

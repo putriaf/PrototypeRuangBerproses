@@ -14,36 +14,48 @@ nav ul li a {
 
 @section('content')
 @if(session()->has('success'))
-<div id="alert-3" class="flex p-4 mb-4 bg-green-100 rounded-lg dark:bg-green-200 lg:mx-16 lg:w-1/2 lg:pr-52"
-    role="alert">
-    <svg aria-hidden="true" class="flex-shrink-0 w-5 h-5 text-green-700 dark:text-green-800" fill="currentColor"
-        viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-        <path fill-rule="evenodd"
-            d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
-            clip-rule="evenodd"></path>
-    </svg>
-    <span class="sr-only">Info</span>
-    <div class="ml-3 text-sm font-medium text-green-700 dark:text-green-800">
-        Registrasi akun berhasil. Silakan login!
+<!-- Main modal -->
+<div id="defaultModal" tabindex="-1" aria-hidden="true" data-modal-show="true"
+    class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 p-4 w-full md:inset-0 h-modal md:h-full font-poppins">
+    <div class="relative w-50 max-w-2xl h-auto">
+        <!-- Modal content -->
+        <div class="relative bg-white rounded-lg shadow">
+            <!-- Modal body -->
+            <div class="text-center pt-10 px-10">
+                <i class="text-green-400 w-24 h-24 inline-block mb-6" data-feather="user-check"></i>
+                <p class="border-t border-b py-2 text-sm border-green-100">Yeay, akun berhasil dibuat! Silakan login.
+                </p>
+            </div>
+            <!-- Modal footer -->
+            <div class="flex items-center p-6 space-x-2 rounded-b border-gray-200 dark:border-gray-600">
+                <button data-modal-toggle="defaultModal" type="button"
+                    class="mx-auto text-white bg-red-500 hover:bg-red-600 focus:ring-4 focus:outline-none rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 focus:z-10">OK</button>
+            </div>
+        </div>
     </div>
-    <button type="button"
-        class="ml-auto -mx-1.5 -my-1.5 bg-green-100 text-green-500 rounded-lg focus:ring-2 focus:ring-green-400 p-1.5 hover:bg-green-200 inline-flex h-8 w-8 dark:bg-green-200 dark:text-green-600 dark:hover:bg-green-300"
-        data-dismiss-target="#alert-3" aria-label="Close">
-        <span class="sr-only">Close</span>
-        <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
-            xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd"
-                d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                clip-rule="evenodd"></path>
-        </svg>
-    </button>
 </div>
 @endif
 
 @if(session()->has('loginError'))
-<div class="alert alert-danger alert-dismissible fade show" role="alert">
-    {{ session('loginError') }}
-    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+<!-- Main modal -->
+<div id="defaultModal" tabindex="-1" aria-hidden="true" data-modal-show="true"
+    class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 p-4 w-full md:inset-0 h-modal md:h-full font-poppins">
+    <div class="relative w-50 max-w-2xl h-auto">
+        <!-- Modal content -->
+        <div class="relative bg-white rounded-lg shadow">
+            <!-- Modal body -->
+            <div class="text-center pt-10 px-10">
+                <i class="text-red-400 w-24 h-24 inline-block mb-6" data-feather="x-circle"></i>
+                <p class="border-t border-b py-2 text-sm border-green-100">Login gagal. Cek kembali email atau
+                    password Anda.</p>
+            </div>
+            <!-- Modal footer -->
+            <div class="flex items-center p-6 space-x-2 rounded-b border-gray-200 dark:border-gray-600">
+                <button data-modal-toggle="defaultModal" type="button"
+                    class="mx-auto text-white bg-red-500 hover:bg-red-600 focus:ring-4 focus:outline-none rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 focus:z-10">OK</button>
+            </div>
+        </div>
+    </div>
 </div>
 @endif
 
@@ -59,28 +71,30 @@ nav ul li a {
                 <input type="email" name="email" id="email"
                     class="@error('email') is-invalid @enderror bg-transparent block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 rounded-lg border-1 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-gray-300 peer"
                     placeholder=" " autofocus required="" value="{{ old('email') }}">
-                @error('email')
-                <div class="invalid-feedback block">
-                    {{ $message }}
-                </div>
-                @enderror
                 <label for="email"
                     class="bg-slate-50 absolute text-sm text-gray-500 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] px-2 peer-focus:px-2 peer-focus:text-dark-blue peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1">EMAIL</label>
             </div>
-            <div class="relative z-0 xs:mb-5 sm:mb-8 md:mb-8 lg:mb-8 w-full group">
+            @error('email')
+            <div class="invalid-feedback block mt-2 font-semibold">
+                <p class="text-red-700 text-xs"><i class="w-4 h-4 inline-block mr-1" data-feather="alert-circle"
+                        width="10"></i>{{ $message }}</p>
+            </div>
+            @enderror
+            <div class="relative z-0 w-full group">
                 <input type="password" name="password" id="password"
                     class="@error('password') is-invalid @enderror block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-gray-300 peer"
                     placeholder=" " required="" value="{{ old('password') }}">
-                @error('password')
-                <div class="invalid-feedback block">
-                    {{ $message }}
-                </div>
-                @enderror
                 <label for="password"
                     class="bg-slate-50 absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] dark:bg-gray-900 px-2 peer-focus:px-2 peer-focus:text-dark-blue peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1">PASSWORD</label>
             </div>
+            @error('password')
+            <div class="invalid-feedback block mt-2 font-semibold">
+                <p class="text-red-700 text-xs"><i class="w-4 h-4 inline-block mr-1" data-feather="alert-circle"
+                        width="10"></i>{{ $message }}</p>
+            </div>
+            @enderror
             <button type="submit"
-                class="text-white font-bold bg-red-500 hover:bg-red-600 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">Masuk
+                class="xs:mt-5 sm:mt-8 md:mt-8 lg:mt-8 text-white font-bold bg-red-500 hover:bg-red-600 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">Masuk
                 Sekarang</button>
         </form>
         <p class="text-sm mt-3 lg:mt-3">Belum punya akun? <a href="/register" class="font-semibold">Daftar

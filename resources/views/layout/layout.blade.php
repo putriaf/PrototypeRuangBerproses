@@ -30,7 +30,7 @@
     @include('partials.header')
 
     <!-- Start Main -->
-    <main>
+    <main class="min-h-screen">
         @yield('content')
     </main>
     <!-- End Main -->

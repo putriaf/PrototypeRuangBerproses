@@ -49,7 +49,7 @@ class LoginController extends Controller
             session(['tgl_lahir' => $tgl_lahir]);
             session(['jk' => $jk]);
             session(['email' => $email]);
-            return redirect()->intended('/');
+            return redirect()->intended('/')->with('success', 'Login successful!');
         }
         return back()->with('loginError', 'Login failed!');
     }
