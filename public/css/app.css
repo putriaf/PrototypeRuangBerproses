@@ -887,6 +887,11 @@ input:checked + .toggle-bg {
   margin-bottom: 3.5rem;
 }
 
+.my-20 {
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+}
+
 .mb-10 {
   margin-bottom: 2.5rem;
 }
@@ -3321,6 +3326,14 @@ input:checked + .toggle-bg {
     margin-top: auto;
   }
 
+  .sm\:mt-10 {
+    margin-top: 2.5rem;
+  }
+
+  .sm\:mb-7 {
+    margin-bottom: 1.75rem;
+  }
+
   .sm\:block {
     display: block;
   }
@@ -3660,6 +3673,26 @@ input:checked + .toggle-bg {
     margin-bottom: 1.25rem;
   }
 
+  .md\:mb-4 {
+    margin-bottom: 1rem;
+  }
+
+  .md\:mt-10 {
+    margin-top: 2.5rem;
+  }
+
+  .md\:mb-7 {
+    margin-bottom: 1.75rem;
+  }
+
+  .md\:mt-20 {
+    margin-top: 5rem;
+  }
+
+  .md\:mr-10 {
+    margin-right: 2.5rem;
+  }
+
   .md\:block {
     display: block;
   }
@@ -3688,6 +3721,10 @@ input:checked + .toggle-bg {
     width: auto;
   }
 
+  .md\:w-2\/3 {
+    width: 66.666667%;
+  }
+
   .md\:grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -3698,6 +3735,10 @@ input:checked + .toggle-bg {
 
   .md\:grid-cols-3 {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .md\:grid-cols-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
   .md\:flex-row {
@@ -3765,6 +3806,10 @@ input:checked + .toggle-bg {
 
   .md\:pt-32 {
     padding-top: 8rem;
+  }
+
+  .md\:pl-10 {
+    padding-left: 2.5rem;
   }
 
   .md\:text-4xl {
@@ -4006,6 +4051,10 @@ input:checked + .toggle-bg {
 
   .lg\:mr-2 {
     margin-right: 0.5rem;
+  }
+
+  .lg\:mr-32 {
+    margin-right: 8rem;
   }
 
   .lg\:block {
@@ -4345,6 +4394,10 @@ input:checked + .toggle-bg {
     margin-top: 1.5rem;
   }
 
+  .xs\:mt-8 {
+    margin-top: 2rem;
+  }
+
   .xs\:w-1\/2 {
     width: 50%;
   }
@@ -4353,12 +4406,24 @@ input:checked + .toggle-bg {
     width: 66.666667%;
   }
 
+  .xs\:w-1\/3 {
+    width: 33.333333%;
+  }
+
   .xs\:max-w-screen-xl {
     max-width: 1280px;
   }
 
   .xs\:grid-cols-1 {
     grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+
+  .xs\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .xs\:items-center {
+    align-items: center;
   }
 
   .xs\:px-10 {
@@ -4393,6 +4458,22 @@ input:checked + .toggle-bg {
 
   .xs\:pt-20 {
     padding-top: 5rem;
+  }
+
+  .xs\:pl-1 {
+    padding-left: 0.25rem;
+  }
+
+  .xs\:pl-14 {
+    padding-left: 3.5rem;
+  }
+
+  .xs\:pl-10 {
+    padding-left: 2.5rem;
+  }
+
+  .xs\:pl-6 {
+    padding-left: 1.5rem;
   }
 
   .xs\:text-2xl {
