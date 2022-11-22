@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ArtikelController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
@@ -36,9 +37,8 @@ Route::get('/storage', function () {
     Artisan::call('storage:link');
 });
 
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/', [HomeController::class, 'index']);
+
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'authenticate']);
 Route::post('/logout', [LoginController::class, 'logout']);
@@ -120,6 +120,7 @@ Route::delete('/program/kelas-berproses/{kelas_berproses:id}', [KelasBerprosesCo
 
 // ARTIKEL BERPROSES
 Route::get('/artikel-berproses', [ArtikelController::class, 'index']);
+Route::get('/artikel-berproses/getLatest', [ArtikelController::class, 'getLatest']);
 Route::get('/artikel-berproses/{artikel:id}', [ArtikelController::class, 'show']);
 Route::get('/admin/artikel-berproses/tambah', [ArtikelController::class, 'create']);
 Route::post('/admin/artikel-berproses/tambah', [ArtikelController::class, 'store']);

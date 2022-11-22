@@ -27,6 +27,15 @@ class ArtikelController extends Controller
         ]);
     }
 
+    public function getLatest()
+    {
+        $response = Http::get('https://ruangberproses-be.herokuapp.com/api/artikel-berproses/getLatest');
+        $response = $response->object();
+        return view('index', [
+            'artikels' => $response->data,
+        ]);
+    }
+
     /**
      * Show the form for creating a new resource.
      *
