@@ -97,10 +97,15 @@ class ArtikelController extends Controller
     {
         $response = Http::get("https://ruangberproses-be.herokuapp.com/api/artikel-berproses/" . $id);
         $response = $response->object();
+
+        $latest_artikel = Http::get("https://ruangberproses-be.herokuapp.com/api/artikel-berproses/getLatest");
+        $latest_artikel = $latest_artikel->object();
+
         return view('artikel.view', [
             'title' => 'Detail Artikel Berproses',
             'active' => 'artikel',
             'artikel' => $response->data,
+            'latest_artikels' => $latest_artikel
         ]);
     }
 

@@ -1,0 +1,29 @@
+#result {
+    padding: 3px;
+    color: white;
+    z-index: 9999;
+    position: absolute;
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 10px;
+    background-color: #1d1f4e;
+    transition-timing-function: ease-in-out;
+    transition-delay: 1s;
+    transition-duration: 1s;
+}
+
+#result ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+#result ul li {
+    padding: 5px 0;
+    margin-bottom: 3px;
+}
+
+#result ul li:hover {
+    background: #eee;
+}

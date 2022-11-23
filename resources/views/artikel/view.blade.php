@@ -18,7 +18,7 @@ nav ul li a {
         </div>
     </div>
     <div class="sm:flex">
-        <div class="sm:flex-auto sm:w-2/3 lg:mr-12">
+        <div class="sm:flex-auto sm:w-2/3 lg:w-2/3 sm:mr-6 md:mr-8 lg:mr-12">
             <div class="">
                 <div class="">
                     <img src="{{ asset('img/illustrations/jumbotron-home.png') }}" alt="" class="rounded-lg">
@@ -29,30 +29,19 @@ nav ul li a {
                 </div>
             </div>
         </div>
-        <div class="sm:flex-auto sm:w-1/3">
-            <h2 class="text-xl font-semibold mb-2 lg:mb-3">Artikel Terbaru</h2>
-            <div class="mb-2 lg:mb-3">
-                <h3 class="text-base font-semibold mb-1 lg:mb-1 line-clamp-1">Tips Mengatasi Kecanduan Media Sosial</h3>
-                <p class="text-sm line-clamp-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto
-                    nulla, ut
-                    recusandaeitationem?
+        @if($latest_artikels != NULL)
+        <hr class="xs:block xs:mt-12 xs:mb-5 xs:border-dark-blue">
+        <div class="sm:flex-auto sm:w-1/3 lg:w-1/3">
+            <h2 class="text-xl xs:font-bold font-semibold mb-2 lg:mb-3">Artikel Terbaru</h2>
+            @foreach($latest_artikels as $latest_artikel)
+            <div class="mb-2 lg:mb-3 xs:bg-pale-yellow xs:p-3 xs:rounded-xl">
+                <h3 class="text-base font-semibold mb-1 lg:mb-1 line-clamp-1">{{ $latest_artikel->judul }}</h3>
+                <p class="text-sm line-clamp-2">{{ $latest_artikel->isi }}
                 </p>
             </div>
-            <div class="mb-2 lg:mb-3">
-                <h3 class="text-base font-semibold mb-1 lg:mb-1 line-clamp-1">Tips Mengatasi Kecanduan Media Sosial</h3>
-                <p class="text-sm line-clamp-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto
-                    nulla, ut
-                    recusandaeitationem?
-                </p>
-            </div>
-            <div class="mb-2 lg:mb-3">
-                <h3 class="text-base font-semibold mb-1 lg:mb-1 line-clamp-1">Tips Mengatasi Kecanduan Media Sosial</h3>
-                <p class="text-sm line-clamp-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto
-                    nulla, ut
-                    recusandaeitationem?
-                </p>
-            </div>
+            @endforeach
         </div>
+        @endif
     </div>
 </section>
 @endsection

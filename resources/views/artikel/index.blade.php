@@ -5,30 +5,12 @@
 nav ul li a {
     color: black !important;
 }
-
-#result {
-    border: 1px dotted #ccc;
-    padding: 3px;
-}
-
-#result ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-}
-
-#result ul li {
-    padding: 5px 0;
-}
-
-#result ul li:hover {
-    background: #eee;
-}
 </style>
+<link rel="stylesheet" href="{{ asset('css/autocomplete-search.css') }}">
 @endpush
 
 @section('content')
-<section class="lg:mx-20 mt-14 lg:mt-20 mb-10 lg:mb-10">
+<section class="sm:mx-5 md:mx-10 lg:mx-20 mt-14 lg:mt-20 mb-10 lg:mb-10">
     <div class="mx-auto font-quicksand text-center lg:mb-12">
         <h1 class="text-3xl font-bold mb-6 lg:mb-6">Artikel Berproses</h1>
     </div>
@@ -48,7 +30,7 @@ nav ul li a {
                     <input type="text" id="search" name="search"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                         placeholder="Search" value="{{ request('search') }}" required="">
-                    <div id="result" class="list-none"></div>
+                    <div id="result" class="list-none hidden"></div>
                 </div>
             </div>
             <button type="submit"
@@ -62,7 +44,7 @@ nav ul li a {
             </button>
         </form>
     </div>
-    <div class="mt-8 lg:mt-14 font-quicksand sm:w-2/3 mx-5 sm:mx-auto">
+    <div class="mt-8 lg:mt-14 font-quicksand mx-5 sm:mx-auto">
         <h2 class="text-xl mb-5 lg:mb-8 font-semibold">Artikel Terbaru</h2>
         <div class="min-h-[75vh]">
             @if($artikels == NULL)
@@ -75,14 +57,15 @@ nav ul li a {
             @else
             @foreach($artikels as $artikel)
             <a href="/artikel-berproses/{{ $artikel->id }}">
-                <div class="grid grid-cols-3 gap-2 mb-8 lg:mb-10">
+                <div class="sm:w-2/3 md:w-2/3 lg:w-2/3 grid grid-cols-3 gap-2 mb-8 lg:mb-10">
                     <div class="mr-3 lg:mr-3">
                         <img src="{{ asset('img/illustrations/jumbotron-home.png' ) }}" alt=""
-                            class="rounded-lg aspect-video h-full sm:w-full">
+                            class="rounded-lg aspect-video h-full sm:w-full object-cover">
                     </div>
                     <div class="col-span-2">
                         <div class="col-span-2 self-end font-semibold text-lg line-clamp-1">{{ $artikel->judul }}</div>
-                        <div class="row-span-2 col-span-2 text-base line-clamp-2 sm:line-clamp-3">{{ $artikel->isi }}
+                        <div class="row-span-2 col-span-2 text-base lg:line-clamp-3 md:line-clamp-2 sm:line-clamp-3">
+                            {{ $artikel->isi }}
                         </div>
                     </div>
                 </div>
