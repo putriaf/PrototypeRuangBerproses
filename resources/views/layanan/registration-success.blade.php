@@ -10,7 +10,7 @@
         <p class="">Selamat Berproses!</p>
     </div>
     <div class="relative text-end">
-        <a href="/profil"
+        <a href="/profile"
             class="bg-rb-light-orange px-7 py-2 inline-block rounded-xl font-semibold text-white place-items-end mt-5">Profil
             Saya</a>
     </div>

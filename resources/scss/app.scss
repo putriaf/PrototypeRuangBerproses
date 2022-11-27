@@ -39,8 +39,6 @@ $desktop: "only screen and (min-width : 1200px)";
   height: 40px;
   color: white;
   border: 0;
-  border-radius: 1.5em;
-  text-transform: uppercase;
   letter-spacing: 1px;
   font-weight: 600;
   overflow: hidden;
@@ -62,8 +60,9 @@ $desktop: "only screen and (min-width : 1200px)";
     width: 90%;
     stroke-dasharray: 200;
     stroke-dashoffset: 200;
-      animation: dash 1s ease-in infinite alternate;}
+    animation: dash 1s ease-in infinite alternate;}
 }
+
 .c-btn__finished {
   background: $success;
   transition: background ease 500ms;
@@ -75,18 +74,22 @@ $desktop: "only screen and (min-width : 1200px)";
     margin: 0 auto;
       animation: fade-in 500ms ease-in; }
 }
+
 //loading and tick svg settings
 .u-loading {
   width: 25px;
   height: 25px;
 }
+
 .u-success {
   width: 30px;
   height: 30px;
 } 
+
 .u-hide {
   display: none;
 }
+
 .u-logo {
   position: absolute;
   right: 1em;
@@ -100,6 +103,7 @@ $desktop: "only screen and (min-width : 1200px)";
     cursor: pointer;
   }
 }
+
 // animation settings
 @keyframes dash {
   0% {

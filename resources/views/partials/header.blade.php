@@ -93,7 +93,7 @@
                         class="flex flex-col p-4 mt-4 bg-gray-50 rounded-lg border border-gray-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-normal md:border-0 md:bg-transparent dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
                         <li>
                             <a href="/"
-                                class="block py-2 pr-4 pl-3 rounded md:bg-transparent md:text-neutral-200 lg:text-neutral-200 md:p-0 nav-item-text md:hover:font-medium"
+                                class="block py-2 pr-4 pl-3 rounded md:bg-transparent md:text-neutral-200  lg:text-neutral-200 md:p-0 nav-item-text md:hover:font-medium"
                                 aria-current="page">Home</a>
                         </li>
                         <li>

@@ -29,6 +29,8 @@ class RegistrationProCounselingController extends Controller
         $response = $response->object();
         $response_screening = Http::get('https://ruangberproses-be.herokuapp.com/api/admin/screening/user/' . session('id'));
         $response_screening = $response_screening->object();
+        $screening_data = $response_screening->data;
+
         $response_profile = Http::withHeaders([
             'Accept' => 'application/json',
             'Authorization' => 'Bearer ' . session('token'),
@@ -38,7 +40,7 @@ class RegistrationProCounselingController extends Controller
             'title' => 'Pendaftaran Virtual Professional Counseling',
             'message' => NULL,
             'procounselings' => $response->data,
-            'screening' => $response_screening->data,
+            'screening' => $screening_data,
             'profilUser' => $response_profile->profile
         ]);
     }
@@ -51,16 +53,6 @@ class RegistrationProCounselingController extends Controller
      */
     public function store(Request $request)
     {
-        $validatedData = $request->validate([
-            'user_id' => 'required',
-            'procounseling_id' => 'required',
-            'preferensi_jk_konselor' => 'required',
-            'consent_sharing' => 'required',
-            'consent_screening' => 'required',
-            'bukti_transfer' => 'required',
-            'status_pendaftaran' => 'required'
-        ]);
-
         $uploadPath = public_path('storage/bukti-transfer');
         if ($request->hasFile('bukti_transfer')) {
             $file = $request->file('bukti_transfer');
@@ -70,10 +62,6 @@ class RegistrationProCounselingController extends Controller
         } else {
             $imagePath = NULL;
         }
-
-        $response = Http::get('https://ruangberproses-be.herokuapp.com/api/admin/screening/user/' . session('id'));
-        $response = $response->object();
-        $screening = $response->data;
 
         $response = Http::asForm()->post("https://ruangberproses-be.herokuapp.com/api/layanan/professional-counseling/daftar", [
             'user_id' => $request->input('user_id'),
@@ -94,7 +82,7 @@ class RegistrationProCounselingController extends Controller
             'pola_makan' => $request->input('pola_makan'),
             'kondisi_keuangan' => $request->input('kondisi_keuangan'),
             'ringkasan_masalah' => $request->input('ringkasan_masalah'),
-            'pernah_konseling' => 'N/A',
+            'pernah_konseling' => $request->input('pernah_konseling'),
             'menyakiti_diri' => $request->input('menyakiti_diri'),
             'mengakhiri_hidup' => $request->input('mengakhiri_hidup'),
             'sesi' => $request->input('sesi')
