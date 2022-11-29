@@ -55,7 +55,7 @@ class PeerCounselingController extends Controller
             'consent_screening' => 'required',
         ]);
 
-        $response = Http::asForm()->post("https://ruangberproses-be.herokuapp.com/api/layanan/peer-counseling/daftar", [
+        $response = Http::asForm()->post("https://ruangberproses-be.site/api/layanan/peer-counseling/daftar", [
             'status' => $request->input('status'),
             'domisili' => $request->input('domisili'),
             'pernah_gabung' => $request->input('pernah_gabung'),
@@ -83,7 +83,7 @@ class PeerCounselingController extends Controller
      */
     public function show($id)
     {
-        $response = Http::get("https://ruangberproses-be.herokuapp.com/api/layanan/peer-counseling/" . $id);
+        $response = Http::get("https://ruangberproses-be.site/api/layanan/peer-counseling/" . $id);
         $response = $response->object();
         return view('layanan.peerCounseling.view', [
             'title' => 'Detail Data Peer Counseling',
@@ -100,7 +100,7 @@ class PeerCounselingController extends Controller
      */
     public function edit($id)
     {
-        $response = Http::get("https://ruangberproses-be.herokuapp.com/api/layanan/peer-counseling/" . $id);
+        $response = Http::get("https://ruangberproses-be.site/api/layanan/peer-counseling/" . $id);
         $response = $response->object();
 
         return view('layanan.peerCounseling.edit', [
@@ -125,7 +125,7 @@ class PeerCounselingController extends Controller
         $validatedData["user_id"] = session()->get('id');
         $validatedData = $request->validate($rules);
 
-        Http::asForm()->post("https://ruangberproses-be.herokuapp.com/api/layanan/peer-counseling/" . $id . '?_method=PUT', [
+        Http::asForm()->post("https://ruangberproses-be.site/api/layanan/peer-counseling/" . $id . '?_method=PUT', [
             'pengalaman' => $request->input('pengalaman'),
             'konselor' => $request->input('konselor'),
         ]);
@@ -141,7 +141,7 @@ class PeerCounselingController extends Controller
      */
     public function destroy($id)
     {
-        $response = Http::delete("https://ruangberproses-be.herokuapp.com/api/layanan/peer-counseling/" . $id);
+        $response = Http::delete("https://ruangberproses-be.site/api/layanan/peer-counseling/" . $id);
 
         if ($response->status() == 200) {
             return redirect('/layanan')->with('success', 'Peer Counseling data has been deleted!');

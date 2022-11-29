@@ -14,7 +14,7 @@ class PsytalkController extends Controller
      */
     public function index(Request $request)
     {
-        $response = Http::get('https://ruangberproses-be.herokuapp.com/api/admin/program/psytalk-list', [
+        $response = Http::get('https://ruangberproses-be.site/api/admin/program/psytalk-list', [
             'page' => $request->query('page')
         ]);
         $psytalks = $response->object();
@@ -54,7 +54,7 @@ class PsytalkController extends Controller
             'biaya' => 'required'
         ]);
 
-        $response = Http::asForm()->post("https://ruangberproses-be.herokuapp.com/api/program/psytalk/daftar", [
+        $response = Http::asForm()->post("https://ruangberproses-be.site/api/program/psytalk/daftar", [
             'topik' => $request->input('topik'),
             'pembicara' => $request->input('pembicara'),
             'waktu' => $request->input('waktu'),
@@ -75,7 +75,7 @@ class PsytalkController extends Controller
      */
     public function show($id)
     {
-        $response = Http::get("https://ruangberproses-be.herokuapp.com/api/program/psytalk/" . $id);
+        $response = Http::get("https://ruangberproses-be.site/api/program/psytalk/" . $id);
         $response = $response->object();
         return view('program.psytalk.view', [
             'title' => 'Detail Data Psytalk',
@@ -92,7 +92,7 @@ class PsytalkController extends Controller
      */
     public function edit($id)
     {
-        $response = Http::get("https://ruangberproses-be.herokuapp.com/api/program/psytalk/" . $id);
+        $response = Http::get("https://ruangberproses-be.site/api/program/psytalk/" . $id);
         $response = $response->object();
 
         return view('program.psytalk.edit', [
@@ -117,7 +117,7 @@ class PsytalkController extends Controller
         $validatedData["user_id"] = session()->get('id');
         $validatedData = $request->validate($rules);
 
-        Http::asForm()->post("https://ruangberproses-be.herokuapp.com/api/program/psytalk/" . $id . '?_method=PUT', [
+        Http::asForm()->post("https://ruangberproses-be.site/api/program/psytalk/" . $id . '?_method=PUT', [
             'pilihan_webinar' => $request->input('pilihan_webinar'),
             'bukti_transfer' => $request->input('bukti_transfer'),
         ]);
@@ -133,7 +133,7 @@ class PsytalkController extends Controller
      */
     public function destroy($id)
     {
-        $response = Http::delete("https://ruangberproses-be.herokuapp.com/api/program/psytalk/" . $id);
+        $response = Http::delete("https://ruangberproses-be.site/api/program/psytalk/" . $id);
 
         if ($response->status() == 200) {
             return redirect('/program')->with('success', 'Psytalk data has been deleted!');

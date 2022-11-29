@@ -24,12 +24,12 @@ class RegistrationPsytalkController extends Controller
      */
     public function create($id)
     {
-        $response = Http::get('https://ruangberproses-be.herokuapp.com/api/admin/program/psytalk-list');
+        $response = Http::get('https://ruangberproses-be.site/api/admin/program/psytalk-list');
         $response = $response->object();
         $response_profile = Http::withHeaders([
             'Accept' => 'application/json',
             'Authorization' => 'Bearer ' . session('token'),
-        ])->get('https://ruangberproses-be.herokuapp.com/api/profile');
+        ])->get('https://ruangberproses-be.site/api/profile');
         $response_profile = $response_profile->object();
         return view('program.psytalk.daftar', [
             'title' => 'Pendaftaran Psytalk',
@@ -70,7 +70,7 @@ class RegistrationPsytalkController extends Controller
             $imagePath = NULL;
         }
 
-        $response = Http::asForm()->post("https://ruangberproses-be.herokuapp.com/api/program/psytalk/daftar", [
+        $response = Http::asForm()->post("https://ruangberproses-be.site/api/program/psytalk/daftar", [
             'user_id' => $request->input('user_id'),
             'psytalk_id' => $request->input('psytalk_id'),
             'alasan' => $request->input('alasan'),

@@ -45,7 +45,7 @@ class ProfessionalCounselingController extends Controller
             'biaya' => 'required'
         ]);
 
-        $response = Http::asForm()->post("https://ruangberproses-be.herokuapp.com/api/admin/layanan/procounseling-list/tambah", [
+        $response = Http::asForm()->post("https://ruangberproses-be.site/api/admin/layanan/procounseling-list/tambah", [
             'nama_konselor' => $request->input('nama_konselor'),
             'waktu' => $request->input('waktu'),
             'tanggal' => $request->input('tanggal'),
@@ -66,7 +66,7 @@ class ProfessionalCounselingController extends Controller
      */
     public function show($id)
     {
-        $response = Http::get("https://ruangberproses-be.herokuapp.com/api/layanan/professional-counseling/" . $id);
+        $response = Http::get("https://ruangberproses-be.site/api/layanan/professional-counseling/" . $id);
         $response = $response->object();
         return view('layanan.professionalCounseling.view', [
             'title' => 'Detail Data Professional Counseling',
@@ -83,7 +83,7 @@ class ProfessionalCounselingController extends Controller
      */
     public function edit($id)
     {
-        $response = Http::get("https://ruangberproses-be.herokuapp.com/api/layanan/professional-counseling/" . $id);
+        $response = Http::get("https://ruangberproses-be.site/api/layanan/professional-counseling/" . $id);
         $response = $response->object();
 
         return view('layanan.professionalCounseling.edit', [
@@ -107,7 +107,7 @@ class ProfessionalCounselingController extends Controller
             'biaya' => 'required'
         ];
         $validatedData = $request->validate($rules);
-        Http::asForm()->post("https://ruangberproses-be.herokuapp.com/api/admin/layanan/procounseling-list/" . $id . '?_method=PUT', [
+        Http::asForm()->post("https://ruangberproses-be.site/api/admin/layanan/procounseling-list/" . $id . '?_method=PUT', [
             'nama_konselor' => $request->input('nama_konselor'),
             'waktu' => $request->input('waktu'),
             'biaya' => $request->input('biaya')
@@ -124,7 +124,7 @@ class ProfessionalCounselingController extends Controller
      */
     public function destroy($id)
     {
-        $response = Http::delete("https://ruangberproses-be.herokuapp.com/api/admin/layanan/procounseling-list/" . $id);
+        $response = Http::delete("https://ruangberproses-be.site/api/admin/layanan/procounseling-list/" . $id);
 
         if ($response->status() == 200) {
             return redirect('/admin')->with('success', 'Professional Counseling data has been deleted!');
