@@ -15,6 +15,7 @@ autocomplete.oninput = function () {
         results = getResults(userInput);
         if(results.length > 0) {
             resultsHTML.classList.remove("hidden");
+            resultsHTML.classList.add("capitalize");
             for (i = 0; i < results.length; i++) {
                 resultsHTML.innerHTML += "<li>" + results[i] + "</li>";
             }
@@ -25,7 +26,7 @@ autocomplete.oninput = function () {
 };
 
 async function getData() {
-    const response = await fetch('https://ruangberproses-be.herokuapp.com/api/artikel-berproses');
+    const response = await fetch('https://ruangberproses-be.site/api/artikel-berproses');
     // console.log(response);
     const data = await response.json();
     // console.log(data);

@@ -26,24 +26,24 @@ nav ul li a {
 @endpush
 
 @section('content')
-<section class="mt-20 lg:mt-28 lg:pt-10">
+<section class="mt-20 lg:mt-28">
     <div class="mx-auto font-quicksand text-center mb-8 lg:mb-12">
         <h1 class="text-3xl font-bold mb-3">PSYTALK</h1>
         <p class="text-md">Webinar edukasi psikologi</p>
     </div>
     @if($psytalks == NULL)
-    <div class="text-center mx-auto mt-24">
+    <div class="text-center mx-auto mt-24 mb-16">
         <img src="{{ asset('img/illustrations/empty.svg') }}" alt="" class="w-56 mx-auto block">
         <p class="text-sm font-medium mt-5">Nantikan webinar terbaru bersama kami ya, Sahabat Berproses!
         </p>
     </div>
     @else
-    <div class="grid grid-cols-2 md:grid-cols-3 gap-5 lg:gap-10 mb-5 xs:mx-5 lg:mx-20 sm:mx-5 md:mx-15 lg:mb-8">
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-5 lg:gap-16 mb-5 xs:mx-5 lg:mx-56 sm:mx-5 md:mx-16 lg:mb-8">
         @foreach($psytalks as $psytalk)
         <div
             class="max-w-xs bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 font-montserrat">
             <a href="#">
-                <img class="rounded-t-lg" src="{{ asset('img/illustrations/jumbotron-home.png') }}" alt="">
+                <img class="rounded-t-lg object-fill" src="{{ asset('storage/' . $psytalk->poster) }}" alt="">
             </a>
             <div class="px-4 sm:px-8 py-5">
                 <a href="#">
@@ -80,7 +80,7 @@ nav ul li a {
                     </li>
                 </ul>
                 <a href="/program/psytalk/{{ $psytalk->id }}/daftar"
-                    class="mx-6 sm:mx-16 block text-sm sm:text-base items-center py-2 font-medium text-center text-white bg-[#FB8D66] rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                    class="mx-6 sm:mx-16 block text-sm sm:text-base items-center py-2 font-medium text-center text-white bg-[#FB8D66] rounded-lg focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                     Daftar
                 </a>
             </div>

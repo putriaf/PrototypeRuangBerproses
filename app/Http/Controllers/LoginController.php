@@ -50,8 +50,9 @@ class LoginController extends Controller
             session(['jk' => $jk]);
             session(['email' => $email]);
             return redirect()->intended('/')->with('success', 'Login successful!');
+        } else {
+            return back()->with('loginError', 'Login failed!');
         }
-        return back()->with('loginError', 'Login failed!');
     }
 
     public function logout(Request $request)

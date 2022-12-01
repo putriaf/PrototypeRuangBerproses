@@ -125,9 +125,8 @@
                     @click="panel = !panel" @click.away="panel = false">
                     <span class="sr-only">User Menu</span>
                     <div class="hidden md:flex md:flex-col md:items-end md:leading-tight">
-                        <span class="font-semibold">{{ session()->get('nama') }}</span>
                         @if(session()->get('role') == 1)
-                        <span class="text-sm text-gray-600">Admin</span>
+                        <span class="text-sm text-gray-600">Hi, {{ session()->get('nama') }}</span>
                         @endif
                     </div>
                     <span class="h-12 w-12 ml-2 sm:ml-3 mr-2 bg-gray-100 rounded-full overflow-hidden">

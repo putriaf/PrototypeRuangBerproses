@@ -22,6 +22,7 @@
 #result ul li {
     padding: 5px 0;
     margin-bottom: 3px;
+    text-transform: capitalize !important;
 }
 
 #result ul li:hover {
