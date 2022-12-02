@@ -54,10 +54,8 @@ class RegistrationPsytalkController extends Controller
             'psytalk_id' => 'required',
             'alasan' => 'required',
             'asal_info' => 'required',
-            'pertanyaan' => 'required',
             'bukti_transfer' => '',
             'status_pendaftaran' => 'required',
-            'ide_topik' => 'required'
         ]);
 
         $uploadPath = public_path('storage/bukti-transfer/psytalk');

@@ -2708,11 +2708,6 @@ input:checked + .toggle-bg {
   background-color: rgb(188 240 218 / var(--tw-bg-opacity));
 }
 
-.hover\:bg-rb-light-orange:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(251 141 102 / var(--tw-bg-opacity));
-}
-
 .hover\:bg-gradient-to-r:hover {
   background-image: linear-gradient(to right, var(--tw-gradient-stops));
 }
