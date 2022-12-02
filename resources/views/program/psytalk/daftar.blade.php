@@ -27,7 +27,7 @@ footer {
     $profilUser->agama != NULL && $profilUser->pekerjaan != NULL && $profilUser->status != NULL)
     <div class=" mx-auto container font-quicksand">
         <!-- Progress Form -->
-        <form id="progress-form" class="p-4 progress-form" action="/layanan/professional-counseling/daftar"
+        <form id="progress-form" class="p-4 progress-form" action="/program/psytalk/{{ $psytalk_id }}/daftar"
             method="POST" lang="en" novalidate enctype="multipart/form-data">
             @csrf
             <!-- Step Navigation -->
@@ -123,8 +123,7 @@ footer {
                             Alasan Anda mengikuti webinar ini
                             <span data-required="true" aria-hidden="true"></span>
                         </label>
-                        <textarea id="alasan" name="perubahan_fisik" rows="3" class="rounded-lg w-full"
-                            required></textarea>
+                        <textarea id="alasan" name="alasan" rows="3" class="rounded-lg w-full" required></textarea>
                     </div>
                     <div class="mt-3 sm:mt-0 form__field">
                         <label for="asal_info">

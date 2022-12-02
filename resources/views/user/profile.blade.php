@@ -129,13 +129,13 @@ nav {
             <div class="lg:max-h-[70vh]" id="riwayatLayanan" role="tabpanel" aria-labelledby="riwayatLayanan-tab">
                 <h2 class="text-xl sm:text-3xl font-semibold mb-5 lg:mb-12">Riwayat Pendaftaran Layanan</h2>
                 <div class="pb-10">
-                    @if($reg_peercounseling == NULL && $reg_peercounseling == NULL && $reg_sg == NULL)
+                    @if($reg_procounseling == NULL && $reg_peercounseling == NULL && $reg_sg == NULL)
                     <p>Kamu belum pernah terdaftar pada layanan kami. Yuk daftar dan berproses menuju versi terbaikmu!
                     </p>
                     @else
                     @foreach($reg_procounseling as $user_rpc)
                     <div class="bg-white mb-4 lg:mb-8 rounded-xl p-4 lg:p-4">
-                        <h3 class="font-semibold text-lg">PSYTALK 66</h3>
+                        <h3 class="font-semibold text-lg">Konseling dengan {{ $user_rpc->nama_konselor }}</h3>
                         <p class="text-xs mb-5">5 Oktober 2022</p>
                         @if($user_rpc->status_pendaftaran == 'konfirmasi_admin')
                         <p class="p-2 lg:p-2 rounded-md bg-[#FFEAB2] w-fit font-semibold text-sm mt-3 lg:mt-4">MENUNGGU
@@ -198,14 +198,14 @@ nav {
             <div id="riwayatProgram" role="tabpanel" aria-labelledby="riwayatProgram-tab" class="lg:max-h-[70vh]">
                 <h2 class="text-xl sm:text-3xl font-semibold mb-5 lg:mb-12">Riwayat Pendaftaran Program</h2>
                 <div class="pb-10">
-                    @if($reg_psytalk == NULL && $reg_kb == NULL && $reg_sg == NULL)
+                    @if($reg_psytalk == NULL && $reg_kb == NULL)
                     <p>Kamu belum pernah terdaftar pada program kami. Yuk daftar dan berproses menuju versi terbaikmu!
                     </p>
                     @else
                     @foreach($reg_psytalk as $user_rpsytalk)
                     <div class="bg-white lg:mb-8 rounded-xl lg:p-4">
-                        <h3 class="font-semibold text-lg">PSYTALK 66</h3>
-                        <p class="text-xs">5 Oktober 2022</p>
+                        <h3 class="font-semibold text-lg">{{ $user_rpsytalk->topik }}</h3>
+                        <p class="text-xs">{{ $user_rpsytalk->tanggal }} {{ $user_rpsytalk->waktu }}</p>
                         @if($user_rpsytalk->status_pendaftaran == 'konfirmasi_admin')
                         <p class="lg:p-2 rounded-md bg-[#FFEAB2] w-fit font-semibold text-sm lg:mt-4">MENUNGGU
                             KONFIRMASI
