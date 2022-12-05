@@ -32,6 +32,34 @@ nav {
 @endpush
 
 @section('content')
+@if(session()->has('success'))
+<!-- Main modal -->
+<div id="defaultModal" tabindex="-1" aria-hidden="true" data-modal-show="true"
+    class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 p-4 w-full md:inset-0 h-modal md:h-full font-poppins">
+    <div class="relative w-50 max-w-2xl h-auto">
+        <!-- Modal content -->
+        <div class="relative bg-white rounded-lg shadow">
+            <!-- Modal body -->
+            <div class="text-center pt-10 px-10">
+                <i class="text-green-400 w-24 h-24 inline-block mb-6" data-feather="user-check"></i>
+                <p class="border-t border-b py-2 text-sm border-green-100">Yeay, profil Anda berhasil diupdate!
+                </p>
+            </div>
+            <!-- Modal footer -->
+            <div class="flex items-center p-6 space-x-2 rounded-b border-gray-200 dark:border-gray-600">
+                <button data-modal-toggle="defaultModal" type="button"
+                    class="mx-auto text-red-500 bg-transparent rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 focus:z-10">Tetap
+                    di Halaman</button>
+                <button data-modal-toggle="defaultModal" type="button"
+                    class="mx-auto text-white bg-red-500 hover:bg-red-600 focus:ring-4 focus:outline-none rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 focus:z-10"><a
+                        href="/layanan/professional-counseling/daftar">Lanjutkan</a>
+                    Pendaftaran</button>
+            </div>
+        </div>
+    </div>
+</div>
+@endif
+
 <section class="font-quicksand px-5 sm:px-20 overflow-auto sm:overflow-hidden">
     <div class="grid grid-cols-1 sm:grid-cols-4 lg:grid-cols-4 h-auto sm:h-screen sm:gap-8 lg:gap-4">
         <div class="shadow-md rounded-md mb-5 lg:mb-16 mt-20 sm:mt-20 lg:mt-20 bg-white">
