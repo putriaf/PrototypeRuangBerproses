@@ -1170,8 +1170,8 @@ input:checked + .toggle-bg {
   max-height: 100vh;
 }
 
-.max-h-\[35vh\] {
-  max-height: 35vh;
+.max-h-\[40vh\] {
+  max-height: 40vh;
 }
 
 .min-h-screen {

@@ -79,7 +79,7 @@ class RegistrationPsytalkController extends Controller
             'ide_topik' => $request->input('ide_topik')
         ]);
         if ($response->status() == 200) {
-            return redirect('/program/psytalk')->with('success', 'Pendaftaran berhasil!');
+            return redirect('/program/psytalk/daftar/success')->with('success', 'Pendaftaran berhasil!');
         } else {
             return redirect('/program/psytalk/{{$id}}/daftar')->with('success', 'Pendaftaran gagal!');
         }
@@ -128,5 +128,12 @@ class RegistrationPsytalkController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function regSuccess()
+    {
+        return view('program.registration-success', [
+            'message' => NULL,
+        ]);
     }
 }
