@@ -2,9 +2,9 @@
 
 @push('styles')
 <link href="{{ asset('css/testimonial-carousel.css') }}" rel="stylesheet">
-<link href="{{ asset('https://ruangberproses-dev.herokuapp.com/css/testimonial-carousel.css') }}" rel="stylesheet">
+<link href="{{ asset('https://ruangberproses-dev.site/css/testimonial-carousel.css') }}" rel="stylesheet">
 <link href="{{ asset('css/slick-carousel.css') }}" rel="stylesheet">
-<link href="{{ asset('https://ruangberproses-dev.herokuapp.com/css/slick-carousel.css') }}" rel="stylesheet">
+<link href="{{ asset('https://ruangberproses-dev.site/css/slick-carousel.css') }}" rel="stylesheet">
 @endpush
 
 @section('content')

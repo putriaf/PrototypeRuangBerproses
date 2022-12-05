@@ -2,6 +2,7 @@
 
 @push('styles')
 <link href="{{ asset('css/slick-carousel.css') }}" rel="stylesheet">
+<link href="{{ asset('https://ruangberproses-dev.site/css/slick-carousel.css') }}" rel="stylesheet">
 
 <style>
 .faq {
@@ -272,5 +273,6 @@
     <!-- jQuery easing plugin -->
     <script src="http://thecodeplayer.com/uploads/js/jquery.easing.min.js" type="text/javascript"></script>
     <script src="{{ asset('js/multistep-form.js') }}"></script>
+    <link href="{{ asset('https://ruangberproses-dev.site/js/multistep-form.js') }}" rel="stylesheet">
     <section>
         @endsection
