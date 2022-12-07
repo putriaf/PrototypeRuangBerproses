@@ -19,7 +19,7 @@
     <script src="https://unpkg.com/flowbite@1.5.3/dist/datepicker.js"></script>
     <script src="{{ asset('https://ruangberproses-dev.herokuapp.com/js/navbar-scroll.js') }}"></script>
     <link rel="stylesheet" type="text/css"
-        href="http://www.24limousine.com/wp-content/themes/24Limousine/assets/css/owl.carousel.min.css">
+        href="https://www.24limousine.com/wp-content/themes/24Limousine/assets/css/owl.carousel.min.css">
     @vite(['resources/scss/app.scss', 'resources/css/app.css'])
     @stack('styles')
 </head>
@@ -79,7 +79,7 @@
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="{{ asset('js/testimonial-carousel.js') }}"></script>
     <script type="text/javascript"
-        src="http://www.24limousine.com/wp-content/themes/24Limousine/assets/js/owl.carousel.min.js"></script>
+        src="https://www.24limousine.com/wp-content/themes/24Limousine/assets/js/owl.carousel.min.js"></script>
     <script src="{{ asset('js/slick-carousel.js') }}"></script>
     @stack('scripts')
 </body>

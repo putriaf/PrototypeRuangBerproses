@@ -41,7 +41,7 @@ footer {
                     role="tab" aria-controls="progress-form__panel-2" aria-selected="false" tabindex="-1"
                     aria-disabled="true">
                     <span class="d-block step" aria-hidden="true">Step 2 <span class="sm:d-none">of 3</span></span>
-                    Kondisi Diri
+                    Informasi Webinar
                 </button>
                 <button id="progress-form__tab-3" class="flex-1 px-0 pt-2 progress-form__tabs-item" type="button"
                     role="tab" aria-controls="progress-form__panel-3" aria-selected="false" tabindex="-1"
