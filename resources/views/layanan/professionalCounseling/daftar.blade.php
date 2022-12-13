@@ -118,18 +118,6 @@ footer {
                     <input type="text" id="status_pendaftaran" name="status_pendaftaran" value="konfirmasi_admin" class="
                         hidden">
                     <div class="mt-3 sm:mt-0 form__field">
-                        <label for="preferensi_jk_konselor">
-                            Preferensi Jenis Kelamin Psikolog
-                            <span data-required="true" aria-hidden="true"></span>
-                        </label>
-                        <select id="preferensi_jk_konselor" name="preferensi_jk_konselor" autocomplete="" required
-                            class="rounded-md">
-                            <option value="" disabled selected>Pilih preferensi</option>
-                            <option value="L">Laki-laki</option>
-                            <option value="P">Perempuan</option>
-                        </select>
-                    </div>
-                    <div class="mt-3 sm:mt-0 form__field">
                         <label for="procounseling_id">
                             Preferensi Psikolog
                             <span data-required="true" aria-hidden="true"></span>
@@ -139,7 +127,7 @@ footer {
                             <option value="" disabled selected>Pilih psikolog</option>
                             @if($procounselings != NULL)
                             @foreach($procounselings as $pc)
-                            <option value="{{ $pc->id }}">{{ $pc->nama_konselor}}
+                            <option value="{{ $pc->counselor_id }}">{{ $pc->nama }}
                             </option>
                             @endforeach
                             @endif
@@ -152,6 +140,22 @@ footer {
                         </label>
                         <input type="number" name="sesi" id="sesi" required class="rounded-md"
                             placeholder="Sesi konseling saat ini">
+                    </div>
+                    <div class="mt-3 sm:mt-0 form__field">
+                        <label for="opsi_waktu1">
+                            Opsi Waktu 1
+                            <span data-required="true" aria-hidden="true"></span>
+                        </label>
+                        <input type="text" name="opsi_waktu1" id="opsi_waktu1" required class="rounded-md"
+                            placeholder="Opsi waktu 1">
+                    </div>
+                    <div class="mt-3 sm:mt-0 form__field">
+                        <label for="opsi_waktu2">
+                            Opsi Waktu 2
+                            <span data-required="true" aria-hidden="true"></span>
+                        </label>
+                        <input type="number" name="opsi_waktu2" id="opsi_waktu2" required class="rounded-md"
+                            placeholder="Opsi waktu 2">
                     </div>
                     <input class="hidden" type="text" id="consent_sharing" name="consent_sharing" value="Ya">
                     <input class="hidden" type="text" id="consent_screening" name="consent_screening" value="Ya">

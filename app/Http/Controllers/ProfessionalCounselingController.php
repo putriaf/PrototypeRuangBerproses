@@ -39,14 +39,14 @@ class ProfessionalCounselingController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'nama_konselor' => 'required',
-            'waktu' => 'required',
-            'tanggal' => 'required',
+            'counselor_id' => 'required',
+            'waktu' => '',
+            'tanggal' => '',
             'biaya' => 'required'
         ]);
 
         $response = Http::asForm()->post("https://ruangberproses-be.site/api/admin/layanan/procounseling-list/tambah", [
-            'nama_konselor' => $request->input('nama_konselor'),
+            'counselor_id' => $request->input('counselor_id'),
             'waktu' => $request->input('waktu'),
             'tanggal' => $request->input('tanggal'),
             'biaya' => $request->input('biaya')

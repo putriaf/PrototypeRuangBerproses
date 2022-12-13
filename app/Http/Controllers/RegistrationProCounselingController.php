@@ -85,7 +85,9 @@ class RegistrationProCounselingController extends Controller
             'pernah_konseling' => $request->input('pernah_konseling'),
             'menyakiti_diri' => $request->input('menyakiti_diri'),
             'mengakhiri_hidup' => $request->input('mengakhiri_hidup'),
-            'sesi' => $request->input('sesi')
+            'sesi' => $request->input('sesi'),
+            'opsi_waktu1' => $request->input('opsi_waktu1'),
+            'opsi_waktu2' => $request->input('opsi_waktu2'),
         ]);
         if ($response->status() == 200) {
             return redirect('/layanan/professional-counseling/daftar/success')->with('success', 'Pendaftaran berhasil!');

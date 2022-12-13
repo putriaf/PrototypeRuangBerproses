@@ -15,7 +15,7 @@ class AdminController extends Controller
     public function index()
     {
         $screening_variable = ["user_id", "marah_sepele", "mulut_kering", "tdk_melihat_hal_positif", "gangguan_napas", "tdk_kuat_kegiatan", "overreacting", "anggota_tubuh_lemah", "sulit_bersantai", "cemas_berlebih", "pesimis", "mudah_kesal", "energi_habis", "sedih_depresi", "tidak_sabaran", "kelelahan", "hilang_minat", "merasa_tdk_layak", "mudah_tersinggung", "berkeringat", "takut_tanpa_alasan", "merasa_tdk_berharga", "sulit_istirahat", "sulit_menelan", "tdk_menikmati_aktivitas", "perubahan_denyut_nadi", "hilang_harapan", "mudah_marah", "mudah_panik", "sulit_tenang", "takut_terhambat", "sulit_antusias", "sulit_toleransi_gangguan", "tegang", "tdk_memaklumi_halangan", "ketakutan", "tdk_ada_harapan", "hidup_tdk_berarti", "mudah_gelisah", "khawatir_dg_situasi", "gemetar", "sulit_inisiatif"];
-        $counseling_fields = ["nama_konselor", "tanggal", "waktu", "biaya"];
+        $counseling_fields = ["counselor_id", "biaya"];
         $sg_fields = ["topik", "fasilitator_utama", "fasilitator_pendamping", "tanggal", "waktu", "biaya"];
         $program_fields = ["topik", "pembicara", "tanggal", "waktu", "biaya", "poster"];
         $regprocounseling_fields = ["user_id", "procounseling_id", "screening_id", "preferensi_jk_konselor", "consent_sharing", "consent_screening", "bukti_transfer", "status_pendaftaran", "perubahan_fisik", "perubahan_emosi", "riwayat_kecemasan", "penyakit_kronis", "konsumsi_alkohol", "konsumsi_obat", "pola_tidur", "pola_makan", "kondisi_keuangan", "ringkasan_masalah", "pernah_konseling", "menyakiti_diri", "mengakhiri_hidup"];
@@ -26,6 +26,9 @@ class AdminController extends Controller
 
         $response = Http::get('https://ruangberproses-be.site/api/admin');
         $response = $response->object();
+
+        $response_counselors = Http::get('https://ruangberproses-be.site/api/admin/counselors');
+        $counselors = $response_counselors->object();
 
         return view('admin.index', [
             'professionalcounselings' => $response->professionalcounselings,
@@ -48,7 +51,8 @@ class AdminController extends Controller
             'regpeercounseling_fields' => $regpeercounseling_fields,
             'regsg_fields' => $regsg_fields,
             'regpsytalk_fields' => $regpsytalk_fields,
-            'regkb_fields' => $regkb_fields
+            'regkb_fields' => $regkb_fields,
+            'counselors' => $counselors->data
         ]);
     }
 
