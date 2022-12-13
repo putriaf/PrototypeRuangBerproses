@@ -163,8 +163,8 @@ nav {
                     @else
                     @foreach($reg_procounseling as $user_rpc)
                     <div class="bg-white mb-4 lg:mb-8 rounded-xl p-4 lg:p-4">
-                        <h3 class="font-semibold text-lg">Konseling dengan {{ $user_rpc->nama_konselor }}</h3>
-                        <p class="text-xs mb-5">5 Oktober 2022</p>
+                        <h3 class="font-semibold text-lg">Konseling dengan {{ $user_rpc->nama }}</h3>
+                        <p class="text-xs mb-5">Waktu Konseling yang Disetujui: {{ $user_rpc->waktu_fix }}</p>
                         @if($user_rpc->status_pendaftaran == 'konfirmasi_admin')
                         <p class="p-2 lg:p-2 rounded-md bg-[#FFEAB2] w-fit font-semibold text-sm mt-3 lg:mt-4">MENUNGGU
                             KONFIRMASI
@@ -187,7 +187,7 @@ nav {
                     @foreach($reg_peercounseling as $user_rpec)
                     <div class="bg-white lg:mb-8 rounded-xl lg:p-4">
                         <h3 class="font-semibold text-lg">PSYTALK 66</h3>
-                        <p class="text-xs">5 Oktober 2022</p>
+                        <p class="text-xs">Waktu Konseling: {{ $user_rpec->waktu }}</p>
                         @if($user_rpec->status_pendaftaran == 'konfirmasi_admin')
                         <p class="lg:p-2 rounded-md bg-[#FFEAB2] w-fit font-semibold text-sm lg:mt-4">MENUNGGU
                             KONFIRMASI
@@ -337,9 +337,14 @@ nav {
                         <div class="mb-6">
                             <label for="status"
                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Status</label>
-                            <input type="text" id="status" name="status"
-                                class="bg-gray-50 border-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                value="{{ old('status', $profilUser->status) }}">
+                            <select id="status" name="status" autocomplete="" required
+                                class="bg-gray-50 border-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                                <option value="" disabled selected>Pilih status</option>
+                                <option value="Single">Single
+                                </option>
+                                <option value="Menikah">Menikah
+                                </option>
+                            </select>
                         </div>
                         <hr class="mb-2">
                         <p class="uppercase text-sm font-semibold text-gray-600 mb-3">Reset Password (opsional)</p>
