@@ -108,7 +108,7 @@ class UserController extends Controller
             if ($request->oldImage) {
                 Storage::delete($request->oldImage);
             }
-            $profil = $request->file('foto_profil')->store('https://ruangberproses-dev.site/public/storage/foto-profil');
+            $profil = $request->file('foto_profil')->store('foto-profil');
         }
         $validatedData['id'] = $id;
         $response = Http::withHeaders([
