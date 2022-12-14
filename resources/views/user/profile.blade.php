@@ -28,6 +28,10 @@ nav ul li a {
 nav {
     background-color: #fff;
 }
+
+footer {
+    display: none;
+}
 </style>
 @endpush
 
@@ -65,7 +69,12 @@ nav {
         <div class="shadow-md rounded-md mb-5 lg:mb-16 mt-20 sm:mt-20 lg:mt-20 bg-white">
             <div class="mx-5">
                 <div class="text-center">
+                    @if ($profilUser->foto_profil)
+                    <img src="{{ asset('storage/' . $profilUser->foto_profil) }}" alt="User Profile"
+                        class="w-20 mx-auto">
+                    @else
                     <img src="{{ asset('img/user/avatar.png') }}" alt="User Profile" class="w-20 mx-auto">
+                    @endif
                     <h1 class="text-2xl font-bold lg:mb-2">{{ $profilUser->nama }}</h1>
                     <p>{{ $profilUser->email }}</p>
                 </div>

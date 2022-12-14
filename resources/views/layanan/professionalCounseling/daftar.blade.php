@@ -6,14 +6,28 @@ nav ul li {
     align-self: flex-end;
 }
 
+footer {
+    display: none;
+}
+
+
 nav ul li a {
     color: black !important;
 }
 
-footer {
-    display: none;
+nav {
+    background-color: white !important;
+    border-radius: 0;
+    transition: all 0.4s ease-in-out;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+nav svg {
+    color: #eb6536 !important;
 }
 </style>
+
+
 <link href="{{ asset('css/multistep-form.css') }}" rel="stylesheet">
 <link href="{{ asset('scss/submit-btn.scss') }}" rel="stylesheet">
 @endpush

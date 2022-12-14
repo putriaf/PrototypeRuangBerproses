@@ -21,7 +21,7 @@ nav svg {
 <div class="w-full bg-pale-yellow">
     <section class="md:mx-20 md:pt-36 lg:pb-10 font-quicksand lg:m-auto w-fit ">
         <h1 class="lg:text-3xl text-2xl font-semibold mb-8 text-center lg:pt-24">Screening</h1>
-        <div class="inline-block mx-auto mb-5 text-sm border-2 rounded-md p-3 w-full bg-white">
+        <div class="inline-block mx-auto mb-5 text-sm border-2 rounded-md p-3 w-full bg-white font-medium">
             <p>Pada bagian ini, Anda diminta mengisi 42 pertanyaan dengan nilai skala 0-3.</p>
             <p class="mt-1">Keterangan:</p>
             <p>0 : Tidak ada atau tidak pernah</p>
@@ -35,8 +35,8 @@ nav svg {
                 <input type="text" id="user_id" name="user_id" value="{{ session()->get('id') }}" hidden>
                 <?php $i = 0 ?>
                 @foreach($screening_variables as $var)
-                <div class="lg:mb-4 mb-6">
-                    <h2 class="lg:mb-3 mb-3 font-medium">{{ $screening_labels[$i] }}</h2>
+                <div class="lg:mb-4 mb-7">
+                    <h2 class="lg:mb-3 mb-3 font-semibold">{{ $screening_labels[$i] }}</h2>
                     <label for="{{ $var }}"></label>
                     <div class="flex">
                         <p class="mr-5 text-xs">Tidak ada atau tidak pernah</p>
