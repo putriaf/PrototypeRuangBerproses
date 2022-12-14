@@ -70,7 +70,7 @@ footer {
             <div class="mx-5">
                 <div class="text-center">
                     @if ($profilUser->foto_profil)
-                    <img src="{{ asset('storage/' . $profilUser->foto_profil) }}" alt="User Profile"
+                    <img src="{{ asset('/storage/' . $profilUser->foto_profil) }}" alt="User Profile"
                         class="w-20 mx-auto">
                     @else
                     <img src="{{ asset('img/user/avatar.png') }}" alt="User Profile" class="w-20 mx-auto">
