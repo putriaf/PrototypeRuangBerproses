@@ -506,7 +506,7 @@
                     </div>
                     <!-- PROFESSIONAL COUNSELING REGISTRATION -->
                     <div class="hidden p-4 bg-gray-50 rounded-lg dark:bg-gray-800 mb-[100px]" id="pcReg" role="tabpanel"
-                        aria-labelledby="pcReg-tab">
+                        aria-labelledby="pcReg-tab" style="margin-bottom: 100px;">
                         <div class="flex flex-col space-y-6 md:space-y-0 md:flex-row justify-between">
                             <div class="mr-6">
                                 <h1 class="text-4xl font-semibold mb-2">Data Pendaftaran</h1>
