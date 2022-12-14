@@ -24,6 +24,9 @@ module.exports = {
         'pale-orange': '#FB8D66',
         'primary-dark-blue': '#1D1F4E',
       },
+      borderColor: {
+        'rb-light-orange': '#FB8D66',
+      },
       backgroundImage: {
         'jumbotron-home': "url('/img/illustrations/compressed/jumbotron-home.png');", 
         'hero-procounseling': "url('/img/illustrations/compressed/hero-professional-counseling.png');",

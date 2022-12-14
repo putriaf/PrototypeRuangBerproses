@@ -50,10 +50,10 @@ nav {
                 <button data-modal-toggle="defaultModal" type="button"
                     class="mx-auto text-red-500 bg-transparent rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 focus:z-10">Tetap
                     di Halaman</button>
-                <button data-modal-toggle="defaultModal" type="button"
-                    class="mx-auto text-white bg-red-500 hover:bg-red-600 focus:ring-4 focus:outline-none rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 focus:z-10"><a
-                        href="/layanan/professional-counseling/daftar">Lanjutkan</a>
-                    Pendaftaran</button>
+                <a href="/layanan/professional-counseling/daftar">
+                    <button data-modal-toggle="defaultModal" type="button"
+                        class="mx-auto text-white bg-red-500 hover:bg-red-600 focus:ring-4 focus:outline-none rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 focus:z-10">Lanjutkan
+                        Pendaftaran</button></a>
             </div>
         </div>
     </div>
@@ -314,10 +314,21 @@ nav {
                         </div>
                         <div class="mb-6">
                             <label for="pendidikan"
-                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Pendidikan</label>
-                            <input type="text" id="pendidikan" name="pendidikan"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                value="{{ old('pendidikan', $profilUser->pendidikan) }}">
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Pendidikan
+                                Terakhir</label>
+                            <select id="pendidikan" name="pendidikan" autocomplete="" required
+                                class="bg-gray-50 border-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                                <option value="{{ $profilUser->pendidikan }}" disabled selected>Pilih jenjang pendidikan
+                                </option>
+                                <option value="SMP">SMP
+                                </option>
+                                <option value="SMA">SMA
+                                </option>
+                                <option value="S1">S1
+                                </option>
+                                <option value="S2">S2
+                                </option>
+                            </select>
                         </div>
                         <div class="mb-6">
                             <label for="pekerjaan"
@@ -339,7 +350,7 @@ nav {
                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Status</label>
                             <select id="status" name="status" autocomplete="" required
                                 class="bg-gray-50 border-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
-                                <option value="" disabled selected>Pilih status</option>
+                                <option value="{{ $profilUser->status }}" disabled selected>Pilih status</option>
                                 <option value="Single">Single
                                 </option>
                                 <option value="Menikah">Menikah

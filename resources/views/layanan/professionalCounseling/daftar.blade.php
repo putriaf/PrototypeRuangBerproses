@@ -111,7 +111,7 @@ footer {
                 </div>
                 <h3 class="text-xl font-semibold xs:mt-3 mt-3">Preferensi Psikolog
                 </h3>
-                <div class="sm:grid sm:grid-cols-2 md:grid-cols-3 sm:my-1 gap-4">
+                <div class="sm:grid sm:grid-cols-2 md:grid-cols-2 sm:my-1 gap-4">
                     <input type="text" id="user_id" name="user_id" value="{{ session()->get('id') }}" class="hidden">
                     <input type="text" id="screening_id" name="screening_id" value="{{ $screening->id }}"
                         class="hidden">
@@ -141,32 +141,62 @@ footer {
                         <input type="number" name="sesi" id="sesi" required class="rounded-md"
                             placeholder="Sesi konseling saat ini">
                     </div>
-                    <div class="mt-3 sm:mt-0 form__field">
-                        <label for="opsi_waktu1">
-                            Opsi Waktu 1
-                            <span data-required="true" aria-hidden="true"></span>
-                        </label>
-                        <input type="text" name="opsi_waktu1" id="opsi_waktu1" required class="rounded-md"
-                            placeholder="Opsi waktu 1">
-                    </div>
-                    <div class="mt-3 sm:mt-0 form__field">
-                        <label for="opsi_waktu2">
-                            Opsi Waktu 2
-                            <span data-required="true" aria-hidden="true"></span>
-                        </label>
-                        <input type="number" name="opsi_waktu2" id="opsi_waktu2" required class="rounded-md"
-                            placeholder="Opsi waktu 2">
-                    </div>
-                    <input class="hidden" type="text" id="consent_sharing" name="consent_sharing" value="Ya">
-                    <input class="hidden" type="text" id="consent_screening" name="consent_screening" value="Ya">
-                    <input class="hidden" type="text" id="pernah_konseling" name="pernah_konseling" value="-">
                 </div>
+                <div class="sm:grid sm:grid-cols-2 md:grid-cols-2 sm:my-1 gap-4">
+                    <div x-data
+                        x-init="flatpickr($refs.datetimewidget, {wrap: true, enableTime: true, dateFormat: 'M j, Y h:i K'});"
+                        x-ref="datetimewidget" class="flatpickr container mx-auto mt-3 sm:mt-0 form__field">
+                        <label for="opsi_waktu1"
+                            class="form__field flex-grow block font-medium text-sm text-gray-700 mb-1">Opsi Waktu
+                            1 <span data-required="true" aria-hidden="true"></span></label>
+                        <div class="flex align-middle align-content-center">
+                            <input x-ref="datetime" type="text" id="opsi_waktu1" data-input required
+                                placeholder="Pilih waktu" name="opsi_waktu1"
+                                class="block w-full px-2 border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-l-md shadow-sm">
+
+                            <a class="h-11 w-10 input-button cursor-pointer rounded-r-md bg-transparent border-gray-300 border-t border-b border-r"
+                                title="clear" data-clear>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 mt-2 ml-1" viewBox="0 0 20 20"
+                                    fill="#c53030">
+                                    <path fill-rule="evenodd"
+                                        d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    <div x-data
+                        x-init="flatpickr($refs.datetimewidget, {wrap: true, enableTime: true, dateFormat: 'M j, Y h:i K'});"
+                        x-ref="datetimewidget" class="flatpickr container mx-auto mt-3 sm:mt-0 form__field">
+                        <label for="opsi_waktu2"
+                            class="form__field flex-grow block font-medium text-sm text-gray-700 mb-1">Opsi Waktu
+                            2 <span data-required="true" aria-hidden="true"></span></label>
+                        <div class="flex align-middle align-content-center">
+                            <input x-ref="datetime" type="text" id="opsi_waktu2" data-input required
+                                placeholder="Pilih waktu" name="opsi_waktu2"
+                                class="block w-full px-2 border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-l-md shadow-sm">
+
+                            <a class="h-11 w-10 input-button cursor-pointer rounded-r-md bg-transparent border-gray-300 border-t border-b border-r"
+                                title="clear" data-clear>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 mt-2 ml-1" viewBox="0 0 20 20"
+                                    fill="#c53030">
+                                    <path fill-rule="evenodd"
+                                        d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <input class="hidden" type="text" id="consent_sharing" name="consent_sharing" value="Ya">
+                <input class="hidden" type="text" id="consent_screening" name="consent_screening" value="Ya">
                 <div class="d-flex align-items-center justify-end sm:justify-end mt-8 sm:mt-8 lg:mt-8">
                     <button type="button" data-action="next" class="text-base mt-4 right-0 text-right rounded-md"
                         style="background-color: #1D1F4E; color: whitesmoke; padding: 5px 35px; width: auto">
                         Lanjut
                     </button>
                 </div>
+                <input class="hidden" type="text" id="pernah_konseling" name="pernah_konseling" value="-">
             </section>
             <!-- / End Step 1 -->
 
@@ -208,19 +238,47 @@ footer {
                     </div>
                     <div class="mt-3 sm:mt-0 form__field">
                         <label for="konsumsi_alkohol">
-                            Apakah kamu mengonsumsi alkohol? Jika ya, ceritakan
+                            Apakah kamu mengonsumsi alkohol?
                             <span data-required="true" aria-hidden="true"></span>
                         </label>
-                        <textarea id="konsumsi_alkohol" name="konsumsi_alkohol" rows="3"
-                            class="rounded-lg xs:w-full sm:w-2/3 md:w-2/3 lg:w-2/3" required></textarea>
+                        <div class="flex align-middle">
+                            <div class="flex items-center mr-4">
+                                <input id="konsumsi_alkohol" type="radio" value="Ya" name="konsumsi_alkohol" required
+                                    class="w-2 h-2 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                <label for="konsumsi_alkohol"
+                                    class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300 p-0">
+                                    Ya</label>
+                            </div>
+                            <div class="flex items-center mr-4">
+                                <input id="konsumsi_alkohol" type="radio" value="Tidak" name="konsumsi_alkohol" required
+                                    class="w-2 h-2 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                <label for="konsumsi_alkohol"
+                                    class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300 p-0">
+                                    Tidak</label>
+                            </div>
+                        </div>
                     </div>
                     <div class="mt-3 sm:mt-0 form__field">
                         <label for="konsumsi_obat">
                             Apakah kamu mengonsumsi obat-obatan?
                             <span data-required="true" aria-hidden="true"></span>
                         </label>
-                        <textarea id="konsumsi_obat" name="konsumsi_obat" rows="3"
-                            class="rounded-lg xs:w-full sm:w-2/3 md:w-2/3 lg:w-2/3" required></textarea>
+                        <div class="flex align-middle">
+                            <div class="flex items-center mr-4">
+                                <input id="konsumsi_obat" type="radio" value="Ya" name="konsumsi_obat" required
+                                    class="w-2 h-2 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                <label for="konsumsi_obat"
+                                    class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300 p-0">
+                                    Ya</label>
+                            </div>
+                            <div class="flex items-center mr-4">
+                                <input id="konsumsi_obat" type="radio" value="Tidak" name="konsumsi_obat" required
+                                    class="w-2 h-2 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                <label for="konsumsi_obat"
+                                    class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300 p-0">
+                                    Tidak</label>
+                            </div>
+                        </div>
                     </div>
                     <div class="mt-3 sm:mt-0 form__field">
                         <label for="pola_tidur">
@@ -251,16 +309,46 @@ footer {
                             Apakah kamu pernah mempunyai sepintas pikiran untuk menyakiti dirimu?
                             <span data-required="true" aria-hidden="true"></span>
                         </label>
-                        <textarea id="menyakiti_diri" name="menyakiti_diri" rows="3"
-                            class="rounded-lg xs:w-full sm:w-2/3 md:w-2/3 lg:w-2/3" required></textarea>
+                        <div class="flex align-middle">
+                            <div class="flex items-center mr-4">
+                                <input id="menyakiti_diri" type="radio" value="Pernah" name="menyakiti_diri" required
+                                    class="w-2 h-2 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                <label for="menyakiti_diri"
+                                    class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300 p-0">
+                                    Pernah</label>
+                            </div>
+                            <div class="flex items-center mr-4">
+                                <input id="menyakiti_diri" type="radio" value="Tidak Pernah" name="menyakiti_diri"
+                                    required
+                                    class="w-2 h-2 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                <label for="menyakiti_diri"
+                                    class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300 p-0">
+                                    Tidak Pernah</label>
+                            </div>
+                        </div>
                     </div>
                     <div class="mt-3 sm:mt-0 form__field">
                         <label for="mengakhiri_hidup">
                             Apakah kamu pernah mempunyai sepintas pikiran untuk mengakhiri hidup?
                             <span data-required="true" aria-hidden="true"></span>
                         </label>
-                        <textarea id="mengakhiri_hidup" name="mengakhiri_hidup" rows="3"
-                            class="rounded-lg xs:w-full sm:w-2/3 md:w-2/3 lg:w-2/3" required></textarea>
+                        <div class="flex">
+                            <div class="flex items-center mr-4 mb-1">
+                                <input id="mengakhiri_hidup" type="radio" name="mengakhiri_hidup"
+                                    class="w-2 h-2 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                                    required value="Pernah">
+                                <label for="mengakhiri_hidup"
+                                    class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300 p-0">Pernah</label>
+                            </div>
+                            <div class="flex items-center mr-4">
+                                <input id="mengakhiri_hidup" type="radio" name="mengakhiri_hidup"
+                                    class="w-2 h-2 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                                    required value="Tidak Pernah">
+                                <label for="mengakhiri_hidup"
+                                    class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300 p-0">Tidak
+                                    Pernah</label>
+                            </div>
+                        </div>
                     </div>
                     <div class="mt-3 sm:mt-0 form__field">
                         <label for="ringkasan_masalah">
@@ -358,4 +446,7 @@ footer {
 <script src="http://thecodeplayer.com/uploads/js/jquery.easing.min.js" type="text/javascript"></script>
 <script src="{{ asset('js/submit-btn.js') }}"></script>
 <script src="{{ asset('js/multistep-form.js') }}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.9/flatpickr.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.9/themes/airbnb.min.css">
+<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.js" defer></script>
 @endpush

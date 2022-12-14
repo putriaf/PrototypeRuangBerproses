@@ -1,7 +1,24 @@
 @extends('layout.layout')
+@push('styles')
+<style>
+nav ul li a {
+    color: black !important;
+}
 
+nav {
+    background-color: white !important;
+    border-radius: 0;
+    transition: all 0.4s ease-in-out;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+nav svg {
+    color: #eb6536 !important;
+}
+</style>
+@endpush
 @section('content')
-<section class="lg:mx-20 mt-14 lg:mt-28 mb-10 lg:mb-20 font-quicksand min-h-[60vh]">
+<section class="lg:mx-20 mt-28 lg:mt-28 mb-10 lg:mb-20 font-quicksand min-h-[60vh]">
     <img src="{{ asset('img/illustrations/check-circle.png') }}" alt="" class="w-16 mx-auto block">
     <h1 class="font-semibold text-xl text-center mt-4">Pendaftaranmu berhasil!</h1>
     <div class="text-center mt-10 text-base">
