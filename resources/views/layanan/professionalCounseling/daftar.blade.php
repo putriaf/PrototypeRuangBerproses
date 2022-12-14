@@ -387,7 +387,8 @@ footer {
                         Bukti Transfer
                         <span data-required="true" aria-hidden="true"></span>
                     </label>
-                    <input class="form-control text-base" type="file" id="bukti_transfer" name="bukti_transfer">
+                    <input class="form-control text-base" type="file" id="bukti_transfer" name="bukti_transfer"
+                        required>
                 </div>
                 <div class="d-flex flex-column-reverse sm:flex-row align-items-center justify-end sm:justify-end mt-6">
                     <button type="button" class="sm:mt-0 button--simple text-base font-semibold" data-action="prev"
