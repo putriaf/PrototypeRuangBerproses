@@ -1070,6 +1070,10 @@ input:checked + .toggle-bg {
   margin-bottom: 4rem;
 }
 
+.mb-\[100px\] {
+  margin-bottom: 100px;
+}
+
 .box-border {
   box-sizing: border-box;
 }
@@ -1188,6 +1192,10 @@ input:checked + .toggle-bg {
 
 .h-9 {
   height: 2.25rem;
+}
+
+.h-1\/2 {
+  height: 50%;
 }
 
 .max-h-screen {
@@ -2588,6 +2596,11 @@ input:checked + .toggle-bg {
 .text-green-500 {
   --tw-text-opacity: 1;
   color: rgb(14 159 110 / var(--tw-text-opacity));
+}
+
+.text-dark-blue {
+  --tw-text-opacity: 1;
+  color: rgb(29 31 78 / var(--tw-text-opacity));
 }
 
 .underline {

@@ -140,7 +140,7 @@ class RegistrationProCounselingController extends Controller
     public function update(Request $request, $id)
     {
         $rules = [
-            'status_pendaftaran' => 'required'
+            'status_pendaftaran' => 'required',
         ];
         $validatedData["user_id"] = session()->get('id');
         $validatedData = $request->validate($rules);
@@ -153,6 +153,7 @@ class RegistrationProCounselingController extends Controller
             'consent_screening' => $request->input('consent_screening'),
             'bukti_transfer' => $request->input('bukti_transfer'),
             'status_pendaftaran' => $request->input('status_pendaftaran'),
+            'waktu_fix' => $request->input('waktu_fix')
         ]);
         return redirect('/admin');
     }

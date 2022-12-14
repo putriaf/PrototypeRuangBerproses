@@ -123,8 +123,11 @@ nav svg {
                             value="{{ session()->get('tgl_lahir') }}" disabled>
                     </div>
                 </div>
-                <h3 class="text-xl font-semibold xs:mt-3 mt-3">Preferensi Psikolog
+                <h3 class="text-xl font-semibold xs:mt-3 mt-5">Preferensi Psikolog
                 </h3>
+                <p class="text-sm font-medium text-dark-blue mt-2 mb-5">Temukan psikolog yang sesuai dengan
+                    kebutuhanmu <a class="underline" href="/tentang/associate-psychologist" target="blank">disini.</a>
+                </p>
                 <div class="sm:grid sm:grid-cols-2 md:grid-cols-2 sm:my-1 gap-4">
                     <input type="text" id="user_id" name="user_id" value="{{ session()->get('id') }}" class="hidden">
                     <input type="text" id="screening_id" name="screening_id" value="{{ $screening->id }}"

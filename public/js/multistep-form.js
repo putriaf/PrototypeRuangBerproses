@@ -213,15 +213,15 @@ ready(function() {
 
      const validateFile = field => {
       const val = field.value.trim();
-  
-      if (val === '' && field.required) {
+
+      if ($('#bukti_transfer').get(0).files.length === 0) {
         return {
           isValid: false
         };
-      }  else {
-        return {
-          isValid: true
-        };
+      }else {
+      return {
+        isValid: true
+      };
       }
     };
   
