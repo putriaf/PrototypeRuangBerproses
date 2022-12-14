@@ -45,8 +45,8 @@
             dan
             nyaman untuk bercerita? Tenaga profesional siap mendampingimu berproses menuju versi terbaik!</h2>
         <a href="/layanan/professional-counseling"
-            class="block bg-gradient-to-r from-[#FB8D66] xs:mx-20 md:mx-52 sm:mx-28 xs:py-3 sm:py-4 lg:mx-64 rounded-3xl font-semibold mt-8 lg:mt-8 hover:scale-90 transition-all ease-out duration-100 delay-150 hover:bg-gradient-to-r hover:from-[#EB6536]">Daftar
-            Sekarang</a>
+            class="block bg-gradient-to-r from-[#FB8D66] xs:mx-20 md:mx-52 sm:mx-28 xs:py-3 sm:py-4 lg:mx-64 rounded-3xl font-semibold mt-8 lg:mt-8 hover:scale-90 transition-all ease-out duration-100 delay-150 hover:bg-gradient-to-r hover:from-[#EB6536]">Mulai
+            Konseling</a>
     </div>
     <div class=" bg-[#FAFAF2] py-20">
         <div class="mx-auto text-center">

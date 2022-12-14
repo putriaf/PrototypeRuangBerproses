@@ -212,9 +212,9 @@ ready(function() {
    */
 
      const validateFile = field => {
-      const val = field.value.trim();
+      const file = document.getElementById('bukti_transfer');
 
-      if ($('#bukti_transfer').get(0).files.length === 0) {
+      if (file.value == "") {
         return {
           isValid: false
         };

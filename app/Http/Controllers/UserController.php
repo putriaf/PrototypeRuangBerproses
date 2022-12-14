@@ -103,12 +103,17 @@ class UserController extends Controller
             $pass = Hash::make($request->password);
         }
         // $validatedData = $request->validate($rules);
-
-        if ($request->file('foto_profil')) {
+        $uploadPath = public_path('storage/foto-profil');
+        if ($request->hasFile('foto_profil')) {
             if ($request->oldImage) {
                 Storage::delete($request->oldImage);
             }
-            $profil = $request->file('foto_profil')->store('foto-profil');
+            $file = $request->file('foto_profil');
+            $uniqueFileName = uniqid() . '.' . $file->getClientOriginalExtension();
+            $file->move($uploadPath, $uniqueFileName);
+            $profil = 'foto-profil/' . $uniqueFileName;
+        } else {
+            $profil = NULL;
         }
         $validatedData['id'] = $id;
         $response = Http::withHeaders([
