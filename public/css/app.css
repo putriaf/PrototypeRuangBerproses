@@ -3471,6 +3471,10 @@ input:checked + .toggle-bg {
     height: 100vh;
   }
 
+  .sm\:h-full {
+    height: 100%;
+  }
+
   .sm\:max-h-40 {
     max-height: 10rem;
   }
