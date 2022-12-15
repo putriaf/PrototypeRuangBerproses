@@ -22,13 +22,16 @@ nav svg {
 
 @section('content')
 <section
-    class="xs:mx-5 sm:mx-10 md:mx-10 lg:mx-20 lg:my-10 font-quicksand overflow-x-hidden xs:pt-20 sm:pt-20 md:pt-20 lg:pt-20">
+    class="xs:mx-5 sm:mx-10 md:mx-10 lg:mx-20 lg:my-10 font-quicksand overflow-x-hidden xs:pt-20 sm:pt-20 pt-24 md:pt-20 lg:pt-20">
     <div class="text-center">
         <h1 class="text-3xl font-bold xs:mb-4 sm:mb-4 md:mb-4 lg:mb-4">Ruang Berproses</h1>
         <p>Selalu ada ruang untuk kamu berproses menuju versi terbaikmu</p>
     </div>
     <div class="flex xs:mt-8 sm:mt-10 md:mt-10 lg:mt-10 xs:items-center md:items-end">
-        <div class="flex-auto w-2/3">
+        <div class="flex-auto xs:w-full sm:w-2/3">
+            <div class="w-1/3 mx-auto sm:hidden">
+                <img src="{{ asset('img/ruang-berproses/rb-only-logo.png') }}" alt="" class="">
+            </div>
             <div class="xs:mb-6 sm:mb-7 md:mb-7 lg:mb-8">
                 <h2 class="text-xl font-semibold xs:mb-3 sm:mb-5 md:mb-5 lg:mb-5">Visi</h2>
                 <p class="text-justify">Setiap orang menyadari bahwa Kesehatan mental adalah penting dan setiap orang
@@ -45,7 +48,7 @@ nav svg {
                 </p>
             </div>
         </div>
-        <div class="flex-auto w-1/3 xs:pl-10 md:pl-10 lg:pl-32">
+        <div class="flex-auto sm:block w-1/3 xs:pl-10 md:pl-10 lg:pl-32">
             <img src="{{ asset('img/ruang-berproses/rb-only-logo.png') }}" alt="" class="">
         </div>
     </div>
