@@ -48,7 +48,7 @@ nav svg {
                 </p>
             </div>
         </div>
-        <div class="flex-auto sm:block w-1/3 xs:pl-10 md:pl-10 lg:pl-32">
+        <div class="flex-auto xs:hidden sm:block w-1/3 xs:pl-10 md:pl-10 lg:pl-32">
             <img src="{{ asset('img/ruang-berproses/rb-only-logo.png') }}" alt="" class="">
         </div>
     </div>

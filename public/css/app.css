@@ -4492,6 +4492,10 @@ input:checked + .toggle-bg {
     display: block;
   }
 
+  .xs\:hidden {
+    display: none;
+  }
+
   .xs\:h-\[100\%\] {
     height: 100%;
   }
