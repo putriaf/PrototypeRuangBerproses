@@ -66,7 +66,7 @@ nav ul li a {
                         <div class="col-span-2 self-end font-semibold text-lg line-clamp-1">{{ $artikel->judul }}</div>
                         <div
                             class="row-span-2 col-span-2 text-base xs:line-clamp-3 lg:line-clamp-3 md:line-clamp-2 sm:line-clamp-3">
-                            {{ !! $artikel->isi !! }}
+                            { !! $artikel->isi !! }
                         </div>
                     </div>
                 </div>
