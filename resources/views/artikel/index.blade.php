@@ -72,10 +72,10 @@ nav svg {
                     <div class="mr-3 lg:mr-3">
                         @if($artikel->poster == NULL)
                         <img src="{{ asset('img/illustrations/jumbotron-home.png' ) }}" alt=""
-                            class="rounded-lg aspect-video sm:h-full sm:w-full object-cover">
+                            class="rounded-lg aspect-video xs:h-[100%] sm:h-full sm:w-full object-cover">
                         @else
                         <img src="{{ asset('https://ruangberproses-dev.site/storage/' . $artikel->poster ) }}" alt=""
-                            class="rounded-lg aspect-video sm:h-full sm:w-full object-cover">
+                            class="rounded-lg aspect-video xs:h-[100%] sm:h-full sm:w-full object-cover">
                         @endif
                     </div>
                     <div class="col-span-2">

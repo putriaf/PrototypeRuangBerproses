@@ -4484,6 +4484,10 @@ input:checked + .toggle-bg {
     display: block;
   }
 
+  .xs\:h-\[100\%\] {
+    height: 100%;
+  }
+
   .xs\:w-2\/3 {
     width: 66.666667%;
   }
