@@ -5,24 +5,42 @@
 nav ul li a {
     color: black !important;
 }
+
+nav {
+    background-color: white !important;
+    border-radius: 0;
+    transition: all 0.4s ease-in-out;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+nav svg {
+    color: #eb6536 !important;
+}
 </style>
 @endpush
 
 @section('content')
-<section class="mx-5 lg:mx-10 lg:my-10 font-quicksand my-20 lg:mt-20">
+<section class="mx-5 lg:mx-10 lg:my-20 font-quicksand my-20 lg:mt-28" style="">
     <div class="text-center mb-10 lg:mb-14">
         <h1 class="text-3xl font-bold mb-3 lg:mb-4">Associate Psychologist</h1>
         <p>Tenaga psikolog professional untuk mendampingimu berproses</p>
     </div>
     <div class="grid xs:grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-10">
+        @foreach($counselors as $counselor)
         <div
             class="text-center h-full shadow-md block p-6 max-w-sm bg-white rounded-lg border border-gray-200  hover:bg-gray-100">
-            <img src="{{ asset('img/psychologists/ariyanto.png') }}" alt="Ariyanto Yanwar, M.Psi., Psikolog"
+            @if($counselor->foto == NULL)
+            <img src="{{ asset('img/user/avatar.png') }}" alt="Ariyanto Yanwar, M.Psi., Psikolog"
                 class="w-20 h-20 rounded-full object-cover mx-auto mb-3 lg:mb-3">
-            <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">Ariyanto Yanwar,
-                M.Psi., Psikolog</h5>
-            <p class="font-normal text-gray-700 dark:text-gray-400">Love relationship expert</p>
+            @else
+            <img src="{{asset('https://ruangberproses-dev.site/storage/' . $counselor->foto ) }}"
+                alt="Ariyanto Yanwar, M.Psi., Psikolog"
+                class="w-20 h-20 rounded-full object-cover mx-auto mb-3 lg:mb-3">
+            @endif
+            <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">{{ $counselor->nama }}</h5>
+            <p class="font-normal text-gray-700 dark:text-gray-400">{{ $counselor->bidang_keahlian }}</p>
         </div>
+        @endforeach
         <div
             class="text-center h-full shadow-md block p-6 max-w-sm bg-white rounded-lg border border-gray-200  hover:bg-gray-100">
             <img src="{{ asset('img/psychologists/ayu.jpeg') }}" alt="Ayu Pradani S. Putri, M.Psi., Psikolog"

@@ -5,11 +5,22 @@
 nav ul li a {
     color: black !important;
 }
+
+nav {
+    background-color: white !important;
+    border-radius: 0;
+    transition: all 0.4s ease-in-out;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+nav svg {
+    color: #eb6536 !important;
+}
 </style>
 @endpush
 
 @section('content')
-<section class="mx-5 lg:mx-10 lg:my-10 font-quicksand mt-20 lg:mt-20 min-h-screen">
+<section class="mx-5 lg:mx-10 lg:my-10 font-quicksand mt-20 lg:mt-28 min-h-screen">
     <div class="">
         <h1 class="text-2xl sm:text-3xl font-bold">{{ $artikel->judul }}</h1>
         <div class="my-3 lg:my-5 text-sm">
@@ -24,7 +35,7 @@ nav ul li a {
                     <img src="{{ asset('img/illustrations/jumbotron-home.png') }}" alt="" class="rounded-lg">
                 </div>
                 <div class="mt-8 lg:mt-10">
-                    <p class="mb-5">{{ $artikel->isi }}
+                    <p class="mb-5"> {!! $artikel->isi !!}
                     </p>
                 </div>
             </div>

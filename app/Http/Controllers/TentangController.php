@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 
 class TentangController extends Controller
 {
@@ -21,9 +22,12 @@ class TentangController extends Controller
 
     public function viewPsychologist()
     {
+        $response_counselor = Http::get("https://ruangberproses-be.site/api/admin/counselors");
+        $counselor = $response_counselor->object();
         return view('tentang.associate-psychologist', [
             'title' => 'Associate Psychologist Ruang Berproses',
-            'message' => NULL
+            'message' => NULL,
+            'counselors' => $counselor->data
         ]);
     }
 

@@ -5,6 +5,17 @@
 nav ul li a {
     color: black !important;
 }
+
+nav {
+    background-color: white !important;
+    border-radius: 0;
+    transition: all 0.4s ease-in-out;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+nav svg {
+    color: #eb6536 !important;
+}
 </style>
 <link rel="stylesheet" href="{{ asset('css/profile-milestone.css') }}">
 @endpush
@@ -12,7 +23,7 @@ nav ul li a {
 @section('content')
 <section
     class="xs:mx-5 sm:mx-10 md:mx-10 lg:mx-20 lg:my-10 font-quicksand overflow-x-hidden xs:pt-20 sm:pt-20 md:pt-20 lg:pt-20">
-    <div class=" text-center">
+    <div class="text-center">
         <h1 class="text-3xl font-bold xs:mb-4 sm:mb-4 md:mb-4 lg:mb-4">Ruang Berproses</h1>
         <p>Selalu ada ruang untuk kamu berproses menuju versi terbaikmu</p>
     </div>

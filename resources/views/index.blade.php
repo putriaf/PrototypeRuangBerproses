@@ -361,7 +361,7 @@
                         {{ $artikel->judul }}
                     </div>
                     <div class="row-span-2 col-span-2 text-base sm:text-sm xs:line-clamp-2 sm:line-clamp-3">
-                        {{ $artikel->isi }}
+                        {!! $artikel->isi !!}
                     </div>
                 </div>
             </div>

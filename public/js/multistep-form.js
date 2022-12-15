@@ -213,8 +213,9 @@ ready(function() {
 
      const validateFile = field => {
       const file = document.getElementById('bukti_transfer');
+      const val = field.value.trim();
 
-      if (file.value == "") {
+      if (val === '' && field.required) {
         return {
           isValid: false
         };
@@ -224,6 +225,25 @@ ready(function() {
       };
       }
     };
+
+        /*****************************************************************************
+   * Expects a Node (input[type="radio"]).
+   */
+
+        const validateRadio = field => {
+          const file = document.getElementById('bukti_transfer');
+          const val = field.value.trim();
+    
+          if (val === '' && field.required) {
+            return {
+              isValid: false
+            };
+          }else {
+          return {
+            isValid: true
+          };
+          }
+        };
   
   /*****************************************************************************
    * Expects a Node (field or fieldset).
@@ -249,6 +269,7 @@ ready(function() {
       case 'fieldset':
         return validateGroup(field);
       case 'radio':
+        return validateRadio(field);
       case 'checkbox':
         return validateChoice(field);
       case 'tel':
@@ -279,7 +300,7 @@ ready(function() {
    */
 
   const validateStep = currentStep => {
-    const fields = tabPanels[currentStep].querySelectorAll('fieldset, input:not([type="radio"]):not([type="checkbox"]), select, textarea');
+    const fields = tabPanels[currentStep].querySelectorAll('fieldset, input:not([type="radio"]):not([type="checkbox"]), select, textarea, input[type="file"]');
 
     const invalidFields = [...fields].filter(field => {
       return !isValid(field);
@@ -343,7 +364,7 @@ ready(function() {
           fieldErrorId = `${field.id}__error`;
 
           updateChoice(field, true, fieldErrorId);
-        } else if (field.matches('[type="radio"], [type="checkbox"]')) {
+        } else if (field.matches('[type="radio"], [type="checkbox"], [type="file"]')) {
           fieldErrorId = `${field.closest('fieldset').id}__error`;
 
           updateChoice(field.closest('fieldset'), true, fieldErrorId);
@@ -380,7 +401,7 @@ ready(function() {
       if (fieldParent.contains(fieldError)) {
         if (field.matches('fieldset')) {
           updateChoice(field, false);
-        } else if (field.matches('[type="radio"], [type="checkbox"]')) {
+        } else if (field.matches('[type="radio"], [type="checkbox"], [type="file"]')) {
           updateChoice(field.closest('fieldset'), false);
         } else {
           field.removeAttribute('aria-invalid');

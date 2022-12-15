@@ -5,12 +5,23 @@
 nav ul li a {
     color: black !important;
 }
+
+nav {
+    background-color: white !important;
+    border-radius: 0;
+    transition: all 0.4s ease-in-out;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+nav svg {
+    color: #eb6536 !important;
+}
 </style>
 <link rel="stylesheet" href="{{ asset('css/autocomplete-search.css') }}">
 @endpush
 
 @section('content')
-<section class="sm:mx-5 md:mx-10 lg:mx-20 mt-14 lg:mt-20 mb-10 lg:mb-10">
+<section class="sm:mx-5 md:mx-10 lg:mx-20 mt-14 lg:mt-28 mb-10 lg:mb-10">
     <div class="mx-auto font-quicksand text-center lg:mb-12">
         <h1 class="text-3xl font-bold mb-6 lg:mb-6">Artikel Berproses</h1>
     </div>
@@ -59,8 +70,13 @@ nav ul li a {
             <a href="/artikel-berproses/{{ $artikel->id }}">
                 <div class="sm:w-2/3 md:w-2/3 lg:w-2/3 grid grid-cols-3 gap-2 mb-8 lg:mb-10">
                     <div class="mr-3 lg:mr-3">
+                        @if($artikel->poster == NULL)
                         <img src="{{ asset('img/illustrations/jumbotron-home.png' ) }}" alt=""
                             class="rounded-lg aspect-video h-full sm:w-full object-cover">
+                        @else
+                        <img src="{{ asset('https://ruangberproses-dev.site/storage/' . $artikel->poster ) }}" alt=""
+                            class="rounded-lg aspect-video h-full sm:w-full object-cover">
+                        @endif
                     </div>
                     <div class="col-span-2">
                         <div class="col-span-2 self-end font-semibold text-lg line-clamp-1">{{ $artikel->judul }}</div>
