@@ -21,7 +21,7 @@ nav svg {
 @endpush
 
 @section('content')
-<section class="sm:mx-5 md:mx-10 lg:mx-20 mt-14 lg:mt-28 mb-10 lg:mb-10">
+<section class="sm:mx-5 md:mx-10 lg:mx-20 mt-24 lg:mt-28 mb-10 lg:mb-10">
     <div class="mx-auto font-quicksand text-center lg:mb-12">
         <h1 class="text-3xl font-bold mb-6 lg:mb-6">Artikel Berproses</h1>
     </div>
