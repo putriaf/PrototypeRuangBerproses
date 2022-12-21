@@ -9,6 +9,17 @@ nav ul li a {
 #footer {
     display: none;
 }
+
+nav {
+    background-color: white !important;
+    border-radius: 0;
+    transition: all 0.4s ease-in-out;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+nav svg {
+    color: #eb6536 !important;
+}
 </style>
 @endpush
 
@@ -61,6 +72,9 @@ nav ul li a {
 
 <div class="grid xs:grid-cols-1 md:grid-cols-2 font-quicksand lg:pl-2 gap-6 bg-hero-login sm:bg-none bg-slate-50">
     <div class="lg:pb-12 sm:pt-20 md:pt-20 pt-32 px-10 sm:px-auto md:px-10 lg:px-10 xl:px-10">
+        <p class="underline underline-offset-8 mb-2 font-semibold"
+            style="text-decoration-color: #FB8D66; text-decoration-thickness: 2px">
+            LOGIN</p>
         <h1 class="xs:text-2xl sm:text-4xl md:text-3xl lg:text-4xl font-bold" style="line-height: 1.5;">Berproses Menuju
             Versi Terbaikmu
             Dimulai
@@ -93,8 +107,8 @@ nav ul li a {
                         width="10"></i>{{ $message }}</p>
             </div>
             @enderror
-            <button type="submit" id="submit-btn"
-                class="flex xs:mt-5 sm:mt-8 md:mt-8 lg:mt-8 text-white font-bold bg-red-500 hover:bg-red-600 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center lg:min-w-[2/3]"><span
+            <button type="submit" id="submit-btn" style="background-color: #eb6536"
+                class="flex xs:mt-5 sm:mt-8 md:mt-8 lg:mt-8 text-white font-bold hover:bg-red-500 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center lg:min-w-[2/3]"><span
                     id="submit-label">Masuk
                     Sekarang</span>
                 <svg aria-hidden="true" id="loading-svg"
@@ -113,8 +127,8 @@ nav ul li a {
                 sekarang!</a>
         </p>
     </div>
-    <div class="md:pt-32 lg:pt-20 hidden sm:hidden md:block lg:block xl:block min-h-screen">
-        <img src="{{ asset('img/illustrations/login.png') }}" alt="" class="">
+    <div class="md:pt-32 lg:pt-[70px] hidden sm:hidden md:block lg:block xl:block min-h-screen">
+        <img src="{{ asset('img/illustrations/login.png') }}" alt="" class="lg:h-full">
     </div>
 </div>
 @endsection

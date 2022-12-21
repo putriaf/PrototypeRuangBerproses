@@ -33,8 +33,13 @@
                         id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown"
                         data-dropdown-placement="bottom">
                         <span class="sr-only">Open user menu</span>
+                        @if (session()->get('foto_profil') != NULL)
+                        <img src="{{ asset('https://ruangberproses-dev.site/storage/' . session()->get('foto_profil')) }}"
+                            alt="User Profile" class="w-10 h-10 rounded-full object-cover aspect-square">
+                        @else
                         <img class="w-10 h-10 rounded-full" src="{{ asset('img/user/avatar.png') }}"
                             alt="User Photo Placeholder">
+                        @endif
                     </button>
                     @endif
                     <!-- Dropdown menu -->

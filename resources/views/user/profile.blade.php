@@ -73,7 +73,8 @@ footer {
                     <img src="{{ asset('https://ruangberproses-dev.site/storage/' . $profilUser->foto_profil) }}"
                         alt="User Profile" class="w-20 mx-auto">
                     @else
-                    <img src="{{ asset('img/user/avatar.png') }}" alt="User Profile" class="w-20 mx-auto">
+                    <img src="{{ asset('img/user/avatar.png') }}" alt="User Profile"
+                        class="w-20 mx-auto mb-2 rounded-full object-cover aspect-square">
                     @endif
                     <h1 class="text-2xl font-bold lg:mb-2">{{ $profilUser->nama }}</h1>
                     <p>{{ $profilUser->email }}</p>
@@ -173,7 +174,11 @@ footer {
                     @foreach($reg_procounseling as $user_rpc)
                     <div class="bg-white mb-4 lg:mb-8 rounded-xl p-4 lg:p-4">
                         <h3 class="font-semibold text-lg">Konseling dengan {{ $user_rpc->nama }}</h3>
+                        @if($user_rpc->waktu_fix == NULL)
+                        <p class="text-xs mb-5">Belum ada waktu konseling yang disetujui</p>
+                        @else
                         <p class="text-xs mb-5">Waktu Konseling yang Disetujui: {{ $user_rpc->waktu_fix }}</p>
+                        @endif
                         @if($user_rpc->status_pendaftaran == 'konfirmasi_admin')
                         <p class="p-2 lg:p-2 rounded-md bg-[#FFEAB2] w-fit font-semibold text-sm mt-3 lg:mt-4">MENUNGGU
                             KONFIRMASI
@@ -184,9 +189,15 @@ footer {
                             class="inline p-2 lg:p-2 rounded-md bg-[#AAF0BE] w-fit font-semibold text-sm mt-3 lg:mt-4 mr-2">
                             BERHASIL
                         </p>
+                        @if($user_rpc->link_event != NULL)
                         <a href="{{$user_rpc->link_event}}" target="__blank"
                             class="p-2 lg:p-2 rounded-md bg-slate-700 w-fit font-semibold text-sm mt-3 lg:mt-4 text-neutral-100"><i
                                 class="inline" data-feather="link-2"></i></a>
+                        @else
+                        <a href="" target="__blank"
+                            class="p-2 lg:p-2 rounded-md bg-slate-700 w-fit font-semibold text-sm mt-3 lg:mt-4 text-neutral-100"><i
+                                class="inline" data-feather="link-2"></i></a>
+                        @endif
                         @else
                         <p class="p-2 lg:p-2 rounded-md bg-[#D9D9D9] w-fit font-semibold text-sm mt-3 lg:mt-4">GAGAL
                         </p>

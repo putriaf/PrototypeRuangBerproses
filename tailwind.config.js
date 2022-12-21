@@ -38,7 +38,8 @@ module.exports = {
         'bounce-slow': 'bounce 3s infinite',
       },
       colors: {
-        'dark-blue': '#1D1F4E'
+        'dark-blue': '#1D1F4E',
+        'dark-primary-orange': '#EB6536'
       },
       screens: {
         'xs': {'max': '640px'},

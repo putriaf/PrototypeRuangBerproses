@@ -9,14 +9,29 @@ nav ul li a {
 #footer {
     display: none;
 }
+
+nav {
+    background-color: white !important;
+    border-radius: 0;
+    transition: all 0.4s ease-in-out;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+nav svg {
+    color: #eb6536 !important;
+}
 </style>
 @endpush
 
 @section('content')
 <section class="xs:px-10 sm:px-5 md:px-10 lg:px-16 xs:pt-20 sm:pt-20 md:pt-20 lg:pt-24 font-quicksand bg-slate-50">
+    <p class="underline underline-offset-8 mb-4 font-semibold"
+        style="text-decoration-color: #FB8D66; text-decoration-thickness: 2px">
+        REGISTER</p>
     <h1 class="xs:text-2xl sm:text-2xl md:text-2xl lg:text-3xl font-bold xs:mb-2 lg:mb-2">Buat Akun dan Akses Layanan
     </h1>
-    <h1 class="xs:text-2xl sm:text-2xl md:text-2xl lg:text-3xl font-bold xs:mb-6 sm:mb-6 md:mb-6">Sepenuhnya</h1>
+    <h1 class="xs:text-2xl sm:text-2xl md:text-2xl lg:text-3xl font-bold xs:mb-6 sm:mb-6 md:mb-6 lg:mb-3">Sepenuhnya
+    </h1>
     <form method="POST" action="/register" enctype="multipart/form-data" class="lg:mr-52">
         @csrf
         <div class="grid grid-cols-2">
@@ -172,7 +187,7 @@ nav ul li a {
         </div>
         <input id="role" type="hidden" name="role" required value="0">
         <button type="submit" id="submit-btn"
-            class="flex xs:mt-5 sm:mt-8 md:mt-8 lg:mt-8 text-white font-bold bg-red-500 hover:bg-red-600 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center lg:min-w-[2/3]"><span
+            class="flex xs:mt-5 sm:mt-8 md:mt-8 lg:mt-10 text-white font-bold bg-red-500 hover:bg-red-600 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center lg:min-w-[2/3]"><span
                 id="submit-label">Daftar
                 Sekarang</span>
             <svg aria-hidden="true" id="loading-svg"
@@ -187,7 +202,8 @@ nav ul li a {
             </svg>
         </button>
     </form>
-    <p class="text-sm xs:mt-3 sm:mt-3 md:mt-3 lg:mt-3">Sudah punya akun? <a href="/login" class="font-semibold">Masuk
+    <p class="text-sm xs:mt-3 sm:mt-3 md:mt-3 lg:mt-3 pb-9">Sudah punya akun? <a href="/login"
+            class="font-semibold">Masuk
             sekarang!</a></p>
 </section>
 @endsection
