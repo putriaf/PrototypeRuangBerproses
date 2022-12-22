@@ -377,7 +377,7 @@ nav svg {
                     </div>
                 </div>
                 <div
-                    class="d-flex flex-column-reverse sm:flex-row align-items-center justify-start sm:justify-end mt-6">
+                    class="d-flex flex-column-reverse sm:flex-row align-items-center justify-between sm:justify-end mt-6">
                     <button type="button" class="button--simple text-base font-semibold" data-action="prev"
                         style="color: #1D1F4E; padding-right: 15px; width: auto">
                         Kembali
