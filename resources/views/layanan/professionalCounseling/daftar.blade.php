@@ -407,13 +407,15 @@ nav svg {
                     <input class="form-control text-base" type="file" id="bukti_transfer" name="bukti_transfer"
                         onChange="checkIfFileSubmitted();" required>
                 </div>
-                <div class="d-flex flex-column-reverse sm:flex-row align-items-center justify-end sm:justify-end mt-6">
+                <div
+                    class="d-flex flex-column-reverse sm:flex-row align-items-center justify-between sm:justify-end mt-6">
                     <button type="button" class="sm:mt-0 button--simple text-base font-semibold" data-action="prev"
                         style="color: #1D1F4E; padding: 5px 35px; width: auto">
                         Kembali
                     </button>
-                    <button type="submit" class="c-btn__continue text-base" id="continue-btn" disabled
-                        style="background-color: #1D1F4E; color: whitesmoke; padding: 5px 35px; width: auto"
+                    <button type="submit"
+                        class="c-btn__continue text-base disabled:bg-gray-300 disabled:text-[#323232] enabled:bg-[#1D1F4E] enabled:text-white"
+                        id="continue-btn" disabled style="padding: 5px 35px; width: auto"
                         class="mt-4 right-0 text-right rounded-md"><span>Submit</span>
                         <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                             x="0px" y="0px" viewBox="0 0 37 37" xml:space="preserve" class="u-loading" id="loading">
