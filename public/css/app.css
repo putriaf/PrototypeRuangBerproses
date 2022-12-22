@@ -1546,6 +1546,10 @@ input:checked + .toggle-bg {
   flex-wrap: wrap;
 }
 
+.place-content-center {
+  place-content: center;
+}
+
 .place-items-end {
   place-items: end;
 }
@@ -1554,8 +1558,16 @@ input:checked + .toggle-bg {
   place-items: center;
 }
 
+.place-items-stretch {
+  place-items: stretch;
+}
+
 .content-center {
   align-content: center;
+}
+
+.content-around {
+  align-content: space-around;
 }
 
 .items-start {
@@ -1584,6 +1596,10 @@ input:checked + .toggle-bg {
 
 .justify-between {
   justify-content: space-between;
+}
+
+.justify-evenly {
+  justify-content: space-evenly;
 }
 
 .gap-3 {

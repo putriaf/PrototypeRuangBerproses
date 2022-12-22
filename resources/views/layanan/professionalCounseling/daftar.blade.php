@@ -405,14 +405,14 @@ nav svg {
                         <span data-required="true" aria-hidden="true"></span>
                     </label>
                     <input class="form-control text-base" type="file" id="bukti_transfer" name="bukti_transfer"
-                        required>
+                        onChange="checkIfFileSubmitted();" required>
                 </div>
                 <div class="d-flex flex-column-reverse sm:flex-row align-items-center justify-end sm:justify-end mt-6">
                     <button type="button" class="sm:mt-0 button--simple text-base font-semibold" data-action="prev"
                         style="color: #1D1F4E; padding: 5px 35px; width: auto">
                         Kembali
                     </button>
-                    <button type="submit" class="c-btn__continue text-base" id="continue-btn"
+                    <button type="submit" class="c-btn__continue text-base" id="continue-btn" disabled
                         style="background-color: #1D1F4E; color: whitesmoke; padding: 5px 35px; width: auto"
                         class="mt-4 right-0 text-right rounded-md"><span>Submit</span>
                         <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -467,4 +467,13 @@ nav svg {
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.9/flatpickr.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.9/themes/airbnb.min.css">
 <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.js" defer></script>
+<script>
+function checkIfFileSubmitted() {
+    if (document.getElementById("bukti_transfer").value === "") {
+        document.getElementById('continue-btn').disabled = true;
+    } else {
+        document.getElementById('continue-btn').disabled = false;
+    }
+}
+</script>
 @endpush
