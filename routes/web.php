@@ -110,6 +110,7 @@ Route::delete('/admin/program/psytalk-list/{id}', [PsytalkController::class, 'de
 Route::get('/program/psytalk/{id}/daftar', [RegistrationPsytalkController::class, 'create'])->middleware('token');
 Route::post('/program/psytalk/{id}/daftar', [RegistrationPsytalkController::class, 'store']);
 Route::get('/program/psytalk/{id}', [RegistrationPsytalkController::class, 'show']);
+Route::get('/admin/program/psytalk/{id}/edit', [RegistrationPsytalkController::class, 'edit']);
 Route::put('/admin/program/psytalk/{id}', [RegistrationPsytalkController::class, 'update']);
 Route::delete('/admin/program/psytalk/{id}', [RegistrationPsytalkController::class, 'destroy']);
 // Kelas Berproses

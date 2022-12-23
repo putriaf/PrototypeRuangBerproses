@@ -104,7 +104,13 @@ class RegistrationPsytalkController extends Controller
      */
     public function edit($id)
     {
-        //
+        $response = Http::get('https://ruangberproses-be.site/api/program/psytalk/' . $id);
+        $response = $response->object();
+        return view('program.psytalk.edit-reg', [
+            'title' => 'Edit Data Pendaftaran Psytalk',
+            'message' => NULL,
+            'psytalk' => $response->data,
+        ]);
     }
 
     /**
@@ -116,7 +122,23 @@ class RegistrationPsytalkController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $rules = [
+            'status_pendaftaran' => 'required',
+        ];
+        $validatedData["user_id"] = session()->get('id');
+        $validatedData = $request->validate($rules);
+        $response = Http::asForm()->post("https://ruangberproses-be.site/api/admin/program/psytalk/" . $id . '?_method=PUT', [
+            'user_id' => $request->input('user_id'),
+            'psytalk_id' => $request->input('psytalk_id'),
+            'alasan' => $request->input('alasan'),
+            'asal_info' => $request->input('asal_info'),
+            'pertanyaan' => $request->input('pertanyaan'),
+            'status_pendaftaran' => $request->input('status_pendaftaran'),
+            'ide_topik' => $request->input('ide_topik')
+        ]);
+        if ($response->status() == 200) {
+            return redirect('/admin')->with('success', 'Pendaftaran berhasil!');
+        }
     }
 
     /**
@@ -127,7 +149,11 @@ class RegistrationPsytalkController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $response = Http::delete("https://ruangberproses-be.site/api/admin/program/psytalk/" . $id);
+
+        if ($response->status() == 200) {
+            return redirect('/admin')->with('success', 'Psytalk data has been deleted!');
+        }
     }
 
     public function regSuccess()

@@ -1640,10 +1640,20 @@
                                     @endforeach
                                     <td class="py-4 px-6">
                                         <!-- Modal toggle -->
-                                        <a href="#" type="button"
+                                        <!-- <a href="#" type="button"
+                                            data-modal-toggle="editpsyRegModal{{ $regpsytalk->id }}"
+                                            class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit
+                                        </a> -->
+                                        <a href="/admin/program/psytalk/{{ $regpsytalk->id }}/edit" type="button"
                                             data-modal-toggle="editpsyRegModal{{ $regpsytalk->id }}"
                                             class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit
                                         </a>
+                                        <form action="/admin/program/psytalk/{{ $regpsytalk->id }}" method="POST">
+                                            @method('delete')
+                                            @csrf
+                                            <button
+                                                class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Delete</button>
+                                        </form>
                                     </td>
                                     <!-- Edit user modal -->
                                     <div id="editpsyRegModal{{ $regpsytalk->id }}" tabindex="-1" aria-hidden="true"
