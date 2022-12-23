@@ -98,10 +98,12 @@ Route::delete('/admin/layanan/professional-counseling/{professional_counselings:
 Route::get('/program', [ProgramController::class, 'index']);
 // Psytalk
 Route::get('/program/psytalk', [PsytalkController::class, 'index']);
+Route::get('/admin/program/psytalk-list/tambah', [PsytalkController::class, 'create']);
 Route::post('/admin/program/psytalk-list/tambah', [PsytalkController::class, 'store'])->middleware('token');
 Route::get('/program/psytalk/daftar/success', [RegistrationPsytalkController::class, 'regSuccess']);
 Route::get('/admin/program/psytalk-list', [PsytalkController::class, 'all']);
 Route::get('/admin/program/psytalk-list/{id}', [PsytalkController::class, 'show']);
+Route::get('/admin/program/psytalk-list/{id}/edit', [PsytalkController::class, 'edit']);
 Route::put('/admin/program/psytalk-list/{id}', [PsytalkController::class, 'update']);
 Route::delete('/admin/program/psytalk-list/{id}', [PsytalkController::class, 'destroy']);
 // Psytalk Registration Data

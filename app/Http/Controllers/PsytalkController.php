@@ -33,7 +33,7 @@ class PsytalkController extends Controller
      */
     public function create()
     {
-        return view('program.psytalk.daftar', [
+        return view('program.psytalk.create', [
             'title' => 'Pendaftaran Psytalk',
             'message' => NULL
         ]);
@@ -50,15 +50,21 @@ class PsytalkController extends Controller
         $validatedData = $request->validate([
             'topik' => 'required',
             'pembicara' => 'required',
+            'tanggal' => 'required',
             'waktu' => 'required',
-            'biaya' => 'required'
+            'biaya' => 'required',
+            'poster' => 'required',
+            'link_event' => 'required'
         ]);
 
-        $response = Http::asForm()->post("https://ruangberproses-be.site/api/program/psytalk/daftar", [
+        $response = Http::asForm()->post("https://ruangberproses-be.site/api/admin/program/psytalk-list/tambah", [
             'topik' => $request->input('topik'),
             'pembicara' => $request->input('pembicara'),
+            'tanggal' => $request->input('tanggal'),
             'waktu' => $request->input('waktu'),
             'biaya' => $request->input('biaya'),
+            'poster' => $request->input('biaya'),
+            'link_event' => $request->input('link_event'),
         ]);
         if ($response->status() == 200) {
             return redirect('/program/psytalk')->with('success', 'Pendaftaran berhasil!');
@@ -92,7 +98,7 @@ class PsytalkController extends Controller
      */
     public function edit($id)
     {
-        $response = Http::get("https://ruangberproses-be.site/api/program/psytalk/" . $id);
+        $response = Http::get("https://ruangberproses-be.site/api/admin/program/psytalk-list/" . $id);
         $response = $response->object();
 
         return view('program.psytalk.edit', [
@@ -110,19 +116,20 @@ class PsytalkController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $rules = [
-            'pilihan_webinar' => 'required',
-            'bukti_transfer' => 'required',
-        ];
-        $validatedData["user_id"] = session()->get('id');
-        $validatedData = $request->validate($rules);
-
-        Http::asForm()->post("https://ruangberproses-be.site/api/program/psytalk/" . $id . '?_method=PUT', [
-            'pilihan_webinar' => $request->input('pilihan_webinar'),
-            'bukti_transfer' => $request->input('bukti_transfer'),
+        $response  = Http::asForm()->post("https://ruangberproses-be.site/api/admin/program/psytalk-list/" . $id . '?_method=PUT', [
+            'topik' => $request->input('topik'),
+            'pembicara' => $request->input('pembicara'),
+            'tanggal' => $request->input('tanggal'),
+            'waktu' => $request->input('waktu'),
+            'biaya' => $request->input('biaya'),
+            'poster' => $request->input('poster'),
+            'link_event' => $request->input('link_event'),
         ]);
-
-        return redirect('/program');
+        if ($response->status() == 200) {
+            return redirect('/admin')->with('success', 'Edit data berhasil!');
+        } else {
+            return redirect('/admin/program/psytalk/{id}/edit')->with('success', 'Edit data gagal!');
+        }
     }
 
     /**
@@ -133,10 +140,10 @@ class PsytalkController extends Controller
      */
     public function destroy($id)
     {
-        $response = Http::delete("https://ruangberproses-be.site/api/program/psytalk/" . $id);
+        $response = Http::delete("https://ruangberproses-be.site/api/admin/program/psytalk-list/" . $id);
 
         if ($response->status() == 200) {
-            return redirect('/program')->with('success', 'Psytalk data has been deleted!');
+            return redirect('/admin')->with('success', 'Psytalk data has been deleted!');
         }
     }
 }

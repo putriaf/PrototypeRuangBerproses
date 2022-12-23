@@ -149,7 +149,7 @@ class ArtikelController extends Controller
             'user_id' => $request->input('user_id'),
             'judul' => $request->input('judul'),
             'isi' => $request->input('isi'),
-            // 'poster' => $imagePath
+            'poster' => $imagePath
         ]);
         if ($response->status() == 200) {
             return redirect('/admin')->with('success', 'Pendaftaran berhasil!');
