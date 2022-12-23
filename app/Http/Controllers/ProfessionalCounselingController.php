@@ -27,7 +27,12 @@ class ProfessionalCounselingController extends Controller
      */
     public function create()
     {
-        //
+        $counseling_fields = ["counselor_id", "biaya"];
+        return view('layanan.professionalCounseling.create', [
+            'title' => 'Professional Counseling',
+            'message' => NULL,
+            'counseling_fields' => $counseling_fields
+        ]);
     }
 
     /**
@@ -83,12 +88,14 @@ class ProfessionalCounselingController extends Controller
      */
     public function edit($id)
     {
-        $response = Http::get("https://ruangberproses-be.site/api/layanan/professional-counseling/" . $id);
+        $counseling_fields = ["counselor_id", "biaya"];
+        $response = Http::get("https://ruangberproses-be.site/api/admin/layanan/procounseling-list/" . $id);
         $response = $response->object();
 
         return view('layanan.professionalCounseling.edit', [
             'title' => 'Edit Data Professional Counseling',
-            'professionalcounseling' => $response->data
+            'proc' => $response->data,
+            'counseling_fields' => $counseling_fields
         ]);
     }
 
@@ -101,15 +108,8 @@ class ProfessionalCounselingController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $rules = [
-            'nama_konselor' => 'required',
-            'waktu' => 'required',
-            'biaya' => 'required'
-        ];
-        $validatedData = $request->validate($rules);
         Http::asForm()->post("https://ruangberproses-be.site/api/admin/layanan/procounseling-list/" . $id . '?_method=PUT', [
-            'nama_konselor' => $request->input('nama_konselor'),
-            'waktu' => $request->input('waktu'),
+            'counselor_id' => $request->input('counselor_id'),
             'biaya' => $request->input('biaya')
         ]);
 

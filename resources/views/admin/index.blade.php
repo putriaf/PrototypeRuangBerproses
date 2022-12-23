@@ -103,15 +103,26 @@
                         <h2 class="text-gray-600 ml-0.5">Konseling dengan psikolog professional</h2>
                     </div>
                     <div class="flex flex-wrap items-start justify-end -mb-3 text-sm">
-                        <button data-modal-toggle="createpcListModal"
-                            class="inline-flex px-5 py-3 text-white bg-blue-600 hover:bg-purple-700 focus:bg-blue-700 rounded-md ml-6 mb-3">
-                            <svg aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                                class="flex-shrink-0 h-4 w-4 text-white -ml-1 mr-2 self-center">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-                            </svg>
-                            Tambah Data
-                        </button>
+                        <a href="/admin/layanan/procounseling-list/tambah">
+                            <button data-modal-toggle=""
+                                class="inline-flex px-5 py-3 text-white bg-blue-600 hover:bg-purple-700 focus:bg-blue-700 rounded-md ml-6 mb-3">
+                                <svg aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                                    class="flex-shrink-0 h-4 w-4 text-white -ml-1 mr-2 self-center">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                                </svg>
+                                Tambah Data
+                            </button>
+                            <!-- <button data-modal-toggle="createpcListModal"
+                                class="inline-flex px-5 py-3 text-white bg-blue-600 hover:bg-purple-700 focus:bg-blue-700 rounded-md ml-6 mb-3">
+                                <svg aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                                    class="flex-shrink-0 h-4 w-4 text-white -ml-1 mr-2 self-center">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                                </svg>
+                                Tambah Data
+                            </button> -->
+                        </a>
                     </div>
                 </div>
                 <section class="grid md:grid-cols-1">
@@ -164,12 +175,23 @@
                                     @endforeach
                                     <td class="py-4 px-6">
                                         <!-- Modal toggle -->
-                                        <a href="#" type="button" data-modal-toggle="editpcListModal{{ $proc->id }}"
+                                        <a href="/admin/layanan/procounseling-list/{{ $proc->id }}/edit" type="button"
+                                            data-modal-toggle=""
                                             class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit
                                         </a>
-                                        <a href="#" type="button" data-modal-toggle="deletepcListModal{{ $proc->id }}"
+                                        <!-- <a href="" type="button"
+                                            data-modal-toggle="editpcListModal{{ $proc->id }}"
+                                            class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit
+                                        </a> -->
+                                        <form action="/admin/layanan/procounseling-list/{{ $proc->id }}" method="POST">
+                                            @method('delete')
+                                            @csrf
+                                            <button
+                                                class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Delete</button>
+                                        </form>
+                                        <!-- <a href="#" type="button" data-modal-toggle="deletepcListModal{{ $proc->id }}"
                                             class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Delete
-                                        </a>
+                                        </a> -->
                                     </td>
                                     <!-- Edit Pro Counseling List modal -->
                                     <div id="editpcListModal{{ $proc->id }}" tabindex="-1" aria-hidden="true"
