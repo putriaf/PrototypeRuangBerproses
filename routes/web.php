@@ -90,7 +90,7 @@ Route::post('/layanan/professional-counseling/daftar', [RegistrationProCounselin
 Route::get('/layanan/professional-counseling/daftar/success', [RegistrationProCounselingController::class, 'regSuccess']);
 Route::get('/layanan/professional-counseling', [ProfessionalCounselingController::class, 'index']);
 Route::get('/layanan/professional-counseling/{professional_counselings:id}', [RegistrationProCounselingController::class, 'show']);
-Route::get('/layanan/professional-counseling/{professional_counselings:id}/edit', [RegistrationProCounselingController::class, 'edit']);
+Route::get('/admin/layanan/professional-counseling/{professional_counselings:id}/edit', [RegistrationProCounselingController::class, 'edit']);
 Route::put('/admin/layanan/professional-counseling/{professional_counselings:id}', [RegistrationProCounselingController::class, 'update']);
 Route::delete('/admin/layanan/professional-counseling/{professional_counselings:id}', [RegistrationProCounselingController::class, 'destroy']);
 

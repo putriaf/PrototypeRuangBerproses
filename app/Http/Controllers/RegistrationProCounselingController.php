@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\File;
 
@@ -89,6 +90,7 @@ class RegistrationProCounselingController extends Controller
             'opsi_waktu1' => $request->input('opsi_waktu1'),
             'opsi_waktu2' => $request->input('opsi_waktu2'),
         ]);
+        // dd($response->body());
         if ($response->status() == 200) {
             return redirect('/layanan/professional-counseling/daftar/success')->with('success', 'Pendaftaran berhasil!');
         } else {
@@ -124,9 +126,9 @@ class RegistrationProCounselingController extends Controller
         $response = Http::get("https://ruangberproses-be.site/api/layanan/professional-counseling/" . $id);
         $response = $response->object();
 
-        return view('layanan.professionalCounseling.edit', [
+        return view('layanan.professionalCounseling.edit-reg', [
             'title' => 'Edit Data Pendaftaran Professional Counseling',
-            'professionalcounseling' => $response->data
+            'regproc' => $response->data
         ]);
     }
 
@@ -155,6 +157,7 @@ class RegistrationProCounselingController extends Controller
             'status_pendaftaran' => $request->input('status_pendaftaran'),
             'waktu_fix' => $request->input('waktu_fix')
         ]);
+        // dd($response->body());
         return redirect('/admin');
     }
 

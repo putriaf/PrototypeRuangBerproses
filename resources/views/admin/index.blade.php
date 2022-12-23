@@ -415,12 +415,23 @@
                                     @endforeach
                                     <td class="py-4 px-6">
                                         <!-- Modal toggle -->
-                                        <a href="#" type="button" data-modal-toggle="editpcRegModal{{ $regproc->id }}"
+                                        <a href="/admin/layanan/professional-counseling/{{ $regproc->id }}/edit"
+                                            type="button" data-modal-toggle=""
                                             class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit
                                         </a>
-                                        <a href="#" type="button" data-modal-toggle="deletepcRegModal{{$regproc->id }}"
+                                        <!-- <a href="#" type="button" data-modal-toggle="editpcRegModal{{ $regproc->id }}"
+                                            class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit
+                                        </a> -->
+                                        <form action="/admin/layanan/professional-counseling/{{ $regproc->id }}"
+                                            method="POST">
+                                            @method('delete')
+                                            @csrf
+                                            <button
+                                                class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Delete</button>
+                                        </form>
+                                        <!-- <a href="#" type="button" data-modal-toggle="deletepcRegModal{{$regproc->id }}"
                                             class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Delete
-                                        </a>
+                                        </a> -->
                                     </td>
 
                                     <!-- Edit professional counseling registration modal -->

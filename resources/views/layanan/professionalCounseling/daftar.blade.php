@@ -49,7 +49,7 @@ nav svg {
     $profilUser->no_telp
     != NULL && $profilUser->tgl_lahir != NULL && $profilUser->domisili != NULL && $profilUser->pendidikan != NULL &&
     $profilUser->agama != NULL && $profilUser->pekerjaan != NULL && $profilUser->status != NULL)
-    <div class=" mx-auto container font-quicksand">
+    <div class="mx-auto container font-quicksand">
         <!-- Progress Form -->
         <form id="progress-form" class="p-4 progress-form" action="/layanan/professional-counseling/daftar"
             method="POST" lang="en" novalidate enctype="multipart/form-data">
