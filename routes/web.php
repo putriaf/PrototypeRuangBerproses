@@ -125,6 +125,7 @@ Route::get('/artikel-berproses/getLatest', [ArtikelController::class, 'getLatest
 Route::get('/artikel-berproses/{artikel:id}', [ArtikelController::class, 'show']);
 Route::get('/admin/artikel-berproses/tambah', [ArtikelController::class, 'create']);
 Route::post('/admin/artikel-berproses/tambah', [ArtikelController::class, 'store']);
+Route::get('/admin/artikel-berproses/{id}/edit', [ArtikelController::class, 'edit']);
 Route::put('/admin/artikel-berproses/{id}', [ArtikelController::class, 'update']);
 Route::delete('/admin/artikel-berproses/{id}', [ArtikelController::class, 'destroy']);
 

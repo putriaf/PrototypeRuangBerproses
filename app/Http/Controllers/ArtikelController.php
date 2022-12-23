@@ -117,7 +117,13 @@ class ArtikelController extends Controller
      */
     public function edit($id)
     {
-        //
+        $response = Http::get("https://ruangberproses-be.site/api/artikel-berproses/" . $id);
+        $response = $response->object();
+        return view('artikel.edit', [
+            'title' => 'Edit Artikel',
+            'message' => NULL,
+            'artikel' => $response->data,
+        ]);
     }
 
     /**
@@ -129,7 +135,27 @@ class ArtikelController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $uploadPath = public_path('storage/poster-artikel');
+        if ($request->hasFile('poster')) {
+            $file = $request->file('poster');
+            $uniqueFileName = uniqid() . '.' . $file->getClientOriginalExtension();
+            $file->move($uploadPath, $uniqueFileName);
+            $imagePath = 'poster-artikel/' . $uniqueFileName;
+        } else {
+            $imagePath = NULL;
+        }
+
+        $response = Http::asForm()->post("https://ruangberproses-be.site/api/admin/artikel-berproses/" . $id . '?_method=PUT', [
+            'user_id' => $request->input('user_id'),
+            'judul' => $request->input('judul'),
+            'isi' => $request->input('isi'),
+            // 'poster' => $imagePath
+        ]);
+        if ($response->status() == 200) {
+            return redirect('/admin')->with('success', 'Pendaftaran berhasil!');
+        }
+
+        return redirect('/admin');
     }
 
     /**
@@ -140,6 +166,10 @@ class ArtikelController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $response = Http::delete("https://ruangberproses-be.site/api/admin/artikel-berproses/" . $id);
+
+        if ($response->status() == 200) {
+            return redirect('/admin')->with('success', 'Artikel data has been deleted!');
+        }
     }
 }
