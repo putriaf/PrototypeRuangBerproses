@@ -41,8 +41,8 @@ nav svg {
             </div>
         </div>
         @if($latest_artikels != NULL)
-        <hr class="xs:block xs:mt-12 xs:mb-16 xs:border-dark-blue">
-        <div class="sm:flex-auto sm:w-1/3 lg:w-1/3">
+        <hr class="xs:block xs:mt-12 xs:border-dark-blue">
+        <div class="sm:flex-auto sm:w-1/3 lg:w-1/3 xs:mb-16">
             <h2 class="text-xl xs:font-bold font-semibold mb-2 lg:mb-3">Artikel Terbaru</h2>
             @foreach($latest_artikels as $latest_artikel)
             <div class="mb-2 lg:mb-3 xs:bg-pale-yellow xs:p-3 xs:rounded-xl">
