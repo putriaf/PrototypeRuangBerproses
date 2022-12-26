@@ -26,7 +26,7 @@ nav svg {
         <p>Tenaga psikolog professional untuk mendampingimu berproses</p>
     </div>
     <div
-        class="lg:flex xs:grid sm:grid md:grid xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-2 justify-center sm:justify-center gap-10 content-center place-items-stretch xs:justify-items-center">
+        class="lg:flex xs:grid sm:grid md:grid xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-2 justify-center sm:justify-center gap-10 xs:gap-y-7 content-center place-items-stretch xs:justify-items-center">
         @foreach($counselors as $counselor)
         <div
             class="text-center h-full shadow-md block p-6 max-w-sm bg-white rounded-lg border border-gray-200  hover:bg-gray-100 md:basis-1/2 lg:basis-1/4 flex-wrap">

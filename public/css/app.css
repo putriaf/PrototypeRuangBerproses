@@ -4626,6 +4626,10 @@ input:checked + .toggle-bg {
     justify-items: center;
   }
 
+  .xs\:gap-y-7 {
+    row-gap: 1.75rem;
+  }
+
   .xs\:rounded-xl {
     border-radius: 0.75rem;
   }
