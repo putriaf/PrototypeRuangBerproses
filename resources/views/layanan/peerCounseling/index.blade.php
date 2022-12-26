@@ -14,7 +14,7 @@
             Sekarang</a>
         <p class="text-white font-semibold text-sm mt-5">bergabung dengan 200+ orang yang sudah mendaftar</p>
     </div>
-    <div class="grid grid-cols-2 gap-2 lg:m-20 my-10 mx-5">
+    <div class="grid md:grid-cols-2 gap-2 lg:m-20 my-10 mx-5">
         <div class="">
             <div class="lg:mb-10 mb-10">
                 <h3 class="font-semibold text-xl mb-4">Apa Sih Konseling Itu?</h3>
@@ -34,7 +34,7 @@
                 </ul>
             </div>
         </div>
-        <div class="sm:mx-auto my-7 lg:m-auto">
+        <div class="xs:mx-auto my-7 lg:m-auto sm:w-full">
             <div href="#"
                 class="block bg-[#1D1F4E] text-white p-6 sm:max-w-sm rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
                 <div class="grid grid-cols-3">

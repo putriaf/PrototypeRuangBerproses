@@ -92,8 +92,10 @@
                             :class="{'justify-start': menu, 'justify-center': menu == false}">
                             <svg aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor"
                                 class="h-6 w-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                                <rect x="2" y="7" width="20" height="14" rx="2" ry="2" stroke-linecap="round"
+                                    stroke-linejoin="round" stroke-width="2" />
+                                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" stroke-linecap="round"
+                                    stroke-linejoin="round" stroke-width="2" />
                             </svg>
                             <span class="ml-2" x-show="menu">Professional<br>Counseling</span>
                         </a>
@@ -105,8 +107,12 @@
                             :class="{'justify-start': menu, 'justify-center': menu == false}">
                             <svg aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor"
                                 class="h-6 w-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+                                    stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+                                <polyline points="14 2 14 8 20 8" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" />
+                                <line x1="9" y1="15" x2="15" y2="15" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" />
                             </svg>
                             <span class="ml-2" x-show="menu">Peer<br>Counseling</span>
                         </a>
@@ -118,8 +124,8 @@
                             :class="{'justify-start': menu, 'justify-center': menu == false}">
                             <svg aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor"
                                 class="h-6 w-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
+                                    stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
                             </svg>
                             <span class="ml-2" x-show="menu">Support<br>Group</span>
                         </a>
@@ -133,8 +139,10 @@
                             :class="{'justify-start': menu, 'justify-center': menu == false}">
                             <svg aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor"
                                 class="h-6 w-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                                <polygon points="23 7 16 12 23 17 23 7" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" />
+                                <rect x="1" y="5" width="15" height="14" rx="2" ry="2" stroke-linecap="round"
+                                    stroke-linejoin="round" stroke-width="2" />
                             </svg>
                             <span class="ml-2" x-show="menu">PSYTALK</span>
                         </a>
@@ -146,8 +154,10 @@
                             :class="{'justify-start': menu, 'justify-center': menu == false}">
                             <svg aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor"
                                 class="h-6 w-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" />
+                                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"
+                                    stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
                             </svg>
                             <span class="ml-2" x-show="menu">Kelas<br>Berproses</span>
                         </a>
@@ -160,8 +170,10 @@
                             :class="{'justify-start': menu, 'justify-center': menu == false}">
                             <svg aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor"
                                 class="h-6 w-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" stroke-linecap="round"
+                                    stroke-linejoin="round" stroke-width="2" />
+                                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" stroke-linecap="round"
+                                    stroke-linejoin="round" stroke-width="2" />
                             </svg>
                             <span class="ml-2" x-show="menu">Artikel</span>
                         </a>
