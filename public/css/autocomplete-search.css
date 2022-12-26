@@ -1,16 +1,18 @@
 #result {
     padding: 3px;
-    color: white;
+    color: #323232;
     z-index: 9999;
     position: absolute;
     width: 100%;
-    padding: 10px;
-    margin-top: 5px;
+    padding: 8px 10px;
+    margin-top: 7px;
     border-radius: 10px;
-    background-color: #1d1f4e;
+    background-color: #fbfbfb;
     transition-timing-function: ease-in-out;
     transition-delay: 1s;
     transition-duration: 1s;
+    box-shadow: rgba(0, 0, 0, 0.1) -4px 9px 25px -6px;
+    border: 1px solid #d3d3d3;
 }
 
 #result ul {
@@ -19,12 +21,18 @@
     margin: 0;
 }
 
-#result ul li {
-    padding: 5px 0;
+#result li {
+    padding: 3px 0;
     margin-bottom: 3px;
     text-transform: capitalize !important;
 }
 
-#result ul li:hover {
-    background: #eee;
+#result li {
+    display: -webkit-box;
+    -webkit-line-clamp: 1 !important;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    font-weight: 600;
+    font-family: Quicksand;
 }

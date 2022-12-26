@@ -5,6 +5,7 @@
 <link href="{{ asset('https://ruangberproses-dev.site/css/testimonial-carousel.css') }}" rel="stylesheet">
 <link href="{{ asset('css/slick-carousel.css') }}" rel="stylesheet">
 <link href="{{ asset('https://ruangberproses-dev.site/css/slick-carousel.css') }}" rel="stylesheet">
+<link href="{{ asset('css/line-clamp.css') }}" rel="stylesheet">
 @endpush
 
 @section('content')
@@ -104,7 +105,7 @@
             </ul>
         </div>
     </div>
-    <div class="bg-[#FAFAF2] py-20">
+    <!-- <div class="py-20">
         <div class="mx-auto text-center">
             <h3 class="text-xl lg:text-2xl font-semibold lg:mb-2 sm:mb-2 mb-2">Layanan Kami</h3>
             <p class="lg:text-md sm:text-sm text-sm">Berbagai macam layanan tersedia untuk setiap kebutuhanmu</p>
@@ -122,9 +123,7 @@
         </div>
 
         <div id="default-carousel" class="relative" data-carousel="static">
-            <!-- Carousel wrapper -->
             <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
-                <!-- Item 1 -->
                 <div class="duration-700 ease-in-out absolute inset-0 transition-all transform translate-x-0 z-20"
                     data-carousel-item="">
                     <div class="container absolute block -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
@@ -150,7 +149,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- Item 2 -->
                 <div class="duration-700 ease-in-out absolute inset-0 transition-all transform translate-x-full z-10 active:z-20"
                     data-carousel-item="">
                     <div class="container absolute block -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
@@ -172,7 +170,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- Item 3 -->
                 <div class="duration-700 ease-in-out absolute inset-0 transition-all transform -translate-x-full z-10"
                     data-carousel-item="">
                     <div class="container absolute block -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
@@ -195,7 +192,6 @@
                     </div>
                 </div>
             </div>
-            <!-- Slider indicators -->
             <div class="absolute z-30 space-x-3 -translate-x-1/2 bottom-5 left-1/2 hidden lg:flex">
                 <button type="button" class="w-3 h-3 rounded-full bg-white dark:bg-gray-800" aria-current="true"
                     aria-label="Slide 1" data-carousel-slide-to="0"></button>
@@ -206,7 +202,6 @@
                     class="w-3 h-3 rounded-full bg-white/50 dark:bg-gray-800/50 hover:bg-white dark:hover:bg-gray-800"
                     aria-current="false" aria-label="Slide 3" data-carousel-slide-to="2"></button>
             </div>
-            <!-- Slider controls -->
             <button type="button"
                 class="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
                 data-carousel-prev="">
@@ -233,8 +228,8 @@
                 </span>
             </button>
         </div>
-    </div>
-    <div class="py-20">
+    </div>  -->
+    <div class="bg-[#FAFAF2] py-20">
         <div class="mx-auto text-center">
             <h3 class="text-xl lg:text-2xl font-semibold lg:mb-2">Kata Mereka</h3>
         </div>
@@ -349,7 +344,7 @@
         <div class="mx-auto text-center mb-7 sm:mb-14">
             <h3 class="text-xl lg:text-2xl font-semibold">Artikel Berproses</h3>
         </div>
-        <div class="grid sm:grid-cols-2 lg:mx-20 sm:mx-10 mx-8 gap-4 mb-7">
+        <div class="grid sm:grid-cols-2 lg:mx-20 sm:mx-10 mx-8 gap-x-14 gap-y-4 mb-7 mt-10">
             @foreach($artikels as $artikel)
             <div class="grid grid-cols-3 gap-2 sm:gap-3 lg:gap-4 lg:mb-10 mb-6">
                 <div class="lg:mr-3">
@@ -357,10 +352,10 @@
                         class="rounded-lg lg:h-full lg:w-full object-cover aspect-video">
                 </div>
                 <div class="col-span-2">
-                    <div class="col-span-2 self-end font-semibold lg:text-lg xs:line-clamp-1 sm:text-base">
+                    <div class="col-span-2 self-end font-semibold lg:text-lg line-clamp-2 sm:text-base">
                         {{ $artikel->judul }}
                     </div>
-                    <div class="row-span-2 col-span-2 text-base sm:text-sm xs:line-clamp-2 sm:line-clamp-3">
+                    <div class="row-span-2 col-span-2 text-base sm:text-sm line-clamp-3">
                         {!! $artikel->isi !!}
                     </div>
                 </div>
@@ -368,7 +363,7 @@
             @endforeach
         </div>
         <div class="text-center">
-            <a href=""
+            <a href="/artikel-berproses"
                 class="bg-white text-black border-black border-[1px] lg:px-4 sm:px-4 px-4 lg:py-2 sm:py-2 py-2 rounded-lg sm:text-sm text-sm">Lihat
                 Selengkapnya</a>
         </div>
