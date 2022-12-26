@@ -51,24 +51,28 @@
     </div>
     <div class=" bg-[#FAFAF2] py-20">
         <div class="mx-auto text-center">
-            <h3 class="text-xl lg:text-2xl md:text-xl font-semibold lg:mb-2 sm:mb-2 mb-2">Gabung Bersama Sahabat
+            <h3 class="text-xl lg:text-2xl md:text-xl font-semibold lg:mb-2 sm:mb-2 mb-2 xs:mx-10">Gabung Bersama
+                Sahabat
                 Berproses
                 Lainnya
             </h3>
-            <p class="lg:text-md mx-4 sm:mx-6 sm:text-sm text-sm">Bicarakan apa yang menjadi beban, lepas semua penat,
+            <p class="lg:text-md mx-4 sm:mx-6 sm:text-sm text-sm xs:mx-10">Bicarakan apa yang menjadi beban, lepas semua
+                penat,
                 dan
                 urai
                 pikiran kusutmu
             </p>
         </div>
-        <div class="container grid grid-cols-3 gap-3 text-center mx-auto lg:px-40 lg:pt-10 sm:px-10 sm:pt-8 pt-8">
+        <div
+            class="container grid grid-cols-3 gap-3 text-center mx-auto lg:px-40 lg:pt-10 xs:px-5 sm:px-10 sm:pt-8 pt-8">
             <div class="items-center">
                 <img src="{{ asset('img/illustrations/usp-1.png') }}" alt="" srcset=""
                     class="mx-auto lg:w-24 lg:mb-4 sm:w-20 sm:mb-4 mb-4 w-24">
                 <h4
                     class="lg:text-2xl font-bold hover:lg:text-3xl transition-all ease-in-out duration-1000 delay-200 hover:text-[#e64322]">
                     7000+</h4>
-                <p class="lg:px-16 sm:px-5 px-5 lg:mt-2 text-sm">pengikut di sosial media</p>
+                <p class="lg:px-16 sm:px-5 px-2 lg:mt-2 text-sm sm:font-semibold lg:font-semibold">pengikut di sosial
+                    media</p>
             </div>
             <div class="items-center">
                 <img src="{{ asset('img/illustrations/usp-2.png') }}" alt="" srcset=""
@@ -76,7 +80,8 @@
                 <h4
                     class="lg:text-2xl font-bold hover:lg:text-3xl transition-all ease-in-out duration-1000 delay-200 hover:text-[#e64322]">
                     200+</h4>
-                <p class="lg:px-16 lg:mt-2 text-sm">total sesi konseling terlaksana</p>
+                <p class="lg:px-16 lg:mt-2 text-sm px-2 sm:font-semibold lg:font-semibold">total sesi konseling
+                    terlaksana</p>
             </div>
             <div class="items-center">
                 <img src="{{ asset('img/illustrations/usp-3.png') }}" alt="" srcset=""
@@ -84,7 +89,8 @@
                 <h4
                     class="lg:text-2xl font-bold hover:lg:text-3xl transition-all ease-in-out duration-1000 delay-200 hover:text-[#e64322]">
                     80+</h4>
-                <p class="xs:px-5 lg:px-16 lg:mt-2 text-sm">total sesi edukasi psikologi terlaksana</p>
+                <p class="xs:px-5 lg:px-16 lg:mt-2 text-sm px-2 sm:font-semibold lg:font-semibold">total sesi edukasi
+                    psikologi terlaksana</p>
             </div>
         </div>
     </div>
