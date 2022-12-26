@@ -4603,6 +4603,10 @@ input:checked + .toggle-bg {
     align-items: center;
   }
 
+  .xs\:justify-items-center {
+    justify-items: center;
+  }
+
   .xs\:rounded-xl {
     border-radius: 0.75rem;
   }

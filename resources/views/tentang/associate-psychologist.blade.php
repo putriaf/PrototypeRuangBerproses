@@ -25,7 +25,8 @@ nav svg {
         <h1 class="text-3xl font-bold mb-3 lg:mb-4">Associate Psychologist</h1>
         <p>Tenaga psikolog professional untuk mendampingimu berproses</p>
     </div>
-    <div class="grid xs:grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-10 content-center place-items-stretch">
+    <div
+        class="grid xs:grid-cols-1 sm:grid-cols-3 md:grid-cols-4 gap-10 content-center place-items-stretch xs:justify-items-center">
         @foreach($counselors as $counselor)
         <div
             class="text-center h-full shadow-md block p-6 max-w-sm bg-white rounded-lg border border-gray-200  hover:bg-gray-100">
