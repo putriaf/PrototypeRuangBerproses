@@ -21,6 +21,7 @@ nav svg {
     color: #eb6536 !important;
 }
 </style>
+<link href="{{ asset('css/auth-validation.css') }}" rel="stylesheet">
 @endpush
 
 @section('content')
@@ -81,12 +82,30 @@ nav svg {
             Disini</h1>
         <form action="/login" method="POST" class="mt-8 lg:mt-14 lg:mr-52" name="login-form">
             @csrf
-            <div class="relative z-0 mb-4 sm:mb-4 md:mb-8 lg:mb-6 w-full group">
+            <div class="input-group relative z-0 mb-4 sm:mb-4 md:mb-8 lg:mb-6 w-full group">
                 <input type="email" name="email" id="email"
-                    class="@error('email') is-invalid @enderror bg-transparent block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 rounded-lg border-1 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-gray-300 peer"
-                    placeholder=" " autofocus required="" value="{{ old('email') }}">
+                    class="@error('email') is-invalid @enderror input bg-transparent block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 rounded-lg border-1 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-gray-300 peer"
+                    placeholder=" " autofocus required="" value="{{ old('email') }}" autocomplete="off">
                 <label for="email"
                     class="bg-slate-50 absolute text-sm text-gray-500 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] px-2 peer-focus:px-2 peer-focus:text-dark-blue peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1">EMAIL</label>
+                <span class="error-message"></span>
+                <svg class="icon icon-success hidden" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                    viewBox="0 0 24 24">
+                    <title>check-circle</title>
+                    <g fill="none">
+                        <path d="M9 12l2 2 4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0z" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round"></path>
+                    </g>
+                </svg>
+
+                <svg class="icon icon-error hidden" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                    viewBox="0 0 24 24">
+                    <title>exclamation-circle</title>
+                    <g fill="none">
+                        <path d="M12 8v4m0 4h.01M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round"></path>
+                    </g>
+                </svg>
             </div>
             @error('email')
             <div class="invalid-feedback block mt-2 font-semibold">
@@ -96,10 +115,28 @@ nav svg {
             @enderror
             <div class="relative z-0 w-full group">
                 <input type="password" name="password" id="password"
-                    class="@error('password') is-invalid @enderror block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-gray-300 peer"
+                    class="@error('password') is-invalid @enderror input block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-gray-300 peer"
                     placeholder=" " required="" value="{{ old('password') }}">
                 <label for="password"
                     class="bg-slate-50 absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] dark:bg-gray-900 px-2 peer-focus:px-2 peer-focus:text-dark-blue peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1">PASSWORD</label>
+                <span class="error-message"></span>
+                <svg class="icon icon-success hidden" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                    viewBox="0 0 24 24">
+                    <title>check-circle</title>
+                    <g fill="none">
+                        <path d="M9 12l2 2 4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0z" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round"></path>
+                    </g>
+                </svg>
+
+                <svg class="icon icon-error hidden" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                    viewBox="0 0 24 24">
+                    <title>exclamation-circle</title>
+                    <g fill="none">
+                        <path d="M12 8v4m0 4h.01M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round"></path>
+                    </g>
+                </svg>
             </div>
             @error('password')
             <div class="invalid-feedback block mt-2 font-semibold">
@@ -135,4 +172,5 @@ nav svg {
 
 @push('scripts')
 <script src="{{ asset('js/loginreg-btn.js') }}"></script>
+<script src="{{ asset('js/login-validation.js') }}"></script>
 @endpush
