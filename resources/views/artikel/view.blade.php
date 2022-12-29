@@ -16,7 +16,16 @@ nav {
 nav svg {
     color: #eb6536 !important;
 }
+
+.latest-item p {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
 </style>
+<link href="{{ asset('css/line-clamp.css') }}" rel="stylesheet">
 @endpush
 
 @section('content')
@@ -45,9 +54,9 @@ nav svg {
         <div class="sm:flex-auto sm:w-1/3 lg:w-1/3 xs:mb-16">
             <h2 class="text-xl xs:font-bold font-semibold mb-2 lg:mb-3">Artikel Terbaru</h2>
             @foreach($latest_artikels as $latest_artikel)
-            <div class="mb-2 lg:mb-3 xs:bg-pale-yellow xs:p-3 xs:rounded-xl">
+            <div class="mb-2 lg:mb-3 xs:bg-pale-yellow xs:p-3 xs:rounded-xl latest-item">
                 <h3 class="text-base font-semibold mb-1 lg:mb-1 line-clamp-1">{{ $latest_artikel->judul }}</h3>
-                <p class="text-sm line-clamp-2">{{ $latest_artikel->isi }}
+                <p class="text-sm">{!! $latest_artikel->isi !!}
                 </p>
             </div>
             @endforeach
