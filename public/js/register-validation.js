@@ -70,7 +70,7 @@ class FormValidator {
 
         // Password confirmation edge case
         if (field.id === "password_confirm") {
-            const passwordField = this.form.querySelector('#password')
+            const passwordField = document.querySelector('#password')
     
             if (field.value.trim() == "") {
                 this.setStatus(field, "Konfirmasi password wajib diisi", "error")
@@ -111,7 +111,7 @@ class FormValidator {
     }
 }
 
-const form = document.querySelector('.form')
+const form = document.querySelector('.form-reg')
 const fields = ["email", "no_telp", "nama", "username", "password", "password_confirm"]
 
 const validator = new FormValidator(form, fields)
