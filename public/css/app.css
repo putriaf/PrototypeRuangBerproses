@@ -883,6 +883,11 @@ input:checked + .toggle-bg {
   margin-right: 1.5rem;
 }
 
+.mx-3 {
+  margin-left: 0.75rem;
+  margin-right: 0.75rem;
+}
+
 .mb-6 {
   margin-bottom: 1.5rem;
 }
@@ -4229,10 +4234,6 @@ input:checked + .toggle-bg {
     margin-right: 0.5rem;
   }
 
-  .lg\:mt-0 {
-    margin-top: 0px;
-  }
-
   .lg\:block {
     display: block;
   }
@@ -4500,14 +4501,14 @@ input:checked + .toggle-bg {
     margin-right: 3rem;
   }
 
-  .xs\:mx-5 {
-    margin-left: 1.25rem;
-    margin-right: 1.25rem;
-  }
-
   .xs\:mx-auto {
     margin-left: auto;
     margin-right: auto;
+  }
+
+  .xs\:mx-5 {
+    margin-left: 1.25rem;
+    margin-right: 1.25rem;
   }
 
   .xs\:mb-4 {

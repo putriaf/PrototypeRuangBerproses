@@ -3,25 +3,7 @@
 @push('styles')
 <link href="{{ asset('css/slick-carousel.css') }}" rel="stylesheet">
 <link href="{{ asset('https://ruangberproses-dev.site/css/slick-carousel.css') }}" rel="stylesheet">
-
-<style>
-.faq {
-    color: black;
-}
-
-.faq button {
-    background-color: #FB8D6650;
-}
-
-.faq button:focus {
-    font-weight: 700;
-}
-
-.faq .answer {
-    background-color: #ffffff80;
-    font-weight: 500;
-}
-</style>
+<link href="{{ asset('css/accordion-faq.css') }}" rel="stylesheet">
 @endpush
 
 <!--  Hero -->

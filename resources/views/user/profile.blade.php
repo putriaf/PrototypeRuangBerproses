@@ -159,7 +159,11 @@ footer {
                         </div>
                     </div>
                 </div>
-                <a href="" class="underline text-xs text-center mx-auto block my-3 lg:my-4">Logout</a>
+                <form action="/logout" method="POST">
+                    @csrf
+                    <button class="underline text-xs text-center mx-auto block my-3 lg:my-4">Logout
+                    </button>
+                </form>
             </div>
         </div>
         <div class="col-span-3 max-h-screen shadow-md rounded-md p-5 lg:p-12 overflow-y-auto overflow-x-hidden bg-[#F3F3F3] mb-5 lg:mb-16 lg:mt-20"

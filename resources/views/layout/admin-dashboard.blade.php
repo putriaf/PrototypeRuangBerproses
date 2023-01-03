@@ -61,6 +61,7 @@
 </head>
 
 <body class="flex bg-gray-100 min-h-screen font-quicksand overflow-hidden" x-data="{panel:false, menu:true}">
+    @if(session()->get('role') == 1)
     <aside class="flex flex-col" :class="{'hidden sm:flex sm:flex-col': window.outerWidth > 768}">
         <a href="#"
             class="inline-flex items-center justify-center h-20 w-full bg-gray-800 hover:bg-gray-800 focus:bg-gray-800">
@@ -234,6 +235,9 @@
         </header>
 
         @yield('content')
+        @else
+        <p class="mx-3 my-3">Anda tidak mempunyai akses ke halaman admin.</p>
+        @endif
     </div>
 </body>
 
