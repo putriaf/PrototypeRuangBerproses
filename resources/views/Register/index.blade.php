@@ -33,7 +33,7 @@ nav svg {
     </h1>
     <h1 class="xs:text-2xl sm:text-2xl md:text-2xl lg:text-3xl font-bold xs:mb-6 sm:mb-6 md:mb-6 lg:mb-3">Sepenuhnya
     </h1>
-    <form method="POST" action="/register" enctype="multipart/form-data" class="lg:mr-52">
+    <form method="POST" action="/register" enctype="multipart/form-data" class="form lg:mr-52">
         @csrf
         <div class="grid grid-cols-2 xs:grid-cols-1 ">
             <div class="xs:mr-4 sm:mr-4 md:mr-4 lg:mr-16">
