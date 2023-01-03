@@ -60,7 +60,7 @@ class FormValidator {
         }
 
         if (field.id === "no_telp") {
-            const regex = new RegExp(/^[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4,8})(?: *x(\d+))?$/);
+            const regex = new RegExp(/^[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{5,8})(?: *x(\d+))?$/);
             if (regex.test(field.value)) {
                 this.setStatus(field, null, "success")
             } else {
