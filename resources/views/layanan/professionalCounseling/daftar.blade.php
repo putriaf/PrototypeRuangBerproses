@@ -231,7 +231,7 @@ nav svg {
                     </div>
                     <div class="mt-3 sm:mt-0 lg:mt-2 form__field">
                         <label for="perubahan_emosi">
-                            Ceritakan gejala/perubahan fisik yang kamu alami akhir-akhir ini
+                            Ceritakan gejala/perubahan emosi yang kamu alami akhir-akhir ini
                             <span data-required="true" aria-hidden="true"></span>
                         </label>
                         <textarea id="perubahan_emosi" name="perubahan_emosi" rows="3"
