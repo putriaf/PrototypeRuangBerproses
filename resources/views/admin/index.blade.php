@@ -187,6 +187,7 @@
                                             @method('delete')
                                             @csrf
                                             <button
+                                                onclick="return confirm('Apakah Anda yakin ingin menghapus data ini? Data yang sudah dihapus tidak bisa dikembalikan lagi');"
                                                 class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Delete</button>
                                         </form>
                                         <!-- <a href="#" type="button" data-modal-toggle="deletepcListModal{{ $proc->id }}"
@@ -426,8 +427,8 @@
                                             method="POST">
                                             @method('delete')
                                             @csrf
-                                            <button
-                                                class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Delete</button>
+                                            <button class="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                                                onclick="return confirm('Apakah Anda yakin ingin menghapus data ini? Data yang sudah dihapus tidak bisa dikembalikan lagi');">Delete</button>
                                         </form>
                                         <!-- <a href="#" type="button" data-modal-toggle="deletepcRegModal{{$regproc->id }}"
                                             class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Delete
@@ -1448,6 +1449,7 @@
                                             @method('delete')
                                             @csrf
                                             <button
+                                                onclick="return confirm('Apakah Anda yakin ingin menghapus data ini? Data yang sudah dihapus tidak bisa dikembalikan lagi');"
                                                 class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Delete</button>
                                         </form>
                                         <!-- <a href="#" type="button"
