@@ -16,6 +16,7 @@ use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\PsytalkController;
 use App\Http\Controllers\RegistrationPsytalkController;
 use App\Http\Controllers\KelasBerprosesController;
+use App\Http\Controllers\RegistrationPeerCounselingController;
 use App\Http\Controllers\ScreeningController;
 use App\Http\Controllers\TentangController;
 use Illuminate\Support\Facades\Artisan;
@@ -77,6 +78,15 @@ Route::get('/layanan/peer-counseling/{peer_counselings:id}', [PeerCounselingCont
 Route::get('/layanan/peer-counseling/{peer_counselings:id}/edit', [PeerCounselingController::class, 'edit']);
 Route::put('/layanan/peer-counseling/{peer_counselings:id}', [PeerCounselingController::class, 'update']);
 Route::delete('/layanan/peer-counseling/{peer_counselings:id}', [PeerCounselingController::class, 'destroy']);
+// Peer Counseling Registration Data
+Route::get('/layanan/peer-counseling/daftar', [RegistrationPeerCounselingController::class, 'create'])->middleware('token');
+Route::post('/layanan/peer-counseling/daftar', [RegistrationPeerCounselingController::class, 'store']);
+Route::get('/layanan/peer-counseling/daftar/success', [RegistrationPeerCounselingController::class, 'regSuccess']);
+Route::get('/layanan/peer-counseling', [RegistrationPeerCounselingController::class, 'index']);
+Route::get('/layanan/peer-counseling/{peer_counselings:id}', [RegistrationPeerCounselingController::class, 'show']);
+Route::get('/admin/layanan/peer-counseling/{peer_counselings:id}/edit', [RegistrationPeerCounselingController::class, 'edit']);
+Route::put('/admin/layanan/peer-counseling/{peer_counselings:id}', [RegistrationPeerCounselingController::class, 'update']);
+Route::delete('/admin/layanan/peer-counseling/{peer_counselings:id}', [RegistrationPeerCounselingController::class, 'destroy']);
 // Professional Counseling
 Route::get('/admin/layanan/procounseling-list/tambah', [ProfessionalCounselingController::class, 'create'])->middleware('token');
 Route::post('/admin/layanan/procounseling-list/tambah', [ProfessionalCounselingController::class, 'store']);
