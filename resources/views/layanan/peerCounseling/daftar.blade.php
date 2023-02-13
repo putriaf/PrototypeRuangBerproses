@@ -125,9 +125,6 @@ nav svg {
                 </div>
                 <h3 class="text-xl font-semibold xs:mt-3 mt-5">Preferensi Psikolog
                 </h3>
-                <p class="text-sm font-medium text-dark-blue mt-2 mb-5">Temukan psikolog yang sesuai dengan
-                    kebutuhanmu <a class="underline" href="/tentang/associate-psychologist" target="blank">disini.</a>
-                </p>
                 <div class="sm:grid sm:grid-cols-2 md:grid-cols-2 sm:my-1 gap-4">
                     <input type="text" id="user_id" name="user_id" value="{{ session()->get('id') }}" class="hidden">
                     <input type="text" id="screening_id" name="screening_id" value="{{ $screening->id }}"
@@ -135,74 +132,18 @@ nav svg {
                     <input type="text" id="status_pendaftaran" name="status_pendaftaran" value="konfirmasi_admin" class="
                         hidden">
                     <div class="mt-3 sm:mt-0 form__field">
-                        <label for="procounseling_id">
-                            Preferensi Psikolog
+                        <label for="pref_jk_konselor">
+                            Preferensi Jenis Kelamin Konselor
                             <span data-required="true" aria-hidden="true"></span>
                         </label>
-                        <select id="procounseling_id" name="procounseling_id" autocomplete="" required
+                        <select id="pref_jk_konselor" name="pref_jk_konselor" autocomplete="" required
                             class="rounded-md">
                             <option value="" disabled selected>Pilih psikolog</option>
-                            @if($procounselings != NULL)
-                            @foreach($procounselings as $pc)
-                            <option value="{{ $pc->counselor_id }}">{{ $pc->nama }}
+                            <option value="L">Laki-laki
                             </option>
-                            @endforeach
-                            @endif
+                            <option value="P">Perempuan
+                            </option>
                         </select>
-                    </div>
-                    <div class="mt-3 sm:mt-0 form__field">
-                        <label for="sesi">
-                            Sesi
-                            <span data-required="true" aria-hidden="true"></span>
-                        </label>
-                        <input type="number" name="sesi" id="sesi" required class="rounded-md"
-                            placeholder="Sesi konseling saat ini">
-                    </div>
-                </div>
-                <div class="sm:grid sm:grid-cols-2 md:grid-cols-2 sm:my-1 gap-4">
-                    <div x-data
-                        x-init="flatpickr($refs.datetimewidget, {wrap: true, enableTime: true, dateFormat: 'M j, Y h:i K'});"
-                        x-ref="datetimewidget" class="flatpickr container mx-auto mt-3 sm:mt-0 form__field">
-                        <label for="opsi_waktu1"
-                            class="form__field flex-grow block font-medium text-sm text-gray-700 mb-1">Opsi Waktu
-                            1 <span data-required="true" aria-hidden="true"></span></label>
-                        <div class="flex align-middle align-content-center">
-                            <input x-ref="datetime" type="text" id="opsi_waktu1" data-input required
-                                placeholder="Pilih waktu" name="opsi_waktu1"
-                                class="block w-full px-2 border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-l-md shadow-sm">
-
-                            <a class="h-11 w-10 input-button cursor-pointer rounded-r-md bg-transparent border-gray-300 border-t border-b border-r"
-                                title="clear" data-clear>
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 mt-2 ml-1" viewBox="0 0 20 20"
-                                    fill="#c53030">
-                                    <path fill-rule="evenodd"
-                                        d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                                        clip-rule="evenodd" />
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-                    <div x-data
-                        x-init="flatpickr($refs.datetimewidget, {wrap: true, enableTime: true, dateFormat: 'M j, Y h:i K'});"
-                        x-ref="datetimewidget" class="flatpickr container mx-auto mt-3 sm:mt-0 form__field">
-                        <label for="opsi_waktu2"
-                            class="form__field flex-grow block font-medium text-sm text-gray-700 mb-1">Opsi Waktu
-                            2 <span data-required="true" aria-hidden="true"></span></label>
-                        <div class="flex align-middle align-content-center">
-                            <input x-ref="datetime" type="text" id="opsi_waktu2" data-input required
-                                placeholder="Pilih waktu" name="opsi_waktu2"
-                                class="block w-full px-2 border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-l-md shadow-sm">
-
-                            <a class="h-11 w-10 input-button cursor-pointer rounded-r-md bg-transparent border-gray-300 border-t border-b border-r"
-                                title="clear" data-clear>
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 mt-2 ml-1" viewBox="0 0 20 20"
-                                    fill="#c53030">
-                                    <path fill-rule="evenodd"
-                                        d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                                        clip-rule="evenodd" />
-                                </svg>
-                            </a>
-                        </div>
                     </div>
                 </div>
                 <input class="hidden" type="text" id="consent_sharing" name="consent_sharing" value="Ya">
@@ -213,7 +154,6 @@ nav svg {
                         Lanjut
                     </button>
                 </div>
-                <input class="hidden" type="text" id="pernah_konseling" name="pernah_konseling" value="-">
             </section>
             <!-- / End Step 1 -->
 
@@ -221,158 +161,28 @@ nav svg {
             <section id="progress-form__panel-2" role="tabpanel" aria-labelledby="progress-form__tab-2" tabindex="0"
                 hidden class="min-h-[50vh] lg:h-[55vh] overflow-auto box-border">
                 <div class="grid grid-cols-1 gap-6 mt-6">
-                    <div class="mt-3 sm:mt-0 lg:mt-2 form__field">
-                        <label for="perubahan_fisik">
-                            Ceritakan gejala/perubahan fisik yang kamu alami akhir-akhir ini
+                    <div class="mt-3 sm:mt-0 form__field">
+                        <label for="latar_belakang">
+                            Apa hal yang mendorong Anda mendaftar pada peer counseling ini?
                             <span data-required="true" aria-hidden="true"></span>
                         </label>
-                        <textarea id="perubahan_fisik" name="perubahan_fisik" rows="3"
-                            class="rounded-lg xs:w-full sm:w-2/3 md:w-2/3 lg:w-2/3" required></textarea>
-                    </div>
-                    <div class="mt-3 sm:mt-0 lg:mt-2 form__field">
-                        <label for="perubahan_emosi">
-                            Ceritakan gejala/perubahan emosi yang kamu alami akhir-akhir ini
-                            <span data-required="true" aria-hidden="true"></span>
-                        </label>
-                        <textarea id="perubahan_emosi" name="perubahan_emosi" rows="3"
+                        <textarea id="latar_belakang" name="latar_belakang" rows="3"
                             class="rounded-lg xs:w-full sm:w-2/3 md:w-2/3 lg:w-2/3" required></textarea>
                     </div>
                     <div class="mt-3 sm:mt-0 form__field">
-                        <label for="riwayat_kecemasan">
-                            Jelaskan riwayat kecemasan/ketakutan yang kamu alami
+                        <label for="tujuan">
+                            Apa tujuan Anda mendaftar pada peer counseling ini?
                             <span data-required="true" aria-hidden="true"></span>
                         </label>
-                        <textarea id="riwayat_kecemasan" name="riwayat_kecemasan" rows="3"
+                        <textarea id="tujuan" name="tujuan" rows="3"
                             class="rounded-lg xs:w-full sm:w-2/3 md:w-2/3 lg:w-2/3" required></textarea>
                     </div>
                     <div class="mt-3 sm:mt-0 form__field">
-                        <label for="penyakit_kronis">
-                            Ceritakan penyakit kronis yang kamu punya
+                        <label for="keluhan">
+                            Jelaskan keluhan Anda
                             <span data-required="true" aria-hidden="true"></span>
                         </label>
-                        <textarea id="penyakit_kronis" name="penyakit_kronis" rows="3"
-                            class="rounded-lg xs:w-full sm:w-2/3 md:w-2/3 lg:w-2/3" required></textarea>
-                    </div>
-                    <div class="mt-3 sm:mt-0 form__field">
-                        <label for="konsumsi_alkohol">
-                            Apakah kamu mengonsumsi alkohol?
-                            <span data-required="true" aria-hidden="true"></span>
-                        </label>
-                        <div class="flex align-middle">
-                            <div class="flex items-center mr-4">
-                                <input id="konsumsi_alkohol" type="radio" value="Ya" name="konsumsi_alkohol" required
-                                    class="w-2 h-2 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                <label for="konsumsi_alkohol"
-                                    class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300 p-0">
-                                    Ya</label>
-                            </div>
-                            <div class="flex items-center mr-4">
-                                <input id="konsumsi_alkohol" type="radio" value="Tidak" name="konsumsi_alkohol" required
-                                    class="w-2 h-2 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                <label for="konsumsi_alkohol"
-                                    class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300 p-0">
-                                    Tidak</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mt-3 sm:mt-0 form__field">
-                        <label for="konsumsi_obat">
-                            Apakah kamu mengonsumsi obat-obatan?
-                            <span data-required="true" aria-hidden="true"></span>
-                        </label>
-                        <div class="flex align-middle">
-                            <div class="flex items-center mr-4">
-                                <input id="konsumsi_obat" type="radio" value="Ya" name="konsumsi_obat" required
-                                    class="w-2 h-2 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                <label for="konsumsi_obat"
-                                    class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300 p-0">
-                                    Ya</label>
-                            </div>
-                            <div class="flex items-center mr-4">
-                                <input id="konsumsi_obat" type="radio" value="Tidak" name="konsumsi_obat" required
-                                    class="w-2 h-2 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                <label for="konsumsi_obat"
-                                    class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300 p-0">
-                                    Tidak</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mt-3 sm:mt-0 form__field">
-                        <label for="pola_tidur">
-                            Ceritakan mengenai pola tidurmu
-                            <span data-required="true" aria-hidden="true"></span>
-                        </label>
-                        <textarea id="pola_tidur" name="pola_tidur" rows="3"
-                            class="rounded-lg xs:w-full sm:w-2/3 md:w-2/3 lg:w-2/3" required></textarea>
-                    </div>
-                    <div class="mt-3 sm:mt-0 form__field">
-                        <label for="pola_makan">
-                            Ceritakan mengenai pola makanmu
-                            <span data-required="true" aria-hidden="true"></span>
-                        </label>
-                        <textarea id="pola_makan" name="pola_makan" rows="3"
-                            class="rounded-lg xs:w-full sm:w-2/3 md:w-2/3 lg:w-2/3" required></textarea>
-                    </div>
-                    <div class="mt-3 sm:mt-0 form__field">
-                        <label for="kondisi_keuangan">
-                            Bagaimana kondisi keuanganmu?
-                            <span data-required="true" aria-hidden="true"></span>
-                        </label>
-                        <textarea id="kondisi_keuangan" name="kondisi_keuangan" rows="3"
-                            class="rounded-lg xs:w-full sm:w-2/3 md:w-2/3 lg:w-2/3" required></textarea>
-                    </div>
-                    <div class="mt-3 sm:mt-0 form__field">
-                        <label for="menyakiti_diri">
-                            Apakah kamu pernah mempunyai sepintas pikiran untuk menyakiti dirimu?
-                            <span data-required="true" aria-hidden="true"></span>
-                        </label>
-                        <div class="flex align-middle">
-                            <div class="flex items-center mr-4">
-                                <input id="menyakiti_diri" type="radio" value="Pernah" name="menyakiti_diri" required
-                                    class="w-2 h-2 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                <label for="menyakiti_diri"
-                                    class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300 p-0">
-                                    Pernah</label>
-                            </div>
-                            <div class="flex items-center mr-4">
-                                <input id="menyakiti_diri" type="radio" value="Tidak Pernah" name="menyakiti_diri"
-                                    required
-                                    class="w-2 h-2 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                <label for="menyakiti_diri"
-                                    class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300 p-0">
-                                    Tidak Pernah</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mt-3 sm:mt-0 form__field">
-                        <label for="mengakhiri_hidup">
-                            Apakah kamu pernah mempunyai sepintas pikiran untuk mengakhiri hidup?
-                            <span data-required="true" aria-hidden="true"></span>
-                        </label>
-                        <div class="flex">
-                            <div class="flex items-center mr-4 mb-1">
-                                <input id="mengakhiri_hidup" type="radio" name="mengakhiri_hidup"
-                                    class="w-2 h-2 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                                    required value="Pernah">
-                                <label for="mengakhiri_hidup"
-                                    class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300 p-0">Pernah</label>
-                            </div>
-                            <div class="flex items-center mr-4">
-                                <input id="mengakhiri_hidup" type="radio" name="mengakhiri_hidup"
-                                    class="w-2 h-2 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                                    required value="Tidak Pernah">
-                                <label for="mengakhiri_hidup"
-                                    class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300 p-0">Tidak
-                                    Pernah</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mt-3 sm:mt-0 form__field">
-                        <label for="ringkasan_masalah">
-                            Kalau bisa diringkas dari pertanyaan di atas, bagaimana keadaan mu saat ini?
-                            <span data-required="true" aria-hidden="true"></span>
-                        </label>
-                        <textarea id="ringkasan_masalah" name="ringkasan_masalah" rows="3"
+                        <textarea id="keluhan" name="keluhan" rows="3"
                             class="rounded-lg xs:w-full sm:w-2/3 md:w-2/3 lg:w-2/3" required></textarea>
                     </div>
                 </div>

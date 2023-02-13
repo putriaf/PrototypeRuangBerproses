@@ -211,7 +211,7 @@ footer {
                     @foreach($reg_peercounseling as $user_rpec)
                     <div class="bg-white lg:mb-8 rounded-xl lg:p-4">
                         <h3 class="font-semibold text-lg">PSYTALK 66</h3>
-                        <p class="text-xs">Waktu Konseling: {{ $user_rpec->waktu }}</p>
+                        <p class="text-xs">Waktu Konseling: {{ $user_rpec->waktu_fix }}</p>
                         @if($user_rpec->status_pendaftaran == 'konfirmasi_admin')
                         <p class="lg:p-2 rounded-md bg-[#FFEAB2] w-fit font-semibold text-sm lg:mt-4">MENUNGGU
                             KONFIRMASI
