@@ -71,11 +71,10 @@ class RegistrationPeerCounselingController extends Controller
             'bukti_transfer' => $imagePath,
             'status_pendaftaran' => $request->input('status_pendaftaran')
         ]);
-        // dd($response->body());
         if ($response->status() == 200) {
-            return redirect('/layanan/professional-counseling/daftar/success')->with('success', 'Pendaftaran berhasil!');
+            return redirect('/layanan/peer-counseling/daftar/success')->with('success', 'Pendaftaran berhasil!');
         } else {
-            return redirect('/layanan/professional-counseling/daftar')->with('success', 'Pendaftaran gagal!');
+            return redirect('/layanan/peer-counseling/daftar')->with('success', 'Pendaftaran gagal!');
         }
     }
 
