@@ -243,18 +243,33 @@ footer {
                     @endforeach
                     @foreach($reg_sg as $user_rsg)
                     <div class="bg-white lg:mb-8 rounded-xl lg:p-4">
-                        <h3 class="font-semibold text-lg">PSYTALK 66</h3>
-                        <p class="text-xs">5 Oktober 2022</p>
+                        <h3 class="font-semibold text-lg">Support Group: {{ $user_rsg->topik}}</h3>
+                        @if($user_rsg->waktu_fix == NULL)
+                        <p class="text-xs mb-5">Belum ada waktu konseling yang disetujui</p>
+                        @else
+                        <p class="text-xs mb-5">Waktu Konseling yang Disetujui: {{ $user_rsg->waktu_fix }}</p>
+                        @endif
                         @if($user_rsg->status_pendaftaran == 'konfirmasi_admin')
-                        <p class="lg:p-2 rounded-md bg-[#FFEAB2] w-fit font-semibold text-sm lg:mt-4">MENUNGGU
+                        <p class="p-2 lg:p-2 rounded-md bg-[#FFEAB2] w-fit font-semibold text-sm mt-3 lg:mt-4">MENUNGGU
                             KONFIRMASI
                             ADMIN
                         </p>
                         @elseif($user_rsg->status_pendaftaran == 'berhasil')
-                        <p class="lg:p-2 rounded-md bg-[#AAF0BE] w-fit font-semibold text-sm lg:mt-4">BERHASIL
+                        <p
+                            class="inline p-2 lg:p-2 rounded-md bg-[#AAF0BE] w-fit font-semibold text-sm mt-3 lg:mt-4 mr-2">
+                            BERHASIL
                         </p>
+                        @if($user_rsg->link_event != NULL)
+                        <a href="{{$user_rpc->link_event}}" target="__blank"
+                            class="p-2 lg:p-2 rounded-md bg-slate-700 w-fit font-semibold text-sm mt-3 lg:mt-4 text-neutral-100"><i
+                                class="inline" data-feather="link-2"></i></a>
                         @else
-                        <p class="lg:p-2 rounded-md bg-[#D9D9D9] w-fit font-semibold text-sm lg:mt-4">GAGAL
+                        <a href="" target="__blank"
+                            class="p-2 lg:p-2 rounded-md bg-slate-700 w-fit font-semibold text-sm mt-3 lg:mt-4 text-neutral-100"><i
+                                class="inline" data-feather="link-2"></i></a>
+                        @endif
+                        @else
+                        <p class="p-2 lg:p-2 rounded-md bg-[#D9D9D9] w-fit font-semibold text-sm mt-3 lg:mt-4">GAGAL
                         </p>
                         @endif
                     </div>

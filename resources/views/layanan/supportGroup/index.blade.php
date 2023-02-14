@@ -13,7 +13,7 @@
             Group</h1>
         <h2 class="font-light text-sm sm:text-md px-8 sm:px-6 mb-6 sm:mb-10 lg:px-16">Butuh ruang aman dan nyaman untuk
             bercerita? Tenaga profesional siap mendampingimu berproses menuju versi terbaik!</h2>
-        <a href=""
+        <a href="/layanan/support-group/daftar"
             class="bg-gradient-to-r from-[#FB8D66] px-8 py-2 sm:px-10 sm:py-4 rounded-3xl font-semibold lg:mt-4 inline-block">Daftar
             Sekarang</a>
         <p class="text-white font-semibold text-sm mt-5">bergabung dengan 200+ orang yang sudah mendaftar</p>

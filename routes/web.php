@@ -8,6 +8,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\SupportGroupController;
+use App\Http\Controllers\RegistrationSupportGroupController;
 use App\Http\Controllers\LayananController;
 use App\Http\Controllers\PeerCounselingController;
 use App\Http\Controllers\ProfessionalCounselingController;
@@ -63,13 +64,14 @@ Route::delete('/admin/screening/{screenings:id}', [ScreeningController::class, '
 // LAYANAN
 Route::get('/layanan', [LayananController::class, 'index']);
 // Virtual Support Group
-Route::get('/layanan/support-group/daftar', [SupportGroupController::class, 'create'])->middleware('token');
-Route::post('/layanan/support-group/daftar', [SupportGroupController::class, 'store']);
+Route::get('/layanan/support-group/daftar', [RegistrationSupportGroupController::class, 'create'])->middleware('token');
+Route::post('/layanan/support-group/daftar', [RegistrationSupportGroupController::class, 'store']);
+Route::get('/layanan/support-group/daftar/success', [RegistrationSupportGroupController::class, 'regSuccess']);
 Route::get('/layanan/support-group', [SupportGroupController::class, 'index']);
-Route::get('/layanan/support-group/{support_groups:id}', [SupportGroupController::class, 'show']);
-Route::get('/layanan/support-group/{support_groups:id}/edit', [SupportGroupController::class, 'edit']);
-Route::put('/layanan/support-group/{support_groups:id}', [SupportGroupController::class, 'update']);
-Route::delete('/layanan/support-group/{support_groups:id}', [SupportGroupController::class, 'destroy']);
+Route::get('/layanan/support-group/{support_groups:id}', [RegistrationSupportGroupController::class, 'show']);
+Route::get('/layanan/support-group/{support_groups:id}/edit', [RegistrationSupportGroupController::class, 'edit']);
+Route::put('/layanan/support-group/{support_groups:id}', [RegistrationSupportGroupController::class, 'update']);
+Route::delete('/layanan/support-group/{support_groups:id}', [RegistrationSupportGroupController::class, 'destroy']);
 // Virtual Peer Counseling
 // Route::get('/layanan/peer-counseling/daftar', [PeerCounselingController::class, 'create'])->middleware('token');
 // Route::post('/layanan/peer-counseling/daftar', [PeerCounselingController::class, 'store']);
