@@ -19,8 +19,8 @@ class AdminController extends Controller
         $sg_fields = ["topik", "fasilitator_utama", "fasilitator_pendamping", "tanggal", "waktu", "biaya"];
         $program_fields = ["topik", "pembicara", "tanggal", "waktu", "biaya", "poster"];
         $regprocounseling_fields = ["user_id", "procounseling_id", "screening_id", "consent_sharing", "consent_screening", "bukti_transfer", "status_pendaftaran", "perubahan_fisik", "perubahan_emosi", "riwayat_kecemasan", "penyakit_kronis", "konsumsi_alkohol", "konsumsi_obat", "pola_tidur", "pola_makan", "kondisi_keuangan", "ringkasan_masalah", "pernah_konseling", "menyakiti_diri", "mengakhiri_hidup"];
-        $regpeercounseling_fields = ["user_id", "peercounseling_id", "screening_id", "latar_belakang", "tujuan", "keluhan", "consent_sharing", "consent_screening", "bukti_transfer", "status_pendaftaran"];
-        $regsg_fields = ["user_id", "supportgroup_id", "tujuan", "alasan", "harapan", "preferensi_jk_fasilitator", "preferensi_jk_teman", "diagnosis", "terlibat_aktif", "mengikuti_full", "batasan_pribadi", "consent_screening", "consent_sharing", "bukti_transfer", "status_pendaftaran"];
+        $regpeercounseling_fields = ["user_id", "screening_id", "latar_belakang", "tujuan", "keluhan", "consent_sharing", "consent_screening", "bukti_transfer", "status_pendaftaran"];
+        $regsg_fields = ["user_id", "tujuan", "alasan", "harapan", "preferensi_jk_fasilitator", "preferensi_jk_teman", "diagnosis", "terlibat_aktif", "mengikuti_full", "batasan_pribadi", "consent_screening", "consent_sharing", "bukti_transfer", "status_pendaftaran"];
         $regpsytalk_fields = ["user_id", "psytalk_id", "alasan", "asal_info", "pertanyaan", "bukti_transfer", "status_pendaftaran", "ide_topik"];
         $regkb_fields = ["user_id", "kb_id", "alasan", "asal_info", "pertanyaan", "bukti_transfer", "status_pendaftaran", "ide_topik"];
 
