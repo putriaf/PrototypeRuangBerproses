@@ -17,6 +17,7 @@ use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\PsytalkController;
 use App\Http\Controllers\RegistrationPsytalkController;
 use App\Http\Controllers\KelasBerprosesController;
+use App\Http\Controllers\RegistrationKelasBerprosesController;
 use App\Http\Controllers\RegistrationPeerCounselingController;
 use App\Http\Controllers\ScreeningController;
 use App\Http\Controllers\TentangController;
@@ -132,6 +133,14 @@ Route::get('/program/kelas-berproses/{kelas_berproses:id}', [KelasBerprosesContr
 Route::get('/program/kelas-berproses/{kelas_berproses:id}/edit', [KelasBerprosesController::class, 'edit']);
 Route::put('/program/kelas-berproses/{kelas_berproses:id}', [KelasBerprosesController::class, 'update']);
 Route::delete('/program/kelas-berproses/{kelas_berproses:id}', [KelasBerprosesController::class, 'destroy']);
+// KB Registration Data
+Route::get('/program/kelas-berproses/{id}/daftar', [RegistrationKelasBerprosesController::class, 'create'])->middleware('token');
+Route::post('/program/kelas-berproses/{id}/daftar', [RegistrationKelasBerprosesController::class, 'store']);
+Route::get('/program/kelas-berproses/daftar/success', [RegistrationPsytalkController::class, 'regSuccess']);
+Route::get('/program/kelas-berproses/{id}', [RegistrationKelasBerprosesController::class, 'show']);
+Route::get('/admin/program/kelas-berproses/{id}/edit', [RegistrationKelasBerprosesController::class, 'edit']);
+Route::put('/admin/program/kelas-berproses/{id}', [RegistrationKelasBerprosesController::class, 'update']);
+Route::delete('/admin/program/kelas-berproses/{id}', [RegistrationKelasBerprosesController::class, 'destroy']);
 
 // ARTIKEL BERPROSES
 Route::get('/artikel-berproses', [ArtikelController::class, 'index']);
