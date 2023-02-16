@@ -19,7 +19,10 @@
     <script src="{{ asset('https://ruangberproses-dev.site/js/navbar-scroll.js') }}"></script>
     <link rel="stylesheet" type="text/css"
         href="https://www.24limousine.com/wp-content/themes/24Limousine/assets/css/owl.carousel.min.css">
-    @vite(['resources/scss/app.scss', 'resources/css/app.css'])
+    {{-- @vite(['resources/scss/app.scss', 'resources/css/app.css']) --}}
+    <script src="/public/build/assets/app.dc561645.js"></script>
+    <link rel="stylesheet" href="/public/build/assets/app.179954eb.css">
+    <link rel="stylesheet" href="/public/build/assets/app.3c0ef1ab.css">
     @stack('styles')
 </head>
 

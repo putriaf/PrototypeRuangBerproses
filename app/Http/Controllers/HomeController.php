@@ -14,7 +14,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $response = Http::get('https://ruangberproses-be.site/api/artikel-berproses/getLatest');
+        $response = Http::get('https://be.ruangberproses.id/api/artikel-berproses/getLatest');
         $response = $response->object();
         return view('index', [
             'title' => 'Ruang Berproses',

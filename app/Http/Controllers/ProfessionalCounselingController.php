@@ -50,7 +50,7 @@ class ProfessionalCounselingController extends Controller
             'biaya' => 'required'
         ]);
 
-        $response = Http::asForm()->post("https://ruangberproses-be.site/api/admin/layanan/procounseling-list/tambah", [
+        $response = Http::asForm()->post("https://be.ruangberproses.id/api/admin/layanan/procounseling-list/tambah", [
             'counselor_id' => $request->input('counselor_id'),
             'waktu' => $request->input('waktu'),
             'tanggal' => $request->input('tanggal'),
@@ -71,7 +71,7 @@ class ProfessionalCounselingController extends Controller
      */
     public function show($id)
     {
-        $response = Http::get("https://ruangberproses-be.site/api/layanan/professional-counseling/" . $id);
+        $response = Http::get("https://be.ruangberproses.id/api/layanan/professional-counseling/" . $id);
         $response = $response->object();
         return view('layanan.professionalCounseling.view', [
             'title' => 'Detail Data Professional Counseling',
@@ -89,7 +89,7 @@ class ProfessionalCounselingController extends Controller
     public function edit($id)
     {
         $counseling_fields = ["counselor_id", "biaya"];
-        $response = Http::get("https://ruangberproses-be.site/api/admin/layanan/procounseling-list/" . $id);
+        $response = Http::get("https://be.ruangberproses.id/api/admin/layanan/procounseling-list/" . $id);
         $response = $response->object();
 
         return view('layanan.professionalCounseling.edit', [
@@ -108,7 +108,7 @@ class ProfessionalCounselingController extends Controller
      */
     public function update(Request $request, $id)
     {
-        Http::asForm()->post("https://ruangberproses-be.site/api/admin/layanan/procounseling-list/" . $id . '?_method=PUT', [
+        Http::asForm()->post("https://be.ruangberproses.id/api/admin/layanan/procounseling-list/" . $id . '?_method=PUT', [
             'counselor_id' => $request->input('counselor_id'),
             'biaya' => $request->input('biaya')
         ]);
@@ -124,7 +124,7 @@ class ProfessionalCounselingController extends Controller
      */
     public function destroy($id)
     {
-        $response = Http::delete("https://ruangberproses-be.site/api/admin/layanan/procounseling-list/" . $id);
+        $response = Http::delete("https://be.ruangberproses.id/api/admin/layanan/procounseling-list/" . $id);
 
         if ($response->status() == 200) {
             return redirect('/admin')->with('success', 'Professional Counseling data has been deleted!');

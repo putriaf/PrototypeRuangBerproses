@@ -24,14 +24,14 @@ class RegistrationSupportGroupController extends Controller
      */
     public function create()
     {
-        $response_screening = Http::get('https://ruangberproses-be.site/api/admin/screening/user/' . session('id'));
+        $response_screening = Http::get('https://be.ruangberproses.id/api/admin/screening/user/' . session('id'));
         $response_screening = $response_screening->object();
         $screening_data = $response_screening->data;
 
         $response_profile = Http::withHeaders([
             'Accept' => 'application/json',
             'Authorization' => 'Bearer ' . session('token'),
-        ])->get('https://ruangberproses-be.site/api/profile');
+        ])->get('https://be.ruangberproses.id/api/profile');
         $response_profile = $response_profile->object();
         return view('layanan.supportGroup.daftar', [
             'title' => 'Pendaftaran Virtual Support Group',
@@ -59,7 +59,7 @@ class RegistrationSupportGroupController extends Controller
             $imagePath = NULL;
         }
 
-        $response = Http::asForm()->post("https://ruangberproses-be.site/api/layanan/support-group/daftar", [
+        $response = Http::asForm()->post("https://be.ruangberproses.id/api/layanan/support-group/daftar", [
             'user_id' => $request->input('user_id'),
             'screening_id' => $request->input('screening_id'),
             'preferensi_jk_fasilitator' => $request->input('preferensi_jk_fasilitator'),
@@ -93,7 +93,7 @@ class RegistrationSupportGroupController extends Controller
      */
     public function show($id)
     {
-        $response = Http::get("https://ruangberproses-be.site/api/layanan/support-group/" . $id);
+        $response = Http::get("https://be.ruangberproses.id/api/layanan/support-group/" . $id);
         $response = $response->object();
         return view('layanan.peer.view', [
             'title' => 'Detail Data Support Group',
@@ -110,7 +110,7 @@ class RegistrationSupportGroupController extends Controller
      */
     public function edit($id)
     {
-        $response = Http::get("https://ruangberproses-be.site/api/layanan/support-group/" . $id);
+        $response = Http::get("https://be.ruangberproses.id/api/layanan/support-group/" . $id);
         $response = $response->object();
 
         return view('layanan.supportGroup.edit-reg', [
@@ -134,7 +134,7 @@ class RegistrationSupportGroupController extends Controller
         $validatedData["user_id"] = session()->get('id');
         $validatedData = $request->validate($rules);
 
-        $response = Http::asForm()->post("https://ruangberproses-be.site/api/admin/layanan/support-group/" . $id . '?_method=PUT', [
+        $response = Http::asForm()->post("https://be.ruangberproses.id/api/admin/layanan/support-group/" . $id . '?_method=PUT', [
             'user_id' => $request->input('user_id'),
             'screening_id' => $request->input('screening_id'),
             'preferensi_jk_fasilitator' => $request->input('preferensi_jk_fasilitator'),
@@ -158,13 +158,13 @@ class RegistrationSupportGroupController extends Controller
 
     /**
      * Remove the specified resource from storage.
-    *
+     *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        $response = Http::delete("https://ruangberproses-be.site/api/admin/layanan/support-group/" . $id);
+        $response = Http::delete("https://be.ruangberproses.id/api/admin/layanan/support-group/" . $id);
 
         if ($response->status() == 200) {
             return redirect('/admin')->with('success', 'Support Group data has been deleted!');

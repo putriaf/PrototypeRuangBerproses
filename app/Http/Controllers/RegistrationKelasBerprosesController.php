@@ -24,12 +24,12 @@ class RegistrationKelasBerprosesController extends Controller
      */
     public function create($id)
     {
-        $response = Http::get('https://ruangberproses-be.site/api/admin/program/kb-list');
+        $response = Http::get('https://be.ruangberproses.id/api/admin/program/kb-list');
         $response = $response->object();
         $response_profile = Http::withHeaders([
             'Accept' => 'application/json',
             'Authorization' => 'Bearer ' . session('token'),
-        ])->get('https://ruangberproses-be.site/api/profile');
+        ])->get('https://be.ruangberproses.id/api/profile');
         $response_profile = $response_profile->object();
         return view('program.kelasBerproses.daftar', [
             'title' => 'Pendaftaran Kelas Berproses',
@@ -68,7 +68,7 @@ class RegistrationKelasBerprosesController extends Controller
             $imagePath = NULL;
         }
 
-        $response = Http::asForm()->post("https://ruangberproses-be.site/api/program/kelas-berproses/daftar", [
+        $response = Http::asForm()->post("https://be.ruangberproses.id/api/program/kelas-berproses/daftar", [
             'user_id' => $request->input('user_id'),
             'kb_id' => $request->input('kb_id'),
             'alasan' => $request->input('alasan'),
@@ -104,7 +104,7 @@ class RegistrationKelasBerprosesController extends Controller
      */
     public function edit($id)
     {
-        $response = Http::get('https://ruangberproses-be.site/api/program/kelas-berproses/' . $id);
+        $response = Http::get('https://be.ruangberproses.id/api/program/kelas-berproses/' . $id);
         $response = $response->object();
         return view('program.kelasBerproses.edit-reg', [
             'title' => 'Edit Data Pendaftaran Kelas Berproses',
@@ -127,7 +127,7 @@ class RegistrationKelasBerprosesController extends Controller
         ];
         $validatedData["user_id"] = session()->get('id');
         $validatedData = $request->validate($rules);
-        $response = Http::asForm()->post("https://ruangberproses-be.site/api/admin/program/kelas-berproses/" . $id . '?_method=PUT', [
+        $response = Http::asForm()->post("https://be.ruangberproses.id/api/admin/program/kelas-berproses/" . $id . '?_method=PUT', [
             'user_id' => $request->input('user_id'),
             'kb_id' => $request->input('kb_id'),
             'alasan' => $request->input('alasan'),
@@ -150,7 +150,7 @@ class RegistrationKelasBerprosesController extends Controller
      */
     public function destroy($id)
     {
-        $response = Http::delete("https://ruangberproses-be.site/api/admin/program/kelas-berproses/" . $id);
+        $response = Http::delete("https://be.ruangberproses.id/api/admin/program/kelas-berproses/" . $id);
 
         if ($response->status() == 200) {
             return redirect('/admin')->with('success', 'Kelas Berproses registration data has been deleted!');

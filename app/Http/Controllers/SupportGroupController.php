@@ -55,7 +55,7 @@ class SupportGroupController extends Controller
             'bukti_transfer' => 'required',
         ]);
 
-        $response = Http::asForm()->post("https://ruangberproses-be.site/api/layanan/support-group/daftar", [
+        $response = Http::asForm()->post("https://be.ruangberproses.id/api/layanan/support-group/daftar", [
             'topik' => $request->input('topik'),
             'diagnosis' => $request->input('diagnosis'),
             'pernah_gabung' => $request->input('pernah_gabung'),
@@ -83,7 +83,7 @@ class SupportGroupController extends Controller
      */
     public function show($id)
     {
-        $response = Http::get("https://ruangberproses-be.site/api/layanan/support-group/" . $id);
+        $response = Http::get("https://be.ruangberproses.id/api/layanan/support-group/" . $id);
         $response = $response->object();
         return view('layanan.supportGroup.view', [
             'title' => 'Detail Data Support Group',
@@ -100,7 +100,7 @@ class SupportGroupController extends Controller
      */
     public function edit($id)
     {
-        $response = Http::get("https://ruangberproses-be.site/api/layanan/support-group/" . $id);
+        $response = Http::get("https://be.ruangberproses.id/api/layanan/support-group/" . $id);
         $response = $response->object();
 
         return view('layanan.supportGroup.edit', [
@@ -125,7 +125,7 @@ class SupportGroupController extends Controller
         $validatedData["user_id"] = session()->get('id');
         $validatedData = $request->validate($rules);
 
-        Http::asForm()->post("https://ruangberproses-be.site/api/layanan/support-group/" . $id . '?_method=PUT', [
+        Http::asForm()->post("https://be.ruangberproses.id/api/layanan/support-group/" . $id . '?_method=PUT', [
             'pengalaman' => $request->input('pengalaman'),
             'fasilitator' => $request->input('fasilitator'),
         ]);
@@ -141,7 +141,7 @@ class SupportGroupController extends Controller
      */
     public function destroy($id)
     {
-        $response = Http::delete("https://ruangberproses-be.site/api/layanan/support-group/" . $id);
+        $response = Http::delete("https://be.ruangberproses.id/api/layanan/support-group/" . $id);
 
         if ($response->status() == 200) {
             return redirect('/layanan')->with('success', 'Support Group data has been deleted!');

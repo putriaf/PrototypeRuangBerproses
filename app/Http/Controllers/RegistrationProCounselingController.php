@@ -26,16 +26,16 @@ class RegistrationProCounselingController extends Controller
      */
     public function create()
     {
-        $response = Http::get('https://ruangberproses-be.site/api/admin/layanan/procounseling-list');
+        $response = Http::get('https://be.ruangberproses.id/api/admin/layanan/procounseling-list');
         $response = $response->object();
-        $response_screening = Http::get('https://ruangberproses-be.site/api/admin/screening/user/' . session('id'));
+        $response_screening = Http::get('https://be.ruangberproses.id/api/admin/screening/user/' . session('id'));
         $response_screening = $response_screening->object();
         $screening_data = $response_screening->data;
 
         $response_profile = Http::withHeaders([
             'Accept' => 'application/json',
             'Authorization' => 'Bearer ' . session('token'),
-        ])->get('https://ruangberproses-be.site/api/profile');
+        ])->get('https://be.ruangberproses.id/api/profile');
         $response_profile = $response_profile->object();
         return view('layanan.professionalCounseling.daftar', [
             'title' => 'Pendaftaran Virtual Professional Counseling',
@@ -64,7 +64,7 @@ class RegistrationProCounselingController extends Controller
             $imagePath = NULL;
         }
 
-        $response = Http::asForm()->post("https://ruangberproses-be.site/api/layanan/professional-counseling/daftar", [
+        $response = Http::asForm()->post("https://be.ruangberproses.id/api/layanan/professional-counseling/daftar", [
             'user_id' => $request->input('user_id'),
             'screening_id' => $request->input('screening_id'),
             'procounseling_id' => $request->input('procounseling_id'),
@@ -106,7 +106,7 @@ class RegistrationProCounselingController extends Controller
      */
     public function show($id)
     {
-        $response = Http::get("https://ruangberproses-be.site/api/layanan/professional-counseling/" . $id);
+        $response = Http::get("https://be.ruangberproses.id/api/layanan/professional-counseling/" . $id);
         $response = $response->object();
         return view('layanan.professionalCounseling.view', [
             'title' => 'Detail Data Pendaftaran Professional Counseling',
@@ -123,7 +123,7 @@ class RegistrationProCounselingController extends Controller
      */
     public function edit($id)
     {
-        $response = Http::get("https://ruangberproses-be.site/api/layanan/professional-counseling/" . $id);
+        $response = Http::get("https://be.ruangberproses.id/api/layanan/professional-counseling/" . $id);
         $response = $response->object();
 
         return view('layanan.professionalCounseling.edit-reg', [
@@ -147,7 +147,7 @@ class RegistrationProCounselingController extends Controller
         $validatedData["user_id"] = session()->get('id');
         $validatedData = $request->validate($rules);
 
-        $response = Http::asForm()->post("https://ruangberproses-be.site/api/admin/layanan/professional-counseling/" . $id . '?_method=PUT', [
+        $response = Http::asForm()->post("https://be.ruangberproses.id/api/admin/layanan/professional-counseling/" . $id . '?_method=PUT', [
             'user_id' => $request->input('user_id'),
             'procounseling_id' => $request->input('procounseling_id'),
             'preferensi_jk_konselor' => $request->input('preferensi_jk_konselor'),
@@ -168,7 +168,7 @@ class RegistrationProCounselingController extends Controller
      */
     public function destroy($id)
     {
-        $response = Http::delete("https://ruangberproses-be.site/api/admin/layanan/professional-counseling/" . $id);
+        $response = Http::delete("https://be.ruangberproses.id/api/admin/layanan/professional-counseling/" . $id);
 
         if ($response->status() == 200) {
             return redirect('/admin')->with('success', 'Professional Counseling data has been deleted!');

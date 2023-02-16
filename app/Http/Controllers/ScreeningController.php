@@ -88,7 +88,7 @@ class ScreeningController extends Controller
             'sulit_inisiatif' => 'required'
         ]);
 
-        $response = Http::asForm()->post("https://ruangberproses-be.site/api/screening", [
+        $response = Http::asForm()->post("https://be.ruangberproses.id/api/screening", [
             'user_id' => $request->input('user_id'),
             'marah_sepele' => $request->input('marah_sepele'),
             'mulut_kering' => $request->input('mulut_kering'),

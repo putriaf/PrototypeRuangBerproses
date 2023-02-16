@@ -24,10 +24,10 @@ class AdminController extends Controller
         $regpsytalk_fields = ["user_id", "psytalk_id", "alasan", "asal_info", "pertanyaan", "bukti_transfer", "status_pendaftaran", "ide_topik"];
         $regkb_fields = ["user_id", "kb_id", "alasan", "asal_info", "pertanyaan", "bukti_transfer", "status_pendaftaran", "ide_topik"];
 
-        $response = Http::get('https://ruangberproses-be.site/api/admin');
+        $response = Http::get('https://be.ruangberproses.id/api/admin');
         $response = $response->object();
 
-        $response_counselors = Http::get('https://ruangberproses-be.site/api/admin/counselors');
+        $response_counselors = Http::get('https://be.ruangberproses.id/api/admin/counselors');
         $counselors = $response_counselors->object();
 
         return view('admin.index', [

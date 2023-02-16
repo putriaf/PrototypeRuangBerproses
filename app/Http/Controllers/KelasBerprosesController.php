@@ -14,7 +14,7 @@ class KelasBerprosesController extends Controller
      */
     public function index(Request $request)
     {
-        $response = Http::get('https://ruangberproses-be.site/api/admin/program/kb-list', [
+        $response = Http::get('https://be.ruangberproses.id/api/admin/program/kb-list', [
             'page' => $request->query('page')
         ]);
         $kbs = $response->object();
@@ -60,7 +60,7 @@ class KelasBerprosesController extends Controller
             'bukti_transfer' => 'required'
         ]);
 
-        $response = Http::asForm()->post("https://ruangberproses-be.site/api/program/kelas-berproses/daftar", [
+        $response = Http::asForm()->post("https://be.ruangberproses.id/api/program/kelas-berproses/daftar", [
             'usia' => $request->input('usia'),
             'pilihan_kelasberproses' => $request->input('pilihan_kelasberproses'),
             'domisili' => $request->input('domisili'),
@@ -87,7 +87,7 @@ class KelasBerprosesController extends Controller
      */
     public function show($id)
     {
-        $response = Http::get("https://ruangberproses-be.site/api/program/kelas-berproses/" . $id);
+        $response = Http::get("https://be.ruangberproses.id/api/program/kelas-berproses/" . $id);
         $response = $response->object();
         return view('program.kelasBerproses.view', [
             'title' => 'Detail Data Kelas Berproses',
@@ -104,7 +104,7 @@ class KelasBerprosesController extends Controller
      */
     public function edit($id)
     {
-        $response = Http::get("https://ruangberproses-be.site/api/program/kelas-berproses/" . $id);
+        $response = Http::get("https://be.ruangberproses.id/api/program/kelas-berproses/" . $id);
         $response = $response->object();
 
         return view('program.kelasBerproses.edit', [
@@ -129,7 +129,7 @@ class KelasBerprosesController extends Controller
         $validatedData["user_id"] = session()->get('id');
         $validatedData = $request->validate($rules);
 
-        Http::asForm()->post("https://ruangberproses-be.site/api/program/kelas-berproses/" . $id . '?_method=PUT', [
+        Http::asForm()->post("https://be.ruangberproses.id/api/program/kelas-berproses/" . $id . '?_method=PUT', [
             'pilihan_kelasberproses' => $request->input('pilihan_kelasberproses'),
             'bukti_transfer' => $request->input('bukti_transfer'),
         ]);
@@ -145,7 +145,7 @@ class KelasBerprosesController extends Controller
      */
     public function destroy($id)
     {
-        $response = Http::delete("https://ruangberproses-be.site/api/program/kelas-berproses/" . $id);
+        $response = Http::delete("https://be.ruangberproses.id/api/program/kelas-berproses/" . $id);
 
         if ($response->status() == 200) {
             return redirect('/program')->with('success', 'Kelas Berproses data has been deleted!');

@@ -22,7 +22,7 @@ class LoginController extends Controller
             'password' => 'required|min:8|max:50',
         ]);
 
-        $response = Http::asForm()->post('https://ruangberproses-be.site/api/login', [
+        $response = Http::asForm()->post('https://be.ruangberproses.id/api/login', [
             'email' => $request->input('email'),
             'password' => $request->input('password'),
         ]);
@@ -60,7 +60,7 @@ class LoginController extends Controller
         $response = Http::withHeaders([
             'Accept' => 'application/json',
             'Authorization' => 'Bearer ' . session('token'),
-        ])->post('https://ruangberproses-be.site/api/logout');
+        ])->post('https://be.ruangberproses.id/api/logout');
         $request->session()->flush();
         // Auth::logout();
         return redirect('/');

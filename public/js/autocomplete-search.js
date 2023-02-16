@@ -7,13 +7,13 @@ const resultsHTML = document.getElementById("result");
 autocomplete.oninput = function () {
     let results = [];
     const userInput = this.value.toLowerCase();
-    if(userInput == "") {
+    if (userInput == "") {
         resultsHTML.classList.add("hidden");
     }
     resultsHTML.innerHTML = "";
     if (userInput.length > 0) {
         results = getResults(userInput);
-        if(results.length > 0) {
+        if (results.length > 0) {
             resultsHTML.classList.remove("hidden");
             resultsHTML.classList.add("capitalize");
             for (i = 0; i < results.length; i++) {
@@ -26,7 +26,9 @@ autocomplete.oninput = function () {
 };
 
 async function getData() {
-    const response = await fetch('https://ruangberproses-be.site/api/artikel-berproses');
+    const response = await fetch(
+        "https://be.ruangberproses.id/api/artikel-berproses"
+    );
     // console.log(response);
     const data = await response.json();
     // console.log(data);
@@ -34,7 +36,7 @@ async function getData() {
     // console.log(length);
 
     titles = [];
-    for(i = 0; i < length; i++) {
+    for (i = 0; i < length; i++) {
         titles.push(data.data[i].judul.toLowerCase());
     }
     titles = [...new Set(titles)];
@@ -55,13 +57,10 @@ function getResults(input) {
         }
     }
     return results;
-  }
+}
 
-  resultsHTML.onclick = function (event) {
+resultsHTML.onclick = function (event) {
     const setValue = event.target.innerText;
     autocomplete.value = setValue;
     this.innerHTML = "";
-  };
-
-
-  
+};

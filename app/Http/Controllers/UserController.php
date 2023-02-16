@@ -21,7 +21,7 @@ class UserController extends Controller
         $response = Http::withHeaders([
             'Accept' => 'application/json',
             'Authorization' => 'Bearer ' . session('token'),
-        ])->get('https://ruangberproses-be.site/api/profile');
+        ])->get('https://be.ruangberproses.id/api/profile');
         $response = $response->object();
         $profilUser = $response->profile;
         $reg_procounseling = $response->reg_procounseling;
@@ -87,7 +87,7 @@ class UserController extends Controller
         $response = Http::withHeaders([
             'Accept' => 'application/json',
             'Authorization' => 'Bearer ' . session('token'),
-        ])->get('https://ruangberproses-be.site/api/profile');
+        ])->get('https://be.ruangberproses.id/api/profile');
         $response = $response->object();
         $profilUser = $response->profile;
         $pass = null;
@@ -119,7 +119,7 @@ class UserController extends Controller
         $response = Http::withHeaders([
             'Accept' => 'application/json',
             'Authorization' => 'Bearer ' . session('token'),
-        ])->asForm()->post("https://ruangberproses-be.site/api/profile/" . session('username') . '?_method=PUT', [
+        ])->asForm()->post("https://be.ruangberproses.id/api/profile/" . session('username') . '?_method=PUT', [
             'nama' => $request->input('nama'),
             'no_telp' => $request->input('no_telp'),
             'tgl_lahir' => $request->input('tgl_lahir'),

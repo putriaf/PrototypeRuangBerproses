@@ -14,7 +14,7 @@ class PsytalkController extends Controller
      */
     public function index(Request $request)
     {
-        $response = Http::get('https://ruangberproses-be.site/api/admin/program/psytalk-list', [
+        $response = Http::get('https://be.ruangberproses.id/api/admin/program/psytalk-list', [
             'page' => $request->query('page')
         ]);
         $psytalks = $response->object();
@@ -57,7 +57,7 @@ class PsytalkController extends Controller
             'link_event' => 'required'
         ]);
 
-        $response = Http::asForm()->post("https://ruangberproses-be.site/api/admin/program/psytalk-list/tambah", [
+        $response = Http::asForm()->post("https://be.ruangberproses.id/api/admin/program/psytalk-list/tambah", [
             'topik' => $request->input('topik'),
             'pembicara' => $request->input('pembicara'),
             'tanggal' => $request->input('tanggal'),
@@ -81,7 +81,7 @@ class PsytalkController extends Controller
      */
     public function show($id)
     {
-        $response = Http::get("https://ruangberproses-be.site/api/program/psytalk/" . $id);
+        $response = Http::get("https://be.ruangberproses.id/api/program/psytalk/" . $id);
         $response = $response->object();
         return view('program.psytalk.view', [
             'title' => 'Detail Data Psytalk',
@@ -98,7 +98,7 @@ class PsytalkController extends Controller
      */
     public function edit($id)
     {
-        $response = Http::get("https://ruangberproses-be.site/api/admin/program/psytalk-list/" . $id);
+        $response = Http::get("https://be.ruangberproses.id/api/admin/program/psytalk-list/" . $id);
         $response = $response->object();
 
         return view('program.psytalk.edit', [
@@ -116,7 +116,7 @@ class PsytalkController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $response  = Http::asForm()->post("https://ruangberproses-be.site/api/admin/program/psytalk-list/" . $id . '?_method=PUT', [
+        $response  = Http::asForm()->post("https://be.ruangberproses.id/api/admin/program/psytalk-list/" . $id . '?_method=PUT', [
             'topik' => $request->input('topik'),
             'pembicara' => $request->input('pembicara'),
             'tanggal' => $request->input('tanggal'),
@@ -140,7 +140,7 @@ class PsytalkController extends Controller
      */
     public function destroy($id)
     {
-        $response = Http::delete("https://ruangberproses-be.site/api/admin/program/psytalk-list/" . $id);
+        $response = Http::delete("https://be.ruangberproses.id/api/admin/program/psytalk-list/" . $id);
 
         if ($response->status() == 200) {
             return redirect('/admin')->with('success', 'Psytalk data has been deleted!');

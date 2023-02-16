@@ -14,7 +14,7 @@ class ArtikelController extends Controller
      */
     public function index(Request $request)
     {
-        $response = Http::get('https://ruangberproses-be.site/api/artikel-berproses', [
+        $response = Http::get('https://be.ruangberproses.id/api/artikel-berproses', [
             'search' => $request->query('search'),
             'page' => $request->query('page')
         ]);
@@ -29,7 +29,7 @@ class ArtikelController extends Controller
 
     public function getLatest()
     {
-        $response = Http::get('https://ruangberproses-be.site/api/artikel-berproses/getLatest');
+        $response = Http::get('https://be.ruangberproses.id/api/artikel-berproses/getLatest');
         $response = $response->object();
         return view('index', [
             'artikels' => $response->data,
@@ -74,7 +74,7 @@ class ArtikelController extends Controller
             $imagePath = NULL;
         }
 
-        $response = Http::asForm()->post("https://ruangberproses-be.site/api/admin/artikel-berproses/tambah", [
+        $response = Http::asForm()->post("https://be.ruangberproses.id/api/admin/artikel-berproses/tambah", [
             'user_id' => $request->input('user_id'),
             'judul' => $request->input('judul'),
             'isi' => $request->input('isi'),
@@ -95,10 +95,10 @@ class ArtikelController extends Controller
      */
     public function show($id)
     {
-        $response = Http::get("https://ruangberproses-be.site/api/artikel-berproses/" . $id);
+        $response = Http::get("https://be.ruangberproses.id/api/artikel-berproses/" . $id);
         $response = $response->object();
 
-        $latest_artikel = Http::get("https://ruangberproses-be.site/api/artikel-berproses/getLatest");
+        $latest_artikel = Http::get("https://be.ruangberproses.id/api/artikel-berproses/getLatest");
         $latest_artikel = $latest_artikel->object();
 
         return view('artikel.view', [
@@ -117,7 +117,7 @@ class ArtikelController extends Controller
      */
     public function edit($id)
     {
-        $response = Http::get("https://ruangberproses-be.site/api/artikel-berproses/" . $id);
+        $response = Http::get("https://be.ruangberproses.id/api/artikel-berproses/" . $id);
         $response = $response->object();
         return view('artikel.edit', [
             'title' => 'Edit Artikel',
@@ -145,7 +145,7 @@ class ArtikelController extends Controller
             $imagePath = NULL;
         }
 
-        $response = Http::asForm()->post("https://ruangberproses-be.site/api/admin/artikel-berproses/" . $id . '?_method=PUT', [
+        $response = Http::asForm()->post("https://be.ruangberproses.id/api/admin/artikel-berproses/" . $id . '?_method=PUT', [
             'user_id' => $request->input('user_id'),
             'judul' => $request->input('judul'),
             'isi' => $request->input('isi'),
@@ -166,7 +166,7 @@ class ArtikelController extends Controller
      */
     public function destroy($id)
     {
-        $response = Http::delete("https://ruangberproses-be.site/api/admin/artikel-berproses/" . $id);
+        $response = Http::delete("https://be.ruangberproses.id/api/admin/artikel-berproses/" . $id);
 
         if ($response->status() == 200) {
             return redirect('/admin')->with('success', 'Artikel data has been deleted!');

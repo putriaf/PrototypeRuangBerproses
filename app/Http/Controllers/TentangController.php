@@ -22,7 +22,7 @@ class TentangController extends Controller
 
     public function viewPsychologist()
     {
-        $response_counselor = Http::get("https://ruangberproses-be.site/api/admin/counselors");
+        $response_counselor = Http::get("https://be.ruangberproses.id/api/admin/counselors");
         $counselor = $response_counselor->object();
         return view('tentang.associate-psychologist', [
             'title' => 'Associate Psychologist Ruang Berproses',
